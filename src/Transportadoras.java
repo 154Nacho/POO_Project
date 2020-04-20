@@ -1,4 +1,4 @@
-public class Trasnportadoras {
+public class Transportadoras {
 
     private String codEmpresa;
     private String nomeEmpresa;
@@ -8,5 +8,4 @@ public class Trasnportadoras {
     private String nif;
     private double raio;
     private double precoPorKM;
-
 }
