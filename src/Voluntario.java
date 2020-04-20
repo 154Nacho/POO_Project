@@ -1,4 +1,4 @@
-public class Voluntarios {
+public class Voluntario {
 
     private String codVoluntario;
     private String nomeVoluntario;
