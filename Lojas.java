@@ -1,9 +1,9 @@
 public class Lojas {
 
-    String codLoja;
-    String nomeLoja;
+    private String codLoja;
+    private String nomeLoja;
     // GPS??
-    double latitude;
-    double longitude;
+    private double latitude;
+    private double longitude;
 
 }

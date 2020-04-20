@@ -1,10 +1,10 @@
 public class Voluntarios {
 
-    String codVoluntario;
-    String nomeVoluntario;
+    private String codVoluntario;
+    private String nomeVoluntario;
     // GPS?
-    double latitude;
-    double longitude;
-    double raio;
+    private double latitude;
+    private double longitude;
+    private double raio;
 
 }

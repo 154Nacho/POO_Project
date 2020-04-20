@@ -1,9 +1,9 @@
 public class Utilizadores {
 
-    String codUtilizador;
-    String nomeUtilizador;
+    private String codUtilizador;
+    private String nomeUtilizador;
     // GPS guardar par de coordenadas latitude,longitude;
-    double latitude;
-    double longitude;
+    private double latitude;
+    private double longitude;
 
 }

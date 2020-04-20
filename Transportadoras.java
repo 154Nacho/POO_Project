@@ -1,12 +1,12 @@
 public class Trasnportadoras {
 
-    String codEmpresa;
-    String nomeEmpresa;
+    private String codEmpresa;
+    private String nomeEmpresa;
     // GPS??
-    double latitude;
-    double longitude;
-    String nif;
-    double raio;
-    double precoPorKM;
+    private double latitude;
+    private double longitude;
+    private String nif;
+    private double raio;
+    private double precoPorKM;
 
 }
