@@ -78,6 +78,7 @@ public class LinhaEncomenda {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(this.codProduto).append(",").append(this.descricao).append(",").append(this.quantidade).append(",").append(this.valorUnitario);
+        return sb.toString();
     }
 
     // Clone
