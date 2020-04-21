@@ -1,92 +1,103 @@
 import java.util.Objects;
 
-public class Voluntario {
+public class Voluntario extends Utilizador {
 
-    private String codVoluntario;
-    private String nomeVoluntario;
-    // GPS?
-    GPS gps;
     private double raio;
 
+    /**
+     * Construtor padrão
+     */
     public Voluntario() {
-        this.codVoluntario = "";
-        this.nomeVoluntario = "";
-        this.gps = new GPS();
+        super();
         this.raio = 0;
     }
 
+    /**
+     * Construtor por cópia
+     * @param v Voluntário
+     */
     public Voluntario(Voluntario v) {
-        this.codVoluntario = v.getCodVoluntario();
-        this.nomeVoluntario = v.getNomeVoluntario();
-        this.gps = v.getGps();
+        super(v);
         this.raio = v.getRaio();
     }
 
-    public Voluntario(String codVoluntario, String nomeVoluntario, GPS gps, double raio) {
-        this.codVoluntario = codVoluntario;
-        this.nomeVoluntario = nomeVoluntario;
-        this.gps = gps;
+    /**
+     * Construtor por parâmetros
+     * @param codVoluntario Código de Voluntário
+     * @param nomeVoluntario Nome do Voluntário
+     * @param password Password do Voluntário
+     * @param gps Localização do Voluntário
+     * @param raio Raio de entrega do Voluntário
+     */
+    public Voluntario(String codVoluntario, String nomeVoluntario, String password, GPS gps, double raio) {
+        super(codVoluntario, nomeVoluntario, password, gps);
         this.raio = raio;
     }
 
-    public Voluntario(String codVoluntario, String nomeVoluntario, double latitude, double longitude, double raio) {
-        this.codVoluntario = codVoluntario;
-        this.nomeVoluntario = nomeVoluntario;
-        this.gps = new GPS(latitude,longitude);
+    /**
+     * Construtor por parâmetros
+     * @param codVoluntario Código de Voluntário
+     * @param nomeVoluntario Nome do Voluntário
+     * @param password Password do Voluntário
+     * @param latitude Latitude do Voluntário
+     * @param longitude Longitudo do Voluntário
+     * @param raio Raio de entrega do Voluntário
+     */
+    public Voluntario(String codVoluntario, String nomeVoluntario, String password, double latitude, double longitude, double raio) {
+        super(codVoluntario, nomeVoluntario, password, latitude, longitude);
         this.raio = raio;
     }
 
-    public String getCodVoluntario() {
-        return codVoluntario;
-    }
-
-    public void setCodVoluntario(String codVoluntario) {
-        this.codVoluntario = codVoluntario;
-    }
-
-    public String getNomeVoluntario() {
-        return nomeVoluntario;
-    }
-
-    public void setNomeVoluntario(String nomeVoluntario) {
-        this.nomeVoluntario = nomeVoluntario;
-    }
-
-    public GPS getGps(){
-        return this.gps;
-    }
-
-    public void setGps(GPS g){
-        this.gps = g;
-    }
-
+    /**
+     * Obtém o raio de entrega do Voluntário
+     * @return double
+     */
     public double getRaio() {
         return raio;
     }
 
+    /**
+     * Definir o raio do Voluntário
+     * @param raio de entrega do Voluntário
+     */
     public void setRaio(double raio) {
         this.raio = raio;
     }
 
-    public String toString(){
+    /**
+     * Converte um Voluntário numa String
+     * @return String
+     */
+    public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Voluntario:").append(this.codVoluntario).append(",").append(this.nomeVoluntario).
+        sb.append("Voluntario:").append(this.getCodigo()).append(",").append(this.getNome()).
                 append(",").append(this.gps.getLatitude()).append(",").append(this.gps.getLongitude()).
                 append(",").append(this.raio);
         return sb.toString();
     }
 
-    public Voluntario clone(){
+    /**
+     * Cria uma cópia do Voluntário
+     * @return Voluntário
+     */
+    public Voluntario clone() {
         return new Voluntario(this);
     }
 
+    /**
+     * Verificar se um dado Objeto é igual a este Voluntário
+     *
+     * @param o Objeto
+     * @return boolean
+     */
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Voluntario that = (Voluntario) o;
-        return Double.compare(that.getRaio(), getRaio()) == 0 &&
-                Objects.equals(getCodVoluntario(), that.getCodVoluntario()) &&
-                Objects.equals(getNomeVoluntario(), that.getNomeVoluntario()) &&
-                Objects.equals(getGps(), that.getGps());
+        Voluntario v = (Voluntario) o;
+        return Double.compare(v.getRaio(), getRaio()) == 0 &&
+                Objects.equals(getCodigo(), v.getCodigo()) &&
+                Objects.equals(getNome(), v.getNome()) &&
+                Objects.equals(getGps(), v.getGps()) &&
+                Objects.equals(getPassword(), v.getPassword());
     }
 }
