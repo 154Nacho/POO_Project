@@ -7,28 +7,30 @@ public class Utilizador {
     private String codUtilizador;
     private String nomeUtilizador;
     // GPS guardar par de coordenadas latitude,longitude;
-    private double latitude;
-    private double longitude;
+    GPS gps;
 
     public Utilizador() {
         this.codUtilizador = "";
         this.nomeUtilizador = "";
-        this.latitude = 0;
-        this.longitude = 0;
+        this.gps = new GPS();
     }
 
     public Utilizador(Utilizador u) {
         this.codUtilizador = u.getCodUtilizador();
         this.nomeUtilizador = u.getNomeUtilizador();
-        this.latitude = u.getLatitude();
-        this.longitude = u.getLongitude();
+        this.gps = u.getGps();
+    }
+
+    public Utilizador(String codUtilizador, String nomeUtilizador, GPS gps) {
+        this.codUtilizador = codUtilizador;
+        this.nomeUtilizador = nomeUtilizador;
+        this.gps = gps;
     }
 
     public Utilizador(String codUtilizador, String nomeUtilizador, double latitude, double longitude) {
         this.codUtilizador = codUtilizador;
         this.nomeUtilizador = nomeUtilizador;
-        this.latitude = latitude;
-        this.longitude = longitude;
+        this.gps = new GPS(latitude,longitude);
     }
 
     public String getCodUtilizador() {
@@ -47,26 +49,18 @@ public class Utilizador {
         this.nomeUtilizador = nomeUtilizador;
     }
 
-    public double getLatitude() {
-        return latitude;
+    public GPS getGps(){
+        return this.gps;
     }
 
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    public double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
+    public void setGps(GPS g){
+        this.gps = g;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Utilizador:").append(this.codUtilizador).append(",").
-                append(this.nomeUtilizador).append(",").append(this.latitude).append(",").append(this.longitude);
+                append(this.nomeUtilizador).append(",").append(this.gps.getLatitude()).append(",").append(this.gps.getLongitude());
         return sb.toString();
     }
 
@@ -78,7 +72,9 @@ public class Utilizador {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Utilizador that = (Utilizador) o;
-        return Objects.equals(getCodUtilizador(), that.getCodUtilizador());
+        return Objects.equals(getCodUtilizador(), that.getCodUtilizador()) &&
+                Objects.equals(getNomeUtilizador(), that.getNomeUtilizador()) &&
+                Objects.equals(getGps(), that.getGps());
     }
 
 }
