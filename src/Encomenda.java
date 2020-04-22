@@ -1,5 +1,9 @@
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Encomenda {
 
@@ -39,7 +43,7 @@ public class Encomenda {
 
     // Sets e Gets
     public String getCodEncomenda() {
-        return codEncomenda;
+        return this.codEncomenda;
     }
 
     public void setCodEncomenda(String codEncomenda) {
@@ -47,7 +51,7 @@ public class Encomenda {
     }
 
     public String getCodUtilizador() {
-        return codUtilizador;
+        return this.codUtilizador;
     }
 
     public void setCodUtilizador(String codUtilizador) {
@@ -55,7 +59,7 @@ public class Encomenda {
     }
 
     public String getCodLoja() {
-        return codLoja;
+        return this.codLoja;
     }
 
     public void setCodLoja(String codLoja) {
@@ -63,19 +67,39 @@ public class Encomenda {
     }
 
     public double getPeso() {
-        return peso;
+        return this.peso;
     }
 
     public void setPeso(double peso) {
         this.peso = peso;
     }
 
-    public Map<String, LinhaEncomenda> getEncomendas() {
-        return encomendas;
+    public Map<String,LinhaEncomenda> getEncomendas() {
+        return (this.encomendas.entrySet().stream().collect(Collectors.toMap(e->e.getKey(),e->e.getValue().clone())));
     }
 
-    public void setEncomendas(Map<String, LinhaEncomenda> encomendas) {
-        this.encomendas = encomendas;
+    public void setEncomendas(Map<String,LinhaEncomenda> encomendas) {
+        this.encomendas = new HashMap<>();
+        encomendas.entrySet().forEach(e -> this.encomendas.put(e.getKey(),e.getValue().clone()));
+    }
+
+    // toString
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.codEncomenda).append(",").append(this.codUtilizador).append(",").append(this.codLoja).append(",").append(this.peso).append(",").append(this.encomendas);
+        return sb.toString();
+    }
+
+    // Equals
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if (o == null || this.getClass() != o.getClass()) return false;
+        Encomenda e = (Encomenda) o;
+        return (e.getCodEncomenda().equals(this.codEncomenda) &&
+                e.getCodUtilizador().equals(this.codUtilizador) &&
+                e.getCodLoja().equals(this.codLoja) &&
+                e.getPeso() == (this.peso) &&
+                e.getEncomendas().equals(this.encomendas));
     }
 
     // Clone
