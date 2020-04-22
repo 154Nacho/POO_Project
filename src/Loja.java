@@ -67,6 +67,8 @@ public class Loja {
     }
     public void setEncomendas(List<Encomenda> e){
         this.encomendas = new ArrayList<>();
-        e.forEach(this.encomendas.add(e.clone()));
+        for(Encomenda ec : e){
+            this.encomendas.add(ec.clone());
+        }
     }
 }
