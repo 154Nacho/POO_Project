@@ -19,6 +19,9 @@ public class Transportadora {
     private int encomendas_maximas;
     private List<Encomenda> register;
 
+    /**
+     * @brief Construtor por omissão
+     */
     public Transportadora(){
         this.codEmpresa = new String();
         this.nomeEmpresa = new String();
@@ -34,6 +37,9 @@ public class Transportadora {
         this.register = new ArrayList<>();
     }
 
+    /**
+     * @brief Construtor com passagem de argumentos
+     */
     public Transportadora(String cE, String nE, GPS l, String n, double r, double ppk, double tt, double ct, boolean d, int em, List<Encomenda> reg){
         this.codEmpresa = cE;
         this.nomeEmpresa = nE;
@@ -49,6 +55,9 @@ public class Transportadora {
         setRegisto(reg);
     }
 
+    /**
+     * @brief Construtor por clonagem
+     */
     public Transportadora(Transportadora t) {
         this.codEmpresa = t.getCodEmpresa();
         this.nomeEmpresa = t.getNomeEmpresa();
@@ -66,78 +75,149 @@ public class Transportadora {
 
     //Getters
 
+    /**
+     * @brief Getter do código da Empresa
+     */
     public String getCodEmpresa() {
         return codEmpresa;
     }
+    /**
+     * @brief Getter do nome da Empresa
+     */
     public String getNomeEmpresa() {
         return nomeEmpresa;
     }
+    /**
+     * @brief Getter do NIF da Empresa
+     */
     public String getNIF() {
         return nif;
     }
+    /**
+     * @brief Getter do localização da Empresa
+     */
     public GPS getGPS() {
         return location;
     }
+    /**
+     * @brief Getter do raio de admissão de encomendas da Empresa
+     */
     public double getRaio() {
         return raio;
     }
+    /**
+     * @brief Getter do preço por quilómetro de transporte da Empresa
+     */
     public double getPPK() {
         return precoPorKM;
     }
+    /**
+     * @brief Getter do custo de transporte da Empresa
+     */
     public double getCT() {
         return custo_transporte;
     }
+    /**
+     * @brief Getter do número máximo de encomendas que a Empresa suporta
+     */
     public int getNMaximo() {
         return encomendas_maximas;
     }
+    /**
+     * @brief Getter da disponibilidade da Empresa para novas encomendas
+     */
     public boolean getDisponibilidade() {
         return disponivel;
     }
+    /**
+     * @brief Getter do tempo de entrega da encomenda
+     */
     public LocalDateTime getTempoEntrega() {
         return tempo_entrega;
     }
+    /**
+     * @brief Getter da taxa de transporte da Empresa
+     */
     public double getTT() {
         return taxa_transporte;
     }
+    /**
+     * @brief Getter das encomendas já realizadas pela Empresa
+     */
     public List<Encomenda> getRegisto(){
         return this.register.stream().map(Encomenda::clone).collect(Collectors.toList());
     }
 
     //Setters
-
+    /**
+     * @brief Setter do código da Empresa
+     */
     public void setCodEmpresa(String cod){
         this.codEmpresa = cod;
     }
+    /**
+     * @brief Setter do nome da Empresa
+     */
     public void setNomeEmpresa(String nomeEmpresa) {
         this.nomeEmpresa = nomeEmpresa;
     }
+    /**
+     * @brief Setter do localização da Empresa
+     */
     public void setLocation(GPS location) {
         this.location = location;
     }
+    /**
+     * @brief Setter do raio de admissão de encomendas da Empresa
+     */
     public void setRaio(double raio) {
         this.raio = raio;
     }
+    /**
+     * @brief Setter do preço por quilómetro de transporte da Empresa
+     */
     public void setPPK(double precoPorKM) {
         this.precoPorKM = precoPorKM;
     }
+    /**
+     * @brief Setter da taxa de transporte da Empresa
+     */
     public void setTT(double taxa_transporte) {
         this.taxa_transporte = taxa_transporte;
     }
+    /**
+     * @brief Setter do custo de transporte da Empresa
+     */
     public void setCT(double custo_transporte) {
         this.custo_transporte = custo_transporte;
     }
+    /**
+     * @brief Setter da disponibilidade da Empresa para novas encomendas
+     */
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
     }
+    /**
+     * @brief Setter do tempo de entrega da encomenda
+     */
     public void setTempoEntrega(LocalDateTime tempo_entrega) {
         this.tempo_entrega = tempo_entrega;
     }
+    /**
+     * @brief Setter do número máximo de encomendas que a Empresa suporta
+     */
     public void setNMaximo(int encomendas_maximas) {
         this.encomendas_maximas = encomendas_maximas;
     }
+    /**
+     * @brief Setter do NIF da Empresa
+     */
     public void setNif(String nif) {
         this.nif = nif;
     }
+    /**
+     * @brief Setter das encomendas já realizadas pela Empresa
+     */
     public void setRegisto(List<Encomenda> l){
         this.register = new ArrayList<>();
         l.forEach( e -> this.register.add(e.clone()));
@@ -145,10 +225,16 @@ public class Transportadora {
 
     //Equals, toString , clone
 
+    /**
+     * @brief Cloner da Transportadora
+     */
     public Transportadora clone(){
         return new Transportadora(this);
     }
 
+    /**
+     * @brief Conversor para String das informações da Transportadora
+     */
     public boolean equals(Object obj){
         if(obj == this) return true;
         if(obj == null || obj.getClass() != this.getClass()) return false;
@@ -167,6 +253,9 @@ public class Transportadora {
                 && this.register.equals(t.getRegisto()));
     }
 
+    /**
+     * @brief Comparador de igualdade
+     */
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("\nEmpresa: ").append(this.nomeEmpresa).append("\nCódigo: ").append(this.codEmpresa).append("\nNIF: ").append(this.nif);
