@@ -4,6 +4,7 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class TrazAqui {
+    int logged;
     private Map<String, Utilizador> utilizadores; //Map de utilizadores, voluntários, lojas e transportadoras
 
     /**
@@ -11,6 +12,7 @@ public class TrazAqui {
      */
     public TrazAqui() {
         this.utilizadores = new TreeMap<>();
+        this.logged = 0;
     }
 
     /**
@@ -22,12 +24,37 @@ public class TrazAqui {
         utilizadores.put(u.getCodigo(), u);
     }
 
-    public void checkLoggin(String username, String password){
+    /**
+     * Verifica se existe user válido
+     *
+     * @param username Username inserido pelo Utilizador
+     * @param password Password inserida pelo Utilizador
+     * @return boolean
+     */
+    public boolean checkLoggin(String username, String password) {
         Utilizador u = this.utilizadores.get(username);
-        if (u == null) System.out.println("não existe");
-        else if(u.getPassword().equals(password)) System.out.println("existe");
-        else System.out.println("password errada");
+        if (u == null) return false;
+        else return u.getPassword().equals(password);
     }
+
+    /**
+     * Obtém o logged number
+     *
+     * @return int
+     */
+    public int getLogged() {
+        return logged;
+    }
+
+    /**
+     * Define o logged number
+     *
+     * @param logged Logged number
+     */
+    public void setLogged(int logged) {
+        this.logged = logged;
+    }
+
     /**
      * Obtém a lista de Utilizadores
      *

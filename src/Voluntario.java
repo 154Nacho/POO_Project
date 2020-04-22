@@ -39,6 +39,20 @@ public class Voluntario extends Utilizador {
         this.raio = raio;
         this.acceptmedical = state;
     }
+    /**
+     * Construtor por parâmetros
+     *
+     * @param codVoluntario  Código de Voluntário
+     * @param nomeVoluntario Nome do Voluntário
+     * @param password       Password do Voluntário
+     * @param gps            Localização do Voluntário
+     * @param raio           Raio de entrega do Voluntário
+     */
+    public Voluntario(String codVoluntario, String nomeVoluntario, String password,GPS gps, double raio) {
+        super(codVoluntario, nomeVoluntario, password, gps);
+        this.raio = raio;
+        this.acceptmedical = false;
+    }
 
 
     public boolean aceitoTransporteMedicamentos() {
