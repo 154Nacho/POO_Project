@@ -25,7 +25,7 @@ public class Utilizador {
     public Utilizador(Utilizador u) {
         this.codigo = u.getCodigo();
         this.nome = u.getNome();
-        this.password = u.getCodigo();
+        this.password = u.getPassword();
         this.gps = u.getGps();
     }
 
@@ -42,22 +42,6 @@ public class Utilizador {
         this.nome = nome;
         this.password = password;
         this.gps = gps;
-    }
-
-    /**
-     * Construtor por parâmetros
-     *
-     * @param codigo    Código de Utilizador
-     * @param nome      Nome do Utilizador
-     * @param password  Password do Utilizador
-     * @param latitude  Latitude do Utilizador
-     * @param longitude Longitudo do Utilizador
-     */
-    public Utilizador(String codigo, String nome, String password, double latitude, double longitude) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.password = password;
-        this.gps = new GPS(latitude, longitude);
     }
 
     /**
