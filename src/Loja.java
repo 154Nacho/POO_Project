@@ -10,6 +10,29 @@ public class Loja {
     private List<Encomenda> encomendas;
     private int qtd_pessoas_fila;
 
+    public Loja(){
+        this.codLoja = new String();
+        this.nomeLoja = new String();
+        this.location = new GPS();
+        this.qtd_pessoas_fila = 0;
+        this.encomendas = new ArrayList<>();
+    }
+
+    public Loja(String cL, String nL, GPS l, int qt, List<Encomenda> ec){
+        this.codLoja = cL;
+        this.nomeLoja = nL;
+        this.location = l;
+        this.qtd_pessoas_fila = qt;
+        setEncomendas(ec);
+    }
+
+    public Loja(Loja l){
+        this.codLoja = l.getCodLoja();
+        this.nomeLoja = l.getNomeLoja();
+        this.location = l.getLocation();
+        this.qtd_pessoas_fila = l.getQtd_pessoas_fila();
+        setEncomendas(l.getEncomendas());
+    }
     //Getters
 
     public String getCodLoja() {
