@@ -4,7 +4,7 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class TrazAqui {
-    private Map<String, Utilizador> utilizadores;
+    private Map<String, Utilizador> utilizadores; //Map de utilizadores, voluntários, lojas e transportadoras
 
     /**
      * Construtor padrão

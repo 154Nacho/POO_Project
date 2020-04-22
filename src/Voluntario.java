@@ -14,6 +14,7 @@ public class Voluntario extends Utilizador {
 
     /**
      * Construtor por cópia
+     *
      * @param v Voluntário
      */
     public Voluntario(Voluntario v) {
@@ -23,11 +24,12 @@ public class Voluntario extends Utilizador {
 
     /**
      * Construtor por parâmetros
-     * @param codVoluntario Código de Voluntário
+     *
+     * @param codVoluntario  Código de Voluntário
      * @param nomeVoluntario Nome do Voluntário
-     * @param password Password do Voluntário
-     * @param gps Localização do Voluntário
-     * @param raio Raio de entrega do Voluntário
+     * @param password       Password do Voluntário
+     * @param gps            Localização do Voluntário
+     * @param raio           Raio de entrega do Voluntário
      */
     public Voluntario(String codVoluntario, String nomeVoluntario, String password, GPS gps, double raio) {
         super(codVoluntario, nomeVoluntario, password, gps);
@@ -36,12 +38,13 @@ public class Voluntario extends Utilizador {
 
     /**
      * Construtor por parâmetros
-     * @param codVoluntario Código de Voluntário
+     *
+     * @param codVoluntario  Código de Voluntário
      * @param nomeVoluntario Nome do Voluntário
-     * @param password Password do Voluntário
-     * @param latitude Latitude do Voluntário
-     * @param longitude Longitudo do Voluntário
-     * @param raio Raio de entrega do Voluntário
+     * @param password       Password do Voluntário
+     * @param latitude       Latitude do Voluntário
+     * @param longitude      Longitudo do Voluntário
+     * @param raio           Raio de entrega do Voluntário
      */
     public Voluntario(String codVoluntario, String nomeVoluntario, String password, double latitude, double longitude, double raio) {
         super(codVoluntario, nomeVoluntario, password, latitude, longitude);
@@ -50,6 +53,7 @@ public class Voluntario extends Utilizador {
 
     /**
      * Obtém o raio de entrega do Voluntário
+     *
      * @return double
      */
     public double getRaio() {
@@ -58,6 +62,7 @@ public class Voluntario extends Utilizador {
 
     /**
      * Definir o raio do Voluntário
+     *
      * @param raio de entrega do Voluntário
      */
     public void setRaio(double raio) {
@@ -66,18 +71,20 @@ public class Voluntario extends Utilizador {
 
     /**
      * Converte um Voluntário numa String
+     *
      * @return String
      */
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Voluntario:").append(this.getCodigo()).append(",").append(this.getNome()).
-                append(",").append(this.gps.getLatitude()).append(",").append(this.gps.getLongitude()).
-                append(",").append(this.raio);
+                append(",").append(this.getGps().getLatitude()).append(",").append(this.getGps().getLongitude()).
+                append(",").append(this.getRaio());
         return sb.toString();
     }
 
     /**
      * Cria uma cópia do Voluntário
+     *
      * @return Voluntário
      */
     public Voluntario clone() {

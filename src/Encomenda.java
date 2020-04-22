@@ -20,7 +20,7 @@ public class Encomenda {
     }
 
     // Construtor parametrizado
-    public Encomenda(String codEncomenda, String codUtilizador, String codLoja, String peso, Map<String,LinhaEncomenda> encomendas) {
+    public Encomenda(String codEncomenda, String codUtilizador, String codLoja, Double peso, Map<String,LinhaEncomenda> encomendas) {
         this.codEncomenda = codEncomenda;
         this.codUtilizador = codUtilizador;
         this.codLoja = codLoja;
@@ -38,5 +38,50 @@ public class Encomenda {
     }
 
     // Sets e Gets
+
+
+    public String getCodEncomenda() {
+        return codEncomenda;
+    }
+
+    public void setCodEncomenda(String codEncomenda) {
+        this.codEncomenda = codEncomenda;
+    }
+
+    public String getCodUtilizador() {
+        return codUtilizador;
+    }
+
+    public void setCodUtilizador(String codUtilizador) {
+        this.codUtilizador = codUtilizador;
+    }
+
+    public String getCodLoja() {
+        return codLoja;
+    }
+
+    public void setCodLoja(String codLoja) {
+        this.codLoja = codLoja;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public Map<String, LinhaEncomenda> getEncomendas() {
+        return encomendas;
+    }
+
+    public void setEncomendas(Map<String, LinhaEncomenda> encomendas) {
+        this.encomendas = encomendas;
+    }
+
+    public Encomenda clone(){
+        return new Encomenda(this);
+    }
 
 }
