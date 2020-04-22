@@ -38,8 +38,6 @@ public class Encomenda {
     }
 
     // Sets e Gets
-
-
     public String getCodEncomenda() {
         return codEncomenda;
     }
@@ -80,8 +78,11 @@ public class Encomenda {
         this.encomendas = encomendas;
     }
 
+    // Clone
     public Encomenda clone(){
         return new Encomenda(this);
     }
+
+
 
 }
