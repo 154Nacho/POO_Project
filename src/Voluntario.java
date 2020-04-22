@@ -3,6 +3,7 @@ import java.util.Objects;
 public class Voluntario extends Utilizador {
 
     private double raio;
+    private boolean acceptmedical;
 
     /**
      * Construtor padrão
@@ -10,6 +11,7 @@ public class Voluntario extends Utilizador {
     public Voluntario() {
         super();
         this.raio = 0;
+        this.acceptmedical = false;
     }
 
     /**
@@ -20,6 +22,7 @@ public class Voluntario extends Utilizador {
     public Voluntario(Voluntario v) {
         super(v);
         this.raio = v.getRaio();
+        this.acceptmedical = v.aceitoTransporteMedicamentos();
     }
 
     /**
@@ -31,24 +34,19 @@ public class Voluntario extends Utilizador {
      * @param gps            Localização do Voluntário
      * @param raio           Raio de entrega do Voluntário
      */
-    public Voluntario(String codVoluntario, String nomeVoluntario, String password, GPS gps, double raio) {
+    public Voluntario(String codVoluntario, String nomeVoluntario, String password, boolean state,GPS gps, double raio) {
         super(codVoluntario, nomeVoluntario, password, gps);
         this.raio = raio;
+        this.acceptmedical = state;
     }
 
-    /**
-     * Construtor por parâmetros
-     *
-     * @param codVoluntario  Código de Voluntário
-     * @param nomeVoluntario Nome do Voluntário
-     * @param password       Password do Voluntário
-     * @param latitude       Latitude do Voluntário
-     * @param longitude      Longitudo do Voluntário
-     * @param raio           Raio de entrega do Voluntário
-     */
-    public Voluntario(String codVoluntario, String nomeVoluntario, String password, double latitude, double longitude, double raio) {
-        super(codVoluntario, nomeVoluntario, password, latitude, longitude);
-        this.raio = raio;
+
+    public boolean aceitoTransporteMedicamentos() {
+        return acceptmedical;
+    }
+
+    public void aceitaMedicamentos(boolean state) {
+        this.acceptmedical = state;
     }
 
     /**
