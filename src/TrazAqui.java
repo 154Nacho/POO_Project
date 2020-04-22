@@ -22,6 +22,12 @@ public class TrazAqui {
         utilizadores.put(u.getCodigo(), u);
     }
 
+    public void checkLoggin(String username, String password){
+        Utilizador u = this.utilizadores.get(username);
+        if (u == null) System.out.println("não existe");
+        else if(u.getPassword().equals(password)) System.out.println("existe");
+        else System.out.println("password errada");
+    }
     /**
      * Obtém a lista de Utilizadores
      *

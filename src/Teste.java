@@ -1,4 +1,7 @@
+import jdk.jshell.execution.Util;
+
 import java.io.*;
+import java.util.Scanner;
 
 public class Teste {
     public static void main(String[] args) {
@@ -7,6 +10,14 @@ public class Teste {
         System.out.println(a.distanceTo(b));
         TrazAqui trazAqui = new TrazAqui();
         //sout
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1 - Registar um user");
+        System.out.println("2 - Login");
+
+        String username;
+        String password;
+        String nome = "";
+        String input = sc.nextLine();
 
         try {
             BufferedReader ubr = new BufferedReader(new FileReader("src/Resources/Utilizadores.txt"));
@@ -37,7 +48,32 @@ public class Teste {
             e.printStackTrace();
         }
 
-        trazAqui.imprimeVoluntarios();
-        //trazAqui.imprimeUtilizadores();
+
+        if(input.equals("1")){
+            System.out.print("Nome: ");
+            nome = sc.nextLine();
+            System.out.print("Username: ");
+            username = sc.nextLine();
+            System.out.print("Password: ");
+            password = sc.nextLine();
+            trazAqui.addUtilizador(new Utilizador(username,nome,password,new GPS()));
+        }
+        else if(input.equals("2")){
+            System.out.print("Username: ");
+            username = sc.nextLine();
+            System.out.print("Password: ");
+            password = sc.nextLine();
+            trazAqui.checkLoggin(username,password);
+        }
+
+
+
+
+
+
+
+
+        //trazAqui.imprimeVoluntarios();
+        trazAqui.imprimeUtilizadores();
     }
 }
