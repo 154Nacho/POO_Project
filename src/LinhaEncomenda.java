@@ -3,7 +3,7 @@ public class LinhaEncomenda {
     // Variáveis de instância
     private String codProduto;
     private String descricao;
-    private int quantidade;
+    private double quantidade;
     private double valorUnitario;
 
     // Construtor por omissão
@@ -15,7 +15,7 @@ public class LinhaEncomenda {
     }
 
     // Construtor parametrizado
-    public LinhaEncomenda(String codProduto, String descricao, int quantidade, double valorUnitario) {
+    public LinhaEncomenda(String codProduto, String descricao, double quantidade, double valorUnitario) {
         this.codProduto = codProduto;
         this.descricao = descricao;
         this.quantidade = quantidade;
@@ -47,11 +47,11 @@ public class LinhaEncomenda {
         this.descricao = descricao;
     }
 
-    public int getQuantidade() {
+    public double getQuantidade() {
         return this.quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(double quantidade) {
         this.quantidade = quantidade;
     }
 

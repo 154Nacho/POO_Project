@@ -1,5 +1,6 @@
 import jdk.jshell.execution.Util;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -8,6 +9,7 @@ import java.util.stream.Collectors;
 public class TrazAqui {
     boolean logged;
     private Map<String, Utilizador> utilizadores; //Map de utilizadores, voluntários, lojas e transportadoras
+    private List<Encomenda> encomendas;
     private Utilizador user;
 
     /**
@@ -15,6 +17,7 @@ public class TrazAqui {
      */
     public TrazAqui() {
         this.utilizadores = new TreeMap<>();
+        this.encomendas = new ArrayList<>();
         this.logged = false;
         this.user = null;
     }
@@ -44,6 +47,9 @@ public class TrazAqui {
         } else return false;
     }
 
+    public void addEncomenda(Encomenda e){
+        this.encomendas.add(e);
+    }
     /**
      * Obtém o logged number
      *

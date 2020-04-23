@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Parser {
     //Ler
@@ -32,7 +34,12 @@ public class Parser {
                 case "Transportadora":
                     Transportadora t = parseTransportadora(linhaPartida[1]);
 //                    System.out.println(t.toString());
+                    break;
                     //...
+                case "Encomenda":
+                    Encomenda e = parseEncomenda(linhaPartida[1]);
+                    trazAqui.addEncomenda(e);
+                    break;
                 default:
 //                    System.out.println("Linha invÃ¡lida.");
                     break;
@@ -92,6 +99,26 @@ public class Parser {
         t.setRaio(raio);
         t.setPPK(ppk);
         return t;
+    }
+
+    public Encomenda parseEncomenda(String input){
+        String[] campos = input.split(",");
+        String codEncomenda = campos[0];
+        String codUtilizador = campos[1];
+        String codLoja = campos[2];
+        double peso = Double.parseDouble(campos[3]);
+        Map<String,LinhaEncomenda> encomendas = new TreeMap<>();
+
+        int i;
+        for(i=4;i<campos.length;){
+            String codProd = campos[i++];
+            String descricao = campos[i++];
+            double quantidade = Double.parseDouble(campos[i++]);
+            double valorUnitario = Double.parseDouble(campos[i++]);
+            LinhaEncomenda l = new LinhaEncomenda(codProd,descricao,quantidade,valorUnitario);
+            encomendas.put(codProd,l);
+        }
+        return new Encomenda(codEncomenda,codUtilizador,codLoja,peso,encomendas);
     }
 
     public List<String> lerFicheiro(String nomeFich) {
