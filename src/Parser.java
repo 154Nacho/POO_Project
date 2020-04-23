@@ -1,3 +1,5 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -6,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Parser {
+    //Ler
     public void parse(TrazAqui trazAqui) {
         List<String> linhas = lerFicheiro("src/Resources/logs.txt");
         String[] linhaPartida;
@@ -29,7 +32,7 @@ public class Parser {
                 case "Transportadora":
                     Transportadora t = parseTransportadora(linhaPartida[1]);
 //                    System.out.println(t.toString());
-                //...
+                    //...
                 default:
 //                    System.out.println("Linha invÃ¡lida.");
                     break;
@@ -59,7 +62,7 @@ public class Parser {
         return new Voluntario(codVoluntario, nome, "", new GPS(gpsx, gpsy), raio);
     }
 
-    public Loja parseLoja(String input){
+    public Loja parseLoja(String input) {
         String[] campos = input.split(",");
         String codLoja = campos[0];
         String nomeLoja = campos[1];
@@ -68,11 +71,11 @@ public class Parser {
         Loja l = new Loja();
         l.setCodLoja(codLoja);
         l.setNomeLoja(nomeLoja);
-        l.setLocation(new GPS(gpsx,gpsy));
+        l.setLocation(new GPS(gpsx, gpsy));
         return l;
     }
 
-    public Transportadora parseTransportadora(String input){
+    public Transportadora parseTransportadora(String input) {
         String[] campos = input.split(",");
         String codEmpresa = campos[0];
         String nomeEmpresa = campos[1];
@@ -84,7 +87,7 @@ public class Parser {
         Transportadora t = new Transportadora();
         t.setCodEmpresa(codEmpresa);
         t.setNomeEmpresa(nomeEmpresa);
-        t.setLocation(new GPS(gpsx,gpsy));
+        t.setLocation(new GPS(gpsx, gpsy));
         t.setNif(nif);
         t.setRaio(raio);
         t.setPPK(ppk);
@@ -100,4 +103,20 @@ public class Parser {
         }
         return lines;
     }
+
+    //Escrever
+    public void wparser(TrazAqui trazAqui) {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("src/Resources/newlogs.txt"));
+            List<Utilizador> u = trazAqui.getUtilizadores();
+            for (Utilizador utilizador : u)
+                bw.write(utilizador.toString()+'\n');
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 }

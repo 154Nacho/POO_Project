@@ -1,18 +1,22 @@
+import jdk.jshell.execution.Util;
+
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class TrazAqui {
-    int logged;
+    boolean logged;
     private Map<String, Utilizador> utilizadores; //Map de utilizadores, voluntários, lojas e transportadoras
+    private Utilizador user;
 
     /**
      * Construtor padrão
      */
     public TrazAqui() {
         this.utilizadores = new TreeMap<>();
-        this.logged = 0;
+        this.logged = false;
+        this.user = null;
     }
 
     /**
@@ -34,7 +38,10 @@ public class TrazAqui {
     public boolean checkLoggin(String username, String password) {
         Utilizador u = this.utilizadores.get(username);
         if (u == null) return false;
-        else return u.getPassword().equals(password);
+        else if (u.getPassword().equals(password)) {
+            this.user = this.utilizadores.get(username).clone();
+            return true;
+        } else return false;
     }
 
     /**
@@ -42,7 +49,7 @@ public class TrazAqui {
      *
      * @return int
      */
-    public int getLogged() {
+    public boolean getLogged() {
         return logged;
     }
 
@@ -51,8 +58,14 @@ public class TrazAqui {
      *
      * @param logged Logged number
      */
-    public void setLogged(int logged) {
+    public void setLogged(boolean logged) {
         this.logged = logged;
+    }
+
+    public List<Utilizador> getUtilizadores() {
+        return this.utilizadores.values().stream()
+                .map(Utilizador::clone)
+                .collect(Collectors.toList());
     }
 
     /**
