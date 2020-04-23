@@ -107,6 +107,11 @@ public class Encomenda {
         return new Encomenda(this);
     }
 
+    // Adicionar uma linha de encomenda
+    public void addLinhaEnc(LinhaEncomenda l) {
+        this.encomendas.put(l.getCodProduto(),l.clone());
+    }
+
 
 
 }
