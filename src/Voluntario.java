@@ -94,6 +94,13 @@ public class Voluntario extends Utilizador {
         return sb.toString();
     }
 
+    public String toStringShow(){
+        return "Voluntário:\n{"+" Código: "+this.getCodigo()+
+                "\n  Nome: "+this.getNome()+
+                "\n  Localização: "+this.getGps().toString()+
+                "\n  Raio: "+this.getRaio()+
+                "\n  Accept medical: "+this.aceitoTransporteMedicamentos() + "\n}";
+    }
     /**
      * Cria uma cópia do Voluntário
      *

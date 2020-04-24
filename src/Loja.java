@@ -1,12 +1,11 @@
+import jdk.jshell.execution.Util;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Loja {
+public class Loja extends Utilizador {
 
-    private String codLoja;
-    private String nomeLoja;
-    private GPS location;
     private List<Encomenda> encomendas;
     private int qtd_pessoas_fila;
 
@@ -14,19 +13,15 @@ public class Loja {
      * @brief Construtor por omissão
      */
     public Loja(){
-        this.codLoja = new String();
-        this.nomeLoja = new String();
-        this.location = new GPS();
+        super();
         this.qtd_pessoas_fila = 0;
         this.encomendas = new ArrayList<>();
     }
     /**
      * @brief Construtor com passagem de argumentos
      */
-    public Loja(String cL, String nL, GPS l, int qt, List<Encomenda> ec){
-        this.codLoja = cL;
-        this.nomeLoja = nL;
-        this.location = l;
+    public Loja(String cL, String nL,String password, GPS l, int qt, List<Encomenda> ec){
+        super(cL,nL,password,l);
         this.qtd_pessoas_fila = qt;
         setEncomendas(ec);
     }
@@ -35,32 +30,12 @@ public class Loja {
      * @brief Construtor por clonagem
      */
     public Loja(Loja l){
-        this.codLoja = l.getCodLoja();
-        this.nomeLoja = l.getNomeLoja();
-        this.location = l.getLocation();
+        super(l);
         this.qtd_pessoas_fila = l.getQtd_pessoas_fila();
         setEncomendas(l.getEncomendas());
     }
     //Getters
 
-    /**
-     * @brief Getter do código da Loja
-     */
-    public String getCodLoja() {
-        return codLoja;
-    }
-    /**
-     * @brief Getter do nome da Loja
-     */
-    public String getNomeLoja() {
-        return nomeLoja;
-    }
-    /**
-     * @brief Getter da localização Loja
-     */
-    public GPS getLocation() {
-        return location;
-    }
     /**
      * @brief Getter da quantidade de pessoas na fila da Loja
      */
@@ -76,24 +51,7 @@ public class Loja {
 
 
     //Setters
-    /**
-     * @brief Setter do código da Loja
-     */
-    public void setCodLoja(String codLoja) {
-        this.codLoja = codLoja;
-    }
-    /**
-     * @brief Setter do nome da Loja
-     */
-    public void setNomeLoja(String nome) {
-        this.nomeLoja = nome;
-    }
-    /**
-     * @brief Setter da localização Loja
-     */
-    public void setLocation(GPS location) {
-        this.location = location;
-    }
+
     /**
      * @brief setter da quantidade de pessoas na fila da Loja
      */
@@ -122,15 +80,18 @@ public class Loja {
     /**
      * @brief Conversor para String das informações da Loja
      */
-    public String toString(){
+    public String toStringShow(){
         StringBuilder sb = new StringBuilder();
-        sb.append("\nNome da Loja: ").append(this.nomeLoja);
-        sb.append("\nCódigo da Loja: ").append(this.codLoja);
-        sb.append("\nLocalização da Loja: ").append(this.location);
+        sb.append("\nNome da Loja: ").append(this.getNome());
+        sb.append("\nCódigo da Loja: ").append(this.getCodigo());
+        sb.append("\nLocalização da Loja: ").append(this.getGps().toString());
         sb.append("\nEncomendas: ").append(this.encomendas);
         return sb.toString();
     }
 
+    public String toString(){
+        return "Loja:"+this.getCodigo()+","+this.getNome()+","+this.getGps().toString();
+    }
     /**
      * @brief Comparador de igualdade
      */
@@ -138,9 +99,9 @@ public class Loja {
         if(obj==this) return true;
         if(obj==null || obj.getClass() != this.getClass()) return false;
         Loja l = (Loja) obj;
-        return (this.codLoja.equals(l.getCodLoja())
-                && this.nomeLoja.equals(l.getNomeLoja())
-                && this.location.equals(l.getLocation())
+        return (this.getCodigo().equals(l.getCodigo())
+                && this.getNome().equals(l.getNome())
+                && this.getGps().equals(l.getGps())
                 && this.qtd_pessoas_fila == l.getQtd_pessoas_fila()
                 && this.encomendas.equals(l.getEncomendas()));
     }

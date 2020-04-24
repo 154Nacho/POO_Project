@@ -1,7 +1,5 @@
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.TreeMap;
+import java.awt.image.AreaAveragingScaleFilter;
+import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -12,7 +10,7 @@ public class Encomenda {
     private String codUtilizador;
     private String codLoja;
     private double peso;
-    private Map<String,LinhaEncomenda> encomendas;
+    private List<LinhaEncomenda> encomendas;
 
     // Contrutor por omissão
     public Encomenda() {
@@ -20,11 +18,11 @@ public class Encomenda {
         this.codUtilizador = "";
         this.codLoja = "";
         this.peso = 0;
-        this.encomendas = new TreeMap<>();
+        this.encomendas = new ArrayList<>();
     }
 
     // Construtor parametrizado
-    public Encomenda(String codEncomenda, String codUtilizador, String codLoja, Double peso, Map<String,LinhaEncomenda> encomendas) {
+    public Encomenda(String codEncomenda, String codUtilizador, String codLoja, Double peso, List<LinhaEncomenda> encomendas) {
         this.codEncomenda = codEncomenda;
         this.codUtilizador = codUtilizador;
         this.codLoja = codLoja;
@@ -74,19 +72,26 @@ public class Encomenda {
         this.peso = peso;
     }
 
-    public Map<String,LinhaEncomenda> getEncomendas() {
-        return (this.encomendas.entrySet().stream().collect(Collectors.toMap(e->e.getKey(),e->e.getValue().clone())));
+    public List<LinhaEncomenda> getEncomendas() {
+        ArrayList<LinhaEncomenda> aux = new ArrayList<>();
+        for( LinhaEncomenda l : this.encomendas)
+            aux.add(l.clone());
+        return aux;
     }
 
-    public void setEncomendas(Map<String,LinhaEncomenda> encomendas) {
-        this.encomendas = new HashMap<>();
-        encomendas.entrySet().forEach(e -> this.encomendas.put(e.getKey(),e.getValue().clone()));
+    public void setEncomendas(List<LinhaEncomenda> encomendas) {
+        this.encomendas = new ArrayList<>();
+        for(LinhaEncomenda l : encomendas)
+            this.encomendas.add(l);
+
     }
 
     // toString
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.codEncomenda).append(",").append(this.codUtilizador).append(",").append(this.codLoja).append(",").append(this.peso).append(",").append(this.encomendas);
+        sb.append("Encomenda:").append(this.codEncomenda).append(",").append(this.codUtilizador).append(",").append(this.codLoja).append(",").append(this.peso);
+        for(LinhaEncomenda l : this.encomendas)
+            sb.append(",").append(l.toString());
         return sb.toString();
     }
 
@@ -109,7 +114,7 @@ public class Encomenda {
 
     // Adicionar uma linha de encomenda
     public void addLinhaEnc(LinhaEncomenda l) {
-        this.encomendas.put(l.getCodProduto(),l.clone());
+        this.encomendas.add(l.clone());
     }
 
 

@@ -12,7 +12,7 @@ import java.util.TreeMap;
 public class Parser {
     //Ler
     public void parse(TrazAqui trazAqui) {
-        List<String> linhas = lerFicheiro("src/Resources/logs.txt");
+        List<String> linhas = lerFicheiro("src/Resources/newlogs.txt");
         String[] linhaPartida;
         for (String linha : linhas) {
             linhaPartida = linha.split(":", 2);
@@ -30,12 +30,14 @@ public class Parser {
                 case "Loja":
                     Loja l = parseLoja(linhaPartida[1]);
 //                    System.out.println(l.toString());
+                    trazAqui.addUtilizador(l);
                     break;
                 case "Transportadora":
                     Transportadora t = parseTransportadora(linhaPartida[1]);
 //                    System.out.println(t.toString());
+                    trazAqui.addUtilizador(t);
                     break;
-                    //...
+                //...
                 case "Encomenda":
                     Encomenda e = parseEncomenda(linhaPartida[1]);
                     trazAqui.addEncomenda(e);
@@ -76,9 +78,9 @@ public class Parser {
         double gpsx = Double.parseDouble(campos[2]);
         double gpsy = Double.parseDouble(campos[3]);
         Loja l = new Loja();
-        l.setCodLoja(codLoja);
-        l.setNomeLoja(nomeLoja);
-        l.setLocation(new GPS(gpsx, gpsy));
+        l.setCodigo(codLoja);
+        l.setNome(nomeLoja);
+        l.setGps(new GPS(gpsx, gpsy));
         return l;
     }
 
@@ -92,9 +94,9 @@ public class Parser {
         double raio = Double.parseDouble(campos[5]);
         double ppk = Double.parseDouble(campos[6]);
         Transportadora t = new Transportadora();
-        t.setCodEmpresa(codEmpresa);
-        t.setNomeEmpresa(nomeEmpresa);
-        t.setLocation(new GPS(gpsx, gpsy));
+        t.setCodigo(codEmpresa);
+        t.setNome(nomeEmpresa);
+        t.setGps(new GPS(gpsx, gpsy));
         t.setNif(nif);
         t.setRaio(raio);
         t.setPPK(ppk);
@@ -107,7 +109,7 @@ public class Parser {
         String codUtilizador = campos[1];
         String codLoja = campos[2];
         double peso = Double.parseDouble(campos[3]);
-        Map<String,LinhaEncomenda> encomendas = new TreeMap<>();
+        List<LinhaEncomenda> encomendas = new ArrayList<>();
 
         int i;
         for(i=4;i<campos.length;){
@@ -116,7 +118,7 @@ public class Parser {
             double quantidade = Double.parseDouble(campos[i++]);
             double valorUnitario = Double.parseDouble(campos[i++]);
             LinhaEncomenda l = new LinhaEncomenda(codProd,descricao,quantidade,valorUnitario);
-            encomendas.put(codProd,l);
+            encomendas.add(l);
         }
         return new Encomenda(codEncomenda,codUtilizador,codLoja,peso,encomendas);
     }
@@ -136,8 +138,11 @@ public class Parser {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("src/Resources/newlogs.txt"));
             List<Utilizador> u = trazAqui.getUtilizadores();
+            List<Encomenda> es = trazAqui.getEncomendas();
             for (Utilizador utilizador : u)
                 bw.write(utilizador.toString()+'\n');
+            for(Encomenda encomenda : es)
+                bw.write(encomenda.toString()+'\n');
             bw.close();
         } catch (IOException e) {
             e.printStackTrace();

@@ -128,6 +128,13 @@ public class Utilizador {
         return sb.toString();
     }
 
+    public String toStringShow(){
+        return "Utilizador:"+
+                "\n{ Código: "+this.getCodigo()+
+                "\n  Nome: "+this.getNome()+
+                "\n  Localização: "+this.getGps().toString()+
+                "\n}";
+    }
     /**
      * Cria uma cópia do Utilizador
      *

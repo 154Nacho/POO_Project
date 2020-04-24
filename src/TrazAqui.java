@@ -22,6 +22,38 @@ public class TrazAqui {
         this.user = null;
     }
 
+    public Utilizador getUtilizador(String codigo){
+        return this.utilizadores.get(codigo).clone();
+    }
+
+    /**
+     * Obtém uma String com todas as Encomendas
+     * @return String
+     */
+    public String getEncomendasInformation(){
+        StringBuilder sb = new StringBuilder();
+        for(Encomenda e : this.encomendas)
+            sb.append(e.toString()).append('\n');
+        return sb.toString();
+    }
+
+    public String getUserInformation(){
+        return this.user.toStringShow();
+//        switch (this.user.getClass().getName()) {
+//            case "Utilizador":
+//                return this.user.toStringShow();
+//            case "Voluntario":
+//                Voluntario v = (Voluntario) this.user;
+//                return v.toStringShow();
+//            case "Transportadora":
+//                Transportadora t = (Transportadora) this.user;
+//                return t.toStringShow();
+//            default:
+//                Loja l = (Loja) this.user;
+//                return l.toStringShow();
+//        }
+    }
+
     /**
      * Adiciona um Utilizador
      *
@@ -50,6 +82,13 @@ public class TrazAqui {
     public void addEncomenda(Encomenda e){
         this.encomendas.add(e);
     }
+
+    public List<Encomenda> getEncomendas(){
+        ArrayList<Encomenda> aux = new ArrayList<>();
+        for(Encomenda e : this.encomendas)
+            aux.add(e);
+        return aux;
+    }
     /**
      * Obtém o logged number
      *
@@ -64,8 +103,9 @@ public class TrazAqui {
      *
      * @param logged Logged number
      */
-    public void setLogged(boolean logged) {
+    public void setLogged(boolean logged, Utilizador u) {
         this.logged = logged;
+        this.user = u;
     }
 
     public List<Utilizador> getUtilizadores() {

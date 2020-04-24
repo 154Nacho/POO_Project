@@ -1,3 +1,5 @@
+import jdk.jshell.execution.Util;
+
 import java.util.Scanner;
 
 public class Teste {
@@ -14,12 +16,12 @@ public class Teste {
         Parser p = new Parser();
         p.parse(trazAqui);
 
-
         label:
         while (true) {
             System.out.println("1 - Registar um user");
             System.out.println("2 - Login");
             System.out.println("3 - Guardar");
+            System.out.println("4 - Ver informações");
             System.out.println("0 - exit");
             String input = sc.nextLine();
             switch (input) {
@@ -57,17 +59,24 @@ public class Teste {
                     username = sc.nextLine();
                     System.out.print("Password: ");
                     password = sc.nextLine();
-                    if (trazAqui.checkLoggin(username, password))
-                        trazAqui.setLogged(true);
+                    if (trazAqui.checkLoggin(username, password)) {
+                        Utilizador u = trazAqui.getUtilizador(username);
+                        trazAqui.setLogged(true,u);
+                        System.out.println("Login efetuado com sucesso");
+                    }
                     break;
                 case "3":
                     p.wparser(trazAqui);
                     break ;
+                case "4":
+                    System.out.println(trazAqui.getUserInformation());
+                    sc.nextLine();
+                    break;
                 case "0":
                     break label;
             }
 
         }
-        
+
     }
 }
