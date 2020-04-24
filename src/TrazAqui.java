@@ -37,6 +37,10 @@ public class TrazAqui {
         return sb.toString();
     }
 
+    /**
+     * Apresenta a informação de um user
+     * @return String
+     */
     public String getUserInformation(){
         return this.user.toStringShow();
 //        switch (this.user.getClass().getName()) {
@@ -77,6 +81,11 @@ public class TrazAqui {
             this.user = this.utilizadores.get(username).clone();
             return true;
         } else return false;
+    }
+
+    public boolean checkUser(String codUser){
+        Utilizador u = this.utilizadores.get(codUser);
+        return u != null;
     }
 
     public void addEncomenda(Encomenda e){
@@ -148,5 +157,11 @@ public class TrazAqui {
     public void imprimeVoluntarios() {
         for (Voluntario u : this.getListaVoluntarios())
             System.out.println(u.toString());
+    }
+
+
+    //passwords
+    public void setPassword(String codUser, String pw){
+        this.utilizadores.get(codUser).setPassword(pw);
     }
 }

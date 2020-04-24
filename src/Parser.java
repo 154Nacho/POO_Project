@@ -48,6 +48,12 @@ public class Parser {
             }
 
         }
+
+        linhas = lerFicheiro("src/Resources/pw.txt");
+        for (String linha : linhas) {
+            linhaPartida = linha.split(":", 2);
+            trazAqui.setPassword(linhaPartida[0],linhaPartida[1]);
+        }
         System.out.println("done!");
     }
 
@@ -137,13 +143,18 @@ public class Parser {
     public void wparser(TrazAqui trazAqui) {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("src/Resources/newlogs.txt"));
+            BufferedWriter pw = new BufferedWriter(new FileWriter("src/Resources/pw.txt"));
+
             List<Utilizador> u = trazAqui.getUtilizadores();
             List<Encomenda> es = trazAqui.getEncomendas();
-            for (Utilizador utilizador : u)
-                bw.write(utilizador.toString()+'\n');
+            for (Utilizador utilizador : u) {
+                bw.write(utilizador.toString() + '\n');
+                pw.write(utilizador.getCodigo()+":"+utilizador.getPassword()+'\n');
+            }
             for(Encomenda encomenda : es)
                 bw.write(encomenda.toString()+'\n');
             bw.close();
+            pw.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

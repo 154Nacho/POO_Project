@@ -21,7 +21,7 @@ Utilizador:u97,Pedro Filipe Carvalho Barbosa,-68.78327,-50.26914
 Voluntario:v20,JoÃ£o Pedro Gomes Coelho,-88.56778,-1.4521866,1.0
 Voluntario:v33,SimÃ£o Pedro Santa Cruz Oliveira,11.959328,95.35214,81.0
 Voluntario:v59,JoÃ£o Carlos Delgado Monteiro,87.60193,-67.35995,56.0
-Voluntario:v69,Pedro Miguel da Silva Paiva AntÃ³nio,-3.4494247,78.96666,164.0
+Voluntario:v69,Luis Massas,0.0,0.0,69.0
 Voluntario:v73,Rui Pedro Gomes Coelho,-45.424522,-79.517136,15.0
 Encomenda:e6813,u81,l8,77.31938,p34,Farinha de trigo,2.2728467,5.5159483,p40,Molho de pimenta,1.6600878,42.014664,p4,Detergente,9.424281,8.621707,p60,Banana,2.2497952,9.522067,p49,Leite condensado,5.5749025,0.8051496,p21,Leite integral litro,7.543862,20.61575,p17,Saco de lixo 50l,5.0960507,44.77305,p19,Sumo garrafa 1l,6.0144415,43.476116,p53,Batata,3.306492,38.945602,p48,Creme de leite,2.444421,17.503843,p61,Ovos,1.4774193,15.0444355,p13,Tira manchas,6.2518024,25.874397,p41,Ervilha,4.591317,30.43119,p56,Beterraba,5.814199,2.5673974,p33,Farofa pronta,4.687167,1.8703786,p20,Sumo caixa 500ml,9.236412,42.498604,p16,Saco de lixo 30l,2.5450313,31.850492
 Encomenda:e3319,u40,l83,95.51941,p76,Peixe,3.5041742,35.820896,p25,Macarrao,6.441414,12.5604105,p11,Desinfetante,4.3322487,9.954618,p77,Frango,8.605059,33.094822,p36,Farinha de mandioca,8.498911,14.619806,p33,Farofa pronta,2.9854317,23.440195,p59,Espinafre,7.380988,7.974126,p41,Ervilha,3.7562246,31.93044

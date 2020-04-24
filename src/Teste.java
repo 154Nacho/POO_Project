@@ -31,25 +31,34 @@ public class Teste {
                     System.out.println("3 - Loja");
                     System.out.println("4 - Transportadora");
                     input = sc.nextLine();
+
+                    System.out.print("Nome: ");
+                    nome = sc.nextLine();
+
+
+                    System.out.print("Username: ");
+                    username = sc.nextLine();
+
                     switch (input) {
                         case "1":
-                            System.out.print("Nome: ");
-                            nome = sc.nextLine();
-                            System.out.print("Username: ");
-                            username = sc.nextLine();
+                            while(!username.startsWith("u") || trazAqui.checkUser(username)){
+                                System.out.println("Username inválido");
+                                System.out.print("Username: ");
+                                username = sc.nextLine();
+                            }
                             System.out.print("Password: ");
                             password = sc.nextLine();
                             trazAqui.addUtilizador(new Utilizador(username, nome, password, new GPS()));
-                            break;
+                            break ;
+
                         case "2":
-                            System.out.print("Nome: ");
-                            nome = sc.nextLine();
-                            System.out.print("Username: ");
-                            username = sc.nextLine();
+                            while(!username.startsWith("v") || trazAqui.checkUser(username)){
+                                System.out.println("Username inválido");
+                                System.out.print("Username: ");
+                                username = sc.nextLine();
+                            }
                             System.out.print("Password: ");
                             password = sc.nextLine();
-                            System.out.print("Raio: ");
-                            input = sc.nextLine();
                             trazAqui.addUtilizador(new Voluntario(username, nome, password, new GPS(), Double.parseDouble(input)));
                             break;
                     }
@@ -61,13 +70,14 @@ public class Teste {
                     password = sc.nextLine();
                     if (trazAqui.checkLoggin(username, password)) {
                         Utilizador u = trazAqui.getUtilizador(username);
-                        trazAqui.setLogged(true,u);
+                        trazAqui.setLogged(true, u);
                         System.out.println("Login efetuado com sucesso");
                     }
+                    else System.out.println("Username ou Palavra passe errada");
                     break;
                 case "3":
                     p.wparser(trazAqui);
-                    break ;
+                    break;
                 case "4":
                     System.out.println(trazAqui.getUserInformation());
                     sc.nextLine();
