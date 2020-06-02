@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Utilizador {
+public class Utilizador implements Login {
 
     GPS gps; // GPS guardar par de coordenadas latitude,longitude;
     private String codigo;
@@ -114,6 +114,17 @@ public class Utilizador {
      */
     public void setGps(GPS g) {
         this.gps = g;
+    }
+
+    /**
+     * Método que verifica se o login de um Utilizador é correto
+     * @param code que é o código inserido pelo utilizador.
+     * @param pass que é a password inserida pelo utilizador.
+     * @return Validação dos dados inseridos.
+     */
+    @Override
+    public boolean checkLogin(String code, String pass) {
+        return (this.codigo.compareTo(code) == 0 && this.password.compareTo(pass) == 0);
     }
 
     /**

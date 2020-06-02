@@ -11,121 +11,121 @@ public class Transportadora extends Utilizador {
     private String nif;
     private double raio;
     private double precoPorKM;
-    private double taxa_transporte;
     private double custo_transporte;
     private boolean disponivel;
-    private LocalDateTime tempo_entrega;
     private int encomendas_maximas;
-    private List<Encomenda> register;
+    private List<EncomendaRealizada> register;
+    private double classificação;
+    private int total_entregas;
 
     /**
-     * @brief Construtor por omissão
+     * Construtor por omissão
      */
     public Transportadora() {
         super();
         this.nif = new String();
         this.raio = 0;
         this.precoPorKM = 0;
-        this.taxa_transporte = 0;
         this.custo_transporte = 0;
         this.disponivel = true;
-        this.tempo_entrega = null;
         this.encomendas_maximas = 0;
         this.register = new ArrayList<>();
+        this.classificação = 0;
+        this.total_entregas = 0;
     }
 
     /**
-     * @brief Construtor com passagem de argumentos
+     * Construtor com passagem de argumentos
      */
-    public Transportadora(String cE, String nE, GPS l, String password, String n, double r, double ppk, double tt, double ct, boolean d, int em, List<Encomenda> reg) {
+    public Transportadora(String cE, String nE, GPS l, String password, String n, double r, double ppk, double ct, boolean d, int em, List<EncomendaRealizada> reg, double cf, int qtd) {
         super(cE, nE, password, l);
         this.nif = n;
         this.raio = r;
         this.precoPorKM = ppk;
-        this.taxa_transporte = tt;
         this.custo_transporte = ct;
         this.disponivel = d;
-        this.tempo_entrega = null;
         this.encomendas_maximas = em;
         setRegisto(reg);
+        this.classificação = cf;
+        this.total_entregas = qtd;
     }
 
     /**
-     * @brief Construtor por clonagem
+     * Construtor por clonagem
      */
     public Transportadora(Transportadora t) {
         super(t);
         this.nif = t.getNIF();
         this.raio = t.getRaio();
         this.precoPorKM = t.getPPK();
-        this.taxa_transporte = t.getTT();
         this.custo_transporte = t.getCT();
         this.disponivel = t.getDisponibilidade();
-        this.tempo_entrega = t.getTempoEntrega();
         this.encomendas_maximas = t.getNMaximo();
-        setRegisto(t.getRegisto());
+        this.register = t.getRegisto();
+        this.classificação = t.getClassificação();
+        this.total_entregas = t.getTotal_entregas();
     }
 
     //Getters
 
     /**
-     * @brief Getter do NIF da Empresa
+     *   Getter do NIF da Empresa
      */
     public String getNIF() {
         return nif;
     }
 
     /**
-     * @brief Getter do raio de admissão de encomendas da Empresa
+     *   Getter do raio de admissão de encomendas da Empresa
      */
     public double getRaio() {
         return raio;
     }
 
     /**
-     * @brief Setter do raio de admissão de encomendas da Empresa
+     *   Setter do raio de admissão de encomendas da Empresa
      */
     public void setRaio(double raio) {
         this.raio = raio;
     }
 
     /**
-     * @brief Getter do preço por quilómetro de transporte da Empresa
+     *   Getter do preço por quilómetro de transporte da Empresa
      */
     public double getPPK() {
         return precoPorKM;
     }
 
     /**
-     * @brief Setter do preço por quilómetro de transporte da Empresa
+     *   Setter do preço por quilómetro de transporte da Empresa
      */
     public void setPPK(double precoPorKM) {
         this.precoPorKM = precoPorKM;
     }
 
     /**
-     * @brief Getter do custo de transporte da Empresa
+     *   Getter do custo de transporte da Empresa
      */
     public double getCT() {
         return custo_transporte;
     }
 
     /**
-     * @brief Setter do custo de transporte da Empresa
+     *   Setter do custo de transporte da Empresa
      */
     public void setCT(double custo_transporte) {
         this.custo_transporte = custo_transporte;
     }
 
     /**
-     * @brief Getter do número máximo de encomendas que a Empresa suporta
+     *   Getter do número máximo de encomendas que a Empresa suporta
      */
     public int getNMaximo() {
         return encomendas_maximas;
     }
 
     /**
-     * @brief Setter do número máximo de encomendas que a Empresa suporta
+     *   Setter do número máximo de encomendas que a Empresa suporta
      */
     public void setNMaximo(int encomendas_maximas) {
         this.encomendas_maximas = encomendas_maximas;
@@ -134,80 +134,84 @@ public class Transportadora extends Utilizador {
     //Setters
 
     /**
-     * @brief Getter da disponibilidade da Empresa para novas encomendas
+     *   Getter da disponibilidade da Empresa para novas encomendas
      */
     public boolean getDisponibilidade() {
         return disponivel;
     }
 
     /**
-     * @brief Getter do tempo de entrega da encomenda
+     *   Getter das encomendas já realizadas pela Empresa
      */
-    public LocalDateTime getTempoEntrega() {
-        return tempo_entrega;
+    public List<EncomendaRealizada> getRegisto() {
+        return this.register.stream().map(EncomendaRealizada::clone).collect(Collectors.toList());
     }
 
     /**
-     * @brief Setter do tempo de entrega da encomenda
+     *   Setter das encomendas já realizadas pela Empresa
      */
-    public void setTempoEntrega(LocalDateTime tempo_entrega) {
-        this.tempo_entrega = tempo_entrega;
-    }
-
-    /**
-     * @brief Getter da taxa de transporte da Empresa
-     */
-    public double getTT() {
-        return taxa_transporte;
-    }
-
-    /**
-     * @brief Setter da taxa de transporte da Empresa
-     */
-    public void setTT(double taxa_transporte) {
-        this.taxa_transporte = taxa_transporte;
-    }
-
-    /**
-     * @brief Getter das encomendas já realizadas pela Empresa
-     */
-    public List<Encomenda> getRegisto() {
-        return this.register.stream().map(Encomenda::clone).collect(Collectors.toList());
-    }
-
-    /**
-     * @brief Setter das encomendas já realizadas pela Empresa
-     */
-    public void setRegisto(List<Encomenda> l) {
+    public void setRegisto(List<EncomendaRealizada> l) {
         this.register = new ArrayList<>();
         l.forEach(e -> this.register.add(e.clone()));
     }
 
     /**
-     * @brief Setter da disponibilidade da Empresa para novas encomendas
+     *   Setter da disponibilidade da Empresa para novas encomendas
      */
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
     }
 
     /**
-     * @brief Setter do NIF da Empresa
+     *   Setter do NIF da Empresa
      */
     public void setNif(String nif) {
         this.nif = nif;
     }
 
+    /**
+     * Método que devolve a classificação de uma Empresa Transportadora.
+     * @return Classifcação.
+     */
+    public double getClassificação() {
+        return classificação;
+    }
+
+    /**
+     * Método que define a classificação de uma Empresa Transportadora.
+     * @param classificação que é a classificação.
+     */
+    public void setClassificação(double classificação) {
+        this.classificação = classificação;
+    }
+
+    /**
+     * Método que devolve o total de entregas realizadas por uma Empresa Transportadora.
+     * @return Total de entregas.
+     */
+    public int getTotal_entregas() {
+        return total_entregas;
+    }
+
+    /**
+     * Método que define o total de vendas realizadas por uma Empresa Transportadora.
+     * @param total_entregas que é o número total de entregas.
+     */
+    public void setTotal_entregas(int total_entregas) {
+        this.total_entregas = total_entregas;
+    }
+
     //Equals, toString , clone
 
     /**
-     * @brief Cloner da Transportadora
+     *   Cloner da Transportadora
      */
     public Transportadora clone() {
         return new Transportadora(this);
     }
 
     /**
-     * @brief Conversor para String das informações da Transportadora
+     *   Comparador de igualdade
      */
     public boolean equals(Object obj) {
         if (obj == this) return true;
@@ -219,16 +223,16 @@ public class Transportadora extends Utilizador {
                 && this.getGps().equals(t.getGps())
                 && this.precoPorKM == t.getPPK()
                 && this.raio == t.getRaio()
-                && this.taxa_transporte == t.getTT()
                 && this.custo_transporte == t.getCT()
                 && this.encomendas_maximas == t.getNMaximo()
                 && this.disponivel == t.getDisponibilidade()
-                && this.tempo_entrega.isEqual(t.getTempoEntrega())
-                && this.register.equals(t.getRegisto()));
+                && this.register.equals(t.getRegisto())
+                && this.classificação == t.getClassificação()
+                && this.total_entregas == t.getTotal_entregas());
     }
 
     /**
-     * @brief Comparador de igualdade
+     *   Conversor para String das informações da Transportadora
      */
     public String toStringShow() {
         StringBuilder sb = new StringBuilder();
@@ -237,7 +241,7 @@ public class Transportadora extends Utilizador {
         sb.append("\nRaio de transporte: ").append(this.raio);
         sb.append("\nCustos:\n");
         sb.append("\nCusto do transporte: ").append(this.custo_transporte);
-        sb.append("\nTaxa de transporte: ").append(this.taxa_transporte);
+        sb.append("\nTaxa de transporte: ").append(this.precoPorKM);
         sb.append("\nEncomendas realizadas:\n").append(this.register);
         return sb.toString();
     }

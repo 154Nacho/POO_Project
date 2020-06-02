@@ -1,7 +1,5 @@
-import java.awt.image.AreaAveragingScaleFilter;
+import java.time.LocalDateTime;
 import java.util.*;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 public class Encomenda {
 
@@ -10,7 +8,9 @@ public class Encomenda {
     private String codUtilizador;
     private String codLoja;
     private double peso;
-    private List<LinhaEncomenda> encomendas;
+    private List<LinhaEncomenda> produtos;
+    private LocalDateTime start;
+    private LocalDateTime end;
 
     // Contrutor por omissão
     public Encomenda() {
@@ -18,16 +18,16 @@ public class Encomenda {
         this.codUtilizador = "";
         this.codLoja = "";
         this.peso = 0;
-        this.encomendas = new ArrayList<>();
+        this.produtos = new ArrayList<>();
     }
 
     // Construtor parametrizado
-    public Encomenda(String codEncomenda, String codUtilizador, String codLoja, Double peso, List<LinhaEncomenda> encomendas) {
+    public Encomenda(String codEncomenda, String codUtilizador, String codLoja, Double peso, List<LinhaEncomenda> produtos) {
         this.codEncomenda = codEncomenda;
         this.codUtilizador = codUtilizador;
         this.codLoja = codLoja;
         this.peso = peso;
-        setEncomendas(encomendas);
+        setProdutos(produtos);
     }
 
     // Construtor de cópia
@@ -36,7 +36,7 @@ public class Encomenda {
         this.codUtilizador = e.getCodUtilizador();
         this.codLoja = e.getCodLoja();
         this.peso = e.getPeso();
-        setEncomendas(e.getEncomendas());
+        this.produtos = e.getProdutos();
     }
 
     // Sets e Gets
@@ -72,17 +72,17 @@ public class Encomenda {
         this.peso = peso;
     }
 
-    public List<LinhaEncomenda> getEncomendas() {
+    public List<LinhaEncomenda> getProdutos() {
         ArrayList<LinhaEncomenda> aux = new ArrayList<>();
-        for( LinhaEncomenda l : this.encomendas)
+        for( LinhaEncomenda l : this.produtos)
             aux.add(l.clone());
         return aux;
     }
 
-    public void setEncomendas(List<LinhaEncomenda> encomendas) {
-        this.encomendas = new ArrayList<>();
-        for(LinhaEncomenda l : encomendas)
-            this.encomendas.add(l);
+    public void setProdutos(List<LinhaEncomenda> produtos) {
+        this.produtos = new ArrayList<>();
+        for(LinhaEncomenda l : produtos)
+            this.produtos.add(l);
 
     }
 
@@ -90,7 +90,7 @@ public class Encomenda {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Encomenda:").append(this.codEncomenda).append(",").append(this.codUtilizador).append(",").append(this.codLoja).append(",").append(this.peso);
-        for(LinhaEncomenda l : this.encomendas)
+        for(LinhaEncomenda l : this.produtos)
             sb.append(",").append(l.toString());
         return sb.toString();
     }
@@ -104,7 +104,7 @@ public class Encomenda {
                 e.getCodUtilizador().equals(this.codUtilizador) &&
                 e.getCodLoja().equals(this.codLoja) &&
                 e.getPeso() == (this.peso) &&
-                e.getEncomendas().equals(this.encomendas));
+                e.getProdutos().equals(this.produtos));
     }
 
     // Clone
@@ -114,7 +114,7 @@ public class Encomenda {
 
     // Adicionar uma linha de encomenda
     public void addLinhaEnc(LinhaEncomenda l) {
-        this.encomendas.add(l.clone());
+        this.produtos.add(l.clone());
     }
 
 

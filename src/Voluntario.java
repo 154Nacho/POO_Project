@@ -1,9 +1,16 @@
+import javax.print.DocFlavor;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Voluntario extends Utilizador {
 
     private double raio;
     private boolean acceptmedical;
+    private List<EncomendaRealizada> enc_done;
+    private boolean disponivel;
+    private double classificação;
+    private int total_entregas;
 
     /**
      * Construtor padrão
@@ -12,6 +19,10 @@ public class Voluntario extends Utilizador {
         super();
         this.raio = 0;
         this.acceptmedical = false;
+        this.enc_done = new ArrayList<>();
+        this.disponivel = true;
+        this.classificação = 0;
+        this.total_entregas = 0;
     }
 
     /**
@@ -79,6 +90,84 @@ public class Voluntario extends Utilizador {
      */
     public void setRaio(double raio) {
         this.raio = raio;
+    }
+
+    /**
+     * Método que verifica se um voluntário está disponível para realizar encomendas.
+     * @return Disponibilidade do voluntário.
+     */
+    public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    /**
+     * Método que define a disponibilidade de um voluntário.
+     * @param disponivel que é o estado de disponibilidade.
+     */
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
+    /**
+     * Método que retorna a classificação de um voluntário.
+     * @return
+     */
+    public double getClassificação() {
+        return classificação;
+    }
+
+    /**
+     * Método que define a classficação de um voluntário.
+     * @param classificação que é a classficação.
+     */
+    public void setClassificação(double classificação) {
+        this.classificação = classificação;
+    }
+
+    /**
+     * Método que retorna o total de entregas realizadas por um voluntário.
+     * @return Total de entregas realizadas.
+     */
+    public int getTotal_entregas() {
+        return total_entregas;
+    }
+
+    /**
+     * Método que define o total de entregas realizadas por um voluntário.
+     * @param total_entregas que é o número de entregas.
+     */
+    public void setTotal_entregas(int total_entregas) {
+        this.total_entregas = total_entregas;
+    }
+
+    /**
+     * Método que devolve as encomendas já realizadas por um voluntário.
+     * @return Lista com as encomendas já realizadas.
+     */
+    public List<EncomendaRealizada> getEncomendasRealizadas(){
+        List<EncomendaRealizada> aux = new ArrayList<>();
+        this.enc_done.stream().forEach(v -> aux.add(v.clone()));
+        return aux;
+    }
+
+    /**
+     * Método que define as encomendas já realizadas por um voluntário.
+     * @param e que contém as encomendas realizadas.
+     */
+    public void setEncomendasRealizadas(List<EncomendaRealizada> e){
+        e.stream().map(EncomendaRealizada::clone).forEach(v -> this.enc_done.add(v));
+    }
+
+    /**
+     * Método que adiciona uma enconenda realizada ao registo.
+     * @param c_enc que é o código da encomenda.
+     * @param c_util que é o código do utilizador que comprou.
+     * @param loja que é a loja a quem comprou.
+     * @param te que é o tempo que demorou a realizar a entregar.
+     */
+    public void addEncomendaRealizada(String c_enc, String c_util, String loja, double te){
+        EncomendaRealizada nova = new EncomendaRealizada(c_enc,c_util,loja,te,0);
+        this.enc_done.add(nova);
     }
 
     /**

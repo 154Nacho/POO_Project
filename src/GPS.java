@@ -54,7 +54,7 @@ public class GPS {
     }
 
     /**
-     * @brief Distância entre 2 localizações GPS
+     *   Distância entre 2 localizações GPS
      * @param that 2º ponto GPS
      * @return Distância
      */
