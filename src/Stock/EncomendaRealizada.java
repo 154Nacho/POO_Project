@@ -1,5 +1,7 @@
 package Stock;
 
+import java.time.LocalDateTime;
+
 public class EncomendaRealizada {
 
     private String code_enc;
@@ -7,6 +9,8 @@ public class EncomendaRealizada {
     private String loja_onde_comprou;
     private double tempo_entrega;
     private double custo_entrega;
+    private double custo_transporte;
+    private LocalDateTime data_entrega;
 
     /**
      * Construtor por omissão.
@@ -17,6 +21,8 @@ public class EncomendaRealizada {
         this.loja_onde_comprou = "";
         this.tempo_entrega = 0;
         this.custo_entrega = 0;
+        this.custo_transporte = 0;
+        this.data_entrega = null;
     }
 
     /**
@@ -27,12 +33,14 @@ public class EncomendaRealizada {
      * @param te Tempo de entrega.
      * @param cenc Custo de entrega.
      */
-    public EncomendaRealizada(String ce, String cu, String l, double te, double cenc){
+    public EncomendaRealizada(String ce, String cu, String l, double te, double ct, double cenc, LocalDateTime data){
         this.code_enc = ce;
         this.code_utilizador = cu;
         this.loja_onde_comprou = l;
         this.tempo_entrega = te;
         this.custo_entrega = cenc;
+        this.custo_transporte = ct;
+        this.data_entrega = data;
     }
 
     /**
@@ -45,6 +53,8 @@ public class EncomendaRealizada {
         this.loja_onde_comprou = encomendaRealizada.getLoja_onde_comprou();
         this.tempo_entrega = encomendaRealizada.getTempo_entrega();
         this.custo_entrega = encomendaRealizada.getCusto_entrega();
+        this.custo_transporte = encomendaRealizada.getCusto_transporte();
+        this.data_entrega = encomendaRealizada.getData_entrega();
     }
 
     /**
@@ -125,6 +135,22 @@ public class EncomendaRealizada {
      */
     public void setCusto_entrega(double custo_entrega) {
         this.custo_entrega = custo_entrega;
+    }
+
+    public LocalDateTime getData_entrega() {
+        return data_entrega;
+    }
+
+    public void setData_entrega(LocalDateTime data_entrega) {
+        this.data_entrega = data_entrega;
+    }
+
+    public double getCusto_transporte() {
+        return custo_transporte;
+    }
+
+    public void setCusto_transporte(double custo_transporte) {
+        this.custo_transporte = custo_transporte;
     }
 
     /**

@@ -3,6 +3,7 @@ package Users;
 import Geral.GPS;
 import Stock.EncomendaRealizada;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -229,6 +230,22 @@ public class Transportadora extends User {
     public void setTotal_entregas(int total_entregas) {
         this.total_entregas = total_entregas;
     }
+
+
+    public double calculaFat(LocalDateTime i, LocalDateTime f){
+        double aux = 0;
+        for(EncomendaRealizada e : this.register){
+            if(e.getData_entrega().isAfter(i) && e.getData_entrega().isBefore(f)){
+                aux += e.getCusto_transporte();
+            }
+        }
+        return aux;
+    }
+
+    public void calculaCustoTransporte(GPS loja, double peso){
+        this.custo_transporte = this.gps.distanceTo(loja)*this.precoPorKM + peso*0.05;
+    }
+
 
     //Equals, toString , clone
 
