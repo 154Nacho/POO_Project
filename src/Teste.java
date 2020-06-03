@@ -19,7 +19,7 @@ public class Teste {
         label:
         while (true) {
             System.out.println("1 - Registar um user");
-            System.out.println("2 - Login");
+            System.out.println("2 - Interfaces.Login");
             System.out.println("3 - Guardar");
             System.out.println("4 - Ver informações");
             System.out.println("0 - exit");
@@ -71,7 +71,7 @@ public class Teste {
                     if (trazAqui.checkLoggin(username, password)) {
                         Utilizador u = trazAqui.getUtilizador(username);
                         trazAqui.setLogged(true, u);
-                        System.out.println("Login efetuado com sucesso");
+                        System.out.println("Interfaces.Login efetuado com sucesso");
                     }
                     else System.out.println("Username ou Palavra passe errada");
                     break;

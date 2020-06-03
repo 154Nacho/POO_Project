@@ -1,46 +1,44 @@
+import Interfaces.Login;
+
 import java.util.Objects;
 
-public class Utilizador implements Login {
+public class Utilizador extends User implements Login {
 
     GPS gps; // GPS guardar par de coordenadas latitude,longitude;
-    private String codigo;
     private String nome;
-    private String password;
+
 
     /**
-     * Construtor padrão
+     * Construtor padrão.
      */
     public Utilizador() {
-        this.codigo = "";
+        super();
         this.nome = "";
-        this.password = "";
         this.gps = new GPS();
     }
 
     /**
-     * Construtor por cópia
+     * Construtor por cópia.
      *
-     * @param u Utilizador
+     * @param u Utilizador.
      */
     public Utilizador(Utilizador u) {
-        this.codigo = u.getCodigo();
+        super(u);
         this.nome = u.getNome();
-        this.password = u.getPassword();
         this.gps = u.getGps();
     }
 
     /**
-     * Construtor por parâmetros
+     * Construtor por parâmetros.
      *
-     * @param codigo   Código de Utilizador
-     * @param nome     Nome do Utilizador
-     * @param password Password do Utilizador
-     * @param gps      Localização do Utilizador
+     * @param codigo   Código de Utilizador.
+     * @param nome     Nome do Utilizador.
+     * @param password Password do Utilizador.
+     * @param gps      Localização do Utilizador.
      */
     public Utilizador(String codigo, String nome, String password, GPS gps) {
-        this.codigo = codigo;
+        super(codigo,password);
         this.nome = nome;
-        this.password = password;
         this.gps = gps;
     }
 
@@ -50,7 +48,7 @@ public class Utilizador implements Login {
      * @return String
      */
     public String getPassword() {
-        return password;
+        return super.getPass();
     }
 
     /**
@@ -59,7 +57,7 @@ public class Utilizador implements Login {
      * @param password Password do Utilizador
      */
     public void setPassword(String password) {
-        this.password = password;
+        super.setPass(password);
     }
 
     /**
@@ -68,7 +66,7 @@ public class Utilizador implements Login {
      * @return String
      */
     public String getCodigo() {
-        return codigo;
+        return super.getCode();
     }
 
     /**
@@ -77,7 +75,7 @@ public class Utilizador implements Login {
      * @param codigo Código do Utilizador
      */
     public void setCodigo(String codigo) {
-        this.codigo = codigo;
+        super.setCode(codigo);
     }
 
     /**
@@ -124,7 +122,7 @@ public class Utilizador implements Login {
      */
     @Override
     public boolean checkLogin(String code, String pass) {
-        return (this.codigo.compareTo(code) == 0 && this.password.compareTo(pass) == 0);
+        return (super.getCode().compareTo(code) == 0 && super.getPass().compareTo(pass) == 0);
     }
 
     /**
@@ -134,7 +132,7 @@ public class Utilizador implements Login {
      */
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Utilizador:").append(this.codigo).append(",").
+        sb.append("Utilizador:").append(super.getCode()).append(",").
                 append(this.nome).append(",").append(this.gps.getLatitude()).append(",").append(this.gps.getLongitude());
         return sb.toString();
     }

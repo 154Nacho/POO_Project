@@ -1,8 +1,10 @@
-import jdk.jshell.execution.Util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
+
 
 public class Loja extends Utilizador {
 
@@ -11,6 +13,7 @@ public class Loja extends Utilizador {
     private int qtd_pessoas_fila;
     private double tempo_médio_atendimento;
     private boolean tem_encomendas;
+    private Map<String,InfoProduto> produtos;
 
     /**
      *   Construtor por omissão
@@ -22,17 +25,19 @@ public class Loja extends Utilizador {
         this.informa_sobre_loja = false;
         this.tem_encomendas = false;
         this.tempo_médio_atendimento = 0;
+        this.produtos = new TreeMap<>();
     }
     /**
      *   Construtor com passagem de argumentos
      */
-    public Loja(String cL, String nL,String password, GPS l, int qt, List<Encomenda> ec, boolean informa, double t, boolean tem_encomendas){
+    public Loja(String cL, String nL,String password, GPS l, int qt, List<Encomenda> ec, boolean informa, double t, boolean tem_encomendas, Map<String,InfoProduto> ps){
         super(cL,nL,password,l);
         this.qtd_pessoas_fila = qt;
         setEncomendas(ec);
         this.informa_sobre_loja = informa;
         this.tempo_médio_atendimento = t;
         this.tem_encomendas = tem_encomendas;
+        setProdutos(ps);
     }
 
     /**
@@ -45,6 +50,7 @@ public class Loja extends Utilizador {
         this.informa_sobre_loja = l.isInforma_sobre_loja();
         this.tempo_médio_atendimento = l.getTempo_médio_atendimento();
         this.tem_encomendas = l.isTem_encomendas();
+        this.produtos = l.getProdutos();
     }
     //Getters
 
@@ -126,6 +132,54 @@ public class Loja extends Utilizador {
     public void setTem_encomendas(boolean tem_encomendas) {
         this.tem_encomendas = tem_encomendas;
     }
+
+
+    /**
+     * Método que devolve um Map com encomendas e a sua descrição.
+     * @return Map com a informação.
+     */
+    public Map<String,String> showEncomendasPorEntregar(){
+        Map<String,String> aux = new TreeMap<>();
+        for(Encomenda e : this.encomendas){
+            for(LinhaEncomenda l : e.getProdutos())
+                aux.put(e.getCodEncomenda(),l.getDescricao());
+        }
+        return aux;
+    }
+
+    /**
+     * Método que devolve os produtos à venda numa loja.
+     * @return Informação sobre os produtos à venda.
+     */
+    public Map<String,InfoProduto> getProdutos(){
+        Map<String,InfoProduto> aux = new TreeMap<>();
+        for(Map.Entry<String,InfoProduto>  a : this.produtos.entrySet()){
+            aux.put(a.getKey(),a.getValue().clone());
+        }
+        return aux;
+    }
+
+    /**
+     * Método que define os produtos à venda numa loja.
+     * @param a que contém a informação sobre os produtos.
+     */
+    public void setProdutos(Map<String,InfoProduto> a){
+        this.produtos = new TreeMap<>();
+        a.entrySet().stream().forEach(v -> this.produtos.put(v.getKey(),v.getValue().clone()));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //Clone, toString, equals
 

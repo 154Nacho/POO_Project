@@ -3,9 +3,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Voluntario extends Utilizador {
+public class Voluntario extends User {
 
     private double raio;
+    private String nome;
+    private GPS gps;
     private boolean acceptmedical;
     private List<EncomendaRealizada> enc_done;
     private boolean disponivel;
@@ -18,6 +20,8 @@ public class Voluntario extends Utilizador {
     public Voluntario() {
         super();
         this.raio = 0;
+        this.nome = "";
+        this.gps = new GPS();
         this.acceptmedical = false;
         this.enc_done = new ArrayList<>();
         this.disponivel = true;
@@ -33,6 +37,12 @@ public class Voluntario extends Utilizador {
     public Voluntario(Voluntario v) {
         super(v);
         this.raio = v.getRaio();
+        this.enc_done = v.getEncomendasRealizadas();
+        this.total_entregas = v.getTotal_entregas();
+        this.classificação = v.getClassificação();
+        this.disponivel = v.isDisponivel();
+        this.nome = v.getNome();
+        this.gps = v.getGps();
         this.acceptmedical = v.aceitoTransporteMedicamentos();
     }
 
@@ -46,7 +56,7 @@ public class Voluntario extends Utilizador {
      * @param raio           Raio de entrega do Voluntário
      */
     public Voluntario(String codVoluntario, String nomeVoluntario, String password, boolean state,GPS gps, double raio) {
-        super(codVoluntario, nomeVoluntario, password, gps);
+        super(codVoluntario,password);
         this.raio = raio;
         this.acceptmedical = state;
     }
@@ -60,11 +70,26 @@ public class Voluntario extends Utilizador {
      * @param raio           Raio de entrega do Voluntário
      */
     public Voluntario(String codVoluntario, String nomeVoluntario, String password,GPS gps, double raio) {
-        super(codVoluntario, nomeVoluntario, password, gps);
+        super(codVoluntario,password);
         this.raio = raio;
         this.acceptmedical = false;
     }
 
+    public String getCodigo(){
+        return super.getCode();
+    }
+
+    public void setCodigo(String code){
+        super.setCode(code);
+    }
+
+    public String getPassword(){
+        return super.getPass();
+    }
+
+    public void setPassword(String pass){
+        super.setPass(pass);
+    }
 
     public boolean aceitoTransporteMedicamentos() {
         return acceptmedical;
@@ -158,6 +183,22 @@ public class Voluntario extends Utilizador {
         e.stream().map(EncomendaRealizada::clone).forEach(v -> this.enc_done.add(v));
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public GPS getGps() {
+        return gps.clone();
+    }
+
+    public void setGps(GPS gps) {
+        this.gps = gps;
+    }
+
     /**
      * Método que adiciona uma enconenda realizada ao registo.
      * @param c_enc que é o código da encomenda.
@@ -177,14 +218,14 @@ public class Voluntario extends Utilizador {
      */
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Voluntario:").append(this.getCodigo()).append(",").append(this.getNome()).
+        sb.append("Voluntario:").append(super.getCode()).append(",").append(this.getNome()).
                 append(",").append(this.getGps().getLatitude()).append(",").append(this.getGps().getLongitude()).
                 append(",").append(this.getRaio());
         return sb.toString();
     }
 
     public String toStringShow(){
-        return "Voluntário:\n{"+" Código: "+this.getCodigo()+
+        return "Voluntário:\n{"+" Código: "+super.getCode()+
                 "\n  Nome: "+this.getNome()+
                 "\n  Localização: "+this.getGps().toString()+
                 "\n  Raio: "+this.getRaio()+
@@ -210,9 +251,9 @@ public class Voluntario extends Utilizador {
         if (o == null || getClass() != o.getClass()) return false;
         Voluntario v = (Voluntario) o;
         return Double.compare(v.getRaio(), getRaio()) == 0 &&
-                Objects.equals(getCodigo(), v.getCodigo()) &&
+                Objects.equals(super.getCode(), v.getCodigo()) &&
                 Objects.equals(getNome(), v.getNome()) &&
                 Objects.equals(getGps(), v.getGps()) &&
-                Objects.equals(getPassword(), v.getPassword());
+                Objects.equals(super.getPass(), v.getPassword());
     }
 }
