@@ -1,13 +1,17 @@
-import jdk.jshell.execution.Util;
+package Users;
 
-import java.time.LocalDateTime;
+import Geral.GPS;
+import Stock.EncomendaRealizada;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 
-public class Transportadora extends Utilizador {
+public class Transportadora extends User {
 
+    private String nome;
+    private GPS gps;
     private String nif;
     private double raio;
     private double precoPorKM;
@@ -38,7 +42,9 @@ public class Transportadora extends Utilizador {
      * Construtor com passagem de argumentos
      */
     public Transportadora(String cE, String nE, GPS l, String password, String n, double r, double ppk, double ct, boolean d, int em, List<EncomendaRealizada> reg, double cf, int qtd) {
-        super(cE, nE, password, l);
+        super(cE, password);
+        this.nome = nE;
+        this.gps = l;
         this.nif = n;
         this.raio = r;
         this.precoPorKM = ppk;
@@ -55,6 +61,8 @@ public class Transportadora extends Utilizador {
      */
     public Transportadora(Transportadora t) {
         super(t);
+        this.nome = t.getNome();
+        this.gps = t.getGPS();
         this.nif = t.getNIF();
         this.raio = t.getRaio();
         this.precoPorKM = t.getPPK();
@@ -68,11 +76,24 @@ public class Transportadora extends Utilizador {
 
     //Getters
 
+
+    public void setCodigo(String code){
+        super.setCode(code);
+    }
     /**
      *   Getter do NIF da Empresa
      */
     public String getNIF() {
         return nif;
+    }
+
+
+    public String getNome(){
+        return this.nome;
+    }
+
+    public GPS getGPS(){
+        return this.gps.clone();
     }
 
     /**
@@ -124,6 +145,14 @@ public class Transportadora extends Utilizador {
         return encomendas_maximas;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setGps(GPS gps) {
+        this.gps = gps.clone();
+    }
+
     /**
      *   Setter do número máximo de encomendas que a Empresa suporta
      */
@@ -170,7 +199,7 @@ public class Transportadora extends Utilizador {
     }
 
     /**
-     * Método que devolve a classificação de uma Empresa Transportadora.
+     * Método que devolve a classificação de uma Empresa Users.Transportadora.
      * @return Classifcação.
      */
     public double getClassificação() {
@@ -178,7 +207,7 @@ public class Transportadora extends Utilizador {
     }
 
     /**
-     * Método que define a classificação de uma Empresa Transportadora.
+     * Método que define a classificação de uma Empresa Users.Transportadora.
      * @param classificação que é a classificação.
      */
     public void setClassificação(double classificação) {
@@ -186,7 +215,7 @@ public class Transportadora extends Utilizador {
     }
 
     /**
-     * Método que devolve o total de entregas realizadas por uma Empresa Transportadora.
+     * Método que devolve o total de entregas realizadas por uma Empresa Users.Transportadora.
      * @return Total de entregas.
      */
     public int getTotal_entregas() {
@@ -194,7 +223,7 @@ public class Transportadora extends Utilizador {
     }
 
     /**
-     * Método que define o total de vendas realizadas por uma Empresa Transportadora.
+     * Método que define o total de vendas realizadas por uma Empresa Users.Transportadora.
      * @param total_entregas que é o número total de entregas.
      */
     public void setTotal_entregas(int total_entregas) {
@@ -204,7 +233,7 @@ public class Transportadora extends Utilizador {
     //Equals, toString , clone
 
     /**
-     *   Cloner da Transportadora
+     *   Cloner da Users.Transportadora
      */
     public Transportadora clone() {
         return new Transportadora(this);
@@ -217,10 +246,10 @@ public class Transportadora extends Utilizador {
         if (obj == this) return true;
         if (obj == null || obj.getClass() != this.getClass()) return false;
         Transportadora t = (Transportadora) obj;
-        return (this.getCodigo().equals(t.getCodigo())
+        return (this.getCode().equals(t.getCode())
                 && this.getNome().equals(t.getNome())
                 && this.nif.equals(t.getNIF())
-                && this.getGps().equals(t.getGps())
+                && this.getGPS().equals(t.getGPS())
                 && this.precoPorKM == t.getPPK()
                 && this.raio == t.getRaio()
                 && this.custo_transporte == t.getCT()
@@ -232,12 +261,12 @@ public class Transportadora extends Utilizador {
     }
 
     /**
-     *   Conversor para String das informações da Transportadora
+     *   Conversor para String das informações da Users.Transportadora
      */
     public String toStringShow() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\nEmpresa: ").append(this.getNome()).append("\nCódigo: ").append(this.getCodigo()).append("\nNIF: ").append(this.nif);
-        sb.append("\nLocalização: ").append(this.getGps());
+        sb.append("\nEmpresa: ").append(this.getNome()).append("\nCódigo: ").append(this.getCode()).append("\nNIF: ").append(this.nif);
+        sb.append("\nLocalização: ").append(this.getGPS());
         sb.append("\nRaio de transporte: ").append(this.raio);
         sb.append("\nCustos:\n");
         sb.append("\nCusto do transporte: ").append(this.custo_transporte);
@@ -247,6 +276,6 @@ public class Transportadora extends Utilizador {
     }
 
     public String toString(){
-        return "Transportadora:"+this.getCodigo()+","+this.getNome()+","+this.getGps().toString()+","+this.getNIF()+","+this.getRaio()+","+this.getPPK();
+        return "Transportadora:"+this.getCode()+","+this.getNome()+","+this.getGPS().toString()+","+this.getNIF()+","+this.getRaio()+","+this.getPPK();
     }
 }

@@ -1,10 +1,24 @@
 package Controladores;
 
-import Interfaces.Controller;
-import Views.View;
+import Modelos.TrazAquiModel;
+import Views.TrazAquiView;
 
-public class MainController{
-    private View view;
-    private Controller control;
+public class MainController implements TrazAquiController{
+    private TrazAquiView view;
+    private TrazAquiController control;
 
+    @Override
+    public void setModel(TrazAquiModel m) {
+
+    }
+
+    @Override
+    public void setView(TrazAquiView v) {
+
+    }
+
+    @Override
+    public void start() {
+
+    }
 }

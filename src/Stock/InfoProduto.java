@@ -1,3 +1,5 @@
+package Stock;
+
 public class InfoProduto {
     private String nome;
     private double preco;
@@ -62,7 +64,7 @@ public class InfoProduto {
     }
 
     /**
-     * Método que copia uma classe InfoProduto
+     * Método que copia uma classe Stock.InfoProduto
      * @return Cópia.
      */
     public InfoProduto clone(){

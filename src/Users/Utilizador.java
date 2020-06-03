@@ -1,10 +1,13 @@
+package Users;
+
+import Geral.GPS;
 import Interfaces.Login;
 
 import java.util.Objects;
 
 public class Utilizador extends User implements Login {
 
-    GPS gps; // GPS guardar par de coordenadas latitude,longitude;
+    GPS gps; // Geral.GPS guardar par de coordenadas latitude,longitude;
     private String nome;
 
 
@@ -20,7 +23,7 @@ public class Utilizador extends User implements Login {
     /**
      * Construtor por cópia.
      *
-     * @param u Utilizador.
+     * @param u Users.Utilizador.
      */
     public Utilizador(Utilizador u) {
         super(u);
@@ -31,10 +34,10 @@ public class Utilizador extends User implements Login {
     /**
      * Construtor por parâmetros.
      *
-     * @param codigo   Código de Utilizador.
-     * @param nome     Nome do Utilizador.
-     * @param password Password do Utilizador.
-     * @param gps      Localização do Utilizador.
+     * @param codigo   Código de Users.Utilizador.
+     * @param nome     Nome do Users.Utilizador.
+     * @param password Password do Users.Utilizador.
+     * @param gps      Localização do Users.Utilizador.
      */
     public Utilizador(String codigo, String nome, String password, GPS gps) {
         super(codigo,password);
@@ -43,25 +46,25 @@ public class Utilizador extends User implements Login {
     }
 
     /**
-     * Obtém a password do Utilizador
+     * Obtém a password do Users.Utilizador
      *
      * @return String
      */
     public String getPassword() {
-        return super.getPass();
+        return super.getPassword();
     }
 
     /**
-     * Definir a password do Utilizador
+     * Definir a password do Users.Utilizador
      *
-     * @param password Password do Utilizador
+     * @param password Password do Users.Utilizador
      */
     public void setPassword(String password) {
-        super.setPass(password);
+        super.setPassword(password);
     }
 
     /**
-     * Obtém o código do Utilizador
+     * Obtém o código do Users.Utilizador
      *
      * @return String
      */
@@ -70,16 +73,16 @@ public class Utilizador extends User implements Login {
     }
 
     /**
-     * Definir o Código do Utilizador
+     * Definir o Código do Users.Utilizador
      *
-     * @param codigo Código do Utilizador
+     * @param codigo Código do Users.Utilizador
      */
     public void setCodigo(String codigo) {
         super.setCode(codigo);
     }
 
     /**
-     * Obtém o nome do Utilizador
+     * Obtém o nome do Users.Utilizador
      *
      * @return String
      */
@@ -88,45 +91,45 @@ public class Utilizador extends User implements Login {
     }
 
     /**
-     * Definir o Nome do Utilizador
+     * Definir o Nome do Users.Utilizador
      *
-     * @param nome Nome do Utilizador
+     * @param nome Nome do Users.Utilizador
      */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
     /**
-     * Obtém o GPS do Utilizador
+     * Obtém o Geral.GPS do Users.Utilizador
      *
-     * @return GPS
+     * @return Geral.GPS
      */
     public GPS getGps() {
         return this.gps;
     }
 
     /**
-     * Definir o GPS do Utilizador
+     * Definir o Geral.GPS do Users.Utilizador
      *
-     * @param g GPS do Utilizador
+     * @param g Geral.GPS do Users.Utilizador
      */
     public void setGps(GPS g) {
         this.gps = g;
     }
 
     /**
-     * Método que verifica se o login de um Utilizador é correto
+     * Método que verifica se o login de um Users.Utilizador é correto
      * @param code que é o código inserido pelo utilizador.
      * @param pass que é a password inserida pelo utilizador.
      * @return Validação dos dados inseridos.
      */
     @Override
     public boolean checkLogin(String code, String pass) {
-        return (super.getCode().compareTo(code) == 0 && super.getPass().compareTo(pass) == 0);
+        return (super.getCode().compareTo(code) == 0 && super.getPassword().compareTo(pass) == 0);
     }
 
     /**
-     * Converte um Utilizador numa String
+     * Converte um Users.Utilizador numa String
      *
      * @return String
      */
@@ -145,9 +148,9 @@ public class Utilizador extends User implements Login {
                 "\n}";
     }
     /**
-     * Cria uma cópia do Utilizador
+     * Cria uma cópia do Users.Utilizador
      *
-     * @return Utilizador
+     * @return Users.Utilizador
      */
     public Utilizador clone() {
         return new Utilizador(this);

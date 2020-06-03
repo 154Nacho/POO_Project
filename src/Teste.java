@@ -1,12 +1,14 @@
-import jdk.jshell.execution.Util;
+import Geral.GPS;
+import Modelos.TrazAqui;
+import Readers.Parser;
+import Users.User;
+import Users.Utilizador;
+import Users.Voluntario;
 
 import java.util.Scanner;
 
 public class Teste {
     public static void main(String[] args) {
-        GPS a = new GPS(51.5, 0);
-        GPS b = new GPS(38.8, -77.1);
-        System.out.println(a.distanceTo(b));
         TrazAqui trazAqui = new TrazAqui();
         //sout
         Scanner sc = new Scanner(System.in);
@@ -19,7 +21,7 @@ public class Teste {
         label:
         while (true) {
             System.out.println("1 - Registar um user");
-            System.out.println("2 - Interfaces.Login");
+            System.out.println("2 - Login");
             System.out.println("3 - Guardar");
             System.out.println("4 - Ver informações");
             System.out.println("0 - exit");
@@ -69,9 +71,9 @@ public class Teste {
                     System.out.print("Password: ");
                     password = sc.nextLine();
                     if (trazAqui.checkLoggin(username, password)) {
-                        Utilizador u = trazAqui.getUtilizador(username);
+                        User u = trazAqui.getUser(username);
                         trazAqui.setLogged(true, u);
-                        System.out.println("Interfaces.Login efetuado com sucesso");
+                        System.out.println("Login efetuado com sucesso");
                     }
                     else System.out.println("Username ou Palavra passe errada");
                     break;

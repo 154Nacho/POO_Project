@@ -1,4 +1,8 @@
-import javax.print.DocFlavor;
+package Users;
+
+import Geral.GPS;
+import Stock.EncomendaRealizada;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -55,10 +59,12 @@ public class Voluntario extends User {
      * @param gps            Localização do Voluntário
      * @param raio           Raio de entrega do Voluntário
      */
-    public Voluntario(String codVoluntario, String nomeVoluntario, String password, boolean state,GPS gps, double raio) {
+    public Voluntario(String codVoluntario, String nomeVoluntario, String password, boolean state, GPS gps, double raio) {
         super(codVoluntario,password);
         this.raio = raio;
         this.acceptmedical = state;
+        this.enc_done = new ArrayList<>();
+        this.gps = gps;
     }
     /**
      * Construtor por parâmetros
@@ -69,9 +75,11 @@ public class Voluntario extends User {
      * @param gps            Localização do Voluntário
      * @param raio           Raio de entrega do Voluntário
      */
-    public Voluntario(String codVoluntario, String nomeVoluntario, String password,GPS gps, double raio) {
+    public Voluntario(String codVoluntario, String nomeVoluntario, String password, GPS gps, double raio) {
         super(codVoluntario,password);
         this.raio = raio;
+        this.gps = gps;
+        this.enc_done = new ArrayList<>();
         this.acceptmedical = false;
     }
 
@@ -84,11 +92,11 @@ public class Voluntario extends User {
     }
 
     public String getPassword(){
-        return super.getPass();
+        return super.getPassword();
     }
 
     public void setPassword(String pass){
-        super.setPass(pass);
+        super.setPassword(pass);
     }
 
     public boolean aceitoTransporteMedicamentos() {
@@ -196,7 +204,7 @@ public class Voluntario extends User {
     }
 
     public void setGps(GPS gps) {
-        this.gps = gps;
+        this.gps = gps.clone();
     }
 
     /**
@@ -246,14 +254,19 @@ public class Voluntario extends User {
      * @param o Objeto
      * @return boolean
      */
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Voluntario v = (Voluntario) o;
-        return Double.compare(v.getRaio(), getRaio()) == 0 &&
-                Objects.equals(super.getCode(), v.getCodigo()) &&
-                Objects.equals(getNome(), v.getNome()) &&
-                Objects.equals(getGps(), v.getGps()) &&
-                Objects.equals(super.getPass(), v.getPassword());
+        Voluntario that = (Voluntario) o;
+        return Double.compare(that.getRaio(), getRaio()) == 0 &&
+                acceptmedical == that.acceptmedical &&
+                isDisponivel() == that.isDisponivel() &&
+                Double.compare(that.getClassificação(), getClassificação()) == 0 &&
+                getTotal_entregas() == that.getTotal_entregas() &&
+                getNome().equals(that.getNome()) &&
+                getGps().equals(that.getGps()) &&
+                Objects.equals(enc_done, that.enc_done);
     }
+
 }

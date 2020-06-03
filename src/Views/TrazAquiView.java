@@ -1,6 +1,6 @@
 package Views;
 
-public interface View {
+public interface TrazAquiView {
 
     void show();
 

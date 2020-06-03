@@ -7,8 +7,8 @@
     <node x="893.0" y="882.0">LinhaEncomenda</node>
     <node x="1291.0" y="431.0">Voluntario</node>
     <node x="341.0" y="882.0">Encomenda</node>
-    <node x="704.0" y="0.0">Utilizador</node>
     <node x="1320.0" y="882.0">GPS</node>
+    <node x="704.0" y="0.0">Utilizador</node>
     <node x="665.0" y="1441.0">Teste</node>
     <node x="403.0" y="1441.0">EncomendasAceites</node>
     <node x="0.0" y="455.0">Loja</node>
@@ -17,12 +17,6 @@
   </nodes>
   <notes />
   <edges>
-    <edge source="Voluntario" target="Utilizador">
-      <point x="0.0" y="-161.0" />
-      <point x="1505.0" y="322.0" />
-      <point x="956.5" y="322.0" />
-      <point x="101.0" y="148.5" />
-    </edge>
     <edge source="Transportadora" target="Utilizador">
       <point x="0.0" y="-245.0" />
       <point x="0.0" y="148.5" />
@@ -34,7 +28,7 @@
       <point x="-101.0" y="148.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.5203836930455635" x="867.5" y="824.0" />
+  <settings layout="Hierarchic Group" zoom="0.2711864406779661" x="875.0" y="832.5" />
   <SelectedNodes>
     <node>TrazAqui</node>
   </SelectedNodes>

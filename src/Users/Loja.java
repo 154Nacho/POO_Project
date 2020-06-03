@@ -1,3 +1,9 @@
+package Users;
+
+import Geral.GPS;
+import Stock.Encomenda;
+import Stock.InfoProduto;
+import Stock.LinhaEncomenda;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +36,7 @@ public class Loja extends Utilizador {
     /**
      *   Construtor com passagem de argumentos
      */
-    public Loja(String cL, String nL,String password, GPS l, int qt, List<Encomenda> ec, boolean informa, double t, boolean tem_encomendas, Map<String,InfoProduto> ps){
+    public Loja(String cL, String nL, String password, GPS l, int qt, List<Encomenda> ec, boolean informa, double t, boolean tem_encomendas, Map<String, InfoProduto> ps){
         super(cL,nL,password,l);
         this.qtd_pessoas_fila = qt;
         setEncomendas(ec);
@@ -55,13 +61,13 @@ public class Loja extends Utilizador {
     //Getters
 
     /**
-     *   Getter da quantidade de pessoas na fila da Loja
+     *   Getter da quantidade de pessoas na fila da Users.Loja
      */
     public int getQtd_pessoas_fila() {
         return qtd_pessoas_fila;
     }
     /**
-     *   Getter das encomendas já realizadas pela Loja
+     *   Getter das encomendas já realizadas pela Users.Loja
      */
     public List<Encomenda> getEncomendas(){
         return this.encomendas.stream().map(Encomenda::clone).collect(Collectors.toList());
@@ -94,13 +100,13 @@ public class Loja extends Utilizador {
     //Setters
 
     /**
-     *   setter da quantidade de pessoas na fila da Loja
+     *   setter da quantidade de pessoas na fila da Users.Loja
      */
     public void setQtd_pessoas_fila(int qtd) {
         this.qtd_pessoas_fila = qtd;
     }
     /**
-     *   Setter das encomendas já realizadas pela Loja
+     *   Setter das encomendas já realizadas pela Users.Loja
      */
     public void setEncomendas(List<Encomenda> e){
         this.encomendas = new ArrayList<>();
@@ -184,14 +190,14 @@ public class Loja extends Utilizador {
     //Clone, toString, equals
 
     /**
-     *   Cloner da Loja
+     *   Cloner da Users.Loja
      */
     public Loja clone(){
         return new Loja(this);
     }
 
     /**
-     *   Conversor para String das informações da Loja
+     *   Conversor para String das informações da Users.Loja
      */
     public String toStringShow(){
         StringBuilder sb = new StringBuilder();

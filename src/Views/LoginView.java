@@ -1,6 +1,6 @@
 package Views;
 
-public class LoginView implements View {
+public class LoginView implements TrazAquiView {
     @Override
     public void show() {
     }

@@ -1,3 +1,5 @@
+package Stock;
+
 public class LinhaEncomenda {
 
     // Variáveis de instância

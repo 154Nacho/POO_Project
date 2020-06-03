@@ -1,3 +1,5 @@
+package Stock;
+
 public class EncomendaRealizada {
 
     private String code_enc;
@@ -126,8 +128,8 @@ public class EncomendaRealizada {
     }
 
     /**
-     * Método que copia uma EncomendaRealizada.
-     * @return Cópia da EncomendaRealizada.
+     * Método que copia uma Stock.EncomendaRealizada.
+     * @return Cópia da Stock.EncomendaRealizada.
      */
     public EncomendaRealizada clone(){
         return new EncomendaRealizada(this);

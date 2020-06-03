@@ -1,4 +1,9 @@
-import jdk.jshell.execution.Util;
+package Modelos;
+
+import Stock.Encomenda;
+import Users.User;
+import Users.Utilizador;
+import Users.Voluntario;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,24 +11,24 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 
-public class TrazAqui {
+public class TrazAqui implements TrazAquiModel{
     boolean logged;
-    private Map<String, Utilizador> utilizadores; //Map de utilizadores, voluntários, lojas e transportadoras
+    private Map<String, User> users; //Map de users, voluntários, lojas e transportadoras
     private List<Encomenda> encomendas;
-    private Utilizador user;
+    private User user;
 
     /**
      * Construtor padrão
      */
     public TrazAqui() {
-        this.utilizadores = new TreeMap<>();
+        this.users = new TreeMap<>();
         this.encomendas = new ArrayList<>();
         this.logged = false;
         this.user = null;
     }
 
-    public Utilizador getUtilizador(String codigo){
-        return this.utilizadores.get(codigo).clone();
+    public User getUser(String codigo){
+        return this.users.get(codigo).clone();
     }
 
     /**
@@ -42,49 +47,49 @@ public class TrazAqui {
      * @return String
      */
     public String getUserInformation(){
-        return this.user.toStringShow();
+        return this.user.toString();
 //        switch (this.user.getClass().getName()) {
-//            case "Utilizador":
+//            case "Users.Utilizador":
 //                return this.user.toStringShow();
-//            case "Voluntario":
-//                Voluntario v = (Voluntario) this.user;
+//            case "Users.Voluntario":
+//                Users.Voluntario v = (Users.Voluntario) this.user;
 //                return v.toStringShow();
-//            case "Transportadora":
-//                Transportadora t = (Transportadora) this.user;
+//            case "Users.Transportadora":
+//                Users.Transportadora t = (Users.Transportadora) this.user;
 //                return t.toStringShow();
 //            default:
-//                Loja l = (Loja) this.user;
+//                Users.Loja l = (Users.Loja) this.user;
 //                return l.toStringShow();
 //        }
     }
 
     /**
-     * Adiciona um Utilizador
+     * Adiciona um Users.Utilizador
      *
-     * @param u Utilizador
+     * @param u Users.Utilizador
      */
-    public void addUtilizador(Utilizador u) {
-        utilizadores.put(u.getCodigo(), u);
+    public void addUtilizador(User u) {
+        users.put(u.getCode(), u);
     }
 
     /**
      * Verifica se existe user válido
      *
-     * @param username Username inserido pelo Utilizador
-     * @param password Password inserida pelo Utilizador
+     * @param username Username inserido pelo Users.Utilizador
+     * @param password Password inserida pelo Users.Utilizador
      * @return boolean
      */
     public boolean checkLoggin(String username, String password) {
-        Utilizador u = this.utilizadores.get(username);
+        User u = this.users.get(username);
         if (u == null) return false;
         else if (u.getPassword().equals(password)) {
-            this.user = this.utilizadores.get(username).clone();
+            this.user = this.users.get(username).clone();
             return true;
         } else return false;
     }
 
     public boolean checkUser(String codUser){
-        Utilizador u = this.utilizadores.get(codUser);
+        User u = this.users.get(codUser);
         return u != null;
     }
 
@@ -112,25 +117,25 @@ public class TrazAqui {
      *
      * @param logged Logged number
      */
-    public void setLogged(boolean logged, Utilizador u) {
+    public void setLogged(boolean logged, User u) {
         this.logged = logged;
         this.user = u;
     }
 
-    public List<Utilizador> getUtilizadores() {
-        return this.utilizadores.values().stream()
-                .map(Utilizador::clone)
+    public List<User> getusers() {
+        return this.users.values().stream()
+                .map(User::clone)
                 .collect(Collectors.toList());
     }
 
     /**
-     * Obtém a lista de Utilizadores
+     * Obtém a lista de users
      *
      * @return List
      */
-    public List<Utilizador> getListaUtilizadores() {
-        return this.utilizadores.values().stream().filter(a -> a.getClass().getName().equals("Utilizador"))
-                .map(Utilizador::clone).collect(Collectors.toList());
+    public List<User> getListaUsers() {
+        return this.users.values().stream().filter(a -> a.getClass().getName().equals("Users.Utilizador"))
+                .map(User::clone).collect(Collectors.toList());
     }
 
     /**
@@ -139,15 +144,15 @@ public class TrazAqui {
      * @return List
      */
     public List<Voluntario> getListaVoluntarios() {
-        return this.utilizadores.values().stream().filter(a -> a.getClass().getName().equals("Voluntario"))
+        return this.users.values().stream().filter(a -> a.getClass().getName().equals("Users.Voluntario"))
                 .map(a -> (Voluntario) a.clone()).collect(Collectors.toList());
     }
 
     /**
-     * Imprime a lista de Utilizadores
+     * Imprime a lista de users
      */
-    public void imprimeUtilizadores() {
-        for (Utilizador u : this.getListaUtilizadores())
+    public void imprimeusers() {
+        for (User u : this.getListaUsers())
             System.out.println(u.toString());
     }
 
@@ -162,6 +167,11 @@ public class TrazAqui {
 
     //passwords
     public void setPassword(String codUser, String pw){
-        this.utilizadores.get(codUser).setPassword(pw);
+        this.users.get(codUser).setPassword(pw);
+    }
+
+    @Override
+    public void loadDefault() {
+
     }
 }

@@ -1,3 +1,5 @@
+package Stock;
+
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -89,7 +91,7 @@ public class Encomenda {
     // toString
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Encomenda:").append(this.codEncomenda).append(",").append(this.codUtilizador).append(",").append(this.codLoja).append(",").append(this.peso);
+        sb.append("Stock.Encomenda:").append(this.codEncomenda).append(",").append(this.codUtilizador).append(",").append(this.codLoja).append(",").append(this.peso);
         for(LinhaEncomenda l : this.produtos)
             sb.append(",").append(l.toString());
         return sb.toString();

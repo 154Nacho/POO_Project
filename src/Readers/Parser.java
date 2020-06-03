@@ -1,3 +1,12 @@
+package Readers;
+
+import Geral.GPS;
+import Modelos.TrazAqui;
+import Modelos.TrazAquiModel;
+import Stock.Encomenda;
+import Stock.LinhaEncomenda;
+import Users.*;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -6,19 +15,18 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 public class Parser {
     //Ler
-    public void parse(TrazAqui trazAqui) {
+    public static void parse(TrazAquiModel traz) {
+        TrazAqui trazAqui = (TrazAqui) traz;
         List<String> linhas = lerFicheiro("src/Resources/newlogs.txt");
         String[] linhaPartida;
         for (String linha : linhas) {
             linhaPartida = linha.split(":", 2);
             switch (linhaPartida[0]) {
                 case "Utilizador":
-                    Utilizador u = parseUtilizador(linhaPartida[1]); // criar um Utilizador
+                    Utilizador u = parseUtilizador(linhaPartida[1]); // criar um Users.Utilizador
 //                    System.out.println(u.toString()); //enviar para o ecrÃ¡n apenas para teste
                     trazAqui.addUtilizador(u);
                     break;
@@ -58,7 +66,7 @@ public class Parser {
     }
 
 
-    public Utilizador parseUtilizador(String input) {
+    private static Utilizador parseUtilizador(String input) {
         String[] campos = input.split(",");
         String codUtilizador = campos[0];
         String nome = campos[1];
@@ -67,7 +75,7 @@ public class Parser {
         return new Utilizador(codUtilizador, nome, "", new GPS(gpsx, gpsy));
     }
 
-    public Voluntario parseVoluntario(String input) {
+    public static Voluntario parseVoluntario(String input) {
         String[] campos = input.split(",");
         String codVoluntario = campos[0];
         String nome = campos[1];
@@ -77,7 +85,7 @@ public class Parser {
         return new Voluntario(codVoluntario, nome, "", new GPS(gpsx, gpsy), raio);
     }
 
-    public Loja parseLoja(String input) {
+    public static Loja parseLoja(String input) {
         String[] campos = input.split(",");
         String codLoja = campos[0];
         String nomeLoja = campos[1];
@@ -90,7 +98,7 @@ public class Parser {
         return l;
     }
 
-    public Transportadora parseTransportadora(String input) {
+    public static Transportadora parseTransportadora(String input) {
         String[] campos = input.split(",");
         String codEmpresa = campos[0];
         String nomeEmpresa = campos[1];
@@ -109,7 +117,7 @@ public class Parser {
         return t;
     }
 
-    public Encomenda parseEncomenda(String input){
+    public static Encomenda parseEncomenda(String input){
         String[] campos = input.split(",");
         String codEncomenda = campos[0];
         String codUtilizador = campos[1];
@@ -129,7 +137,7 @@ public class Parser {
         return new Encomenda(codEncomenda,codUtilizador,codLoja,peso,encomendas);
     }
 
-    public List<String> lerFicheiro(String nomeFich) {
+    public static List<String> lerFicheiro(String nomeFich) {
         List<String> lines = new ArrayList<>();
         try {
             lines = Files.readAllLines(Paths.get(nomeFich), StandardCharsets.UTF_8);
@@ -145,11 +153,11 @@ public class Parser {
             BufferedWriter bw = new BufferedWriter(new FileWriter("src/Resources/newlogs.txt"));
             BufferedWriter pw = new BufferedWriter(new FileWriter("src/Resources/pw.txt"));
 
-            List<Utilizador> u = trazAqui.getUtilizadores();
+            List<User> u = trazAqui.getListaUsers();
             List<Encomenda> es = trazAqui.getEncomendas();
-            for (Utilizador utilizador : u) {
-                bw.write(utilizador.toString() + '\n');
-                pw.write(utilizador.getCodigo()+":"+utilizador.getPassword()+'\n');
+            for (User user : u) {
+                bw.write(user.toString() + '\n');
+                pw.write(user.getCode()+":"+user.getPassword()+'\n');
             }
             for(Encomenda encomenda : es)
                 bw.write(encomenda.toString()+'\n');

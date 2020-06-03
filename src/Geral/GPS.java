@@ -1,4 +1,4 @@
-import java.util.Objects;
+package Geral;
 
 public class GPS {
     private double latitude;
@@ -54,8 +54,8 @@ public class GPS {
     }
 
     /**
-     *   Distância entre 2 localizações GPS
-     * @param that 2º ponto GPS
+     *   Distância entre 2 localizações Geral.GPS
+     * @param that 2º ponto Geral.GPS
      * @return Distância
      */
     public double distanceTo(GPS that){
