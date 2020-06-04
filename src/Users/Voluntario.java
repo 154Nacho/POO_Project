@@ -3,6 +3,7 @@ package Users;
 import Geral.GPS;
 import Stock.EncomendaRealizada;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -59,29 +60,16 @@ public class Voluntario extends User {
      * @param gps            Localização do Voluntário
      * @param raio           Raio de entrega do Voluntário
      */
-    public Voluntario(String codVoluntario, String nomeVoluntario, String password, boolean state, GPS gps, double raio) {
+    public Voluntario(String codVoluntario, String nomeVoluntario, String password, GPS gps,boolean medical, double raio) {
         super(codVoluntario,password);
         this.raio = raio;
-        this.acceptmedical = state;
+        this.acceptmedical = medical;
+        this.nome = nomeVoluntario;
         this.enc_done = new ArrayList<>();
         this.gps = gps;
+        this.disponivel = true;
     }
-    /**
-     * Construtor por parâmetros
-     *
-     * @param codVoluntario  Código de Voluntário
-     * @param nomeVoluntario Nome do Voluntário
-     * @param password       Password do Voluntário
-     * @param gps            Localização do Voluntário
-     * @param raio           Raio de entrega do Voluntário
-     */
-    public Voluntario(String codVoluntario, String nomeVoluntario, String password, GPS gps, double raio) {
-        super(codVoluntario,password);
-        this.raio = raio;
-        this.gps = gps;
-        this.enc_done = new ArrayList<>();
-        this.acceptmedical = false;
-    }
+
 
     public String getCodigo(){
         return super.getCode();
@@ -215,7 +203,7 @@ public class Voluntario extends User {
      * @param te que é o tempo que demorou a realizar a entregar.
      */
     public void addEncomendaRealizada(String c_enc, String c_util, String loja, double te){
-        EncomendaRealizada nova = new EncomendaRealizada(c_enc,c_util,loja,te,0);
+        EncomendaRealizada nova = new EncomendaRealizada(c_enc,c_util,loja,te,0,0, LocalDateTime.now());
         this.enc_done.add(nova);
     }
 

@@ -16,7 +16,6 @@ public class Transportadora extends User {
     private String nif;
     private double raio;
     private double precoPorKM;
-    private double custo_transporte;
     private boolean disponivel;
     private int encomendas_maximas;
     private List<EncomendaRealizada> register;
@@ -31,7 +30,6 @@ public class Transportadora extends User {
         this.nif = new String();
         this.raio = 0;
         this.precoPorKM = 0;
-        this.custo_transporte = 0;
         this.disponivel = true;
         this.encomendas_maximas = 0;
         this.register = new ArrayList<>();
@@ -42,19 +40,18 @@ public class Transportadora extends User {
     /**
      * Construtor com passagem de argumentos
      */
-    public Transportadora(String cE, String nE, GPS l, String password, String n, double r, double ppk, double ct, boolean d, int em, List<EncomendaRealizada> reg, double cf, int qtd) {
+    public Transportadora(String cE, String nE,String password, GPS l, String n, double r, double ppk, int em) {
         super(cE, password);
         this.nome = nE;
         this.gps = l;
         this.nif = n;
         this.raio = r;
         this.precoPorKM = ppk;
-        this.custo_transporte = ct;
-        this.disponivel = d;
+        this.disponivel = true;
         this.encomendas_maximas = em;
-        setRegisto(reg);
-        this.classificação = cf;
-        this.total_entregas = qtd;
+        this.register = new ArrayList<>();
+        this.classificação = 0;
+        this.total_entregas = 0;
     }
 
     /**
@@ -67,7 +64,6 @@ public class Transportadora extends User {
         this.nif = t.getNIF();
         this.raio = t.getRaio();
         this.precoPorKM = t.getPPK();
-        this.custo_transporte = t.getCT();
         this.disponivel = t.getDisponibilidade();
         this.encomendas_maximas = t.getNMaximo();
         this.register = t.getRegisto();
@@ -123,20 +119,6 @@ public class Transportadora extends User {
      */
     public void setPPK(double precoPorKM) {
         this.precoPorKM = precoPorKM;
-    }
-
-    /**
-     *   Getter do custo de transporte da Empresa
-     */
-    public double getCT() {
-        return custo_transporte;
-    }
-
-    /**
-     *   Setter do custo de transporte da Empresa
-     */
-    public void setCT(double custo_transporte) {
-        this.custo_transporte = custo_transporte;
     }
 
     /**
@@ -242,11 +224,6 @@ public class Transportadora extends User {
         return aux;
     }
 
-    public void calculaCustoTransporte(GPS loja, double peso){
-        this.custo_transporte = this.gps.distanceTo(loja)*this.precoPorKM + peso*0.05;
-    }
-
-
     //Equals, toString , clone
 
     /**
@@ -269,7 +246,6 @@ public class Transportadora extends User {
                 && this.getGPS().equals(t.getGPS())
                 && this.precoPorKM == t.getPPK()
                 && this.raio == t.getRaio()
-                && this.custo_transporte == t.getCT()
                 && this.encomendas_maximas == t.getNMaximo()
                 && this.disponivel == t.getDisponibilidade()
                 && this.register.equals(t.getRegisto())
@@ -286,7 +262,6 @@ public class Transportadora extends User {
         sb.append("\nLocalização: ").append(this.getGPS());
         sb.append("\nRaio de transporte: ").append(this.raio);
         sb.append("\nCustos:\n");
-        sb.append("\nCusto do transporte: ").append(this.custo_transporte);
         sb.append("\nTaxa de transporte: ").append(this.precoPorKM);
         sb.append("\nEncomendas realizadas:\n").append(this.register);
         return sb.toString();

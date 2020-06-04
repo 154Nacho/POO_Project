@@ -82,7 +82,7 @@ public class Parser {
         double gpsx = Double.parseDouble(campos[2]);
         double gpsy = Double.parseDouble(campos[3]);
         double raio = Double.parseDouble(campos[4]);
-        return new Voluntario(codVoluntario, nome, "", new GPS(gpsx, gpsy), raio);
+        return new Voluntario(codVoluntario, nome, "", new GPS(gpsx, gpsy),false, raio);
     }
 
     public static Loja parseLoja(String input) {

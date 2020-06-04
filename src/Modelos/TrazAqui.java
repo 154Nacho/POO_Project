@@ -1,19 +1,15 @@
 package Modelos;
 
+import Geral.GPS;
 import Stock.Encomenda;
-import Users.User;
-import Users.Utilizador;
-import Users.Voluntario;
+import Users.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class TrazAqui implements TrazAquiModel{
     boolean logged;
-    private Map<String, User> users; //Map de users, voluntários, lojas e transportadoras
+    private Map<String, User> users; //Map de utilizadores, voluntários, lojas e transportadoras
     private List<Encomenda> encomendas;
     private User user;
 
@@ -27,12 +23,20 @@ public class TrazAqui implements TrazAquiModel{
         this.user = null;
     }
 
+    public void interpreta(int num, Collection<Object> l){
+        List<Object> lista = new ArrayList<>(l);
+        switch (num){
+            case 1:
+                addUser(lista);
+        }
+    }
+
     public User getUser(String codigo){
         return this.users.get(codigo).clone();
     }
 
     /**
-     * Obtém uma String com todas as Encomendas
+     * Obtém uma String com todas as Encomendas.
      * @return String
      */
     public String getEncomendasInformation(){
@@ -43,7 +47,7 @@ public class TrazAqui implements TrazAquiModel{
     }
 
     /**
-     * Apresenta a informação de um user
+     * Apresenta a informação de um user.
      * @return String
      */
     public String getUserInformation(){
@@ -64,12 +68,29 @@ public class TrazAqui implements TrazAquiModel{
     }
 
     /**
-     * Adiciona um Users.Utilizador
+     * Adiciona um Utilizador
      *
-     * @param u Users.Utilizador
+     * @param u Utilizador
      */
     public void addUtilizador(User u) {
         users.put(u.getCode(), u);
+    }
+
+    public void addUser(List<Object> l){
+        switch(((String) l.get(0)).charAt(0)){
+            case 'u':
+                users.put((String) l .get(0),new Utilizador((String) l.get(0), (String) l.get(2),(String) l.get(1),new GPS((Double) l.get(3),(Double) l.get(4))));
+                break;
+            case 'v':
+                users.put((String) l .get(0),new Voluntario((String) l.get(0), (String) l.get(2),(String) l.get(1),new GPS((Double) l.get(3),(Double) l.get(4)),(Boolean) l.get(5), (Double) l.get(6)));
+                break;
+            case 't':
+                users.put((String) l .get(0),new Transportadora((String) l.get(0), (String) l.get(2),(String) l.get(1),new GPS((Double) l.get(3),(Double) l.get(4)),(String) l.get(5),(Double) l.get(6),(Double) l.get(7),(Integer) l.get(8)));
+                break;
+            case 'l':
+                users.put((String) l .get(0),new Loja((String) l.get(0), (String) l.get(2),(String) l.get(1),new GPS((Double) l.get(3),(Double) l.get(4)),(Boolean) l.get(5),(Double) l.get(6)));
+                break;
+        }
     }
 
     /**
@@ -105,7 +126,6 @@ public class TrazAqui implements TrazAquiModel{
     }
     /**
      * Obtém o logged number
-     *
      * @return int
      */
     public boolean getLogged() {
@@ -114,7 +134,6 @@ public class TrazAqui implements TrazAquiModel{
 
     /**
      * Define o logged number
-     *
      * @param logged Logged number
      */
     public void setLogged(boolean logged, User u) {
@@ -122,6 +141,10 @@ public class TrazAqui implements TrazAquiModel{
         this.user = u;
     }
 
+    /**
+     * Método que devolve uma lista de utilizadores.
+     * @return
+     */
     public List<User> getusers() {
         return this.users.values().stream()
                 .map(User::clone)

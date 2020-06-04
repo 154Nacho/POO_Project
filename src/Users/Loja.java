@@ -36,14 +36,14 @@ public class Loja extends Utilizador {
     /**
      *   Construtor com passagem de argumentos
      */
-    public Loja(String cL, String nL, String password, GPS l, int qt, List<Encomenda> ec, boolean informa, double t, boolean tem_encomendas, Map<String, InfoProduto> ps){
+    public Loja(String cL, String nL, String password, GPS l,boolean informa, double t){
         super(cL,nL,password,l);
-        this.qtd_pessoas_fila = qt;
-        setEncomendas(ec);
+        this.qtd_pessoas_fila = 0;
+        this.encomendas = new ArrayList<>();
         this.informa_sobre_loja = informa;
         this.tempo_médio_atendimento = t;
-        this.tem_encomendas = tem_encomendas;
-        setProdutos(ps);
+        this.tem_encomendas = false;
+        this.produtos = new TreeMap<>();
     }
 
     /**
