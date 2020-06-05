@@ -182,6 +182,10 @@ public class Utilizador extends User implements Login {
         a.stream().map(EncomendaRealizadaUtilizador::clone).forEach(v -> this.encomendas_realizadas.add(v));
     }
 
+    public void addEncomendaRealizada(Encomenda e, double te, String entregador){
+        this.encomendas_realizadas.add(new EncomendaRealizadaUtilizador(e.getCodEncomenda(),e.getCodUtilizador(),e.getCodLoja(),entregador,te,e.getDataEntrega()));
+    }
+
     /**
      * Converte um Utilizador numa String
      *

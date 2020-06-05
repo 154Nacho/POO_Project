@@ -206,6 +206,7 @@ public class Voluntario extends User {
     public void addEncomendaRealizada(String c_enc, String c_util, String loja, double te){
         EncomendaRealizadaVoluntario nova = new EncomendaRealizadaVoluntario(c_enc,c_util,loja,te,LocalDateTime.now());
         this.enc_done.add(nova);
+        this.total_entregas++;
     }
 
     /**

@@ -2,14 +2,13 @@ package Controladores;
 
 import Modelos.TrazAquiModel;
 import Readers.Input;
-import Stock.Encomenda;
 import Users.User;
+import Users.Voluntario;
 import Views.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 public class MainController implements TrazAquiController{
     private TrazAquiView view;
@@ -123,7 +122,7 @@ public class MainController implements TrazAquiController{
         Collection<Object> aux = model.interpreta(5,new ArrayList<>());
         if(aux.size()==0) view.show("Something's wrong");
         for(Object e : aux){
-            view.show((String) e + "\n");
+            view.show(e + "\n");
         }
         view.show("Press Enter to exit");
         if (Input.lerString().isEmpty()) return;
@@ -138,7 +137,7 @@ public class MainController implements TrazAquiController{
         aux.add(codLoja);
         Collection<Object> prods = model.interpreta(6,aux);
         for(Object e : prods)
-            view.show((String) e + "\n");
+            view.show(e + "\n");
 
 
     }
@@ -151,7 +150,7 @@ public class MainController implements TrazAquiController{
         }
         else {
             for (Object e : aux) {
-                view.show((String) e + "\n");
+                view.show(e + "\n");
             }
         }
     }
@@ -164,7 +163,7 @@ public class MainController implements TrazAquiController{
         }
         else {
             for (Object e : aux) {
-                view.show((String) e + "\n");
+                view.show(e + "\n");
             }
         }
     }
@@ -184,14 +183,18 @@ public class MainController implements TrazAquiController{
             opcao = opcao.toUpperCase();
             switch(opcao){
                 case "1":
+                    Voluntario v = (Voluntario) model.getLogged();
+                    if(!v.isDisponivel()) break;
+                    entregarEncomenda();
                     break;
                 case "2":
+                    consultarSistema();
                     break;
                 case "3":
+                    alterarDisponibilidade();
                     break;
                 case "4":
-                    break;
-                case "5":
+                    mostrarClassificacao();
                     break;
                 case "S":
                     this.view = new LoginView();
@@ -199,13 +202,54 @@ public class MainController implements TrazAquiController{
 
             }
 
-        }while(!(opcao.equals("S")));
+        } while (!(opcao.equals("S")));
     }
+
+    public void entregarEncomenda() {
+        List<Object> aux = new ArrayList<>();
+        String codEnc;
+        view.show("Indique o código de encomenda que pretende entregar:\n");
+        if((codEnc=Input.lerString()).isEmpty()) return;
+        aux.add(codEnc);
+        model.interpreta(8,aux);
+    }
+
+    public void consultarSistema() {
+        Collection<Object> aux = model.interpreta(7, new ArrayList<>());
+        view.show("Encomendas Disponiveis para Entrega\n");
+        if(aux.isEmpty()) view.show("-> Não existem encomendas disponiveis para poder entregar!\n");
+        for (Object e : aux) {
+            view.show(e + "\n");
+        }
+        view.show("Press Enter to exit\n");
+        if(Input.lerString().isEmpty()) return;
+    }
+
+    public void alterarDisponibilidade() {
+        List<Object> aux = new ArrayList<>();
+        view.show("Pretende mostrar-se disponivel (1) ou indisponível(0)?\n");
+        int opcao = Input.lerInt();
+        aux.add(opcao);
+        model.interpreta(9,aux);
+        view.show("Press Enter to exit\n");
+        if(Input.lerString().isEmpty()) return;
+    }
+
+    public void mostrarClassificacao() {
+        Collection<Object> aux= model.interpreta(10,new ArrayList<>());
+        double c = 0;
+        for (Object e : aux) c = (double) e;
+        view.show("A sua classificação é de " + c + " em 5\n");
+        view.show("Press Enter to exit\n");
+        if(Input.lerString().isEmpty()) return;
+    }
+
+
     /*----------------------------------------------------LOJA----------------------------------------------------*/
 
-    private void controladorAuxiliarLoja(){
+    private void controladorAuxiliarLoja() {
         String opcao = "";
-        do{
+        do {
             this.view = new LojaView();
             view.show();
             opcao = Input.lerString();

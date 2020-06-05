@@ -10,6 +10,6 @@ public class LojaView implements TrazAquiView {
 
     @Override
     public void show(Object o) {
-        System.out.println((String) o );
+        System.out.print((String) o );
     }
 }

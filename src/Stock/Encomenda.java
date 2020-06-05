@@ -21,6 +21,8 @@ public class Encomenda {
         this.codLoja = "";
         this.peso = 0;
         this.produtos = new ArrayList<>();
+        this.start = null;
+        this.end = null;
     }
 
     // Construtor parametrizado
@@ -31,6 +33,7 @@ public class Encomenda {
         this.peso = peso;
         setProdutos(produtos);
         this.start = LocalDateTime.now();
+        this.end = null;
     }
 
     // Construtor de cópia
@@ -40,6 +43,8 @@ public class Encomenda {
         this.codLoja = e.getCodLoja();
         this.peso = e.getPeso();
         this.produtos = e.getProdutos();
+        this.start = e.getDataEncomenda();
+        this.end = e.getDataEntrega();
     }
 
     // Sets e Gets
@@ -87,6 +92,22 @@ public class Encomenda {
         for(LinhaEncomenda l : produtos)
             this.produtos.add(l);
 
+    }
+
+    public LocalDateTime getDataEncomenda() {
+        return start;
+    }
+
+    public void setDataEncomenda(LocalDateTime start) {
+        this.start = start;
+    }
+
+    public LocalDateTime getDataEntrega() {
+        return end;
+    }
+
+    public void setDataEntrega(LocalDateTime end) {
+        this.end = end;
     }
 
     // toString

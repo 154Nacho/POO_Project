@@ -6,7 +6,11 @@ import Stock.EncomendaRealizadaUtilizador;
 import Stock.InfoProduto;
 import Stock.LinhaEncomenda;
 import Users.*;
+import com.sun.management.VMOption;
+import jdk.jshell.execution.Util;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -41,10 +45,20 @@ public class TrazAqui implements TrazAquiModel{
                 return lojasDoSistema();
             case 6:
                 return produtosDaLoja((String) lista.get(0));
+            case 7:
+                return encomendasDisponiveis();
+            case 8:
+                entregarEncomenda((String) lista.get(0));
+            case 9:
+                alterarDisponibilidade((Integer) lista.get(0));
+            case 10:
+                return classifcacaoVoluntario();
             default:
                 return null;
         }
     }
+
+    /*-------------------------------------------FUNCIONALIDADES UTILIZADOR-------------------------------------------*/
 
     public void novaEncomenda(String codL, String codP, int qtd){
         Loja l = (Loja) this.users.get(codL);
@@ -92,6 +106,48 @@ public class TrazAqui implements TrazAquiModel{
         return aux;
     }
 
+    /*----------------------------------------------------------------------------------------------------------------*/
+
+    /*-------------------------------------------FUNCIONALIDADES VOLUNTÁRIO-------------------------------------------*/
+
+    public List<Object> encomendasDisponiveis(){
+        Voluntario v = (Voluntario) this.logged_user;
+        List<Object> aux = new ArrayList<>();
+        for (Encomenda e : this.encomendas){
+            Utilizador u = (Utilizador) getUser(e.getCodUtilizador());
+            if(u.getGps().distanceTo(v.getGps()) <= v.getRaio())
+                aux.add(e.toString());
+        }
+        return aux;
+    }
+
+    public void entregarEncomenda(String codEnc){
+        Voluntario v = (Voluntario) this.logged_user;
+        for(Encomenda e : this.encomendas){
+            if (e.getCodEncomenda().compareTo(codEnc)==0){
+                e.setDataEntrega(LocalDateTime.now());
+                v.addEncomendaRealizada(codEnc,e.getCodUtilizador(),e.getCodLoja(), Duration.between(e.getDataEncomenda(),e.getDataEntrega()).toMinutes());
+                Utilizador u = (Utilizador) getUser(e.getCodUtilizador());
+                u.addEncomendaRealizada(e,Duration.between(e.getDataEncomenda(),e.getDataEntrega()).toMinutes(),v.getCodigo());
+                this.encomendas.remove(e);
+                return;
+            }
+        }
+    }
+
+    public void alterarDisponibilidade(int e){
+        Voluntario v = (Voluntario) this.logged_user;
+        v.setDisponivel(e==1);
+    }
+
+    public List<Object> classifcacaoVoluntario(){
+        Voluntario v = (Voluntario) this.logged_user;
+        List<Object> aux = new ArrayList<>();
+        aux.add(v.getClassificação());
+        return aux;
+    }
+
+    /*----------------------------------------------------------------------------------------------------------------*/
 
     /**
      * Método que adiciona uma encomenda à lista de encomendas em espera de um utilizador.
