@@ -1,6 +1,7 @@
 package Users;
 
 import Geral.GPS;
+import Stock.Encomenda;
 import Stock.EncomendaRealizadaTransportadora;
 
 import java.time.LocalDateTime;
@@ -19,6 +20,7 @@ public class Transportadora extends User {
     private boolean disponivel;
     private int encomendas_maximas;
     private List<EncomendaRealizadaTransportadora> register;
+    private List<Encomenda> on_hold;
     private double classificação;
     private int total_entregas;
 
@@ -33,6 +35,7 @@ public class Transportadora extends User {
         this.disponivel = true;
         this.encomendas_maximas = 0;
         this.register = new ArrayList<>();
+        this.on_hold = new ArrayList<>();
         this.classificação = 0;
         this.total_entregas = 0;
     }
@@ -50,6 +53,7 @@ public class Transportadora extends User {
         this.disponivel = true;
         this.encomendas_maximas = em;
         this.register = new ArrayList<>();
+        this.on_hold = new ArrayList<>();
         this.classificação = 0;
         this.total_entregas = 0;
     }
@@ -222,6 +226,22 @@ public class Transportadora extends User {
             }
         }
         return aux;
+    }
+
+    /**
+     * Método que devolve uma lista com encomendas à espera de aceitação do utilizador.
+     * @return Lista com as encomendas.
+     */
+    public List<Encomenda> getOnHold(){
+        return this.on_hold.stream().map(Encomenda::clone).collect(Collectors.toList());
+    }
+
+    /**
+     * Método que define a lista de encomendas a espera de resposta do utilizador.
+     * @param a Lista com as encomendas.
+     */
+    public void setOnHold(List<Encomenda> a){
+        a.stream().map(Encomenda::clone).forEach(v -> this.on_hold.add(v));
     }
 
     //Equals, toString , clone

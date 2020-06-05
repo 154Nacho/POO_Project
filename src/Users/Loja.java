@@ -174,7 +174,15 @@ public class Loja extends Utilizador {
         a.entrySet().stream().forEach(v -> this.produtos.put(v.getKey(),v.getValue().clone()));
     }
 
-
+    /**
+     * Método que adiciona um novo produto à lista de produtos da loja
+     * @param codP que é o código do produto.
+     * @param descricao que é a descrição do prduto.
+     * @param valor que é o preço do produto.
+     */
+    public void addProdLoja(String codP, String descricao, double valor, double peso){
+        this.produtos.putIfAbsent(codP,new InfoProduto(descricao,valor,peso));
+    }
 
 
 

@@ -4,8 +4,9 @@ public class EmpresaView implements TrazAquiView {
     @Override
     public void show() {
         System.out.println("1 -> Escolher encomenda para entregar");
-        System.out.println("2 -> Alterar disponibilidade");
-        System.out.println("3 -> Calcular faturado num dado período");
+        System.out.println("2 -> Consultar encomendas no Sistema para entregar");
+        System.out.println("3 -> Alterar disponibilidade");
+        System.out.println("4 -> Calcular faturado num dado período");
         System.out.println("S -> Logout");
     }
 

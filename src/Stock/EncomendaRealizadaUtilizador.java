@@ -140,4 +140,9 @@ public class EncomendaRealizadaUtilizador {
         return new EncomendaRealizadaUtilizador(this);
     }
 
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Encomenda:").append(this.code_enc).append(",").append(this.code_utilizador).append(",").append(this.loja_onde_comprou).append(",").append(this.code_entregador);
+        return sb.toString();
+    }
 }

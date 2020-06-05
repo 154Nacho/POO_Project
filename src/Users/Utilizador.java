@@ -9,6 +9,7 @@ import Stock.EncomendaRealizadaVoluntario;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Utilizador extends User implements Login {
 
@@ -26,6 +27,7 @@ public class Utilizador extends User implements Login {
         this.nome = "";
         this.gps = new GPS();
         this.on_hold = new ArrayList<>();
+        this.encomendas_realizadas = new ArrayList<>();
     }
 
     /**
@@ -37,6 +39,8 @@ public class Utilizador extends User implements Login {
         super(u);
         this.nome = u.getNome();
         this.gps = u.getGps();
+        this.on_hold = u.getOnHold();
+        this.encomendas_realizadas = u.getEncomendasFeitas();
     }
 
     /**
@@ -51,6 +55,8 @@ public class Utilizador extends User implements Login {
         super(codigo,password);
         this.nome = nome;
         this.gps = gps;
+        this.encomendas_realizadas = new ArrayList<>();
+        this.on_hold = new ArrayList<>();
     }
 
     /**
@@ -137,7 +143,47 @@ public class Utilizador extends User implements Login {
     }
 
     /**
-     * Converte um Users.Utilizador numa String
+     * Método que devolve as encomendas por entregar de um utilizador.
+     * @return Lista com as encomendas.
+     */
+    public List<Encomenda> getOnHold(){
+        return this.on_hold.stream().map(Encomenda::clone).collect(Collectors.toList());
+    }
+
+    /**
+     * Método que define a lista de encomendas por entregar de um utilizador.
+     * @param a Lista com as encomendas.
+     */
+    public void setOnHold(List<Encomenda> a){
+        a.stream().map(Encomenda::clone).forEach(v -> this.on_hold.add(v));
+    }
+
+    /**
+     * Método que adiciona uma encomenda à lista de espera do utilizador.
+     * @param e Encomenda feita.
+     */
+    public void addEncomendaOnHold(Encomenda e){
+        this.on_hold.add(e);
+    }
+
+    /**
+     * Método que devolve as encomendas feitas por um utilizador.
+     * @return List com as encomendas feitas.
+     */
+    public List<EncomendaRealizadaUtilizador> getEncomendasFeitas(){
+        return this.encomendas_realizadas.stream().map(EncomendaRealizadaUtilizador::clone).collect(Collectors.toList());
+    }
+
+    /**
+     * Método que define as encomendas feitas por um utilizador.
+     * @param a List com as encomendas feitas.
+     */
+    public void setEncomendasFeitas(List<EncomendaRealizadaUtilizador> a){
+        a.stream().map(EncomendaRealizadaUtilizador::clone).forEach(v -> this.encomendas_realizadas.add(v));
+    }
+
+    /**
+     * Converte um Utilizador numa String
      *
      * @return String
      */

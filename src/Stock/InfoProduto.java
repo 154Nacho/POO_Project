@@ -3,6 +3,7 @@ package Stock;
 public class InfoProduto {
     private String nome;
     private double preco;
+    private double peso;
 
     /**
      * Construtor por omissão
@@ -10,6 +11,7 @@ public class InfoProduto {
     public InfoProduto(){
         this.nome = "";
         this.preco = 0;
+        this.peso = 0;
     }
 
     /**
@@ -17,9 +19,10 @@ public class InfoProduto {
      * @param n que é a descrição do produto.
      * @param p que é o valor unitário.
      */
-    public InfoProduto(String n , double p){
+    public InfoProduto(String n , double p, double peso){
         this.nome = n;
         this.preco = p;
+        this.peso = peso;
     }
 
     /**
@@ -29,6 +32,7 @@ public class InfoProduto {
     public InfoProduto(InfoProduto p){
         this.nome = p.getNome();
         this.preco = p.getPreco();
+        this.peso = p.getPeso();
     }
 
     /**
@@ -61,6 +65,14 @@ public class InfoProduto {
      */
     public void setPreco(double preco) {
         this.preco = preco;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
     }
 
     /**

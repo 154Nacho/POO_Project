@@ -49,6 +49,9 @@ public class Parser {
                 case "Encomenda":
                     Encomenda e = parseEncomenda(linhaPartida[1]);
                     trazAqui.addEncomenda(e);
+                    trazAqui.addEncomendaALoja(e);
+                    trazAqui.addProdutoALoja(e);
+                    trazAqui.addEncomendaToUtilizador(e);
                     break;
                 default:
 //                    System.out.println("Linha invÃ¡lida.");
@@ -62,7 +65,7 @@ public class Parser {
             linhaPartida = linha.split(":", 2);
             trazAqui.setPassword(linhaPartida[0],linhaPartida[1]);
         }
-        System.out.println("done!");
+        //System.out.println("done!");
     }
 
 

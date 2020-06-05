@@ -30,6 +30,7 @@ public class Encomenda {
         this.codLoja = codLoja;
         this.peso = peso;
         setProdutos(produtos);
+        this.start = LocalDateTime.now();
     }
 
     // Construtor de cópia
@@ -91,7 +92,7 @@ public class Encomenda {
     // toString
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Stock.Encomenda:").append(this.codEncomenda).append(",").append(this.codUtilizador).append(",").append(this.codLoja).append(",").append(this.peso);
+        sb.append("Encomenda:").append(this.codEncomenda).append(",").append(this.codUtilizador).append(",").append(this.codLoja).append(",").append(this.peso);
         for(LinhaEncomenda l : this.produtos)
             sb.append(",").append(l.toString());
         return sb.toString();

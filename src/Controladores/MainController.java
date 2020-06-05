@@ -7,7 +7,9 @@ import Users.User;
 import Views.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 public class MainController implements TrazAquiController{
     private TrazAquiView view;
@@ -81,12 +83,16 @@ public class MainController implements TrazAquiController{
                     encomendasOnHold();
                     break;
                 case "4":
-                    apresentarLojas();
+                    encomendasToAccept();
                     break;
                 case "5":
+                    apresentarLojas();
+                    break;
+                case "6":
                     apresentarProdutosLoja();
                     break;
                 case "S":
+                    this.view = new LoginView();
                     break;
 
             }
@@ -96,28 +102,74 @@ public class MainController implements TrazAquiController{
 
     public void novaEncomenda(){
         List<Object> aux = new ArrayList<>();
+        String loja,produto;
+        int qtd;
         view.show("Qual a Loja onde pretende encomendar?\n");
-        aux.add(Input.lerString());
+        loja = Input.lerString();
+        if(loja.isEmpty()) return;
         view.show("Qual o produto que pretende comprar?\n");
-        aux.add(Input.lerString());
+        produto = Input.lerString();
+        if(produto.isEmpty()) return;
         view.show("Indique a quantidade que pretende comprar: ");
-        aux.add(Input.lerInt());
+        qtd = Input.lerInt();
+        aux.add(loja);
+        aux.add(produto);
+        aux.add(qtd);
         model.interpreta(2,aux);
+        view.show("Encomenda efetuada com sucesso\n");
     }
 
     public void apresentarLojas(){
-
+        Collection<Object> aux = model.interpreta(5,new ArrayList<>());
+        if(aux.size()==0) view.show("Something's wrong");
+        for(Object e : aux){
+            view.show((String) e + "\n");
+        }
+        view.show("Press Enter to exit");
+        if (Input.lerString().isEmpty()) return;
     }
 
     public void apresentarProdutosLoja(){
+        List<Object> aux = new ArrayList<>();
+        String codLoja;
+        view.show("Inserir código da loja que pretende consultar:\n");
+        codLoja=Input.lerString();
+        if (codLoja.isEmpty()) return;
+        aux.add(codLoja);
+        Collection<Object> prods = model.interpreta(6,aux);
+        for(Object e : prods)
+            view.show((String) e + "\n");
+
 
     }
 
     public void encomendasFeitas(){
-
+        Collection<Object> aux = model.interpreta(3,new ArrayList<>());
+        if(aux.size()==0){
+            view.show("Não possui encomendas feitas de momento!\n");
+            return;
+        }
+        else {
+            for (Object e : aux) {
+                view.show((String) e + "\n");
+            }
+        }
     }
 
     public void encomendasOnHold(){
+        Collection<Object> aux = model.interpreta(4,new ArrayList<>());
+        if(aux.size()==0){
+            view.show("Não possui encomendas feitas de momento!\n");
+            return;
+        }
+        else {
+            for (Object e : aux) {
+                view.show((String) e + "\n");
+            }
+        }
+    }
+
+    public void encomendasToAccept(){
 
     }
 
@@ -142,6 +194,7 @@ public class MainController implements TrazAquiController{
                 case "5":
                     break;
                 case "S":
+                    this.view = new LoginView();
                     break;
 
             }
@@ -169,6 +222,7 @@ public class MainController implements TrazAquiController{
                 case "5":
                     break;
                 case "S":
+                    this.view = new LoginView();
                     break;
 
             }
@@ -197,6 +251,7 @@ public class MainController implements TrazAquiController{
                 case "5":
                     break;
                 case "S":
+                    this.view = new LoginView();
                     break;
 
             }
