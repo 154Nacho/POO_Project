@@ -2,9 +2,9 @@ package Controladores;
 
 import Modelos.TrazAquiModel;
 import Readers.Input;
-import Views.LoginView;
-import Views.TrazAquiView;
-import Views.WhatUserLoginView;
+import Stock.Encomenda;
+import Users.User;
+import Views.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +34,22 @@ public class MainController implements TrazAquiController{
             switch (opcao) {
                 case "1":
                     logged = login();
+                    User u = model.getLogged();
+                    switch (u.getCode().charAt(0)){
+                        case 'u':
+                            controladorAuxiliarUtilizador();
+                            break;
+                        case 'v':
+                            controladorAuxiliarVoluntario();
+                            break;
+                        case 'l':
+                            controladorAuxiliarLoja();
+                            break;
+                        case 't':
+                            controladorAuxiliarTransportadora();
+                            break;
+                    }
+
                     break;
                 case "2":
                     register();
@@ -44,6 +60,151 @@ public class MainController implements TrazAquiController{
             }
         } while (!opcao.equals("S") || !logged);
     }
+
+    /*--------------------------------------------------UTILIZADOR--------------------------------------------------*/
+
+    private void controladorAuxiliarUtilizador(){
+        String opcao = "";
+        do{
+            this.view = new UtilizadorView();
+            view.show();
+            opcao = Input.lerString();
+            opcao = opcao.toUpperCase();
+            switch(opcao){
+                case "1":
+                    novaEncomenda();
+                    break;
+                case "2":
+                    encomendasFeitas();
+                    break;
+                case "3":
+                    encomendasOnHold();
+                    break;
+                case "4":
+                    apresentarLojas();
+                    break;
+                case "5":
+                    apresentarProdutosLoja();
+                    break;
+                case "S":
+                    break;
+
+            }
+
+        }while(!(opcao.equals("S")));
+    }
+
+    public void novaEncomenda(){
+        List<Object> aux = new ArrayList<>();
+        view.show("Qual a Loja onde pretende encomendar?\n");
+        aux.add(Input.lerString());
+        view.show("Qual o produto que pretende comprar?\n");
+        aux.add(Input.lerString());
+        view.show("Indique a quantidade que pretende comprar: ");
+        aux.add(Input.lerInt());
+        model.interpreta(2,aux);
+    }
+
+    public void apresentarLojas(){
+
+    }
+
+    public void apresentarProdutosLoja(){
+
+    }
+
+    public void encomendasFeitas(){
+
+    }
+
+    public void encomendasOnHold(){
+
+    }
+
+    /*--------------------------------------------------VOLUNTARIO--------------------------------------------------*/
+
+    private void controladorAuxiliarVoluntario(){
+        String opcao = "";
+        do{
+            this.view = new VoluntarioView();
+            view.show();
+            opcao = Input.lerString();
+            opcao = opcao.toUpperCase();
+            switch(opcao){
+                case "1":
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    break;
+                case "5":
+                    break;
+                case "S":
+                    break;
+
+            }
+
+        }while(!(opcao.equals("S")));
+    }
+    /*----------------------------------------------------LOJA----------------------------------------------------*/
+
+    private void controladorAuxiliarLoja(){
+        String opcao = "";
+        do{
+            this.view = new LojaView();
+            view.show();
+            opcao = Input.lerString();
+            opcao = opcao.toUpperCase();
+            switch(opcao){
+                case "1":
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    break;
+                case "5":
+                    break;
+                case "S":
+                    break;
+
+            }
+
+        }while(!(opcao.equals("S")));
+    }
+
+    /*--------------------------------------------------EMPRESA--------------------------------------------------*/
+
+    private void controladorAuxiliarTransportadora(){
+        String opcao = "";
+        do{
+            this.view = new EmpresaView();
+            view.show();
+            opcao = Input.lerString();
+            opcao = opcao.toUpperCase();
+            switch(opcao){
+                case "1":
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    break;
+                case "5":
+                    break;
+                case "S":
+                    break;
+
+            }
+
+        }while(!(opcao.equals("S")));
+    }
+
+    /*--------------------------------------------------COMMON--------------------------------------------------*/
 
     private void register(){
         view = new WhatUserLoginView();

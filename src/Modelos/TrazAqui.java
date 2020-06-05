@@ -11,7 +11,7 @@ public class TrazAqui implements TrazAquiModel{
     boolean logged;
     private Map<String, User> users; //Map de utilizadores, voluntários, lojas e transportadoras
     private List<Encomenda> encomendas;
-    private User user;
+    private User logged_user;
 
     /**
      * Construtor padrão
@@ -20,7 +20,7 @@ public class TrazAqui implements TrazAquiModel{
         this.users = new TreeMap<>();
         this.encomendas = new ArrayList<>();
         this.logged = false;
-        this.user = null;
+        this.logged_user = null;
     }
 
     public void interpreta(int num, Collection<Object> l){
@@ -28,6 +28,7 @@ public class TrazAqui implements TrazAquiModel{
         switch (num){
             case 1:
                 addUser(lista);
+            case 2:
         }
     }
 
@@ -51,7 +52,7 @@ public class TrazAqui implements TrazAquiModel{
      * @return String
      */
     public String getUserInformation(){
-        return this.user.toString();
+        return this.logged_user.toString();
 //        switch (this.user.getClass().getName()) {
 //            case "Users.Utilizador":
 //                return this.user.toStringShow();
@@ -104,7 +105,7 @@ public class TrazAqui implements TrazAquiModel{
         User u = this.users.get(username);
         if (u == null) return false;
         else if (u.getPassword().equals(password)) {
-            this.user = this.users.get(username).clone();
+            setLogged(true,this.users.get(username).clone());
             return true;
         } else return false;
     }
@@ -125,11 +126,11 @@ public class TrazAqui implements TrazAquiModel{
         return aux;
     }
     /**
-     * Obtém o logged number
+     * Obtém o logged user
      * @return int
      */
-    public boolean getLogged() {
-        return logged;
+    public User getLogged() {
+        return logged_user;
     }
 
     /**
@@ -138,7 +139,7 @@ public class TrazAqui implements TrazAquiModel{
      */
     public void setLogged(boolean logged, User u) {
         this.logged = logged;
-        this.user = u;
+        this.logged_user = u;
     }
 
     /**

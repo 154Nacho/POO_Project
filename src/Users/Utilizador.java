@@ -2,13 +2,20 @@ package Users;
 
 import Geral.GPS;
 import Interfaces.Login;
+import Stock.Encomenda;
+import Stock.EncomendaRealizadaUtilizador;
+import Stock.EncomendaRealizadaVoluntario;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Utilizador extends User implements Login {
 
     GPS gps; // Geral.GPS guardar par de coordenadas latitude,longitude;
     private String nome;
+    private List<Encomenda> on_hold;
+    private List<EncomendaRealizadaUtilizador> encomendas_realizadas;
 
 
     /**
@@ -18,6 +25,7 @@ public class Utilizador extends User implements Login {
         super();
         this.nome = "";
         this.gps = new GPS();
+        this.on_hold = new ArrayList<>();
     }
 
     /**

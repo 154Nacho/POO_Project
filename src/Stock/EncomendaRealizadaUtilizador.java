@@ -2,26 +2,24 @@ package Stock;
 
 import java.time.LocalDateTime;
 
-public class EncomendaRealizada {
+public class EncomendaRealizadaUtilizador {
 
     private String code_enc;
     private String code_utilizador;
     private String loja_onde_comprou;
+    private String code_entregador;
     private double tempo_entrega;
-    private double custo_entrega;
-    private double custo_transporte;
     private LocalDateTime data_entrega;
 
     /**
      * Construtor por omissão.
      */
-    public EncomendaRealizada(){
+    public EncomendaRealizadaUtilizador(){
         this.code_enc = "";
         this.code_utilizador = "";
         this.loja_onde_comprou = "";
+        this.code_entregador = "";
         this.tempo_entrega = 0;
-        this.custo_entrega = 0;
-        this.custo_transporte = 0;
         this.data_entrega = null;
     }
 
@@ -31,15 +29,13 @@ public class EncomendaRealizada {
      * @param cu Código de utilizador.
      * @param l Código da loja.
      * @param te Tempo de entrega.
-     * @param cenc Custo de entrega.
      */
-    public EncomendaRealizada(String ce, String cu, String l, double te, double ct, double cenc, LocalDateTime data){
+    public EncomendaRealizadaUtilizador(String ce, String cu, String l, String cod_ent, double te, LocalDateTime data){
         this.code_enc = ce;
         this.code_utilizador = cu;
         this.loja_onde_comprou = l;
+        this.code_entregador = cod_ent;
         this.tempo_entrega = te;
-        this.custo_entrega = cenc;
-        this.custo_transporte = ct;
         this.data_entrega = data;
     }
 
@@ -47,13 +43,12 @@ public class EncomendaRealizada {
      * Construtor por clonagem.
      * @param encomendaRealizada que vai ser clonada.
      */
-    public EncomendaRealizada(EncomendaRealizada encomendaRealizada) {
+    public EncomendaRealizadaUtilizador(EncomendaRealizadaUtilizador encomendaRealizada) {
         this.code_enc = encomendaRealizada.getCode_enc();
         this.code_utilizador = encomendaRealizada.getCode_utilizador();
         this.loja_onde_comprou = encomendaRealizada.getLoja_onde_comprou();
+        this.code_entregador = encomendaRealizada.getCode_entregador();
         this.tempo_entrega = encomendaRealizada.getTempo_entrega();
-        this.custo_entrega = encomendaRealizada.getCusto_entrega();
-        this.custo_transporte = encomendaRealizada.getCusto_transporte();
         this.data_entrega = encomendaRealizada.getData_entrega();
     }
 
@@ -121,22 +116,6 @@ public class EncomendaRealizada {
         this.tempo_entrega = tempo_entrega;
     }
 
-    /**
-     * Método que devolve o custo de entrega de uma encomenda.
-     * @return Custo de entrega.
-     */
-    public double getCusto_entrega() {
-        return custo_entrega;
-    }
-
-    /**
-     * Método que define o custo de entrega de uma encomenda.
-     * @param custo_entrega que é o custo de entrega da encomenda.
-     */
-    public void setCusto_entrega(double custo_entrega) {
-        this.custo_entrega = custo_entrega;
-    }
-
     public LocalDateTime getData_entrega() {
         return data_entrega;
     }
@@ -145,19 +124,20 @@ public class EncomendaRealizada {
         this.data_entrega = data_entrega;
     }
 
-    public double getCusto_transporte() {
-        return custo_transporte;
+    public String getCode_entregador() {
+        return code_entregador;
     }
 
-    public void setCusto_transporte(double custo_transporte) {
-        this.custo_transporte = custo_transporte;
+    public void setCode_entregador(String code_entregador) {
+        this.code_entregador = code_entregador;
     }
 
     /**
-     * Método que copia uma Stock.EncomendaRealizada.
-     * @return Cópia da Stock.EncomendaRealizada.
+     * Método que copia uma EncomendaRealizada por um Voluntario.
+     * @return Cópia da EncomendaRealizadaVoluntario.
      */
-    public EncomendaRealizada clone(){
-        return new EncomendaRealizada(this);
+    public EncomendaRealizadaUtilizador clone(){
+        return new EncomendaRealizadaUtilizador(this);
     }
+
 }

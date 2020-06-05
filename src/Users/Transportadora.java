@@ -1,7 +1,7 @@
 package Users;
 
 import Geral.GPS;
-import Stock.EncomendaRealizada;
+import Stock.EncomendaRealizadaTransportadora;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class Transportadora extends User {
     private double precoPorKM;
     private boolean disponivel;
     private int encomendas_maximas;
-    private List<EncomendaRealizada> register;
+    private List<EncomendaRealizadaTransportadora> register;
     private double classificação;
     private int total_entregas;
 
@@ -155,14 +155,14 @@ public class Transportadora extends User {
     /**
      *   Getter das encomendas já realizadas pela Empresa
      */
-    public List<EncomendaRealizada> getRegisto() {
-        return this.register.stream().map(EncomendaRealizada::clone).collect(Collectors.toList());
+    public List<EncomendaRealizadaTransportadora> getRegisto() {
+        return this.register.stream().map(EncomendaRealizadaTransportadora::clone).collect(Collectors.toList());
     }
 
     /**
      *   Setter das encomendas já realizadas pela Empresa
      */
-    public void setRegisto(List<EncomendaRealizada> l) {
+    public void setRegisto(List<EncomendaRealizadaTransportadora> l) {
         this.register = new ArrayList<>();
         l.forEach(e -> this.register.add(e.clone()));
     }
@@ -216,7 +216,7 @@ public class Transportadora extends User {
 
     public double calculaFat(LocalDateTime i, LocalDateTime f){
         double aux = 0;
-        for(EncomendaRealizada e : this.register){
+        for(EncomendaRealizadaTransportadora e : this.register){
             if(e.getData_entrega().isAfter(i) && e.getData_entrega().isBefore(f)){
                 aux += e.getCusto_transporte();
             }

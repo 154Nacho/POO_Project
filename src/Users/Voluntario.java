@@ -1,7 +1,8 @@
 package Users;
 
 import Geral.GPS;
-import Stock.EncomendaRealizada;
+import Stock.EncomendaRealizadaTransportadora;
+import Stock.EncomendaRealizadaVoluntario;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class Voluntario extends User {
     private String nome;
     private GPS gps;
     private boolean acceptmedical;
-    private List<EncomendaRealizada> enc_done;
+    private List<EncomendaRealizadaVoluntario> enc_done;
     private boolean disponivel;
     private double classificação;
     private int total_entregas;
@@ -165,8 +166,8 @@ public class Voluntario extends User {
      * Método que devolve as encomendas já realizadas por um voluntário.
      * @return Lista com as encomendas já realizadas.
      */
-    public List<EncomendaRealizada> getEncomendasRealizadas(){
-        List<EncomendaRealizada> aux = new ArrayList<>();
+    public List<EncomendaRealizadaVoluntario> getEncomendasRealizadas(){
+        List<EncomendaRealizadaVoluntario> aux = new ArrayList<>();
         this.enc_done.stream().forEach(v -> aux.add(v.clone()));
         return aux;
     }
@@ -175,8 +176,8 @@ public class Voluntario extends User {
      * Método que define as encomendas já realizadas por um voluntário.
      * @param e que contém as encomendas realizadas.
      */
-    public void setEncomendasRealizadas(List<EncomendaRealizada> e){
-        e.stream().map(EncomendaRealizada::clone).forEach(v -> this.enc_done.add(v));
+    public void setEncomendasRealizadas(List<EncomendaRealizadaVoluntario> e){
+        e.stream().map(EncomendaRealizadaVoluntario::clone).forEach(v -> this.enc_done.add(v));
     }
 
     public String getNome() {
@@ -203,7 +204,7 @@ public class Voluntario extends User {
      * @param te que é o tempo que demorou a realizar a entregar.
      */
     public void addEncomendaRealizada(String c_enc, String c_util, String loja, double te){
-        EncomendaRealizada nova = new EncomendaRealizada(c_enc,c_util,loja,te,0,0, LocalDateTime.now());
+        EncomendaRealizadaVoluntario nova = new EncomendaRealizadaVoluntario(c_enc,c_util,loja,te,LocalDateTime.now());
         this.enc_done.add(nova);
     }
 
