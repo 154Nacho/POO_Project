@@ -5,6 +5,7 @@ public class LojaView implements TrazAquiView {
     public void show() {
         System.out.println("1 -> Ver encomendas prontas a entregar");
         System.out.println("2 -> Consultar stock");
+        System.out.println("3 -> Atualizar informações");
         System.out.println("S -> Logout");
     }
 

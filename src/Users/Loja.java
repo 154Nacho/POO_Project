@@ -12,9 +12,11 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 
-public class Loja extends Utilizador {
+public class Loja extends User {
 
     private boolean informa_sobre_loja;
+    private GPS gps;
+    private String nome;
     private List<Encomenda> encomendas;
     private int qtd_pessoas_fila;
     private double tempo_médio_atendimento;
@@ -27,7 +29,9 @@ public class Loja extends Utilizador {
     public Loja(){
         super();
         this.qtd_pessoas_fila = 0;
+        this.nome = "";
         this.encomendas = new ArrayList<>();
+        this.gps = new GPS();
         this.informa_sobre_loja = false;
         this.tem_encomendas = false;
         this.tempo_médio_atendimento = 0;
@@ -37,7 +41,9 @@ public class Loja extends Utilizador {
      *   Construtor com passagem de argumentos
      */
     public Loja(String cL, String nL, String password, GPS l,boolean informa, double t){
-        super(cL,nL,password,l);
+        super(cL,password);
+        this.nome = nL;
+        this.gps = l;
         this.qtd_pessoas_fila = 0;
         this.encomendas = new ArrayList<>();
         this.informa_sobre_loja = informa;
@@ -51,6 +57,8 @@ public class Loja extends Utilizador {
      */
     public Loja(Loja l){
         super(l);
+        this.nome = l.getNome();
+        this.gps = l.getGPS();
         this.qtd_pessoas_fila = l.getQtd_pessoas_fila();
         this.encomendas = l.getEncomendas();
         this.informa_sobre_loja = l.isInforma_sobre_loja();
@@ -174,6 +182,22 @@ public class Loja extends Utilizador {
         a.entrySet().stream().forEach(v -> this.produtos.put(v.getKey(),v.getValue().clone()));
     }
 
+    public GPS getGPS() {
+        return gps.clone();
+    }
+
+    public void setGps(GPS gps) {
+        this.gps = gps;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     /**
      * Método que adiciona um novo produto à lista de produtos da loja
      * @param codP que é o código do produto.
@@ -185,11 +209,17 @@ public class Loja extends Utilizador {
     }
 
 
+    public String getCodigo(){
+        return super.getCode();
+    }
 
+    public void setCodigo(String c){
+        super.setCode(c);
+    }
 
-
-
-
+    public void addEncomendaOnHold(Encomenda e){
+        this.encomendas.add(e);
+    }
 
 
 
@@ -210,14 +240,14 @@ public class Loja extends Utilizador {
     public String toStringShow(){
         StringBuilder sb = new StringBuilder();
         sb.append("\nNome da Loja: ").append(this.getNome());
-        sb.append("\nCódigo da Loja: ").append(this.getCodigo());
-        sb.append("\nLocalização da Loja: ").append(this.getGps().toString());
+        sb.append("\nCódigo da Loja: ").append(super.getCode());
+        sb.append("\nLocalização da Loja: ").append(this.getGPS().toString());
         sb.append("\nEncomendas: ").append(this.encomendas);
         return sb.toString();
     }
 
     public String toString(){
-        return "Loja:"+this.getCodigo()+","+this.getNome()+","+this.getGps().toString();
+        return "Loja:"+super.getCode()+","+this.getNome()+","+this.getGPS().toString();
     }
     /**
      *   Comparador de igualdade
@@ -228,7 +258,7 @@ public class Loja extends Utilizador {
         Loja l = (Loja) obj;
         return (this.getCodigo().equals(l.getCodigo())
                 && this.getNome().equals(l.getNome())
-                && this.getGps().equals(l.getGps())
+                && this.getGPS().equals(l.getGPS())
                 && this.qtd_pessoas_fila == l.getQtd_pessoas_fila()
                 && this.encomendas.equals(l.getEncomendas()));
     }

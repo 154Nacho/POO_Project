@@ -256,14 +256,13 @@ public class MainController implements TrazAquiController{
             opcao = opcao.toUpperCase();
             switch(opcao){
                 case "1":
+                    verEncomendas();
                     break;
                 case "2":
+                    consultarStock();
                     break;
                 case "3":
-                    break;
-                case "4":
-                    break;
-                case "5":
+                    updateInfo();
                     break;
                 case "S":
                     this.view = new LoginView();
@@ -272,6 +271,31 @@ public class MainController implements TrazAquiController{
             }
 
         }while(!(opcao.equals("S")));
+    }
+
+    public void verEncomendas(){
+        view.show("Encomendas prontas a entregar\n");
+        Collection<Object> aux = model.interpreta(12,new ArrayList<>());
+        for (Object e : aux){
+            view.show(e + "\n");
+        }
+        view.show("Press Enter to Exit");
+        if(Input.lerString().isEmpty()) return;
+    }
+
+    public void consultarStock(){
+        view.show("Produtos dispoiníveis na Loja\n");
+        view.show("PRODUTO   |   CÓDIGO\n");
+        Collection<Object> aux = model.interpreta(11,new ArrayList<>());
+        for (Object e : aux){
+            view.show(e + "\n");
+        }
+        view.show("Press Enter to Exit");
+        if(Input.lerString().isEmpty()) return;
+    }
+
+    public void updateInfo(){
+
     }
 
     /*--------------------------------------------------EMPRESA--------------------------------------------------*/
@@ -320,45 +344,49 @@ public class MainController implements TrazAquiController{
             }
             else valid = true;
         }while(!valid);
-        aux.add(username);
+        aux.add(username); // 0
         view.show("Password: ");
         password = Input.lerString();
-        aux.add(password);
+        aux.add(password); // 1
         view.show("Indique o seu nome: ");
         nome = Input.lerString();
-        aux.add(nome);
+        aux.add(nome); // 2
         view.show("Indique a sua localização\n");
         view.show("Latitude: ");
         latitude = Input.lerDouble();
-        aux.add(latitude);
+        aux.add(latitude); // 3
         view.show("Longitude: ");
         longitude = Input.lerDouble();
-        aux.add(longitude);
+        aux.add(longitude); // 4
         switch (username.charAt(0)){
             case 'v':
                 view.show("Tem certificado para entregas médicas?\n");
                 view.show("Sim(1) | Não(0)\n");
-                aux.add(Input.lerInt()==1);
+                aux.add(Input.lerInt()==1); // 5
                 view.show("Indique o seu raio de ação: ");
-                aux.add(Input.lerDouble());
+                aux.add(Input.lerDouble()); // 6
                 break;
             case 'l':
                 view.show("Pretende informar sobre a fila de espera?\n");
                 view.show("Sim(1) | Não(0)\n");
-                aux.add(Input.lerInt()==1);
-                view.show("Indique o tempo médio de atendimento (em minutos): ");
-                aux.add(Input.lerInt());
+                int info = Input.lerInt();
+                aux.add(info==1); // 5
+                if(info==1) {
+                    view.show("Indique o tempo médio de atendimento (em minutos): ");
+                    aux.add(Input.lerDouble()); // 6
+                }else aux.add(0.0);
                 break;
             case 't':
                 view.show("Indique o seu NIF: ");
-                aux.add(Input.lerString());
+                aux.add(Input.lerString()); // 5
                 view.show("Indique o seu raio de ação: ");
-                aux.add(Input.lerDouble());
+                aux.add(Input.lerDouble()); // 6
                 view.show("Indique a taxa de transporte: ");
-                aux.add(Input.lerDouble());
+                aux.add(Input.lerDouble()); // 7
                 view.show("Indique a capacidade total de encomendas que é capaz de realizar: ");
-                aux.add(Input.lerInt());
+                aux.add(Input.lerInt()); // 8
                 break;
+            default:
         }
         model.interpreta(1,aux);
     }

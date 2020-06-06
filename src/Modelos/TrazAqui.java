@@ -53,6 +53,10 @@ public class TrazAqui implements TrazAquiModel{
                 alterarDisponibilidade((Integer) lista.get(0));
             case 10:
                 return classifcacaoVoluntario();
+            case 11:
+                return produtosDaLoja();
+            case 12:
+                return encomendasDaLoja();
             default:
                 return null;
         }
@@ -73,7 +77,10 @@ public class TrazAqui implements TrazAquiModel{
     }
 
     public List<Object> encomendasFeitasUtilizador(){
-        Utilizador user = (Utilizador) this.logged_user;
+        if(logged_user == null){
+            System.out.println("erro");
+        }
+        Utilizador user = (Utilizador) getUser(this.logged_user.getCode());
         List<Object> aux = new ArrayList<>();
         for(EncomendaRealizadaUtilizador e : user.getEncomendasFeitas())
             aux.add(e.toString());
@@ -149,13 +156,32 @@ public class TrazAqui implements TrazAquiModel{
 
     /*----------------------------------------------------------------------------------------------------------------*/
 
+    /*----------------------------------------------FUNCIONALIDADES LOJA----------------------------------------------*/
+
+    public Set<Object> produtosDaLoja(){
+        Set<Object> aux = new TreeSet<>();
+        Loja l = (Loja) this.logged_user;
+        for(Map.Entry<String,InfoProduto> e : l.getProdutos().entrySet())
+            aux.add(e.getValue().getNome()  + " -> " + e.getKey() );
+        return aux;
+    }
+
+    public List<Object> encomendasDaLoja(){
+        List<Object> aux = new ArrayList<>();
+        Loja l = (Loja) this.logged_user;
+        for(Encomenda e : l.getEncomendas())
+            aux.add(e.toString());
+        return aux;
+    }
+
+    /*----------------------------------------------------------------------------------------------------------------*/
     /**
      * Método que adiciona uma encomenda à lista de encomendas em espera de um utilizador.
      * @param e Encomenda feita.
      */
     public void addEncomendaToUtilizador(Encomenda e){
         Utilizador u = (Utilizador) this.users.get(e.getCodUtilizador());
-        u.addEncomendaOnHold(e);
+        u.addEncomendaOnHold(e.clone());
     }
 
     /**
@@ -175,7 +201,7 @@ public class TrazAqui implements TrazAquiModel{
      */
     public void addEncomendaALoja(Encomenda e){
         Loja l = (Loja) this.users.get(e.getCodLoja());
-        l.addEncomendaOnHold(e);
+        l.addEncomendaOnHold(e.clone());
     }
 
 
