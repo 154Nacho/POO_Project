@@ -3,6 +3,7 @@ package Users;
 import Geral.GPS;
 import Stock.Encomenda;
 import Stock.EncomendaRealizadaTransportadora;
+import Stock.EncomendaRealizadaVoluntario;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class Transportadora extends User {
     private List<EncomendaRealizadaTransportadora> register;
     private List<Encomenda> on_hold;
     private double classificação;
+    private int total_aval;
     private int total_entregas;
 
     /**
@@ -38,6 +40,7 @@ public class Transportadora extends User {
         this.on_hold = new ArrayList<>();
         this.classificação = 0;
         this.total_entregas = 0;
+        this.total_aval = 0;
     }
 
     /**
@@ -56,6 +59,7 @@ public class Transportadora extends User {
         this.on_hold = new ArrayList<>();
         this.classificação = 0;
         this.total_entregas = 0;
+        this.total_aval = 0;
     }
 
     /**
@@ -64,6 +68,7 @@ public class Transportadora extends User {
     public Transportadora(Transportadora t) {
         super(t);
         this.nome = t.getNome();
+        this.on_hold = t.getOnHold();
         this.gps = t.getGPS();
         this.nif = t.getNIF();
         this.raio = t.getRaio();
@@ -73,6 +78,7 @@ public class Transportadora extends User {
         this.register = t.getRegisto();
         this.classificação = t.getClassificação();
         this.total_entregas = t.getTotal_entregas();
+        this.total_aval = t.getTotalAval();
     }
 
     //Getters
@@ -218,6 +224,19 @@ public class Transportadora extends User {
     }
 
 
+    public int getTotalAval() {
+        return total_aval;
+    }
+
+    public void setTotalAval(int total_aval) {
+        this.total_aval = total_aval;
+    }
+
+    public void updateClassificacao(int classifica){
+        this.total_aval++;
+        this.classificação = (this.classificação + classifica)/this.total_aval;
+    }
+
     public double calculaFat(LocalDateTime i, LocalDateTime f){
         double aux = 0;
         for(EncomendaRealizadaTransportadora e : this.register){
@@ -243,6 +262,29 @@ public class Transportadora extends User {
     public void setOnHold(List<Encomenda> a){
         a.stream().map(Encomenda::clone).forEach(v -> this.on_hold.add(v));
     }
+
+
+    /**
+     * Método que adiciona uma enconenda realizada ao registo.
+     * @param c_enc que é o código da encomenda.
+     * @param c_util que é o código do utilizador que comprou.
+     * @param loja que é a loja a quem comprou.
+     * @param te que é o tempo que demorou a realizar a entregar.
+     */
+    public void addEncomendaRealizada(String c_enc, String c_util, String loja, double te,double peso, double preco,double dist){
+        EncomendaRealizadaTransportadora nova = new EncomendaRealizadaTransportadora(c_enc,c_util,loja,te,peso*0.23+dist*this.precoPorKM,preco + dist*this.precoPorKM + peso*0.23,LocalDateTime.now());
+        this.register.add(nova);
+        this.total_entregas++;
+    }
+
+    /**
+     * Método que adiciona uma encomenda a lista de espera por aceitação de um utilizador.
+     * @param e Encomenda.
+     */
+    public void addEncomendaParaAceitar(Encomenda e){
+        this.on_hold.add(e.clone());
+    }
+
 
     //Equals, toString , clone
 

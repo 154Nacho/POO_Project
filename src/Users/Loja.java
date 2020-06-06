@@ -182,18 +182,34 @@ public class Loja extends User {
         a.entrySet().stream().forEach(v -> this.produtos.put(v.getKey(),v.getValue().clone()));
     }
 
+    /**
+     * Método que devolve uma localização da Loja.
+     * @return Localização.
+     */
     public GPS getGPS() {
         return gps.clone();
     }
 
+    /**
+     * Método que define a localização da Loja
+     * @param gps que é a localização.
+     */
     public void setGps(GPS gps) {
         this.gps = gps;
     }
 
+    /**
+     * Método que devolve o nome da Loja.
+     * @return Nome da loja.
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * Método que define o nome da Loja.
+     * @param nome que é o nome.
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -208,22 +224,47 @@ public class Loja extends User {
         this.produtos.putIfAbsent(codP,new InfoProduto(descricao,valor,peso));
     }
 
-
+    /**
+     * Método que devolve o código da loja.
+     * @return Código da loja.
+     */
     public String getCodigo(){
         return super.getCode();
     }
 
+    /**
+     * Método que define o código da loja.
+     * @param c que é o código.
+     */
     public void setCodigo(String c){
         super.setCode(c);
     }
 
+    /**
+     * Método que adiciona uma encomenda a lista de encomendas por entregar.
+     * @param e que é a Encomenda.
+     */
     public void addEncomendaOnHold(Encomenda e){
         this.encomendas.add(e);
     }
 
+    /**
+     * Método que incrementa a quantidade de pessoas na fila de espera.
+     */
+    public void incrementaFilaEspera(){
+        this.qtd_pessoas_fila++;
+    }
 
+    /**
+     * Método que decrementa a quantidade de pessoas na fila de espera.
+     */
+    public void decrementaFilaEspera(){
+        this.qtd_pessoas_fila--;
+    }
 
-
+    public void removeEncomenda(Encomenda e){
+        this.encomendas.remove(e);
+    }
 
     //Clone, toString, equals
 

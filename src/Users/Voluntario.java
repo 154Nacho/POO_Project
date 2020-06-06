@@ -18,6 +18,7 @@ public class Voluntario extends User {
     private List<EncomendaRealizadaVoluntario> enc_done;
     private boolean disponivel;
     private double classificação;
+    private int total_aval;
     private int total_entregas;
 
     /**
@@ -33,6 +34,7 @@ public class Voluntario extends User {
         this.disponivel = true;
         this.classificação = 0;
         this.total_entregas = 0;
+        this.total_aval = 0;
     }
 
     /**
@@ -50,6 +52,7 @@ public class Voluntario extends User {
         this.nome = v.getNome();
         this.gps = v.getGps();
         this.acceptmedical = v.aceitoTransporteMedicamentos();
+        this.total_aval = v.getTotalAval();
     }
 
     /**
@@ -69,6 +72,8 @@ public class Voluntario extends User {
         this.enc_done = new ArrayList<>();
         this.gps = gps;
         this.disponivel = true;
+        this.total_aval = 0;
+        this.classificação = 0;
     }
 
 
@@ -208,6 +213,20 @@ public class Voluntario extends User {
         this.enc_done.add(nova);
         this.total_entregas++;
     }
+
+    public int getTotalAval() {
+        return total_aval;
+    }
+
+    public void setTotalAval(int total_aval) {
+        this.total_aval = total_aval;
+    }
+
+    public void updateClassificacao(int classifica){
+        this.total_aval++;
+        this.classificação = (this.classificação + classifica)/this.total_aval;
+    }
+
 
     /**
      * Converte um Voluntário numa String

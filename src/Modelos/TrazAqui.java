@@ -35,8 +35,10 @@ public class TrazAqui implements TrazAquiModel{
         switch (num){
             case 1:
                 addUser(lista);
+                break;
             case 2:
                 novaEncomenda((String) lista.get(0), (String) lista.get(1), (Integer) lista.get(2));
+                break;
             case 3:
                 return encomendasFeitasUtilizador();
             case 4:
@@ -48,18 +50,42 @@ public class TrazAqui implements TrazAquiModel{
             case 7:
                 return encomendasDisponiveis();
             case 8:
-                entregarEncomenda((String) lista.get(0));
+                return entregarEncomenda((String) lista.get(0));
             case 9:
                 alterarDisponibilidade((Integer) lista.get(0));
+                break;
             case 10:
                 return classifcacaoVoluntario();
             case 11:
                 return produtosDaLoja();
             case 12:
                 return encomendasDaLoja();
+            case 13:
+                alterarInformarLoja();
+                break;
+            case 14:
+                adicionaProdutoAoStock((String) lista.get(0), (String) lista.get(1), (Double) lista.get(2));
+                break;
+            case 15:
+                return entregarEncomendaTransportadora((String) lista.get(0));
+            case 16:
+                return encomendasDisponiveisTransportadora();
+            case 17:
+                return encomendasParaAceitarUtilizador();
+            case 18:
+                return aceitarEncomendaDaTranspotadora((String) lista.get(0), (String) lista.get(1));
+            case 19:
+                alterarDisponibilidadeTransportadora((Integer) lista.get(0));
+                break;
+            case 20:
+                return calculaFaturadoEntreDatas((Integer) lista.get(0),(Integer) lista.get(1),(Integer) lista.get(2),(Integer) lista.get(3),(Integer) lista.get(4),(Integer) lista.get(5));
+            case 21:
+                return entregadores();
+            case 22:
+                classificaEntregador((String) lista.get(0), (Integer) lista.get(1));
             default:
-                return null;
         }
+        return null;
     }
 
     /*-------------------------------------------FUNCIONALIDADES UTILIZADOR-------------------------------------------*/
@@ -77,9 +103,6 @@ public class TrazAqui implements TrazAquiModel{
     }
 
     public List<Object> encomendasFeitasUtilizador(){
-        if(logged_user == null){
-            System.out.println("erro");
-        }
         Utilizador user = (Utilizador) getUser(this.logged_user.getCode());
         List<Object> aux = new ArrayList<>();
         for(EncomendaRealizadaUtilizador e : user.getEncomendasFeitas())
@@ -113,6 +136,63 @@ public class TrazAqui implements TrazAquiModel{
         return aux;
     }
 
+    public List<Object> encomendasParaAceitarUtilizador(){
+        Utilizador u = (Utilizador) this.logged_user;
+        List<Object> aux = new ArrayList<>();
+        for(Map.Entry<String, Encomenda> e : u.getPorAceitar().entrySet())
+            aux.add(e.getValue().getCodEncomenda() + " -> " + e.getKey());
+        return aux;
+    }
+
+    public List<Object> aceitarEncomendaDaTranspotadora(String code, String answer){
+        Utilizador u = (Utilizador) this.logged_user;
+        double ptotal=0;
+        List<Object> aux = new ArrayList<>();
+        for(Map.Entry<String,Encomenda> e : u.getPorAceitar().entrySet()){
+            if(e.getValue().getCodEncomenda().compareTo(code)==0){
+                if(answer.compareTo("S")==0){
+                    Loja l = (Loja) getUser(e.getValue().getCodLoja());
+                    Transportadora t = (Transportadora) getUser(e.getKey());
+                    e.getValue().setDataEntrega(LocalDateTime.now());
+                    for(LinhaEncomenda le :e.getValue().getProdutos())
+                        ptotal += le.getValorUnitario();
+                    t.addEncomendaRealizada(e.getValue().getCodEncomenda(),e.getValue().getCodUtilizador(),e.getValue().getCodLoja(),Duration.between(e.getValue().getDataEncomenda(), e.getValue().getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento(),e.getValue().getPeso(),ptotal,t.getGPS().distanceTo(u.getGps()));
+                    u.addEncomendaRealizada(e.getValue(),Duration.between(e.getValue().getDataEncomenda(), e.getValue().getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento(),e.getKey());
+                    u.removePorAceitar(e.getKey());
+                    l.removeEncomenda(e.getValue());
+                    this.users.put(t.getCode(),t);
+                    this.users.put(u.getCodigo(),u);
+                    this.users.put(l.getCodigo(),l);
+                    aux.add(true);
+                    return aux;
+                }
+            }
+        }
+        return aux;
+    }
+
+    public Set<Object> entregadores(){
+        Utilizador u = (Utilizador) this.logged_user;
+        Set<Object> aux = new TreeSet<>();
+        for(EncomendaRealizadaUtilizador e : u.getEncomendasFeitas()){
+            aux.add(e.getCode_entregador());
+        }
+        return aux;
+    }
+
+    public void classificaEntregador(String codEntregador, int classifica){
+        if (codEntregador.charAt(0) == 'v') {
+            Voluntario v = (Voluntario) getUser(codEntregador);
+            v.updateClassificacao(classifica);
+            this.users.put(v.getCodigo(),v);
+        }
+        if (codEntregador.charAt(0) == 't') {
+            Transportadora t = (Transportadora) getUser(codEntregador);
+            t.updateClassificacao(classifica);
+            this.users.put(t.getCode(),t);
+        }
+    }
+
     /*----------------------------------------------------------------------------------------------------------------*/
 
     /*-------------------------------------------FUNCIONALIDADES VOLUNTÁRIO-------------------------------------------*/
@@ -128,18 +208,26 @@ public class TrazAqui implements TrazAquiModel{
         return aux;
     }
 
-    public void entregarEncomenda(String codEnc){
+    public List<Object> entregarEncomenda(String codEnc){
         Voluntario v = (Voluntario) this.logged_user;
-        for(Encomenda e : this.encomendas){
-            if (e.getCodEncomenda().compareTo(codEnc)==0){
-                e.setDataEntrega(LocalDateTime.now());
-                v.addEncomendaRealizada(codEnc,e.getCodUtilizador(),e.getCodLoja(), Duration.between(e.getDataEncomenda(),e.getDataEntrega()).toMinutes());
-                Utilizador u = (Utilizador) getUser(e.getCodUtilizador());
-                u.addEncomendaRealizada(e,Duration.between(e.getDataEncomenda(),e.getDataEntrega()).toMinutes(),v.getCodigo());
-                this.encomendas.remove(e);
-                return;
+        List<Object> aux = new ArrayList<>();
+        if(v.isDisponivel()) {
+            for (Encomenda e : this.encomendas) {
+                if (e.getCodEncomenda().compareTo(codEnc) == 0) {
+                    Loja l = (Loja) getUser(e.getCodLoja());
+                    e.setDataEntrega(LocalDateTime.now());
+                    v.addEncomendaRealizada(codEnc, e.getCodUtilizador(), e.getCodLoja(), Duration.between(e.getDataEncomenda(), e.getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento());
+                    Utilizador u = (Utilizador) getUser(e.getCodUtilizador());
+                    u.addEncomendaRealizada(e, Duration.between(e.getDataEncomenda(), e.getDataEntrega()).toMinutes(), v.getCodigo());
+                    l.removeEncomenda(e);
+                    this.encomendas.remove(e);
+                    this.users.put(l.getCodigo(),l);
+                    aux.add(true);
+                    return aux;
+                }
             }
         }
+        return aux;
     }
 
     public void alterarDisponibilidade(int e){
@@ -174,6 +262,64 @@ public class TrazAqui implements TrazAquiModel{
         return aux;
     }
 
+    public void alterarInformarLoja(){
+        Loja l = (Loja) this.logged_user;
+        if (l.isInforma_sobre_loja()) l.setInforma_sobre_loja(false);
+        else l.setInforma_sobre_loja(true);
+    }
+
+    public void adicionaProdutoAoStock(String code, String desc, double preco){
+        Loja l = (Loja) this.logged_user;
+        l.addProdLoja(code,desc,preco,randomNumber(2));
+    }
+
+    /*----------------------------------------------------------------------------------------------------------------*/
+
+    /*---------------------------------------------FUNCIONALIDADES EMPRESA--------------------------------------------*/
+
+    public List<Object> encomendasDisponiveisTransportadora(){
+        List<Object> aux = new ArrayList<>();
+        Transportadora t = (Transportadora) this.logged_user;
+        for(Encomenda e : this.encomendas){
+            Utilizador u = (Utilizador) getUser(e.getCodUtilizador());
+            if(t.getGPS().distanceTo(u.getGps()) <= t.getRaio())
+                aux.add(e.toString());
+        }
+        return aux;
+    }
+
+    public List<Object> entregarEncomendaTransportadora(String codEnc){
+        Transportadora t = (Transportadora) this.logged_user;
+        List<Object> aux = new ArrayList<>();
+        for(Encomenda e : this.encomendas){
+            if (e.getCodEncomenda().compareTo(codEnc)==0){
+                Utilizador u = (Utilizador) getUser(e.getCodUtilizador());
+                t.addEncomendaParaAceitar(e);
+                u.addEncomendaParaAceitar(t.getCode(),e);
+                this.users.put(u.getCodigo(),u);
+                this.encomendas.remove(e);
+                aux.add(true);
+                return aux;
+            }
+        }
+        return aux;
+    }
+
+    public void alterarDisponibilidadeTransportadora(int e){
+        Transportadora v = (Transportadora) this.logged_user;
+        v.setDisponivel(e==1);
+    }
+
+    public List<Object> calculaFaturadoEntreDatas(int y1, int m1, int d1, int y2, int m2, int d2){
+        LocalDateTime i = LocalDateTime.of(y1,m1,d1,0,0);
+        LocalDateTime f = LocalDateTime.of(y2,m2,d2,0,0);
+        List<Object> aux = new ArrayList<>();
+        Transportadora t = (Transportadora) this.logged_user;
+        double fat = t.calculaFat(i,f);
+        aux.add(fat);
+        return aux;
+    }
+
     /*----------------------------------------------------------------------------------------------------------------*/
     /**
      * Método que adiciona uma encomenda à lista de encomendas em espera de um utilizador.
@@ -202,6 +348,7 @@ public class TrazAqui implements TrazAquiModel{
     public void addEncomendaALoja(Encomenda e){
         Loja l = (Loja) this.users.get(e.getCodLoja());
         l.addEncomendaOnHold(e.clone());
+        l.incrementaFilaEspera();
     }
 
 

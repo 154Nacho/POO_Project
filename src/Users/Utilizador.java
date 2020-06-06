@@ -5,10 +5,9 @@ import Interfaces.Login;
 import Stock.Encomenda;
 import Stock.EncomendaRealizadaUtilizador;
 import Stock.EncomendaRealizadaVoluntario;
+import com.sun.source.tree.Tree;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Utilizador extends User implements Login {
@@ -16,6 +15,7 @@ public class Utilizador extends User implements Login {
     GPS gps; // Geral.GPS guardar par de coordenadas latitude,longitude;
     private String nome;
     private List<Encomenda> on_hold;
+    private Map<String,Encomenda> por_aceitar;
     private List<EncomendaRealizadaUtilizador> encomendas_realizadas;
 
 
@@ -27,6 +27,7 @@ public class Utilizador extends User implements Login {
         this.nome = "";
         this.gps = new GPS();
         this.on_hold = new ArrayList<>();
+        this.por_aceitar = new TreeMap<>();
         this.encomendas_realizadas = new ArrayList<>();
     }
 
@@ -40,6 +41,7 @@ public class Utilizador extends User implements Login {
         this.nome = u.getNome();
         this.gps = u.getGps();
         this.on_hold = u.getOnHold();
+        this.por_aceitar = u.getPorAceitar();
         this.encomendas_realizadas = u.getEncomendasFeitas();
     }
 
@@ -55,6 +57,7 @@ public class Utilizador extends User implements Login {
         super(codigo,password);
         this.nome = nome;
         this.gps = gps;
+        this.por_aceitar = new TreeMap<>();
         this.encomendas_realizadas = new ArrayList<>();
         this.on_hold = new ArrayList<>();
     }
@@ -184,6 +187,41 @@ public class Utilizador extends User implements Login {
 
     public void addEncomendaRealizada(Encomenda e, double te, String entregador){
         this.encomendas_realizadas.add(new EncomendaRealizadaUtilizador(e.getCodEncomenda(),e.getCodUtilizador(),e.getCodLoja(),entregador,te,e.getDataEntrega()));
+    }
+
+    /**
+     * Método que devolve uma lista com encomendas à espera de serem aceites,
+     * @return Lista com encomendas.
+     */
+    public Map<String,Encomenda> getPorAceitar(){
+        TreeMap<String,Encomenda> aux = new TreeMap<>();
+        this.por_aceitar.entrySet().stream().forEach(v -> aux.put(v.getKey(),v.getValue().clone()));
+        return aux;
+    }
+
+    /**
+     * Método que define a lista de encomendas à espera de serem aceites.
+     * @param a Lista com encomendas.
+     */
+    public void setPorAceitar(Map<String,Encomenda> a){
+        a.entrySet().stream().forEach(v -> this.por_aceitar.put(v.getKey(),v.getValue().clone()));
+    }
+
+    /**
+     * Método que adiciona uma encomenda à lista de espera.
+     * @param codT que é o código da transportadora.
+     * @param e que é a encomenda feita.
+     */
+    public void addEncomendaParaAceitar(String codT,Encomenda e){
+        this.por_aceitar.putIfAbsent(codT,e);
+    }
+
+    /**
+     * Método que remove uma encomenda da lista de espera.
+     * @param codT que é o código da transportadora que efetuou a encomenda.
+     */
+    public void removePorAceitar(String codT){
+        this.por_aceitar.remove(codT);
     }
 
     /**

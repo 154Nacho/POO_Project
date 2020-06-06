@@ -6,6 +6,8 @@ import Users.User;
 import Users.Voluntario;
 import Views.*;
 
+import javax.naming.spi.ObjectFactoryBuilder;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -90,6 +92,9 @@ public class MainController implements TrazAquiController{
                 case "6":
                     apresentarProdutosLoja();
                     break;
+                case "7":
+                    classificarEntregador();
+                    break;
                 case "S":
                     this.view = new LoginView();
                     break;
@@ -169,7 +174,51 @@ public class MainController implements TrazAquiController{
     }
 
     public void encomendasToAccept(){
+        Collection<Object> aux = model.interpreta(17,new ArrayList<>());
+        for(Object e : aux){
+            view.show(e + "\n");
+        }
+        if(aux.isEmpty()) view.show("Não possui encomendas por aceitar de momento.\n");
+        else {
+            String opcao;
+            List<Object> args = new ArrayList<>();
+            view.show("Indique o código da encomenda a aceitar/recusar ou pressione Enter para sair\n");
+            opcao = Input.lerString();
+            if (opcao.isEmpty()) return;
+            args.add(opcao);
+            view.show("Pretender aceitar(S) ou recusar(N) a encomenda?\n");
+            opcao = Input.lerString();
+            opcao = opcao.toUpperCase();
+            args.add(opcao);
+            Collection<Object> res = model.interpreta(18, args);
+            if(res.isEmpty()) view.show("A encomenda não foi aceite ou não existe!");
+            else view.show("Encomenda recebida com sucesso!\n");
+        }
+        view.show("Press Enter to exit");
+        if (Input.lerString().isEmpty()) return;
+    }
 
+    public void classificarEntregador(){
+        Collection<Object> aux = model.interpreta(21,new ArrayList<>());
+        List<Object> args = new ArrayList<>();
+        String code;
+        boolean valid = false;
+        for(Object e : aux )
+            view.show(e + "\n");
+        do{
+            view.show("Indique o entregador que pretende avaliar: ");
+            code=Input.lerString();
+            if(code.isEmpty()) return;
+            else if(code.charAt(0) != 'v' && code.charAt(0) != 't')
+                view.show("Código inválido\n");
+            else {
+                args.add(code);
+                valid=true;
+            }
+        }while(!valid);
+        view.show("Atribua uma classificação ao entregador ( 0 a 5 ): ");
+        args.add(Input.lerInt());
+        model.interpreta(22,args);
     }
 
     /*--------------------------------------------------VOLUNTARIO--------------------------------------------------*/
@@ -211,7 +260,9 @@ public class MainController implements TrazAquiController{
         view.show("Indique o código de encomenda que pretende entregar:\n");
         if((codEnc=Input.lerString()).isEmpty()) return;
         aux.add(codEnc);
-        model.interpreta(8,aux);
+        Collection<Object> res = model.interpreta(8,aux);
+        if (res.isEmpty()) view.show("A encomenda ja foi entregue!\n");
+        else view.show("Entrega feita com sucesso!\n");
     }
 
     public void consultarSistema() {
@@ -295,7 +346,45 @@ public class MainController implements TrazAquiController{
     }
 
     public void updateInfo(){
-
+        String opcao;
+        do {
+            view.show("1 -> Informar sobre a loja\n");
+            view.show("2 -> Adicionar produto ao stock\n");
+            view.show("S -> Retroceder\n");
+            opcao = Input.lerString();
+            opcao = opcao.toUpperCase();
+            switch (opcao) {
+                case "1":
+                    model.interpreta(13, new ArrayList<>());
+                    break;
+                case "2":
+                    List<Object> aux = new ArrayList<>();
+                    boolean valid = false;
+                    String code,nome;
+                    double p;
+                    do{
+                        view.show("Indique o código do produto que pretende adicionar: ");
+                        code = Input.lerString();
+                        if(code.isEmpty()) return;
+                        else if (code.charAt(0) != 'p' ){
+                            view.show("Código inválido\n");
+                        }
+                        else valid = true;
+                    }while(!valid);
+                    aux.add(code);
+                    view.show("Indique o nome do produto: ");
+                    nome = Input.lerString();
+                    if(nome.isEmpty()) return;
+                    else aux.add(nome);
+                    view.show("Indique o preço a que pretende vender o produto: ");
+                    p = Input.lerDouble();
+                    aux.add(p);
+                    model.interpreta(14, aux);
+                    break;
+                case "S":
+                    break;
+            }
+        }while(!opcao.equals("S"));
     }
 
     /*--------------------------------------------------EMPRESA--------------------------------------------------*/
@@ -309,14 +398,16 @@ public class MainController implements TrazAquiController{
             opcao = opcao.toUpperCase();
             switch(opcao){
                 case "1":
+                    entregarEncomendaTransportadora();
                     break;
                 case "2":
+                    consultarSistemaTransportadora();
                     break;
                 case "3":
+                    alterarDisponibilidadeTransportadora();
                     break;
                 case "4":
-                    break;
-                case "5":
+                    calcularFaturado();
                     break;
                 case "S":
                     this.view = new LoginView();
@@ -327,6 +418,63 @@ public class MainController implements TrazAquiController{
         }while(!(opcao.equals("S")));
     }
 
+    public void entregarEncomendaTransportadora(){
+        List<Object> aux = new ArrayList<>();
+        String codEnc;
+        view.show("Indique o código de encomenda que pretende entregar:\n");
+        if((codEnc=Input.lerString()).isEmpty()) return;
+        aux.add(codEnc);
+        Collection<Object> res = model.interpreta(15,aux);
+        if(res.isEmpty()) view.show("A encomenda já foi entregue!\n");
+        else view.show("A entrega encontra-se pendente e à espera de aprovação do Utilizador!\n");
+    }
+
+    public void consultarSistemaTransportadora(){
+        Collection<Object> aux = model.interpreta(16, new ArrayList<>());
+        view.show("Encomendas Disponiveis para Entrega\n");
+        if(aux.isEmpty()) view.show("-> Não existem encomendas disponiveis para poder entregar!\n");
+        for (Object e : aux) {
+            view.show(e + "\n");
+        }
+        view.show("Press Enter to exit\n");
+        if(Input.lerString().isEmpty()) return;
+    }
+
+    public void alterarDisponibilidadeTransportadora(){
+        List<Object> aux = new ArrayList<>();
+        view.show("Pretende mostrar-se disponivel (1) ou indisponível(0)?\n");
+        int opcao = Input.lerInt();
+        aux.add(opcao);
+        model.interpreta(19,aux);
+        view.show("Press Enter to exit\n");
+        if(Input.lerString().isEmpty()) return;
+    }
+
+    public void calcularFaturado(){
+        List<Object> args = new ArrayList<>();
+        view.show("Data de Início\n");
+        view.show("Ano: ");
+        int y1 = Input.lerInt();
+        view.show("Mes: ");
+        int m1 = Input.lerInt();
+        view.show("Dia: ");
+        int d1 = Input.lerInt();
+        view.show("\nData de Fim\n");
+        view.show("Ano: ");
+        int y2 = Input.lerInt();
+        view.show("Mes: ");
+        int m2 = Input.lerInt();
+        view.show("Dia: ");
+        int d2 = Input.lerInt();
+        args.add(y1);
+        args.add(m1);
+        args.add(d1);
+        args.add(y2);
+        args.add(m2);
+        args.add(d2);
+        Collection<Object> res = model.interpreta(20,args);
+        view.show("O total faturado entre o dia " + d1 + " do mes " + m1 + " do ano " + y1 + " e o dia " + d2 + " do mes " + m2 + " do ano " + y2 + " é  " + res.toString() + "\n");
+    }
     /*--------------------------------------------------COMMON--------------------------------------------------*/
 
     private void register(){
