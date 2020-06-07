@@ -6,6 +6,8 @@ import Readers.Parser;
 import Views.LoginView;
 import Views.TrazAquiView;
 
+import java.io.IOException;
+
 public class TrazAquiMVC {
 
     private static TrazAquiModel createData(){
@@ -14,7 +16,7 @@ public class TrazAquiMVC {
         return tam;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         TrazAquiController control = new MainController();
         TrazAquiView view = new LoginView();
 

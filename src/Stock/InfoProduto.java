@@ -1,6 +1,8 @@
 package Stock;
 
-public class InfoProduto {
+import java.io.Serializable;
+
+public class InfoProduto implements Serializable {
     private String nome;
     private double preco;
     private double peso;

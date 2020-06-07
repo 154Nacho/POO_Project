@@ -1,8 +1,9 @@
 package Stock;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class EncomendaRealizadaVoluntario {
+public class EncomendaRealizadaVoluntario implements Serializable {
 
         private String code_enc;
         private String code_utilizador;

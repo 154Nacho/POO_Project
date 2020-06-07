@@ -1,6 +1,8 @@
 package Geral;
 
-public class GPS {
+import java.io.Serializable;
+
+public class GPS implements Serializable {
     private double latitude;
     private double longitude;
 

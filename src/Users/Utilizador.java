@@ -7,16 +7,18 @@ import Stock.EncomendaRealizadaUtilizador;
 import Stock.EncomendaRealizadaVoluntario;
 import com.sun.source.tree.Tree;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Utilizador extends User implements Login {
+public class Utilizador extends User implements Login, Serializable {
 
     GPS gps; // Geral.GPS guardar par de coordenadas latitude,longitude;
     private String nome;
     private List<Encomenda> on_hold;
     private Map<String,Encomenda> por_aceitar;
     private List<EncomendaRealizadaUtilizador> encomendas_realizadas;
+    private List<String> por_classificar;
 
 
     /**
@@ -29,6 +31,7 @@ public class Utilizador extends User implements Login {
         this.on_hold = new ArrayList<>();
         this.por_aceitar = new TreeMap<>();
         this.encomendas_realizadas = new ArrayList<>();
+        this.por_classificar = new ArrayList<>();
     }
 
     /**
@@ -43,6 +46,7 @@ public class Utilizador extends User implements Login {
         this.on_hold = u.getOnHold();
         this.por_aceitar = u.getPorAceitar();
         this.encomendas_realizadas = u.getEncomendasFeitas();
+        this.por_classificar = u.getPorClassificar();
     }
 
     /**
@@ -60,6 +64,7 @@ public class Utilizador extends User implements Login {
         this.por_aceitar = new TreeMap<>();
         this.encomendas_realizadas = new ArrayList<>();
         this.on_hold = new ArrayList<>();
+        this.por_classificar = new ArrayList<>();
     }
 
     /**
@@ -222,6 +227,39 @@ public class Utilizador extends User implements Login {
      */
     public void removePorAceitar(String codT){
         this.por_aceitar.remove(codT);
+    }
+
+    /**
+     * Método que devolve uma lista com os entregadores por classificar.
+     * @return Lista com entregadores.
+     */
+    public List<String> getPorClassificar(){
+        return this.por_classificar.stream().collect(Collectors.toList());
+    }
+
+    /**
+     * Método que define uma lista de entregadores a classificar.
+     * @param a Lista com os entregadores.
+     */
+    public void setPorClassificar(List<String> a ){
+        this.por_classificar = new ArrayList<>();
+        a.stream().forEach(v -> this.por_classificar.add(v));
+    }
+
+    /**
+     * Método que adiciona um código de entregador à lista por classificar.
+     * @param code Código do entregador.
+     */
+    public void addCodeParaClassificar(String code){
+        this.por_classificar.add(code);
+    }
+
+    /**
+     * Método que remove um código de entregador da lista por classificar.
+     * @param code Código do entregador.
+     */
+    public void removeCodePorAceitar(String code){
+        this.por_classificar.remove(code);
     }
 
     /**

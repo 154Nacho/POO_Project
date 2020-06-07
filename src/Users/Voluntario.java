@@ -4,12 +4,13 @@ import Geral.GPS;
 import Stock.EncomendaRealizadaTransportadora;
 import Stock.EncomendaRealizadaVoluntario;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Voluntario extends User {
+public class Voluntario extends User implements Serializable {
 
     private double raio;
     private String nome;

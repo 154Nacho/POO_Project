@@ -9,12 +9,13 @@ import Users.*;
 import com.sun.management.VMOption;
 import jdk.jshell.execution.Util;
 
+import java.io.*;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class TrazAqui implements TrazAquiModel{
+public class TrazAqui implements TrazAquiModel, Serializable{
     boolean logged;
     private Map<String, User> users; //Map de utilizadores, voluntários, lojas e transportadoras
     private List<Encomenda> encomendas;
@@ -30,7 +31,7 @@ public class TrazAqui implements TrazAquiModel{
         this.logged_user = null;
     }
 
-    public Collection<Object> interpreta(int num, Collection<Object> l){
+    public Collection<Object> interpreta(int num, Collection<Object> l) throws IOException {
         List<Object> lista = new ArrayList<>(l);
         switch (num){
             case 1:
@@ -83,6 +84,10 @@ public class TrazAqui implements TrazAquiModel{
                 return entregadores();
             case 22:
                 classificaEntregador((String) lista.get(0), (Integer) lista.get(1));
+                break;
+            case 23:
+                gravarTrazAqui((String) lista.get(0));
+                break;
             default:
         }
         return null;
@@ -159,6 +164,7 @@ public class TrazAqui implements TrazAquiModel{
                     t.addEncomendaRealizada(e.getValue().getCodEncomenda(),e.getValue().getCodUtilizador(),e.getValue().getCodLoja(),Duration.between(e.getValue().getDataEncomenda(), e.getValue().getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento(),e.getValue().getPeso(),ptotal,t.getGPS().distanceTo(u.getGps()));
                     u.addEncomendaRealizada(e.getValue(),Duration.between(e.getValue().getDataEncomenda(), e.getValue().getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento(),e.getKey());
                     u.removePorAceitar(e.getKey());
+                    u.addCodeParaClassificar(e.getKey());
                     l.removeEncomenda(e.getValue());
                     this.users.put(t.getCode(),t);
                     this.users.put(u.getCodigo(),u);
@@ -174,22 +180,27 @@ public class TrazAqui implements TrazAquiModel{
     public Set<Object> entregadores(){
         Utilizador u = (Utilizador) this.logged_user;
         Set<Object> aux = new TreeSet<>();
-        for(EncomendaRealizadaUtilizador e : u.getEncomendasFeitas()){
-            aux.add(e.getCode_entregador());
+        for(String e : u.getPorClassificar()){
+            aux.add(e);
         }
         return aux;
     }
 
     public void classificaEntregador(String codEntregador, int classifica){
+        Utilizador u = (Utilizador) this.logged_user;
         if (codEntregador.charAt(0) == 'v') {
             Voluntario v = (Voluntario) getUser(codEntregador);
             v.updateClassificacao(classifica);
+            u.removeCodePorAceitar(codEntregador);
             this.users.put(v.getCodigo(),v);
+            this.users.put(u.getCodigo(),u);
         }
         if (codEntregador.charAt(0) == 't') {
             Transportadora t = (Transportadora) getUser(codEntregador);
             t.updateClassificacao(classifica);
+            u.removeCodePorAceitar(codEntregador);
             this.users.put(t.getCode(),t);
+            this.users.put(u.getCodigo(),u);
         }
     }
 
@@ -525,6 +536,33 @@ public class TrazAqui implements TrazAquiModel{
         for (Voluntario u : this.getListaVoluntarios())
             System.out.println(u.toString());
     }
+
+    /**
+     * Método que grava o estado atual do programa num ficheiro objeto.
+     * @param filename Nome com que vai ser gravado o ficheiro.
+     * @throws IOException Exceção.
+     */
+    public void gravarTrazAqui(String filename) throws IOException {
+        ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream(filename));
+        o.writeObject(this);
+        o.flush();
+        o.close();
+    }
+
+    /**
+     * Método que permite carrega o estado do programa a partir de um ficheiro objeto.
+     * @param filename que é o nome do ficheiro
+     * @return Programa com um estado.
+     * @throws IOException Exceção.
+     * @throws ClassNotFoundException Exceção.
+     */
+    public static TrazAqui loadTrazAqui(String filename) throws IOException, ClassNotFoundException {
+        ObjectInputStream o = new ObjectInputStream(new FileInputStream(filename));
+        TrazAqui d = (TrazAqui) o.readObject();
+        o.close();
+        return d;
+    }
+
 
 
     //passwords

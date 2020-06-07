@@ -11,6 +11,7 @@ public class UtilizadorView implements TrazAquiView{
         System.out.println("5 -> Ver Lojas disponiveis");
         System.out.println("6 -> Ver produtos de uma dada loja");
         System.out.println("7 -> Classificar entregador");
+        System.out.println("G -> Gravar");
         System.out.println("S -> Logout");
     }
 

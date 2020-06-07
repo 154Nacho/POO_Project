@@ -1,9 +1,10 @@
 package Stock;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.*;
 
-public class Encomenda {
+public class Encomenda implements Serializable {
 
     // Variáveis de instância
     private String codEncomenda;

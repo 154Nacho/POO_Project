@@ -5,13 +5,14 @@ import Stock.Encomenda;
 import Stock.EncomendaRealizadaTransportadora;
 import Stock.EncomendaRealizadaVoluntario;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 
-public class Transportadora extends User {
+public class Transportadora extends User implements  Serializable {
 
     private String nome;
     private GPS gps;
@@ -25,6 +26,7 @@ public class Transportadora extends User {
     private double classificação;
     private int total_aval;
     private int total_entregas;
+    private int km_total;
 
     /**
      * Construtor por omissão
@@ -41,6 +43,7 @@ public class Transportadora extends User {
         this.classificação = 0;
         this.total_entregas = 0;
         this.total_aval = 0;
+        this.km_total = 0;
     }
 
     /**
@@ -60,6 +63,7 @@ public class Transportadora extends User {
         this.classificação = 0;
         this.total_entregas = 0;
         this.total_aval = 0;
+        this.km_total = 0;
     }
 
     /**
@@ -79,6 +83,7 @@ public class Transportadora extends User {
         this.classificação = t.getClassificação();
         this.total_entregas = t.getTotal_entregas();
         this.total_aval = t.getTotalAval();
+        this.total_aval = t.getTotalKM();
     }
 
     //Getters
@@ -273,6 +278,7 @@ public class Transportadora extends User {
      */
     public void addEncomendaRealizada(String c_enc, String c_util, String loja, double te,double peso, double preco,double dist){
         EncomendaRealizadaTransportadora nova = new EncomendaRealizadaTransportadora(c_enc,c_util,loja,te,peso*0.23+dist*this.precoPorKM,preco + dist*this.precoPorKM + peso*0.23,LocalDateTime.now());
+        this.km_total += dist;
         this.register.add(nova);
         this.total_entregas++;
     }
@@ -283,6 +289,23 @@ public class Transportadora extends User {
      */
     public void addEncomendaParaAceitar(Encomenda e){
         this.on_hold.add(e.clone());
+    }
+
+
+    /**
+     * Método que devolve o total de quilómetros que uma Transportadora percorreu.
+     * @return Total de quilóemtros.
+     */
+    public int getTotalKM() {
+        return km_total;
+    }
+
+    /**
+     * Métodon que define o total de quilómetros percorridos por uma Transportadora.
+     * @param km_total que é o tatal de quilóemtros percorridos.
+     */
+    public void setKm_total(int km_total) {
+        this.km_total = km_total;
     }
 
 

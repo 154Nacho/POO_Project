@@ -1,6 +1,8 @@
 package Interfaces;
 
-public interface Login {
+import java.io.Serializable;
+
+public interface Login extends Serializable {
 
     boolean checkLogin(String code, String pass);
 }

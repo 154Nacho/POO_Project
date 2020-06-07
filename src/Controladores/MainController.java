@@ -1,13 +1,15 @@
 package Controladores;
 
+import Modelos.TrazAqui;
 import Modelos.TrazAquiModel;
 import Readers.Input;
 import Users.User;
 import Users.Voluntario;
 import Views.*;
 
-import javax.naming.spi.ObjectFactoryBuilder;
-import java.io.ObjectInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -27,7 +29,7 @@ public class MainController implements TrazAquiController{
     }
 
     @Override
-    public void start() {
+    public void start() throws IOException, ClassNotFoundException {
         String opcao = "";
         boolean logged = false;
         do {
@@ -58,6 +60,9 @@ public class MainController implements TrazAquiController{
                     register();
                     view = new LoginView();
                     break;
+                case "L":
+                    loadFile();
+                    break;
                 case "S":
                     break;
             }
@@ -66,7 +71,7 @@ public class MainController implements TrazAquiController{
 
     /*--------------------------------------------------UTILIZADOR--------------------------------------------------*/
 
-    private void controladorAuxiliarUtilizador(){
+    private void controladorAuxiliarUtilizador() throws IOException, ClassNotFoundException {
         String opcao = "";
         do{
             this.view = new UtilizadorView();
@@ -95,6 +100,9 @@ public class MainController implements TrazAquiController{
                 case "7":
                     classificarEntregador();
                     break;
+                case "G":
+                    gravar();
+                    break;
                 case "S":
                     this.view = new LoginView();
                     break;
@@ -104,7 +112,7 @@ public class MainController implements TrazAquiController{
         }while(!(opcao.equals("S")));
     }
 
-    public void novaEncomenda(){
+    public void novaEncomenda() throws IOException {
         List<Object> aux = new ArrayList<>();
         String loja,produto;
         int qtd;
@@ -123,7 +131,7 @@ public class MainController implements TrazAquiController{
         view.show("Encomenda efetuada com sucesso\n");
     }
 
-    public void apresentarLojas(){
+    public void apresentarLojas() throws IOException {
         Collection<Object> aux = model.interpreta(5,new ArrayList<>());
         if(aux.size()==0) view.show("Something's wrong");
         for(Object e : aux){
@@ -133,7 +141,7 @@ public class MainController implements TrazAquiController{
         if (Input.lerString().isEmpty()) return;
     }
 
-    public void apresentarProdutosLoja(){
+    public void apresentarProdutosLoja() throws IOException {
         List<Object> aux = new ArrayList<>();
         String codLoja;
         view.show("Inserir código da loja que pretende consultar:\n");
@@ -147,7 +155,7 @@ public class MainController implements TrazAquiController{
 
     }
 
-    public void encomendasFeitas(){
+    public void encomendasFeitas() throws IOException {
         Collection<Object> aux = model.interpreta(3,new ArrayList<>());
         if(aux.size()==0){
             view.show("Não possui encomendas feitas de momento!\n");
@@ -160,7 +168,7 @@ public class MainController implements TrazAquiController{
         }
     }
 
-    public void encomendasOnHold(){
+    public void encomendasOnHold() throws IOException {
         Collection<Object> aux = model.interpreta(4,new ArrayList<>());
         if(aux.size()==0){
             view.show("Não possui encomendas feitas de momento!\n");
@@ -173,7 +181,7 @@ public class MainController implements TrazAquiController{
         }
     }
 
-    public void encomendasToAccept(){
+    public void encomendasToAccept() throws IOException {
         Collection<Object> aux = model.interpreta(17,new ArrayList<>());
         for(Object e : aux){
             view.show(e + "\n");
@@ -198,7 +206,7 @@ public class MainController implements TrazAquiController{
         if (Input.lerString().isEmpty()) return;
     }
 
-    public void classificarEntregador(){
+    public void classificarEntregador() throws IOException {
         Collection<Object> aux = model.interpreta(21,new ArrayList<>());
         List<Object> args = new ArrayList<>();
         String code;
@@ -223,7 +231,7 @@ public class MainController implements TrazAquiController{
 
     /*--------------------------------------------------VOLUNTARIO--------------------------------------------------*/
 
-    private void controladorAuxiliarVoluntario(){
+    private void controladorAuxiliarVoluntario() throws IOException, ClassNotFoundException {
         String opcao = "";
         do{
             this.view = new VoluntarioView();
@@ -245,6 +253,9 @@ public class MainController implements TrazAquiController{
                 case "4":
                     mostrarClassificacao();
                     break;
+                case "G":
+                    gravar();
+                    break;
                 case "S":
                     this.view = new LoginView();
                     break;
@@ -254,7 +265,7 @@ public class MainController implements TrazAquiController{
         } while (!(opcao.equals("S")));
     }
 
-    public void entregarEncomenda() {
+    public void entregarEncomenda() throws IOException {
         List<Object> aux = new ArrayList<>();
         String codEnc;
         view.show("Indique o código de encomenda que pretende entregar:\n");
@@ -265,7 +276,7 @@ public class MainController implements TrazAquiController{
         else view.show("Entrega feita com sucesso!\n");
     }
 
-    public void consultarSistema() {
+    public void consultarSistema() throws IOException {
         Collection<Object> aux = model.interpreta(7, new ArrayList<>());
         view.show("Encomendas Disponiveis para Entrega\n");
         if(aux.isEmpty()) view.show("-> Não existem encomendas disponiveis para poder entregar!\n");
@@ -276,7 +287,7 @@ public class MainController implements TrazAquiController{
         if(Input.lerString().isEmpty()) return;
     }
 
-    public void alterarDisponibilidade() {
+    public void alterarDisponibilidade() throws IOException {
         List<Object> aux = new ArrayList<>();
         view.show("Pretende mostrar-se disponivel (1) ou indisponível(0)?\n");
         int opcao = Input.lerInt();
@@ -286,7 +297,7 @@ public class MainController implements TrazAquiController{
         if(Input.lerString().isEmpty()) return;
     }
 
-    public void mostrarClassificacao() {
+    public void mostrarClassificacao() throws IOException {
         Collection<Object> aux= model.interpreta(10,new ArrayList<>());
         double c = 0;
         for (Object e : aux) c = (double) e;
@@ -298,7 +309,7 @@ public class MainController implements TrazAquiController{
 
     /*----------------------------------------------------LOJA----------------------------------------------------*/
 
-    private void controladorAuxiliarLoja() {
+    private void controladorAuxiliarLoja() throws IOException, ClassNotFoundException {
         String opcao = "";
         do {
             this.view = new LojaView();
@@ -315,6 +326,9 @@ public class MainController implements TrazAquiController{
                 case "3":
                     updateInfo();
                     break;
+                case "G":
+                    gravar();
+                    break;
                 case "S":
                     this.view = new LoginView();
                     break;
@@ -324,7 +338,7 @@ public class MainController implements TrazAquiController{
         }while(!(opcao.equals("S")));
     }
 
-    public void verEncomendas(){
+    public void verEncomendas() throws IOException {
         view.show("Encomendas prontas a entregar\n");
         Collection<Object> aux = model.interpreta(12,new ArrayList<>());
         for (Object e : aux){
@@ -334,7 +348,7 @@ public class MainController implements TrazAquiController{
         if(Input.lerString().isEmpty()) return;
     }
 
-    public void consultarStock(){
+    public void consultarStock() throws IOException {
         view.show("Produtos dispoiníveis na Loja\n");
         view.show("PRODUTO   |   CÓDIGO\n");
         Collection<Object> aux = model.interpreta(11,new ArrayList<>());
@@ -345,7 +359,7 @@ public class MainController implements TrazAquiController{
         if(Input.lerString().isEmpty()) return;
     }
 
-    public void updateInfo(){
+    public void updateInfo() throws IOException {
         String opcao;
         do {
             view.show("1 -> Informar sobre a loja\n");
@@ -389,7 +403,7 @@ public class MainController implements TrazAquiController{
 
     /*--------------------------------------------------EMPRESA--------------------------------------------------*/
 
-    private void controladorAuxiliarTransportadora(){
+    private void controladorAuxiliarTransportadora() throws IOException, ClassNotFoundException {
         String opcao = "";
         do{
             this.view = new EmpresaView();
@@ -409,6 +423,9 @@ public class MainController implements TrazAquiController{
                 case "4":
                     calcularFaturado();
                     break;
+                case "G":
+                    gravar();
+                    break;
                 case "S":
                     this.view = new LoginView();
                     break;
@@ -418,7 +435,7 @@ public class MainController implements TrazAquiController{
         }while(!(opcao.equals("S")));
     }
 
-    public void entregarEncomendaTransportadora(){
+    public void entregarEncomendaTransportadora() throws IOException {
         List<Object> aux = new ArrayList<>();
         String codEnc;
         view.show("Indique o código de encomenda que pretende entregar:\n");
@@ -429,7 +446,7 @@ public class MainController implements TrazAquiController{
         else view.show("A entrega encontra-se pendente e à espera de aprovação do Utilizador!\n");
     }
 
-    public void consultarSistemaTransportadora(){
+    public void consultarSistemaTransportadora() throws IOException {
         Collection<Object> aux = model.interpreta(16, new ArrayList<>());
         view.show("Encomendas Disponiveis para Entrega\n");
         if(aux.isEmpty()) view.show("-> Não existem encomendas disponiveis para poder entregar!\n");
@@ -440,7 +457,7 @@ public class MainController implements TrazAquiController{
         if(Input.lerString().isEmpty()) return;
     }
 
-    public void alterarDisponibilidadeTransportadora(){
+    public void alterarDisponibilidadeTransportadora() throws IOException {
         List<Object> aux = new ArrayList<>();
         view.show("Pretende mostrar-se disponivel (1) ou indisponível(0)?\n");
         int opcao = Input.lerInt();
@@ -450,7 +467,7 @@ public class MainController implements TrazAquiController{
         if(Input.lerString().isEmpty()) return;
     }
 
-    public void calcularFaturado(){
+    public void calcularFaturado() throws IOException {
         List<Object> args = new ArrayList<>();
         view.show("Data de Início\n");
         view.show("Ano: ");
@@ -477,7 +494,7 @@ public class MainController implements TrazAquiController{
     }
     /*--------------------------------------------------COMMON--------------------------------------------------*/
 
-    private void register(){
+    private void register() throws IOException {
         view = new WhatUserLoginView();
         boolean valid = false;
         String username, password,nome;
@@ -549,4 +566,26 @@ public class MainController implements TrazAquiController{
         valid = model.checkLoggin(username,pass);
         return valid;
     }
+
+    public void loadFile() throws IOException, ClassNotFoundException {
+        boolean valid = false;
+        String filename;
+        do{
+            view.show("Insira o nome do ficheiro objeto: ");
+            filename=Input.lerString();
+            if(filename.isEmpty()) return;
+            else if (Files.exists(Paths.get(filename))){
+                valid = true;
+            }else view.show("Ficheiro Objeto Inválido\n");
+        }while(!valid);
+        this.model = TrazAqui.loadTrazAqui(filename);
+    }
+
+    public void gravar() throws  IOException, ClassNotFoundException {
+        List<Object> aux = new ArrayList<>();
+        String defaultFileName = "trazAqui.dat";
+        aux.add(defaultFileName);
+        model.interpreta(23, aux);
+    }
+
 }

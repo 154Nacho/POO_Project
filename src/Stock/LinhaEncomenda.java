@@ -1,6 +1,8 @@
 package Stock;
 
-public class LinhaEncomenda {
+import java.io.Serializable;
+
+public class LinhaEncomenda implements Serializable {
 
     // Variáveis de instância
     private String codProduto;
