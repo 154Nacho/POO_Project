@@ -31,6 +31,13 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         this.logged_user = null;
     }
 
+    /**
+     * Método que interpreta os pedidos do utilizador, servindo de intermedio entre o modelo e o controlador.
+     * @param num Caso a averiguar.
+     * @param l Lista com parâmetros necessários.
+     * @return Lista com os resultados.
+     * @throws IOException Exceção.
+     */
     public Collection<Object> interpreta(int num, Collection<Object> l) throws IOException {
         List<Object> lista = new ArrayList<>(l);
         switch (num) {
@@ -106,7 +113,7 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         InfoProduto info = l.getProdutos().get(codP);
         List<LinhaEncomenda> aux = new ArrayList<>();
         aux.add(new LinhaEncomenda(codP, info.getNome(), qtd, info.getPreco()));
-        String codEnc = "e" + randomNumber(4);
+        String codEnc = "e" + randomNumber();
         this.encomendas.add(new Encomenda(codEnc, this.logged_user.getCode(), codL, info.getPeso(), aux));
         l.addEncomendaOnHold(new Encomenda(codEnc, this.logged_user.getCode(), codL, info.getPeso(), aux));
         Utilizador user = (Utilizador) this.logged_user;
@@ -158,6 +165,7 @@ public class TrazAqui implements TrazAquiModel, Serializable {
     public List<Object> aceitarEncomendaDaTranspotadora(String code, String answer) {
         Utilizador u = (Utilizador) this.logged_user;
         double ptotal = 0;
+        double clima = generateClima();
         List<Object> aux = new ArrayList<>();
         for (Map.Entry<String, Encomenda> e : u.getPorAceitar().entrySet()) {
             if (e.getValue().getCodEncomenda().compareTo(code) == 0) {
@@ -167,8 +175,8 @@ public class TrazAqui implements TrazAquiModel, Serializable {
                     e.getValue().setDataEntrega(LocalDateTime.now());
                     for (LinhaEncomenda le : e.getValue().getProdutos())
                         ptotal += le.getValorUnitario();
-                    t.addEncomendaRealizada(e.getValue().getCodEncomenda(), e.getValue().getCodUtilizador(), e.getValue().getCodLoja(), Duration.between(e.getValue().getDataEncomenda(), e.getValue().getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento()*l.getQtd_pessoas_fila(), e.getValue().getPeso(), ptotal, t.getGPS().distanceTo(l.getGPS()) + l.getGPS().distanceTo(u.getGps()));
-                    u.addEncomendaRealizada(e.getValue(), Duration.between(e.getValue().getDataEncomenda(), e.getValue().getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento()*l.getQtd_pessoas_fila(), e.getKey());
+                    t.addEncomendaRealizada(e.getValue().getCodEncomenda(), e.getValue().getCodUtilizador(), e.getValue().getCodLoja(), (Duration.between(e.getValue().getDataEncomenda(), e.getValue().getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento()*l.getQtd_pessoas_fila()) * clima, e.getValue().getPeso(), ptotal, t.getGPS().distanceTo(l.getGPS()) + l.getGPS().distanceTo(u.getGps()));
+                    u.addEncomendaRealizada(e.getValue(), (Duration.between(e.getValue().getDataEncomenda(), e.getValue().getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento()*l.getQtd_pessoas_fila())*clima, e.getKey());
                     u.removePorAceitar(e.getKey());
                     u.addCodeParaClassificar(e.getKey());
                     l.removeEncomenda(e.getValue());
@@ -248,12 +256,13 @@ public class TrazAqui implements TrazAquiModel, Serializable {
     public List<Object> entregarEncomenda(String codEnc) {
         Voluntario v = (Voluntario) this.logged_user;
         List<Object> aux = new ArrayList<>();
+        double clima = generateClima();
         if (v.isDisponivel()) {
             for (Encomenda e : this.encomendas) {
                 if (e.getCodEncomenda().compareTo(codEnc) == 0) {
                     Loja l = (Loja) getUser(e.getCodLoja());
                     e.setDataEntrega(LocalDateTime.now());
-                    v.addEncomendaRealizada(codEnc, e.getCodUtilizador(), e.getCodLoja(), Duration.between(e.getDataEncomenda(), e.getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento()*l.getQtd_pessoas_fila());
+                    v.addEncomendaRealizada(codEnc, e.getCodUtilizador(), e.getCodLoja(), (Duration.between(e.getDataEncomenda(), e.getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento()*l.getQtd_pessoas_fila())*clima);
                     Utilizador u = (Utilizador) getUser(e.getCodUtilizador());
                     u.addEncomendaRealizada(e, Duration.between(e.getDataEncomenda(), e.getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento()*l.getQtd_pessoas_fila(), v.getCodigo());
                     l.removeEncomenda(e);
@@ -307,7 +316,7 @@ public class TrazAqui implements TrazAquiModel, Serializable {
 
     public void adicionaProdutoAoStock(String code, String desc, double preco) {
         Loja l = (Loja) this.logged_user;
-        l.addProdLoja(code, desc, preco, randomNumber(2));
+        l.addProdLoja(code, desc, preco, randomPeso());
     }
 
     /*----------------------------------------------------------------------------------------------------------------*/
@@ -460,14 +469,21 @@ public class TrazAqui implements TrazAquiModel, Serializable {
     }
 
     /**
-     * Método que gera um numero aleatório com um dado número de digitos.
-     *
-     * @param length número de digitos pretendido.
+     * Método que gera um numero aleatório.
      * @return Número gerado.
      */
-    public int randomNumber(int length) {
+    public int randomNumber() {
         Random random = new Random();
-        return random.nextInt(999);
+        return random.nextInt(9999);
+    }
+
+    /**
+     * Método que gera um peso aleatório até 50.
+     * @return Peso gerado.
+     */
+    public double randomPeso(){
+        Random random = new Random();
+        return random.nextDouble() * random.nextInt(500);
     }
 
     /**
@@ -630,6 +646,20 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         TrazAqui d = (TrazAqui) o.readObject();
         o.close();
         return d;
+    }
+
+
+    /**
+     * Método que gera um valor correspondente a um clima aleatório.
+     * @return Valor que afeta o tempo de entrega consoante o clima.
+     */
+    public double generateClima(){
+        Random random = new Random();
+        int clima = random.nextInt(10); // 0-2 -> Chuva ; 3-5 -> Nevoeiro ; 6-8 -> Neve ; 9-10 -> Limpo
+        if(clima>=0 && clima<=2) return 1.5;
+        else if(clima>=3 && clima<=5) return 1.25;
+        else if(clima>=6 && clima<=8) return 2;
+        else return 1;
     }
 
 
