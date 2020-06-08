@@ -100,6 +100,9 @@ public class MainController implements TrazAquiController{
                 case "7":
                     classificarEntregador();
                     break;
+                case "8":
+                    top10user();
+                    break;
                 case "G":
                     gravar();
                     break;
@@ -149,10 +152,11 @@ public class MainController implements TrazAquiController{
         if (codLoja.isEmpty()) return;
         aux.add(codLoja);
         Collection<Object> prods = model.interpreta(6,aux);
+        if(prods.size()==0) view.show("A Loja não possui produtos de momento!\n");
         for(Object e : prods)
             view.show(e + "\n");
-
-
+        view.show("Press Enter to exit");
+        if (Input.lerString().isEmpty()) return;
     }
 
     public void encomendasFeitas() throws IOException {
@@ -227,6 +231,17 @@ public class MainController implements TrazAquiController{
         view.show("Atribua uma classificação ao entregador ( 0 a 5 ): ");
         args.add(Input.lerInt());
         model.interpreta(22,args);
+    }
+
+    public void top10user() throws IOException {
+        Collection<Object> res = model.interpreta(25,new ArrayList<>());
+        view.show("------TOP10 UTILIZADORES------\n");
+        for (Object e : res){
+            view.show(e + "\n");
+        }
+        view.show("-------------------------------\n");
+        view.show("Press Enter to exit");
+        if (Input.lerString().isEmpty()) return;
     }
 
     /*--------------------------------------------------VOLUNTARIO--------------------------------------------------*/
@@ -423,6 +438,12 @@ public class MainController implements TrazAquiController{
                 case "4":
                     calcularFaturado();
                     break;
+                case "5":
+                    mostrarClassificacaoTransportadora();
+                    break;
+                case "6":
+                    top10transportadora();
+                    break;
                 case "G":
                     gravar();
                     break;
@@ -492,6 +513,29 @@ public class MainController implements TrazAquiController{
         Collection<Object> res = model.interpreta(20,args);
         view.show("O total faturado entre o dia " + d1 + " do mes " + m1 + " do ano " + y1 + " e o dia " + d2 + " do mes " + m2 + " do ano " + y2 + " é  " + res.toString() + "\n");
     }
+
+    public void mostrarClassificacaoTransportadora() throws IOException {
+        Collection<Object> aux= model.interpreta(24,new ArrayList<>());
+        double c = 0;
+        for (Object e : aux) c = (double) e;
+        view.show("A sua classificação é de " + c + " em 5\n");
+        view.show("Press Enter to exit\n");
+        if(Input.lerString().isEmpty()) return;
+    }
+
+    public void top10transportadora() throws IOException {
+        Collection<Object> res = model.interpreta(26,new ArrayList<>());
+        view.show("------TOP10 TRANSPOTADORAS------\n");
+        for (Object e : res){
+            view.show(e + "\n");
+        }
+        view.show("--------------------------------\n");
+
+        view.show("Press Enter to exit");
+        if (Input.lerString().isEmpty()) return;
+    }
+
+
     /*--------------------------------------------------COMMON--------------------------------------------------*/
 
     private void register() throws IOException {

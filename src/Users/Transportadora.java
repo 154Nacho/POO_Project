@@ -83,7 +83,7 @@ public class Transportadora extends User implements  Serializable {
         this.classificação = t.getClassificação();
         this.total_entregas = t.getTotal_entregas();
         this.total_aval = t.getTotalAval();
-        this.total_aval = t.getTotalKM();
+        this.km_total  = t.getTotalKM();
     }
 
     //Getters

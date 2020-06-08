@@ -1,13 +1,13 @@
 package Modelos;
 
+import Comparadores.QtdEncomendasReverseComparator;
+import Comparadores.TotalKMsComparator;
 import Geral.GPS;
 import Stock.Encomenda;
 import Stock.EncomendaRealizadaUtilizador;
 import Stock.InfoProduto;
 import Stock.LinhaEncomenda;
 import Users.*;
-import com.sun.management.VMOption;
-import jdk.jshell.execution.Util;
 
 import java.io.*;
 import java.time.Duration;
@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class TrazAqui implements TrazAquiModel, Serializable{
+public class TrazAqui implements TrazAquiModel, Serializable {
     boolean logged;
     private Map<String, User> users; //Map de utilizadores, voluntários, lojas e transportadoras
     private List<Encomenda> encomendas;
@@ -33,7 +33,7 @@ public class TrazAqui implements TrazAquiModel, Serializable{
 
     public Collection<Object> interpreta(int num, Collection<Object> l) throws IOException {
         List<Object> lista = new ArrayList<>(l);
-        switch (num){
+        switch (num) {
             case 1:
                 addUser(lista);
                 break;
@@ -79,7 +79,7 @@ public class TrazAqui implements TrazAquiModel, Serializable{
                 alterarDisponibilidadeTransportadora((Integer) lista.get(0));
                 break;
             case 20:
-                return calculaFaturadoEntreDatas((Integer) lista.get(0),(Integer) lista.get(1),(Integer) lista.get(2),(Integer) lista.get(3),(Integer) lista.get(4),(Integer) lista.get(5));
+                return calculaFaturadoEntreDatas((Integer) lista.get(0), (Integer) lista.get(1), (Integer) lista.get(2), (Integer) lista.get(3), (Integer) lista.get(4), (Integer) lista.get(5));
             case 21:
                 return entregadores();
             case 22:
@@ -88,6 +88,12 @@ public class TrazAqui implements TrazAquiModel, Serializable{
             case 23:
                 gravarTrazAqui((String) lista.get(0));
                 break;
+            case 24:
+                return classificacaoTransportadora();
+            case 25:
+                return top10users();
+            case 26:
+                return top10transportadoras();
             default:
         }
         return null;
@@ -95,80 +101,80 @@ public class TrazAqui implements TrazAquiModel, Serializable{
 
     /*-------------------------------------------FUNCIONALIDADES UTILIZADOR-------------------------------------------*/
 
-    public void novaEncomenda(String codL, String codP, int qtd){
+    public void novaEncomenda(String codL, String codP, int qtd) {
         Loja l = (Loja) this.users.get(codL);
         InfoProduto info = l.getProdutos().get(codP);
         List<LinhaEncomenda> aux = new ArrayList<>();
-        aux.add(new LinhaEncomenda(codP,info.getNome(),qtd,info.getPreco()));
-        String codEnc = "e"+randomNumber(4);
-        this.encomendas.add(new Encomenda(codEnc,this.logged_user.getCode(),codL,info.getPeso(),aux));
-        l.addEncomendaOnHold(new Encomenda(codEnc,this.logged_user.getCode(),codL,info.getPeso(),aux));
+        aux.add(new LinhaEncomenda(codP, info.getNome(), qtd, info.getPreco()));
+        String codEnc = "e" + randomNumber(4);
+        this.encomendas.add(new Encomenda(codEnc, this.logged_user.getCode(), codL, info.getPeso(), aux));
+        l.addEncomendaOnHold(new Encomenda(codEnc, this.logged_user.getCode(), codL, info.getPeso(), aux));
         Utilizador user = (Utilizador) this.logged_user;
-        user.addEncomendaOnHold(new Encomenda(codEnc,this.logged_user.getCode(),codL,info.getPeso(),aux));
+        user.addEncomendaOnHold(new Encomenda(codEnc, this.logged_user.getCode(), codL, info.getPeso(), aux));
     }
 
-    public List<Object> encomendasFeitasUtilizador(){
+    public List<Object> encomendasFeitasUtilizador() {
         Utilizador user = (Utilizador) getUser(this.logged_user.getCode());
         List<Object> aux = new ArrayList<>();
-        for(EncomendaRealizadaUtilizador e : user.getEncomendasFeitas())
-            aux.add(e.toString());
+        for (EncomendaRealizadaUtilizador e : user.getEncomendasFeitas())
+            aux.add(e.getData_entrega().toString() + "\n" + e.toString());
         return aux;
     }
 
-    public List<Object> encomendasEmEsperaUtilizador(){
+    public List<Object> encomendasEmEsperaUtilizador() {
         Utilizador user = (Utilizador) this.logged_user;
         List<Object> aux = new ArrayList<>();
-        for(Encomenda e : user.getOnHold())
+        for (Encomenda e : user.getOnHold())
             aux.add(e.toString());
         return aux;
     }
 
-    public List<Object> lojasDoSistema(){
+    public List<Object> lojasDoSistema() {
         List<Object> aux = new ArrayList<>();
-        for(User u : this.users.values()){
-            if(u instanceof Loja)
-                aux.add(u.getCode()+" -> " + ((Loja) u).getNome());
+        for (User u : this.users.values()) {
+            if (u instanceof Loja)
+                aux.add(u.getCode() + " -> " + ((Loja) u).getNome());
         }
         return aux;
     }
 
-    public List<Object> produtosDaLoja(String codLoja){
-        Loja l = (Loja) this.users.get(codLoja);
+    public List<Object> produtosDaLoja(String codLoja) {
+        Loja l = (Loja) getUser(codLoja);
         List<Object> aux = new ArrayList<>();
-        for(Map.Entry<String,InfoProduto> prod : l.getProdutos().entrySet()){
-            aux.add(prod.getKey() + " -> " + prod.getValue().getNome());
+        for (Map.Entry<String, InfoProduto> prod : l.getProdutos().entrySet()) {
+            aux.add(prod.getKey() + " -> " + prod.getValue().getNome() + " - " + prod.getValue().getPreco()+ "€");
         }
         return aux;
     }
 
-    public List<Object> encomendasParaAceitarUtilizador(){
+    public List<Object> encomendasParaAceitarUtilizador() {
         Utilizador u = (Utilizador) this.logged_user;
         List<Object> aux = new ArrayList<>();
-        for(Map.Entry<String, Encomenda> e : u.getPorAceitar().entrySet())
+        for (Map.Entry<String, Encomenda> e : u.getPorAceitar().entrySet())
             aux.add(e.getValue().getCodEncomenda() + " -> " + e.getKey());
         return aux;
     }
 
-    public List<Object> aceitarEncomendaDaTranspotadora(String code, String answer){
+    public List<Object> aceitarEncomendaDaTranspotadora(String code, String answer) {
         Utilizador u = (Utilizador) this.logged_user;
-        double ptotal=0;
+        double ptotal = 0;
         List<Object> aux = new ArrayList<>();
-        for(Map.Entry<String,Encomenda> e : u.getPorAceitar().entrySet()){
-            if(e.getValue().getCodEncomenda().compareTo(code)==0){
-                if(answer.compareTo("S")==0){
+        for (Map.Entry<String, Encomenda> e : u.getPorAceitar().entrySet()) {
+            if (e.getValue().getCodEncomenda().compareTo(code) == 0) {
+                if (answer.compareTo("S") == 0) {
                     Loja l = (Loja) getUser(e.getValue().getCodLoja());
                     Transportadora t = (Transportadora) getUser(e.getKey());
                     e.getValue().setDataEntrega(LocalDateTime.now());
-                    for(LinhaEncomenda le :e.getValue().getProdutos())
+                    for (LinhaEncomenda le : e.getValue().getProdutos())
                         ptotal += le.getValorUnitario();
-                    t.addEncomendaRealizada(e.getValue().getCodEncomenda(),e.getValue().getCodUtilizador(),e.getValue().getCodLoja(),Duration.between(e.getValue().getDataEncomenda(), e.getValue().getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento(),e.getValue().getPeso(),ptotal,t.getGPS().distanceTo(u.getGps()));
-                    u.addEncomendaRealizada(e.getValue(),Duration.between(e.getValue().getDataEncomenda(), e.getValue().getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento(),e.getKey());
+                    t.addEncomendaRealizada(e.getValue().getCodEncomenda(), e.getValue().getCodUtilizador(), e.getValue().getCodLoja(), Duration.between(e.getValue().getDataEncomenda(), e.getValue().getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento()*l.getQtd_pessoas_fila(), e.getValue().getPeso(), ptotal, t.getGPS().distanceTo(l.getGPS()) + l.getGPS().distanceTo(u.getGps()));
+                    u.addEncomendaRealizada(e.getValue(), Duration.between(e.getValue().getDataEncomenda(), e.getValue().getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento()*l.getQtd_pessoas_fila(), e.getKey());
                     u.removePorAceitar(e.getKey());
                     u.addCodeParaClassificar(e.getKey());
                     l.removeEncomenda(e.getValue());
-                    this.users.put(t.getCode(),t);
-                    this.users.put(u.getCodigo(),u);
-                    this.users.put(l.getCodigo(),l);
+                    this.users.put(t.getCode(), t);
+                    this.users.put(u.getCodigo(), u);
+                    this.users.put(l.getCodigo(), l);
                     aux.add(true);
                     return aux;
                 }
@@ -177,62 +183,82 @@ public class TrazAqui implements TrazAquiModel, Serializable{
         return aux;
     }
 
-    public Set<Object> entregadores(){
+    public Set<Object> entregadores() {
         Utilizador u = (Utilizador) this.logged_user;
         Set<Object> aux = new TreeSet<>();
-        for(String e : u.getPorClassificar()){
+        for (String e : u.getPorClassificar()) {
             aux.add(e);
         }
         return aux;
     }
 
-    public void classificaEntregador(String codEntregador, int classifica){
+    public void classificaEntregador(String codEntregador, int classifica) {
         Utilizador u = (Utilizador) this.logged_user;
+        Transportadora t = (Transportadora) getUser(codEntregador);
         if (codEntregador.charAt(0) == 'v') {
             Voluntario v = (Voluntario) getUser(codEntregador);
             v.updateClassificacao(classifica);
             u.removeCodePorAceitar(codEntregador);
-            this.users.put(v.getCodigo(),v);
-            this.users.put(u.getCodigo(),u);
+            this.users.put(v.getCodigo(), v);
+            this.users.put(u.getCodigo(), u);
         }
         if (codEntregador.charAt(0) == 't') {
-            Transportadora t = (Transportadora) getUser(codEntregador);
+
             t.updateClassificacao(classifica);
             u.removeCodePorAceitar(codEntregador);
-            this.users.put(t.getCode(),t);
-            this.users.put(u.getCodigo(),u);
+            this.users.put(t.getCode(), t);
+            this.users.put(u.getCodigo(), u);
         }
+    }
+
+    public List<Object> top10users(){
+        Set<Utilizador> aux = new TreeSet<>(new QtdEncomendasReverseComparator());
+        List<Object> res = new ArrayList<>();
+        int i = 0;
+        for (Map.Entry<String,User> e : this.users.entrySet()){
+            if(e.getValue() instanceof Utilizador){
+                aux.add((Utilizador) e.getValue());
+            }
+        }
+        for (Utilizador u : aux){
+            if(i<10){
+                res.add(u.getNome() + " -> " + u.getEncomendasFeitas().size());
+                i++;
+            }
+        }
+        return res;
     }
 
     /*----------------------------------------------------------------------------------------------------------------*/
 
     /*-------------------------------------------FUNCIONALIDADES VOLUNTÁRIO-------------------------------------------*/
 
-    public List<Object> encomendasDisponiveis(){
+    public List<Object> encomendasDisponiveis() {
         Voluntario v = (Voluntario) this.logged_user;
         List<Object> aux = new ArrayList<>();
-        for (Encomenda e : this.encomendas){
+        for (Encomenda e : this.encomendas) {
             Utilizador u = (Utilizador) getUser(e.getCodUtilizador());
-            if(u.getGps().distanceTo(v.getGps()) <= v.getRaio())
+            Loja l = (Loja) getUser(e.getCodLoja());
+            if (l.getGPS().distanceTo(v.getGps()) <= v.getRaio() && l.getGPS().distanceTo(u.getGps()) <= v.getRaio())
                 aux.add(e.toString());
         }
         return aux;
     }
 
-    public List<Object> entregarEncomenda(String codEnc){
+    public List<Object> entregarEncomenda(String codEnc) {
         Voluntario v = (Voluntario) this.logged_user;
         List<Object> aux = new ArrayList<>();
-        if(v.isDisponivel()) {
+        if (v.isDisponivel()) {
             for (Encomenda e : this.encomendas) {
                 if (e.getCodEncomenda().compareTo(codEnc) == 0) {
                     Loja l = (Loja) getUser(e.getCodLoja());
                     e.setDataEntrega(LocalDateTime.now());
-                    v.addEncomendaRealizada(codEnc, e.getCodUtilizador(), e.getCodLoja(), Duration.between(e.getDataEncomenda(), e.getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento());
+                    v.addEncomendaRealizada(codEnc, e.getCodUtilizador(), e.getCodLoja(), Duration.between(e.getDataEncomenda(), e.getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento()*l.getQtd_pessoas_fila());
                     Utilizador u = (Utilizador) getUser(e.getCodUtilizador());
-                    u.addEncomendaRealizada(e, Duration.between(e.getDataEncomenda(), e.getDataEntrega()).toMinutes(), v.getCodigo());
+                    u.addEncomendaRealizada(e, Duration.between(e.getDataEncomenda(), e.getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento()*l.getQtd_pessoas_fila(), v.getCodigo());
                     l.removeEncomenda(e);
                     this.encomendas.remove(e);
-                    this.users.put(l.getCodigo(),l);
+                    this.users.put(l.getCodigo(), l);
                     aux.add(true);
                     return aux;
                 }
@@ -241,12 +267,12 @@ public class TrazAqui implements TrazAquiModel, Serializable{
         return aux;
     }
 
-    public void alterarDisponibilidade(int e){
+    public void alterarDisponibilidade(int e) {
         Voluntario v = (Voluntario) this.logged_user;
-        v.setDisponivel(e==1);
+        v.setDisponivel(e == 1);
     }
 
-    public List<Object> classifcacaoVoluntario(){
+    public List<Object> classifcacaoVoluntario() {
         Voluntario v = (Voluntario) this.logged_user;
         List<Object> aux = new ArrayList<>();
         aux.add(v.getClassificação());
@@ -257,132 +283,166 @@ public class TrazAqui implements TrazAquiModel, Serializable{
 
     /*----------------------------------------------FUNCIONALIDADES LOJA----------------------------------------------*/
 
-    public Set<Object> produtosDaLoja(){
+    public Set<Object> produtosDaLoja() {
         Set<Object> aux = new TreeSet<>();
         Loja l = (Loja) this.logged_user;
-        for(Map.Entry<String,InfoProduto> e : l.getProdutos().entrySet())
-            aux.add(e.getValue().getNome()  + " -> " + e.getKey() );
+        for (Map.Entry<String, InfoProduto> e : l.getProdutos().entrySet())
+            aux.add(e.getValue().getNome() + " -> " + e.getKey());
         return aux;
     }
 
-    public List<Object> encomendasDaLoja(){
+    public List<Object> encomendasDaLoja() {
         List<Object> aux = new ArrayList<>();
         Loja l = (Loja) this.logged_user;
-        for(Encomenda e : l.getEncomendas())
+        for (Encomenda e : l.getEncomendas())
             aux.add(e.toString());
         return aux;
     }
 
-    public void alterarInformarLoja(){
+    public void alterarInformarLoja() {
         Loja l = (Loja) this.logged_user;
         if (l.isInforma_sobre_loja()) l.setInforma_sobre_loja(false);
         else l.setInforma_sobre_loja(true);
     }
 
-    public void adicionaProdutoAoStock(String code, String desc, double preco){
+    public void adicionaProdutoAoStock(String code, String desc, double preco) {
         Loja l = (Loja) this.logged_user;
-        l.addProdLoja(code,desc,preco,randomNumber(2));
+        l.addProdLoja(code, desc, preco, randomNumber(2));
     }
 
     /*----------------------------------------------------------------------------------------------------------------*/
 
     /*---------------------------------------------FUNCIONALIDADES EMPRESA--------------------------------------------*/
 
-    public List<Object> encomendasDisponiveisTransportadora(){
+    public List<Object> encomendasDisponiveisTransportadora() {
         List<Object> aux = new ArrayList<>();
         Transportadora t = (Transportadora) this.logged_user;
-        for(Encomenda e : this.encomendas){
+        for (Encomenda e : this.encomendas) {
             Utilizador u = (Utilizador) getUser(e.getCodUtilizador());
-            if(t.getGPS().distanceTo(u.getGps()) <= t.getRaio())
+            Loja l = (Loja) getUser(e.getCodLoja());
+            if (l.getGPS().distanceTo(t.getGPS()) <= t.getRaio() && l.getGPS().distanceTo(u.getGps()) <= t.getRaio())
                 aux.add(e.toString());
         }
         return aux;
     }
 
-    public List<Object> entregarEncomendaTransportadora(String codEnc){
+    public List<Object> entregarEncomendaTransportadora(String codEnc) {
         Transportadora t = (Transportadora) this.logged_user;
         List<Object> aux = new ArrayList<>();
-        for(Encomenda e : this.encomendas){
-            if (e.getCodEncomenda().compareTo(codEnc)==0){
-                Utilizador u = (Utilizador) getUser(e.getCodUtilizador());
-                t.addEncomendaParaAceitar(e);
-                u.addEncomendaParaAceitar(t.getCode(),e);
-                this.users.put(u.getCodigo(),u);
-                this.encomendas.remove(e);
-                aux.add(true);
-                return aux;
+        if (t.getDisponibilidade()) {
+            for (Encomenda e : this.encomendas) {
+                if (e.getCodEncomenda().compareTo(codEnc) == 0 && t.getOnHold().size() < (t.getNMaximo() + 1)) {
+                    Utilizador u = (Utilizador) getUser(e.getCodUtilizador());
+                    t.addEncomendaParaAceitar(e);
+                    u.addEncomendaParaAceitar(t.getCode(), e);
+                    this.users.put(u.getCodigo(), u);
+                    this.encomendas.remove(e);
+                    aux.add(true);
+                    return aux;
+                }
             }
         }
         return aux;
     }
 
-    public void alterarDisponibilidadeTransportadora(int e){
+    public void alterarDisponibilidadeTransportadora(int e) {
         Transportadora v = (Transportadora) this.logged_user;
-        v.setDisponivel(e==1);
+        v.setDisponivel(e == 1);
     }
 
-    public List<Object> calculaFaturadoEntreDatas(int y1, int m1, int d1, int y2, int m2, int d2){
-        LocalDateTime i = LocalDateTime.of(y1,m1,d1,0,0);
-        LocalDateTime f = LocalDateTime.of(y2,m2,d2,0,0);
+    public List<Object> calculaFaturadoEntreDatas(int y1, int m1, int d1, int y2, int m2, int d2) {
+        LocalDateTime i = LocalDateTime.of(y1, m1, d1, 0, 0);
+        LocalDateTime f = LocalDateTime.of(y2, m2, d2, 0, 0);
         List<Object> aux = new ArrayList<>();
         Transportadora t = (Transportadora) this.logged_user;
-        double fat = t.calculaFat(i,f);
+        double fat = t.calculaFat(i, f);
         aux.add(fat);
         return aux;
     }
 
+    public List<Object> classificacaoTransportadora() {
+        Transportadora t = (Transportadora) this.logged_user;
+        List<Object> aux = new ArrayList<>();
+        aux.add(t.getClassificação());
+        return aux;
+    }
+
+    public List<Object> top10transportadoras(){
+        Set<Transportadora> aux = new TreeSet<>(new TotalKMsComparator());
+        List<Object> res = new ArrayList<>();
+        int i = 0;
+        for (Map.Entry<String,User> e : this.users.entrySet()){
+            if(e.getValue() instanceof Transportadora){
+                aux.add((Transportadora) e.getValue());
+            }
+        }
+        for (Transportadora u : aux){
+            if(i<10){
+                res.add(u.getNome() + " -> " + u.getTotalKM());
+                i++;
+            }
+        }
+        return res;
+    }
+
     /*----------------------------------------------------------------------------------------------------------------*/
+
     /**
      * Método que adiciona uma encomenda à lista de encomendas em espera de um utilizador.
+     *
      * @param e Encomenda feita.
      */
-    public void addEncomendaToUtilizador(Encomenda e){
+    public void addEncomendaToUtilizador(Encomenda e) {
         Utilizador u = (Utilizador) this.users.get(e.getCodUtilizador());
         u.addEncomendaOnHold(e.clone());
     }
 
     /**
      * Método que adiciona a uma da loja informação sobre um produto comprado na mesma.
+     *
      * @param e Encomenda feita.
      */
-    public void addProdutoALoja(Encomenda e){
+    public void addProdutoALoja(Encomenda e) {
         Loja l = (Loja) this.users.get(e.getCodLoja());
-        for(LinhaEncomenda le : e.getProdutos()){
-            l.addProdLoja(le.getCodProduto(),le.getDescricao(),le.getValorUnitario(),(e.getPeso()/e.getProdutos().size()));
+        for (LinhaEncomenda le : e.getProdutos()) {
+            l.addProdLoja(le.getCodProduto(), le.getDescricao(), le.getValorUnitario(), (e.getPeso() / e.getProdutos().size()));
         }
     }
 
     /**
      * Método que adiciona uma encomenda à fila de espera de uma loja.
+     *
      * @param e Encomenda realizada.
      */
-    public void addEncomendaALoja(Encomenda e){
+    public void addEncomendaALoja(Encomenda e) {
         Loja l = (Loja) this.users.get(e.getCodLoja());
         l.addEncomendaOnHold(e.clone());
         l.incrementaFilaEspera();
     }
 
 
-    public User getUser(String codigo){
+    public User getUser(String codigo) {
         return this.users.get(codigo).clone();
     }
 
     /**
      * Obtém uma String com todas as Encomendas.
+     *
      * @return String
      */
-    public String getEncomendasInformation(){
+    public String getEncomendasInformation() {
         StringBuilder sb = new StringBuilder();
-        for(Encomenda e : this.encomendas)
+        for (Encomenda e : this.encomendas)
             sb.append(e.toString()).append('\n');
         return sb.toString();
     }
 
     /**
      * Apresenta a informação de um user.
+     *
      * @return String
      */
-    public String getUserInformation(){
+    public String getUserInformation() {
         return this.logged_user.toString();
 //        switch (this.user.getClass().getName()) {
 //            case "Users.Utilizador":
@@ -401,10 +461,11 @@ public class TrazAqui implements TrazAquiModel, Serializable{
 
     /**
      * Método que gera um numero aleatório com um dado número de digitos.
+     *
      * @param length número de digitos pretendido.
      * @return Número gerado.
      */
-    public int randomNumber(int length){
+    public int randomNumber(int length) {
         Random random = new Random();
         return random.nextInt(999);
     }
@@ -420,21 +481,22 @@ public class TrazAqui implements TrazAquiModel, Serializable{
 
     /**
      * Método que adiciona um User com os devidos parâmetros.
+     *
      * @param l que contém a informação sobre o User.
      */
-    public void addUser(List<Object> l){
-        switch(((String) l.get(0)).charAt(0)){
+    public void addUser(List<Object> l) {
+        switch (((String) l.get(0)).charAt(0)) {
             case 'u':
-                users.put((String) l .get(0),new Utilizador((String) l.get(0), (String) l.get(2),(String) l.get(1),new GPS((Double) l.get(3),(Double) l.get(4))));
+                users.put((String) l.get(0), new Utilizador((String) l.get(0), (String) l.get(2), (String) l.get(1), new GPS((Double) l.get(3), (Double) l.get(4))));
                 break;
             case 'v':
-                users.put((String) l .get(0),new Voluntario((String) l.get(0), (String) l.get(2),(String) l.get(1),new GPS((Double) l.get(3),(Double) l.get(4)),(Boolean) l.get(5), (Double) l.get(6)));
+                users.put((String) l.get(0), new Voluntario((String) l.get(0), (String) l.get(2), (String) l.get(1), new GPS((Double) l.get(3), (Double) l.get(4)), (Boolean) l.get(5), (Double) l.get(6)));
                 break;
             case 't':
-                users.put((String) l .get(0),new Transportadora((String) l.get(0), (String) l.get(2),(String) l.get(1),new GPS((Double) l.get(3),(Double) l.get(4)),(String) l.get(5),(Double) l.get(6),(Double) l.get(7),(Integer) l.get(8)));
+                users.put((String) l.get(0), new Transportadora((String) l.get(0), (String) l.get(2), (String) l.get(1), new GPS((Double) l.get(3), (Double) l.get(4)), (String) l.get(5), (Double) l.get(6), (Double) l.get(7), (Integer) l.get(8)));
                 break;
             case 'l':
-                users.put((String) l .get(0),new Loja((String) l.get(0), (String) l.get(2),(String) l.get(1),new GPS((Double) l.get(3),(Double) l.get(4)),(Boolean) l.get(5),(Double) l.get(6)));
+                users.put((String) l.get(0), new Loja((String) l.get(0), (String) l.get(2), (String) l.get(1), new GPS((Double) l.get(3), (Double) l.get(4)), (Boolean) l.get(5), (Double) l.get(6)));
                 break;
         }
     }
@@ -450,32 +512,35 @@ public class TrazAqui implements TrazAquiModel, Serializable{
         User u = this.users.get(username);
         if (u == null) return false;
         else if (u.getPassword().equals(password)) {
-            setLogged(true,this.users.get(username).clone());
+            setLogged(true, this.users.get(username).clone());
             return true;
         } else return false;
     }
 
-    public boolean checkUser(String codUser){
+    public boolean checkUser(String codUser) {
         User u = this.users.get(codUser);
         return u != null;
     }
 
     /**
      * Método que adiciona uma encomenda ao Sistema.
+     *
      * @param e Encomenda lida.
      */
-    public void addEncomenda(Encomenda e){
+    public void addEncomenda(Encomenda e) {
         this.encomendas.add(e);
     }
 
-    public List<Encomenda> getEncomendas(){
+    public List<Encomenda> getEncomendas() {
         ArrayList<Encomenda> aux = new ArrayList<>();
-        for(Encomenda e : this.encomendas)
+        for (Encomenda e : this.encomendas)
             aux.add(e.clone());
         return aux;
     }
+
     /**
      * Obtém o logged user
+     *
      * @return int
      */
     public User getLogged() {
@@ -484,6 +549,7 @@ public class TrazAqui implements TrazAquiModel, Serializable{
 
     /**
      * Define o logged number
+     *
      * @param logged Logged number
      */
     public void setLogged(boolean logged, User u) {
@@ -493,6 +559,7 @@ public class TrazAqui implements TrazAquiModel, Serializable{
 
     /**
      * Método que devolve uma lista de utilizadores.
+     *
      * @return
      */
     public List<User> getusers() {
@@ -539,6 +606,7 @@ public class TrazAqui implements TrazAquiModel, Serializable{
 
     /**
      * Método que grava o estado atual do programa num ficheiro objeto.
+     *
      * @param filename Nome com que vai ser gravado o ficheiro.
      * @throws IOException Exceção.
      */
@@ -551,9 +619,10 @@ public class TrazAqui implements TrazAquiModel, Serializable{
 
     /**
      * Método que permite carrega o estado do programa a partir de um ficheiro objeto.
+     *
      * @param filename que é o nome do ficheiro
      * @return Programa com um estado.
-     * @throws IOException Exceção.
+     * @throws IOException            Exceção.
      * @throws ClassNotFoundException Exceção.
      */
     public static TrazAqui loadTrazAqui(String filename) throws IOException, ClassNotFoundException {
@@ -564,9 +633,8 @@ public class TrazAqui implements TrazAquiModel, Serializable{
     }
 
 
-
     //passwords
-    public void setPassword(String codUser, String pw){
+    public void setPassword(String codUser, String pw) {
         this.users.get(codUser).setPassword(pw);
     }
 
