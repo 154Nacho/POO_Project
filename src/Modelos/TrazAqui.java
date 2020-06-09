@@ -84,7 +84,7 @@ public class TrazAqui implements TrazAquiModel, Serializable {
             case 17:
                 return encomendasParaAceitarUtilizador();
             case 18:
-                return aceitarEncomendaDaTranspotadora((String) lista.get(0), (String) lista.get(1));
+                return aceitarEncomendaDaTransportadora((String) lista.get(0), (String) lista.get(1));
             case 19:
                 alterarDisponibilidadeTransportadora((Integer) lista.get(0));
                 break;
@@ -104,6 +104,11 @@ public class TrazAqui implements TrazAquiModel, Serializable {
                 return top10users();
             case 26:
                 return top10transportadoras();
+            case 27:
+                return lojaInforma();
+            case 28:
+                alteraTempoAtendimento((Double) lista.get(0));
+                break;
             default:
         }
         return null;
@@ -111,6 +116,14 @@ public class TrazAqui implements TrazAquiModel, Serializable {
 
     /*-------------------------------------------FUNCIONALIDADES UTILIZADOR-------------------------------------------*/
 
+    /**
+     * Método que adiciona uma nova encomenda ao sistema e a loja respetiva.
+     * @param codL Código da loja.
+     * @param codP Código do produto a encomendar.
+     * @param qtd Quantidade do produto a encomendar.
+     * @throws UserInexistenteException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
     public void novaEncomenda(String codL, String codP, int qtd) throws UserInexistenteException, ProdutoInexistenteException {
         if(!this.users.containsKey(codL)) throw new UserInexistenteException(codL);
         Loja l = (Loja) this.users.get(codL);
@@ -125,6 +138,10 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         user.addEncomendaOnHold(new Encomenda(codEnc, this.logged_user.getCode(), codL, info.getPeso(), aux));
     }
 
+    /**
+     * Método que devolve uma lista com encomendas feitas e entregues ao utilizador.
+     * @return Lista com as encomendas.
+     */
     public List<Object> encomendasFeitasUtilizador() {
         Utilizador user = (Utilizador) getUser(this.logged_user.getCode());
         List<Object> aux = new ArrayList<>();
@@ -133,6 +150,10 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         return aux;
     }
 
+    /**
+     * Método que devolve uma lista com as encomendas à espera de serem entregues.
+     * @return Lista com as encomendas.
+     */
     public List<Object> encomendasEmEsperaUtilizador() {
         Utilizador user = (Utilizador) this.logged_user;
         List<Object> aux = new ArrayList<>();
@@ -141,6 +162,10 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         return aux;
     }
 
+    /**
+     * Método que devolve uma lista com todas as lojas do sistema.
+     * @return Lista com as lojas.
+     */
     public List<Object> lojasDoSistema() {
         List<Object> aux = new ArrayList<>();
         for (User u : this.users.values()) {
@@ -150,6 +175,12 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         return aux;
     }
 
+    /**
+     * Método que devolve uma lista com os produtos de uma dada loja.
+     * @param codLoja Código da loja a averiguar.
+     * @return Lista com os produtos e informação respetiva.
+     * @throws UserInexistenteException Exceção.
+     */
     public List<Object> produtosDaLoja(String codLoja) throws UserInexistenteException {
         if(!this.users.containsKey(codLoja)) throw new UserInexistenteException(codLoja);
         Loja l = (Loja) getUser(codLoja);
@@ -160,6 +191,10 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         return aux;
     }
 
+    /**
+     * Método que devolve uma lista com encomendas à espera de serem aceites pelo utilizador.
+     * @return Lista com as encomendas.
+     */
     public List<Object> encomendasParaAceitarUtilizador() {
         Utilizador u = (Utilizador) this.logged_user;
         List<Object> aux = new ArrayList<>();
@@ -168,7 +203,13 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         return aux;
     }
 
-    public List<Object> aceitarEncomendaDaTranspotadora(String code, String answer) {
+    /**
+     * Método que aceita ou rejeita uma encomenda por parte do utilizador e atualiza o sistema.
+     * @param code Código da encomenda a averiguar.
+     * @param answer String que diz se aceita ou não aceita.
+     * @return Caso tenha sido aceite, insere um boolean na lista para podermos confirmar ao utilizador que a encomenda foi feita, caso contrário devolve uma lista vazia.
+     */
+    public List<Object> aceitarEncomendaDaTransportadora(String code, String answer) {
         Utilizador u = (Utilizador) this.logged_user;
         double ptotal = 0;
         double clima = generateClima();
@@ -191,12 +232,20 @@ public class TrazAqui implements TrazAquiModel, Serializable {
                     this.users.put(l.getCodigo(), l);
                     aux.add(true);
                     return aux;
+                }else{
+                    u.removePorAceitar(e.getKey());
+                    this.encomendas.add(e.getValue().clone());
+                    this.users.put(u.getCodigo(),u);
                 }
             }
         }
         return aux;
     }
 
+    /**
+     * Método que devolve um Set com os códigos dos Voluntários e/ou Transportadoras que um utilizador tem por avaliar.
+     * @return Set com os códigos.
+     */
     public Set<Object> entregadores() {
         Utilizador u = (Utilizador) this.logged_user;
         Set<Object> aux = new TreeSet<>();
@@ -206,6 +255,13 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         return aux;
     }
 
+    /**
+     * Método que classifica um entregador.
+     * @param codEntregador Código do entregador.
+     * @param classifica Classificação dada pelo utilizador.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     */
     public void classificaEntregador(String codEntregador, int classifica) throws UserInexistenteException, AlreadyEvaluatedException {
         Utilizador u = (Utilizador) this.logged_user;
         if(!u.getPorClassificar().contains(codEntregador)) throw new AlreadyEvaluatedException(codEntregador);
@@ -227,6 +283,10 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         }
     }
 
+    /**
+     * Método que devolve uma lista com os 10 utilizadores que mais encomendas realizadas possuem.
+     * @return LIsta com os utilizadores e informação respetiva.
+     */
     public List<Object> top10users(){
         Set<Utilizador> aux = new TreeSet<>(new QtdEncomendasReverseComparator());
         List<Object> res = new ArrayList<>();
@@ -249,6 +309,10 @@ public class TrazAqui implements TrazAquiModel, Serializable {
 
     /*-------------------------------------------FUNCIONALIDADES VOLUNTÁRIO-------------------------------------------*/
 
+    /**
+     * Método que devolve uma lista com as encomendas que estejam no raio de ação de um voluntário.
+     * @return Lista com as encomendas.
+     */
     public List<Object> encomendasDisponiveis() {
         Voluntario v = (Voluntario) this.logged_user;
         List<Object> aux = new ArrayList<>();
@@ -261,6 +325,11 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         return aux;
     }
 
+    /**
+     * Método que permite ao voluntário efetuar uma encomenda.
+     * @param codEnc Código da encomenda a entregar.
+     * @return List na qual se insere true caso a encomenda exista e seja passível de ser entregue, caso contrário devolve uma lista vazia.
+     */
     public List<Object> entregarEncomenda(String codEnc) {
         Voluntario v = (Voluntario) this.logged_user;
         List<Object> aux = new ArrayList<>();
@@ -269,26 +338,36 @@ public class TrazAqui implements TrazAquiModel, Serializable {
             for (Encomenda e : this.encomendas) {
                 if (e.getCodEncomenda().compareTo(codEnc) == 0) {
                     Loja l = (Loja) getUser(e.getCodLoja());
-                    e.setDataEntrega(LocalDateTime.now());
-                    v.addEncomendaRealizada(codEnc, e.getCodUtilizador(), e.getCodLoja(), (Duration.between(e.getDataEncomenda(), e.getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento()*l.getQtd_pessoas_fila())*clima);
                     Utilizador u = (Utilizador) getUser(e.getCodUtilizador());
-                    u.addEncomendaRealizada(e, Duration.between(e.getDataEncomenda(), e.getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento()*l.getQtd_pessoas_fila(), v.getCodigo());
-                    l.removeEncomenda(e);
-                    this.encomendas.remove(e);
-                    this.users.put(l.getCodigo(), l);
-                    aux.add(true);
-                    return aux;
+                    if (l.getGPS().distanceTo(v.getGps()) <= v.getRaio() && l.getGPS().distanceTo(u.getGps()) <= v.getRaio()) {
+                        e.setDataEntrega(LocalDateTime.now());
+                        v.addEncomendaRealizada(codEnc, e.getCodUtilizador(), e.getCodLoja(), (Duration.between(e.getDataEncomenda(), e.getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento() * l.getQtd_pessoas_fila()) * clima);
+                        u.addEncomendaRealizada(e, Duration.between(e.getDataEncomenda(), e.getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento() * l.getQtd_pessoas_fila(), v.getCodigo());
+                        l.removeEncomenda(e);
+                        this.encomendas.remove(e);
+                        this.users.put(l.getCodigo(), l);
+                        aux.add(true);
+                        return aux;
+                    }
                 }
             }
         }
         return aux;
     }
 
+    /**
+     * Método que permite alterar a disponibilidade de um voluntário para fazer entregas.
+     * @param e Que é a opção de como pretende mostrar-se.
+     */
     public void alterarDisponibilidade(int e) {
         Voluntario v = (Voluntario) this.logged_user;
         v.setDisponivel(e == 1);
     }
 
+    /**
+     * Método que devolve a classificação de um voluntário.
+     * @return Classificação.
+     */
     public List<Object> classifcacaoVoluntario() {
         Voluntario v = (Voluntario) this.logged_user;
         List<Object> aux = new ArrayList<>();
@@ -300,6 +379,10 @@ public class TrazAqui implements TrazAquiModel, Serializable {
 
     /*----------------------------------------------FUNCIONALIDADES LOJA----------------------------------------------*/
 
+    /**
+     * Método que devolve um Set com os produtos da  loja.
+     * @return Set com os produtos.
+     */
     public Set<Object> produtosDaLoja() {
         Set<Object> aux = new TreeSet<>();
         Loja l = (Loja) this.logged_user;
@@ -308,6 +391,10 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         return aux;
     }
 
+    /**
+     * Método de que devolve uma lista com as encomendas à espera de ser entregues nessa loja.
+     * @return List com as encomendas.
+     */
     public List<Object> encomendasDaLoja() {
         List<Object> aux = new ArrayList<>();
         Loja l = (Loja) this.logged_user;
@@ -316,21 +403,54 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         return aux;
     }
 
+    /**
+     * Método que altera se a Loja informa sobre a sua fila de espera ou não.
+     */
     public void alterarInformarLoja() {
         Loja l = (Loja) this.logged_user;
         if (l.isInforma_sobre_loja()) l.setInforma_sobre_loja(false);
         else l.setInforma_sobre_loja(true);
     }
 
+    /**
+     * Método que adiciona um produto ao stock.
+     * @param code Código do produto a adicionar.
+     * @param desc Nome do produto a adicionar.
+     * @param preco Preço a que o produto vai ser vendido.
+     */
     public void adicionaProdutoAoStock(String code, String desc, double preco) {
         Loja l = (Loja) this.logged_user;
         l.addProdLoja(code, desc, preco, randomPeso());
+    }
+
+    /**
+     * Método que retorna uma lista com algo se a Loja informar sobre a sua fila de espera.
+     * @return List.
+     */
+    public List<Object> lojaInforma(){
+        List<Object> aux = new ArrayList<>();
+        Loja l = (Loja) this.logged_user;
+        if(l.isInforma_sobre_loja()) aux.add(true);
+        return aux;
+    }
+
+    /**
+     * Método que altera o tempo de atendimento de uma loja.
+     * @param tempo Tempo de atendimento.
+     */
+    public void alteraTempoAtendimento(double tempo){
+        Loja l = (Loja) this.logged_user;
+        l.setTempo_médio_atendimento(tempo);
     }
 
     /*----------------------------------------------------------------------------------------------------------------*/
 
     /*---------------------------------------------FUNCIONALIDADES EMPRESA--------------------------------------------*/
 
+    /**
+     * Método que devolve uma lista com encomendas no raio de ação da transportadora disponíveis para entrega.
+     * @return Lista com encomendas.
+     */
     public List<Object> encomendasDisponiveisTransportadora() {
         List<Object> aux = new ArrayList<>();
         Transportadora t = (Transportadora) this.logged_user;
@@ -343,6 +463,11 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         return aux;
     }
 
+    /**
+     * Método que envia ao utilizador a intenção de entregar a sua encomenda.
+     * @param codEnc Código da encomenda a entregar.
+     * @return List com true caso seja possível realizar a entrega.
+     */
     public List<Object> entregarEncomendaTransportadora(String codEnc) {
         Transportadora t = (Transportadora) this.logged_user;
         List<Object> aux = new ArrayList<>();
@@ -350,23 +475,40 @@ public class TrazAqui implements TrazAquiModel, Serializable {
             for (Encomenda e : this.encomendas) {
                 if (e.getCodEncomenda().compareTo(codEnc) == 0 && t.getOnHold().size() < (t.getNMaximo() + 1)) {
                     Utilizador u = (Utilizador) getUser(e.getCodUtilizador());
-                    t.addEncomendaParaAceitar(e);
-                    u.addEncomendaParaAceitar(t.getCode(), e);
-                    this.users.put(u.getCodigo(), u);
-                    this.encomendas.remove(e);
-                    aux.add(true);
-                    return aux;
+                    Loja l = (Loja) getUser(e.getCodLoja());
+                    if (l.getGPS().distanceTo(t.getGPS()) <= t.getRaio() && l.getGPS().distanceTo(u.getGps()) <= t.getRaio()) {
+                        t.addEncomendaParaAceitar(e);
+                        u.addEncomendaParaAceitar(t.getCode(), e);
+                        this.users.put(u.getCodigo(), u);
+                        this.encomendas.remove(e);
+                        aux.add(true);
+                        return aux;
+                    }
                 }
             }
         }
         return aux;
     }
 
+    /**
+     * Método que permite alterar a disponibilidade de uma Transportadora para efetuar entregas.
+     * @param e Modo como se pretende mostrar.
+     */
     public void alterarDisponibilidadeTransportadora(int e) {
         Transportadora v = (Transportadora) this.logged_user;
         v.setDisponivel(e == 1);
     }
 
+    /**
+     * Método que calcula o total faturado em custos de transporte entre duas datas.
+     * @param y1 Ano de inicio.
+     * @param m1 Mes de inicio.
+     * @param d1 Dia de inicio.
+     * @param y2 Ano de fim.
+     * @param m2 Mes de fim.
+     * @param d2 Dia de fim.
+     * @return Valor calculado.
+     */
     public List<Object> calculaFaturadoEntreDatas(int y1, int m1, int d1, int y2, int m2, int d2) {
         LocalDateTime i = LocalDateTime.of(y1, m1, d1, 0, 0);
         LocalDateTime f = LocalDateTime.of(y2, m2, d2, 0, 0);
@@ -377,6 +519,10 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         return aux;
     }
 
+    /**
+     * Método que devolve a classficação de uma dada Transportadora.
+     * @return Classificação.
+     */
     public List<Object> classificacaoTransportadora() {
         Transportadora t = (Transportadora) this.logged_user;
         List<Object> aux = new ArrayList<>();
@@ -384,6 +530,10 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         return aux;
     }
 
+    /**
+     * Método que calcula o top10 de Transportadoras em termos de quilómetros percorridos.
+     * @return List com o top10 de Transportadoras e a sua informação.
+     */
     public List<Object> top10transportadoras(){
         Set<Transportadora> aux = new TreeSet<>(new TotalKMsComparator());
         List<Object> res = new ArrayList<>();

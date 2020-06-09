@@ -6,6 +6,7 @@ import Exceptions.UserInexistenteException;
 import Modelos.TrazAqui;
 import Modelos.TrazAquiModel;
 import Readers.Input;
+import Users.Loja;
 import Users.Transportadora;
 import Users.User;
 import Users.Voluntario;
@@ -22,16 +23,32 @@ public class MainController implements TrazAquiController {
     private TrazAquiView view;
     private TrazAquiModel model;
 
+    /**
+     * Método que define o modelo a utilizar no programa.
+     * @param m Modelo.
+     */
     @Override
     public void setModel(TrazAquiModel m) {
         this.model = m;
     }
 
+    /**
+     * Método que define a view a utilizar no programa.
+     * @param v View.
+     */
     @Override
     public void setView(TrazAquiView v) {
         this.view = v;
     }
 
+    /**
+     * Controlador principal do programa.
+     * @throws IOException Exceção.
+     * @throws ClassNotFoundException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
     @Override
     public void start() throws IOException, ClassNotFoundException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         String opcao = "";
@@ -78,6 +95,14 @@ public class MainController implements TrazAquiController {
 
     /*--------------------------------------------------UTILIZADOR--------------------------------------------------*/
 
+    /**
+     * Controlador auxiliar relativo ao utilizador.
+     * @throws IOException Exceção.
+     * @throws ClassNotFoundException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
     private void controladorAuxiliarUtilizador() throws IOException, ClassNotFoundException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         String opcao = "";
         do {
@@ -125,8 +150,12 @@ public class MainController implements TrazAquiController {
         } while (!(opcao.equals("S")));
     }
 
-
-    public void novaEncomenda() throws IOException, AlreadyEvaluatedException {
+    /**
+     * Método que permite efetuar nova encomenda.
+     * @throws IOException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     */
+    private void novaEncomenda() throws IOException, AlreadyEvaluatedException {
         List<Object> aux = new ArrayList<>();
         String loja, produto;
         int qtd;
@@ -154,7 +183,14 @@ public class MainController implements TrazAquiController {
         }
     }
 
-    public void apresentarLojas() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que apresenta as Lojas do sistema ao utilizador.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void apresentarLojas() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         Collection<Object> aux = model.interpreta(5, new ArrayList<>());
         if (aux.size() == 0) view.show("Something's wrong");
         for (Object e : aux) {
@@ -162,7 +198,14 @@ public class MainController implements TrazAquiController {
         }
     }
 
-    public void apresentarProdutosLoja() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que apresenta os produtos de uma dada loja ao utilizador.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void apresentarProdutosLoja() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         apresentarLojas();
         List<Object> aux = new ArrayList<>();
         String codLoja;
@@ -182,7 +225,14 @@ public class MainController implements TrazAquiController {
         Input.lerString();
     }
 
-    public void encomendasFeitas() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que mostra ao utilizador as encomendas por ele feitas e entregues.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void encomendasFeitas() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         Collection<Object> aux = model.interpreta(3, new ArrayList<>());
         if (aux.size() == 0) {
             view.show("Não possui encomendas feitas de momento!\n");
@@ -194,7 +244,14 @@ public class MainController implements TrazAquiController {
         }
     }
 
-    public void encomendasOnHold() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que mostra ao utilizador as encomendas à espera de serem entregues.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void encomendasOnHold() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         Collection<Object> aux = model.interpreta(4, new ArrayList<>());
         if (aux.size() == 0) {
             view.show("Não possui encomendas feitas de momento!\n");
@@ -205,7 +262,14 @@ public class MainController implements TrazAquiController {
         }
     }
 
-    public void encomendasToAccept() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que mostra ao utilizador as encomendas que estão à espera de ser aceites.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void encomendasToAccept() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         Collection<Object> aux = model.interpreta(17, new ArrayList<>());
         for (Object e : aux) {
             view.show(e + "\n");
@@ -223,14 +287,21 @@ public class MainController implements TrazAquiController {
             opcao = opcao.toUpperCase();
             args.add(opcao);
             Collection<Object> res = model.interpreta(18, args);
-            if (res.isEmpty()) view.show("A encomenda não foi aceite ou não existe!");
+            if (res.isEmpty()) view.show("A encomenda não foi aceite ou não existe!\n");
             else view.show("Encomenda recebida com sucesso!\n");
         }
         view.show("Press Enter to exit");
         Input.lerString();
     }
 
-    public void classificarEntregador() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que permite ao utilizador classificar um entregador.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void classificarEntregador() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         Collection<Object> aux = model.interpreta(21, new ArrayList<>());
         List<Object> args = new ArrayList<>();
         String code;
@@ -260,7 +331,14 @@ public class MainController implements TrazAquiController {
         }
     }
 
-    public void top10user() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que permite ao utilizador visualizar o top10 de utilizadores em termos de encomendas feitas.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void top10user() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         Collection<Object> res = model.interpreta(25, new ArrayList<>());
         view.show("------TOP10 UTILIZADORES------\n");
         for (Object e : res) {
@@ -273,6 +351,13 @@ public class MainController implements TrazAquiController {
 
     /*--------------------------------------------------VOLUNTARIO--------------------------------------------------*/
 
+    /**
+     * Controlador auxiliar do voluntário.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
     private void controladorAuxiliarVoluntario() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         String opcao;
         Voluntario v = (Voluntario) model.getLogged();
@@ -308,18 +393,32 @@ public class MainController implements TrazAquiController {
         } while (!(opcao.equals("S")));
     }
 
-    public void entregarEncomenda() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que permite ao voluntário entregar uma encomenda.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void entregarEncomenda() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         List<Object> aux = new ArrayList<>();
         String codEnc;
         view.show("Indique o código de encomenda que pretende entregar:\n");
         if ((codEnc = Input.lerString()).isEmpty()) return;
         aux.add(codEnc);
         Collection<Object> res = model.interpreta(8, aux);
-        if (res.isEmpty()) view.show("A encomenda não se encontra no Sistema!\n");
+        if (res.isEmpty()) view.show("A encomenda não se encontra no Sistema ou não está no seu raio de ação!\n");
         else view.show("Entrega feita com sucesso!\n");
     }
 
-    public void consultarSistema() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que permite ao voluntário consultar as encomendas disponiveis para entregar.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void consultarSistema() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         Collection<Object> aux = model.interpreta(7, new ArrayList<>());
         view.show("Encomendas Disponiveis para Entrega\n");
         if (aux.isEmpty()) view.show("-> Não existem encomendas disponiveis para poder entregar!\n");
@@ -330,7 +429,14 @@ public class MainController implements TrazAquiController {
         Input.lerString();
     }
 
-    public void alterarDisponibilidade() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que permite ao voluntário alterar a sua disponibilidade no sistema.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void alterarDisponibilidade() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         List<Object> aux = new ArrayList<>();
         view.show("Pretende mostrar-se disponivel (1) ou indisponível(0)?\n");
         int opcao = Input.lerInt();
@@ -340,7 +446,14 @@ public class MainController implements TrazAquiController {
         Input.lerString();
     }
 
-    public void mostrarClassificacao() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que permite ao voluntário visualizar a sua classificação.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void mostrarClassificacao() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         Collection<Object> aux = model.interpreta(10, new ArrayList<>());
         double c = 0;
         for (Object e : aux) c = (double) e;
@@ -352,8 +465,15 @@ public class MainController implements TrazAquiController {
 
     /*----------------------------------------------------LOJA----------------------------------------------------*/
 
+    /**
+     * Controlador auxiliar da loja.
+     * @throws IOException
+     * @throws UserInexistenteException
+     * @throws AlreadyEvaluatedException
+     * @throws ProdutoInexistenteException
+     */
     private void controladorAuxiliarLoja() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
-        String opcao = "";
+        String opcao;
         do {
             this.view = new LojaView();
             view.show();
@@ -382,7 +502,14 @@ public class MainController implements TrazAquiController {
         } while (!(opcao.equals("S")));
     }
 
-    public void verEncomendas() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que permite à loja ver encomendas que possui à espera para serem entregues.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void verEncomendas() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         view.show("Encomendas prontas a entregar\n");
         Collection<Object> aux = model.interpreta(12, new ArrayList<>());
         for (Object e : aux) {
@@ -392,7 +519,14 @@ public class MainController implements TrazAquiController {
         Input.lerString();
     }
 
-    public void consultarStock() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que permite à loja consultar o seu stock.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void consultarStock() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         view.show("Produtos dispoiníveis na Loja\n");
         view.show("PRODUTO  |  CÓDIGO  |  PREÇO\n");
         Collection<Object> aux = model.interpreta(11, new ArrayList<>());
@@ -403,12 +537,17 @@ public class MainController implements TrazAquiController {
         Input.lerString();
     }
 
-    public void updateInfo() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que permite à loja atualizar informação sobre si.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void updateInfo() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         String opcao;
         do {
-            view.show("1 -> Informar sobre a loja\n");
-            view.show("2 -> Adicionar produto ao stock\n");
-            view.show("S -> Retroceder\n");
+            view.show(model.interpreta(27,new ArrayList<>()).size()==1);
             opcao = Input.lerString();
             opcao = opcao.toUpperCase();
             switch (opcao) {
@@ -438,6 +577,14 @@ public class MainController implements TrazAquiController {
                     aux.add(p);
                     model.interpreta(14, aux);
                     break;
+                case "3":
+                    List<Object> aux2 = new ArrayList<>();
+                    double tempo;
+                    view.show("Indique o tempo médio de atendimento: ");
+                    tempo = Input.lerDouble();
+                    aux2.add(tempo);
+                    model.interpreta(28,aux2);
+                    break;
                 case "S":
                     break;
             }
@@ -446,6 +593,13 @@ public class MainController implements TrazAquiController {
 
     /*--------------------------------------------------EMPRESA--------------------------------------------------*/
 
+    /**
+     * Controlador auxiliar da empresa.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
     private void controladorAuxiliarTransportadora() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         String opcao = "";
         Transportadora t = (Transportadora) model.getLogged();
@@ -486,18 +640,32 @@ public class MainController implements TrazAquiController {
         } while (!(opcao.equals("S")));
     }
 
-    public void entregarEncomendaTransportadora() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que permite a uma transportadora efetuar uma entrega.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void entregarEncomendaTransportadora() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         List<Object> aux = new ArrayList<>();
         String codEnc;
         view.show("Indique o código de encomenda que pretende entregar:\n");
         if ((codEnc = Input.lerString()).isEmpty()) return;
         aux.add(codEnc);
         Collection<Object> res = model.interpreta(15, aux);
-        if (res.isEmpty()) view.show("A encomenda não se encontra no Sistema\n");
+        if (res.isEmpty()) view.show("A encomenda não se encontra no Sistema ou  não está no seu raio de ação.\n");
         else view.show("A entrega encontra-se pendente e à espera de aprovação do Utilizador!\n");
     }
 
-    public void consultarSistemaTransportadora() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que permite à transportadora consultar o sistema e ver encomendas que estejam no seu raio de ação.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void consultarSistemaTransportadora() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         Collection<Object> aux = model.interpreta(16, new ArrayList<>());
         view.show("Encomendas Disponiveis para Entrega\n");
         if (aux.isEmpty()) view.show("-> Não existem encomendas disponiveis para poder entregar!\n");
@@ -508,7 +676,14 @@ public class MainController implements TrazAquiController {
         Input.lerString();
     }
 
-    public void alterarDisponibilidadeTransportadora() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que permite à transportadora alterar a disponibilidade no sistema.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void alterarDisponibilidadeTransportadora() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         List<Object> aux = new ArrayList<>();
         view.show("Pretende mostrar-se disponivel (1) ou indisponível(0)?\n");
         int opcao = Input.lerInt();
@@ -518,7 +693,14 @@ public class MainController implements TrazAquiController {
         Input.lerString();
     }
 
-    public void calcularFaturado() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que permite à transportadora ver o total faturado entre duas datas.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void calcularFaturado() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         List<Object> args = new ArrayList<>();
         view.show("Data de Início\n");
         view.show("Ano: ");
@@ -564,7 +746,14 @@ public class MainController implements TrazAquiController {
         view.show("O total faturado entre o dia " + d1 + " do mes " + m1 + " do ano " + y1 + " e o dia " + d2 + " do mes " + m2 + " do ano " + y2 + " é  " + res.toString() + "\n");
     }
 
-    public void mostrarClassificacaoTransportadora() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que permite à transportadora ver a sua classificação.
+     * @throws IOException
+     * @throws UserInexistenteException
+     * @throws AlreadyEvaluatedException
+     * @throws ProdutoInexistenteException
+     */
+    private void mostrarClassificacaoTransportadora() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         Collection<Object> aux = model.interpreta(24, new ArrayList<>());
         double c = 0;
         for (Object e : aux) c = (double) e;
@@ -573,9 +762,16 @@ public class MainController implements TrazAquiController {
         Input.lerString();
     }
 
-    public void top10transportadora() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que permite à transportadora visualizar o top10 de transportadoras que mais quilómetros percorreram.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void top10transportadora() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         Collection<Object> res = model.interpreta(26, new ArrayList<>());
-        view.show("------TOP10 TRANSPOTADORAS------\n");
+        view.show("------TOP10 TRANSPORTADORAS------\n");
         for (Object e : res) {
             view.show(e + "\n");
         }
@@ -588,6 +784,13 @@ public class MainController implements TrazAquiController {
 
     /*--------------------------------------------------COMMON--------------------------------------------------*/
 
+    /**
+     * Método que permite ao User efetuar registro no sistema.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
     private void register() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         view = new WhatUserLoginView();
         boolean valid = false;
@@ -649,6 +852,10 @@ public class MainController implements TrazAquiController {
         model.interpreta(1, aux);
     }
 
+    /**
+     * Método que permite ao User efetuar login no sistema.
+     * @return True caso o login seja válido, falso em caso contrário.
+     */
     private boolean login() {
         boolean valid = false;
         view = new WhatUserLoginView();
@@ -665,7 +872,12 @@ public class MainController implements TrazAquiController {
         return valid;
     }
 
-    public void loadFile() throws IOException, ClassNotFoundException {
+    /**
+     * Método que permite carregar um estado de um ficheiro objeto.
+     * @throws IOException Exceção.
+     * @throws ClassNotFoundException Exceção.
+     */
+    private void loadFile() throws IOException, ClassNotFoundException {
         boolean valid = false;
         String filename;
         do {
@@ -679,7 +891,14 @@ public class MainController implements TrazAquiController {
         this.model = TrazAqui.loadTrazAqui(filename);
     }
 
-    public void gravar() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    /**
+     * Método que permite gravar o estado num ficheiro objeto.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void gravar() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         List<Object> aux = new ArrayList<>();
         String defaultFileName = "trazAqui.dat";
         aux.add(defaultFileName);

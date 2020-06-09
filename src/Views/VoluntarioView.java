@@ -1,6 +1,10 @@
 package Views;
 
 public class VoluntarioView implements TrazAquiView {
+
+    /**
+     * Método que imprime uma mensagem pré definida.
+     */
     @Override
     public void show() {
         System.out.println("1 -> Escolher encomenda para entregar");
@@ -10,6 +14,10 @@ public class VoluntarioView implements TrazAquiView {
         System.out.println("S -> Logout");
     }
 
+    /**
+     * Método que imprime um Objeto como uma mensagem, ou imprime uma mensagem de acordo com o valor do objeto.
+     * @param o Objeto a avaliar.
+     */
     @Override
     public void show(Object o) {
         if (o instanceof String) System.out.print((String) o );

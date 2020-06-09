@@ -138,18 +138,34 @@ public class EncomendaRealizadaTransportadora implements Serializable {
         this.custo_entrega = custo_entrega;
     }
 
+    /**
+     * Método que devolva a data de entrega da encomenda.
+     * @return Data de entrega.
+     */
     public LocalDateTime getData_entrega() {
         return data_entrega;
     }
 
+    /**
+     * Método que define a data de entrega de  uma encomenda.
+     * @param data_entrega
+     */
     public void setData_entrega(LocalDateTime data_entrega) {
         this.data_entrega = data_entrega;
     }
 
+    /**
+     * Método que devolve o custo de transporte de uma encomenda.
+     * @return Custo de transporte.
+     */
     public double getCusto_transporte() {
         return custo_transporte;
     }
 
+    /**
+     * Método que define o custo de transporte de uma encomenda.
+     * @param custo_transporte Custo de transporte.
+     */
     public void setCusto_transporte(double custo_transporte) {
         this.custo_transporte = custo_transporte;
     }

@@ -1,6 +1,10 @@
 package Views;
 
 public class LojaView implements TrazAquiView {
+
+    /**
+     * Método que imprime uma mensagem pré definida.
+     */
     @Override
     public void show() {
         System.out.println("1 -> Ver encomendas prontas a entregar");
@@ -10,8 +14,28 @@ public class LojaView implements TrazAquiView {
         System.out.println("S -> Logout");
     }
 
+    /**
+     * Método que imprime um Objeto como uma mensagem, ou imprime uma mensagem de acordo com o valor do objeto.
+     * @param o Objeto a avaliar.
+     */
     @Override
     public void show(Object o) {
-        System.out.print((String) o );
+        if (o instanceof String) System.out.print((String) o );
+        else if (o instanceof Boolean){
+            System.out.print("                                      Informa : ");
+            if((boolean)o){
+                System.out.println("Sim");
+                System.out.println("1 -> Informar sobre a loja");
+                System.out.println("2 -> Adicionar produto ao stock");
+                System.out.println("3 -> Alterar tempo médio de atendimento");
+                System.out.println("S -> Retroceder");
+            }
+            else {
+                System.out.println("Não");
+                System.out.println("1 -> Informar sobre a loja");
+                System.out.println("2 -> Adicionar produto ao stock");
+                System.out.println("S -> Retroceder");
+            }
+        }
     }
 }

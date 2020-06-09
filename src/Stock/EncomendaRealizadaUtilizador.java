@@ -117,18 +117,34 @@ public class EncomendaRealizadaUtilizador implements Serializable {
         this.tempo_entrega = tempo_entrega;
     }
 
+    /**
+     * Método que devolve a data de entrega de uma encomenda.
+     * @return Data de entrega.
+     */
     public LocalDateTime getData_entrega() {
         return data_entrega;
     }
 
+    /**
+     * Método que define a data de entrega de uma encomenda.
+     * @param data_entrega Data de entrega.
+     */
     public void setData_entrega(LocalDateTime data_entrega) {
         this.data_entrega = data_entrega;
     }
 
+    /**
+     * Método que devolve o código do entregador.
+     * @return Código.
+     */
     public String getCode_entregador() {
         return code_entregador;
     }
 
+    /**
+     * Método que define o código de entregador.
+     * @param code_entregador Código.
+     */
     public void setCode_entregador(String code_entregador) {
         this.code_entregador = code_entregador;
     }
@@ -141,6 +157,10 @@ public class EncomendaRealizadaUtilizador implements Serializable {
         return new EncomendaRealizadaUtilizador(this);
     }
 
+    /**
+     * Método que converte numa String a informação de uma EncomendaRealizadaUtilizador.
+     * @return String com a informação.
+     */
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Encomenda:").append(this.code_enc).append(",").append(this.code_utilizador).append(",").append(this.loja_onde_comprou).append(",").append(this.code_entregador);

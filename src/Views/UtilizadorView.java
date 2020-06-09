@@ -2,6 +2,9 @@ package Views;
 
 public class UtilizadorView implements TrazAquiView{
 
+    /**
+     * Método que imprime uma mensagem pré definida.
+     */
     @Override
     public void show() {
         System.out.println("1 -> Fazer nova encomenda");
@@ -16,6 +19,10 @@ public class UtilizadorView implements TrazAquiView{
         System.out.println("S -> Logout");
     }
 
+    /**
+     * Método que imprime um Objeto como uma mensagem.
+     * @param o Objeto a avaliar.
+     */
     @Override
     public void show(Object o) {
         System.out.print((String) o );
