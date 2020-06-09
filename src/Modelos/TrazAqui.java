@@ -296,7 +296,7 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         Set<Object> aux = new TreeSet<>();
         Loja l = (Loja) this.logged_user;
         for (Map.Entry<String, InfoProduto> e : l.getProdutos().entrySet())
-            aux.add(e.getValue().getNome() + " -> " + e.getKey());
+            aux.add(e.getValue().getNome() + " -> " + e.getKey() + " -> " + e.getValue().getPreco() + "€");
         return aux;
     }
 

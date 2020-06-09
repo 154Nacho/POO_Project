@@ -365,7 +365,7 @@ public class MainController implements TrazAquiController{
 
     public void consultarStock() throws IOException {
         view.show("Produtos dispoiníveis na Loja\n");
-        view.show("PRODUTO   |   CÓDIGO\n");
+        view.show("PRODUTO  |  CÓDIGO  |  PREÇO\n");
         Collection<Object> aux = model.interpreta(11,new ArrayList<>());
         for (Object e : aux){
             view.show(e + "\n");
