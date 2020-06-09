@@ -2,6 +2,9 @@ package Modelos;
 
 import Comparadores.QtdEncomendasReverseComparator;
 import Comparadores.TotalKMsComparator;
+import Exceptions.AlreadyEvaluatedException;
+import Exceptions.ProdutoInexistenteException;
+import Exceptions.UserInexistenteException;
 import Geral.GPS;
 import Stock.Encomenda;
 import Stock.EncomendaRealizadaUtilizador;
@@ -38,7 +41,7 @@ public class TrazAqui implements TrazAquiModel, Serializable {
      * @return Lista com os resultados.
      * @throws IOException Exceção.
      */
-    public Collection<Object> interpreta(int num, Collection<Object> l) throws IOException {
+    public Collection<Object> interpreta(int num, Collection<Object> l) throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         List<Object> lista = new ArrayList<>(l);
         switch (num) {
             case 1:
@@ -108,8 +111,10 @@ public class TrazAqui implements TrazAquiModel, Serializable {
 
     /*-------------------------------------------FUNCIONALIDADES UTILIZADOR-------------------------------------------*/
 
-    public void novaEncomenda(String codL, String codP, int qtd) {
+    public void novaEncomenda(String codL, String codP, int qtd) throws UserInexistenteException, ProdutoInexistenteException {
+        if(!this.users.containsKey(codL)) throw new UserInexistenteException(codL);
         Loja l = (Loja) this.users.get(codL);
+        if(!l.getProdutos().containsKey(codP)) throw new ProdutoInexistenteException(codP);
         InfoProduto info = l.getProdutos().get(codP);
         List<LinhaEncomenda> aux = new ArrayList<>();
         aux.add(new LinhaEncomenda(codP, info.getNome(), qtd, info.getPreco()));
@@ -145,7 +150,8 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         return aux;
     }
 
-    public List<Object> produtosDaLoja(String codLoja) {
+    public List<Object> produtosDaLoja(String codLoja) throws UserInexistenteException {
+        if(!this.users.containsKey(codLoja)) throw new UserInexistenteException(codLoja);
         Loja l = (Loja) getUser(codLoja);
         List<Object> aux = new ArrayList<>();
         for (Map.Entry<String, InfoProduto> prod : l.getProdutos().entrySet()) {
@@ -200,10 +206,11 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         return aux;
     }
 
-    public void classificaEntregador(String codEntregador, int classifica) {
+    public void classificaEntregador(String codEntregador, int classifica) throws UserInexistenteException, AlreadyEvaluatedException {
         Utilizador u = (Utilizador) this.logged_user;
-        Transportadora t = (Transportadora) getUser(codEntregador);
+        if(!u.getPorClassificar().contains(codEntregador)) throw new AlreadyEvaluatedException(codEntregador);
         if (codEntregador.charAt(0) == 'v') {
+            if(!this.users.containsKey(codEntregador)) throw new UserInexistenteException(codEntregador);
             Voluntario v = (Voluntario) getUser(codEntregador);
             v.updateClassificacao(classifica);
             u.removeCodePorAceitar(codEntregador);
@@ -211,7 +218,8 @@ public class TrazAqui implements TrazAquiModel, Serializable {
             this.users.put(u.getCodigo(), u);
         }
         if (codEntregador.charAt(0) == 't') {
-
+            if(!this.users.containsKey(codEntregador)) throw new UserInexistenteException(codEntregador);
+            Transportadora t = (Transportadora) getUser(codEntregador);
             t.updateClassificacao(classifica);
             u.removeCodePorAceitar(codEntregador);
             this.users.put(t.getCode(), t);
@@ -524,18 +532,14 @@ public class TrazAqui implements TrazAquiModel, Serializable {
      * @param password Password inserida pelo Users.Utilizador
      * @return boolean
      */
-    public boolean checkLoggin(String username, String password) {
+    public boolean checkLoggin(String username, String password) throws UserInexistenteException {
+        if(!this.users.containsKey(username)) throw new UserInexistenteException(username);
         User u = this.users.get(username);
         if (u == null) return false;
         else if (u.getPassword().equals(password)) {
             setLogged(true, this.users.get(username).clone());
             return true;
         } else return false;
-    }
-
-    public boolean checkUser(String codUser) {
-        User u = this.users.get(codUser);
-        return u != null;
     }
 
     /**
@@ -561,6 +565,13 @@ public class TrazAqui implements TrazAquiModel, Serializable {
      */
     public User getLogged() {
         return logged_user;
+    }
+
+    /**
+     * Faz o logout do user
+     */
+    public void logout() {
+        this.logged_user = null;
     }
 
     /**

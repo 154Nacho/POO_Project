@@ -1,5 +1,8 @@
 import Controladores.MainController;
 import Controladores.TrazAquiController;
+import Exceptions.AlreadyEvaluatedException;
+import Exceptions.ProdutoInexistenteException;
+import Exceptions.UserInexistenteException;
 import Modelos.TrazAqui;
 import Modelos.TrazAquiModel;
 import Readers.Parser;
@@ -16,7 +19,7 @@ public class TrazAquiMVC {
         return tam;
     }
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         TrazAquiController control = new MainController();
         TrazAquiView view = new LoginView();
 

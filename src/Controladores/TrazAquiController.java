@@ -1,5 +1,8 @@
 package Controladores;
 
+import Exceptions.AlreadyEvaluatedException;
+import Exceptions.ProdutoInexistenteException;
+import Exceptions.UserInexistenteException;
 import Modelos.TrazAquiModel;
 import Views.TrazAquiView;
 
@@ -10,5 +13,5 @@ public interface TrazAquiController {
 
     void setView(TrazAquiView v);
 
-    void start() throws IOException, ClassNotFoundException;
+    void start() throws IOException, ClassNotFoundException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException;
 }
