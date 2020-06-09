@@ -446,6 +446,15 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         return this.users.get(codigo).clone();
     }
 
+    /**
+     * Obtém a lista de users
+     *
+     * @return List
+     */
+    public List<User> getListaUsers() {
+        return this.users.values().stream().filter(a -> a.getClass().getName().equals("Users.Utilizador"))
+                .map(User::clone).collect(Collectors.toList());
+    }
 
     /**
      * Método que gera um numero aleatório.

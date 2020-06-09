@@ -6,6 +6,7 @@ import Exceptions.UserInexistenteException;
 import Modelos.TrazAqui;
 import Modelos.TrazAquiModel;
 import Readers.Input;
+import Users.Transportadora;
 import Users.User;
 import Users.Voluntario;
 import Views.*;
@@ -447,9 +448,10 @@ public class MainController implements TrazAquiController {
 
     private void controladorAuxiliarTransportadora() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         String opcao = "";
+        Transportadora t = (Transportadora) model.getLogged();
         do {
             this.view = new EmpresaView();
-            view.show();
+            view.show(t.getDisponibilidade());
             opcao = Input.lerString();
             opcao = opcao.toUpperCase();
             switch (opcao) {
@@ -491,7 +493,7 @@ public class MainController implements TrazAquiController {
         if ((codEnc = Input.lerString()).isEmpty()) return;
         aux.add(codEnc);
         Collection<Object> res = model.interpreta(15, aux);
-        if (res.isEmpty()) view.show("A encomenda já foi entregue!\n");
+        if (res.isEmpty()) view.show("A encomenda não se encontra no Sistema\n");
         else view.show("A entrega encontra-se pendente e à espera de aprovação do Utilizador!\n");
     }
 
@@ -521,17 +523,37 @@ public class MainController implements TrazAquiController {
         view.show("Data de Início\n");
         view.show("Ano: ");
         int y1 = Input.lerInt();
-        view.show("Mes: ");
-        int m1 = Input.lerInt();
-        view.show("Dia: ");
-        int d1 = Input.lerInt();
+        int m1, d1, m2, d2;
+        int aux;
+        do {
+            view.show("Mes: ");
+            m1 = Input.lerInt();
+            if (m1 < 1 || m1 > 12) System.out.println("Mês inválido, insira um número no intervalo [1:12]");
+        } while (m1 < 1 || m1 > 12);
+        if (m1 == 2) aux = 28;
+        else if (m1 == 1 || m1 == 3 || m1 == 5 || m1 == 7 || m1 == 8 || m1 == 10 || m1 == 12) aux = 31;
+        else aux = 30;
+        do {
+            view.show("Dia: ");
+            d1 = Input.lerInt();
+            if (d1 < 1 || d1 > aux) System.out.println("Dia inválido, insira um número no intervalo [1:" + aux + "]");
+        } while (d1 < 1 || d1 > aux);
         view.show("\nData de Fim\n");
         view.show("Ano: ");
         int y2 = Input.lerInt();
-        view.show("Mes: ");
-        int m2 = Input.lerInt();
-        view.show("Dia: ");
-        int d2 = Input.lerInt();
+        do {
+            view.show("Mes: ");
+            m2 = Input.lerInt();
+            if (m2 < 1 || m2 > 12) System.out.println("Mês inválido, insira um número no intervalo [1:12]");
+        } while (m2 < 1 || m2 > 12);
+        if (m2 == 2) aux = 28;
+        else if (m2 == 1 || m2 == 3 || m2 == 5 || m2 == 7 || m2 == 8 || m2 == 10 || m2 == 12) aux = 31;
+        else aux = 30;
+        do {
+            view.show("Dia: ");
+            d2 = Input.lerInt();
+            if (d2 < 1 || d2 > aux) System.out.println("Dia inválido, insira um número no intervalo [1:" + aux + "]");
+        } while (d2 < 1 || d2 > aux);
         args.add(y1);
         args.add(m1);
         args.add(d1);
@@ -636,7 +658,7 @@ public class MainController implements TrazAquiController {
         String pass = Input.lerString();
         try {
             valid = model.checkLoggin(username, pass);
-            if(!valid) view.show("Password incorreta!\n");
+            if (!valid) view.show("Password incorreta!\n");
         } catch (UserInexistenteException m) {
             view.show(m.getMessage() + ": User inexistente\n");
         }
