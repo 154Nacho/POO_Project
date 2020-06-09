@@ -20,9 +20,8 @@ public class Utilizador extends User implements Login, Serializable {
     private List<EncomendaRealizadaUtilizador> encomendas_realizadas;
     private List<String> por_classificar;
 
-
     /**
-     * Construtor padrão.
+     * Construtor por omissão.
      */
     public Utilizador() {
         super();
@@ -36,8 +35,7 @@ public class Utilizador extends User implements Login, Serializable {
 
     /**
      * Construtor por cópia.
-     *
-     * @param u Users.Utilizador.
+     * @param u UUtilizador a copiar.
      */
     public Utilizador(Utilizador u) {
         super(u);
@@ -51,11 +49,10 @@ public class Utilizador extends User implements Login, Serializable {
 
     /**
      * Construtor por parâmetros.
-     *
-     * @param codigo   Código de Users.Utilizador.
-     * @param nome     Nome do Users.Utilizador.
-     * @param password Password do Users.Utilizador.
-     * @param gps      Localização do Users.Utilizador.
+     * @param codigo   Código de tilizador.
+     * @param nome     Nome do Utilizador.
+     * @param password Password do Utilizador.
+     * @param gps      Localização do Utilizador.
      */
     public Utilizador(String codigo, String nome, String password, GPS gps) {
         super(codigo,password);
@@ -68,8 +65,7 @@ public class Utilizador extends User implements Login, Serializable {
     }
 
     /**
-     * Obtém a password do Users.Utilizador
-     *
+     * Obtém a password do Utilizador
      * @return String
      */
     public String getPassword() {
@@ -77,17 +73,15 @@ public class Utilizador extends User implements Login, Serializable {
     }
 
     /**
-     * Definir a password do Users.Utilizador
-     *
-     * @param password Password do Users.Utilizador
+     * Definir a password do Utilizador
+     * @param password Password do Utilizador
      */
     public void setPassword(String password) {
         super.setPassword(password);
     }
 
     /**
-     * Obtém o código do Users.Utilizador
-     *
+     * Obtém o código do Utilizador
      * @return String
      */
     public String getCodigo() {
@@ -95,17 +89,15 @@ public class Utilizador extends User implements Login, Serializable {
     }
 
     /**
-     * Definir o Código do Users.Utilizador
-     *
-     * @param codigo Código do Users.Utilizador
+     * Definir o Código do Utilizador.
+     * @param codigo Código do Utilizador
      */
     public void setCodigo(String codigo) {
         super.setCode(codigo);
     }
 
     /**
-     * Obtém o nome do Users.Utilizador
-     *
+     * Obtém o nome do Utilizador
      * @return String
      */
     public String getNome() {
@@ -113,34 +105,31 @@ public class Utilizador extends User implements Login, Serializable {
     }
 
     /**
-     * Definir o Nome do Users.Utilizador
-     *
-     * @param nome Nome do Users.Utilizador
+     * Definir o Nome do Utilizador
+     * @param nome Nome do Utilizador
      */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
     /**
-     * Obtém o Geral.GPS do Users.Utilizador
-     *
-     * @return Geral.GPS
+     * Obtém o GPS do Utilizador
+     * @return GPS
      */
     public GPS getGps() {
         return this.gps;
     }
 
     /**
-     * Definir o Geral.GPS do Users.Utilizador
-     *
-     * @param g Geral.GPS do Users.Utilizador
+     * Definir o GPS do Utilizador.
+     * @param g GPS do Utilizador
      */
     public void setGps(GPS g) {
         this.gps = g;
     }
 
     /**
-     * Método que verifica se o login de um Users.Utilizador é correto
+     * Método que verifica se o login de um Utilizador é correto
      * @param code que é o código inserido pelo utilizador.
      * @param pass que é a password inserida pelo utilizador.
      * @return Validação dos dados inseridos.
@@ -263,8 +252,7 @@ public class Utilizador extends User implements Login, Serializable {
     }
 
     /**
-     * Converte um Utilizador numa String
-     *
+     * Converte um Utilizador numa String.
      * @return String
      */
     public String toString() {
@@ -274,17 +262,9 @@ public class Utilizador extends User implements Login, Serializable {
         return sb.toString();
     }
 
-    public String toStringShow(){
-        return "Utilizador:"+
-                "\n{ Código: "+this.getCodigo()+
-                "\n  Nome: "+this.getNome()+
-                "\n  Localização: "+this.getGps().toString()+
-                "\n}";
-    }
     /**
-     * Cria uma cópia do Users.Utilizador
-     *
-     * @return Users.Utilizador
+     * Cria uma cópia do Utilizador
+     * @return Utilizador
      */
     public Utilizador clone() {
         return new Utilizador(this);
@@ -292,7 +272,6 @@ public class Utilizador extends User implements Login, Serializable {
 
     /**
      * Verificar se um dado Objeto é igual a este Utilizaodr
-     *
      * @param o Objeto
      * @return boolean
      */

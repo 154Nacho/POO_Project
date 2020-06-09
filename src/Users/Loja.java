@@ -38,8 +38,15 @@ public class Loja extends User implements Serializable {
         this.tempo_médio_atendimento = 0;
         this.produtos = new TreeMap<>();
     }
+
     /**
-     *   Construtor com passagem de argumentos
+     * Construtor por parâmetros.
+     * @param cL Código da Loja.
+     * @param nL Nome da Loja.
+     * @param password Password de login
+     * @param l Localização GPS da Loja.
+     * @param informa Diz se a Loja informa sobre si ou não.
+     * @param t Tempo médio de atendimento da Loja.
      */
     public Loja(String cL, String nL, String password, GPS l,boolean informa, double t){
         super(cL,password);
@@ -54,7 +61,8 @@ public class Loja extends User implements Serializable {
     }
 
     /**
-     *   Construtor por clonagem
+     * Construtor por clonagem.
+     * @param l Loja a clonar.
      */
     public Loja(Loja l){
         super(l);
@@ -67,23 +75,25 @@ public class Loja extends User implements Serializable {
         this.tem_encomendas = l.isTem_encomendas();
         this.produtos = l.getProdutos();
     }
-    //Getters
 
     /**
-     *   Getter da quantidade de pessoas na fila da Users.Loja
+     * Método que devolve a quantidade de pessoas na fila de espera.
+     * @return Quantidade de pessoas na fila.
      */
     public int getQtd_pessoas_fila() {
         return qtd_pessoas_fila;
     }
+
     /**
-     *   Getter das encomendas já realizadas pela Users.Loja
+     * Método de que devolve a lista de encomendas que uma Loja possui.
+     * @return Lista de encomendas.
      */
     public List<Encomenda> getEncomendas(){
         return this.encomendas.stream().map(Encomenda::clone).collect(Collectors.toList());
     }
 
     /**
-     * Método que averigua se uma loja informa ou não sobre a sua fila de espera.
+     * Método que averigua se uma loja informa ou não sobre si.
      * @return boolean.
      */
     public boolean isInforma_sobre_loja() {
@@ -106,7 +116,6 @@ public class Loja extends User implements Serializable {
         return tem_encomendas;
     }
 
-    //Setters
 
     /**
      *   setter da quantidade de pessoas na fila da Users.Loja
@@ -263,36 +272,37 @@ public class Loja extends User implements Serializable {
         this.qtd_pessoas_fila--;
     }
 
+    /**
+     * Método que remove uma encomenda à espera de ser entregue.
+     * @param e
+     */
     public void removeEncomenda(Encomenda e){
         this.encomendas.remove(e);
+        decrementaFilaEspera();
     }
 
     //Clone, toString, equals
 
     /**
-     *   Cloner da Users.Loja
+     * Método que faz uma cópia de uma Loja.
+     * @return Cópia de uma Loja.
      */
     public Loja clone(){
         return new Loja(this);
     }
 
     /**
-     *   Conversor para String das informações da Users.Loja
+     * Método que converte numa String a informação sobre uma Loja.
+     * @return String com a informação da Loja.
      */
-    public String toStringShow(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("\nNome da Loja: ").append(this.getNome());
-        sb.append("\nCódigo da Loja: ").append(super.getCode());
-        sb.append("\nLocalização da Loja: ").append(this.getGPS().toString());
-        sb.append("\nEncomendas: ").append(this.encomendas);
-        return sb.toString();
-    }
-
     public String toString(){
         return "Loja:"+super.getCode()+","+this.getNome()+","+this.getGPS().toString();
     }
+
     /**
-     *   Comparador de igualdade
+     * Método que compara duas Lojas.
+     * @param obj Loja a comparar.
+     * @return Boolean com o resultado da comparação.
      */
     public boolean equals(Object obj){
         if(obj==this) return true;

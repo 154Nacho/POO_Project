@@ -17,7 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Parser {
-    //Ler
+
+    /**
+     * Método que divide as linhas lidas de um dado ficheiro de texto e insere nas respetivas estruturas.
+     * @param traz Modelo onde serão inseridas as informações.
+     */
     public static void parse(TrazAquiModel traz) {
         TrazAqui trazAqui = (TrazAqui) traz;
         List<String> linhas = lerFicheiro("src/Resources/newlogs.txt");
@@ -26,26 +30,21 @@ public class Parser {
             linhaPartida = linha.split(":", 2);
             switch (linhaPartida[0]) {
                 case "Utilizador":
-                    Utilizador u = parseUtilizador(linhaPartida[1]); // criar um Users.Utilizador
-//                    System.out.println(u.toString()); //enviar para o ecrÃ¡n apenas para teste
+                    Utilizador u = parseUtilizador(linhaPartida[1]);
                     trazAqui.addUtilizador(u);
                     break;
                 case "Voluntario":
                     Voluntario v = parseVoluntario(linhaPartida[1]);
-//                    System.out.println(v.toString());
                     trazAqui.addUtilizador(v);
                     break;
                 case "Loja":
                     Loja l = parseLoja(linhaPartida[1]);
-//                    System.out.println(l.toString());
                     trazAqui.addUtilizador(l);
                     break;
                 case "Transportadora":
                     Transportadora t = parseTransportadora(linhaPartida[1]);
-//                    System.out.println(t.toString());
                     trazAqui.addUtilizador(t);
                     break;
-                //...
                 case "Encomenda":
                     Encomenda e = parseEncomenda(linhaPartida[1]);
                     trazAqui.addEncomenda(e);
@@ -54,7 +53,6 @@ public class Parser {
                     trazAqui.addEncomendaToUtilizador(e);
                     break;
                 default:
-//                    System.out.println("Linha invÃ¡lida.");
                     break;
             }
 
@@ -65,10 +63,13 @@ public class Parser {
             linhaPartida = linha.split(":", 2);
             trazAqui.setPassword(linhaPartida[0],linhaPartida[1]);
         }
-        //System.out.println("done!");
     }
 
-
+    /**
+     * Método que separa uma linha correspondente a um Utilizador.
+     * @param input Linha do Utilizador.
+     * @return Utilizador inicializado com as informações lidas.
+     */
     private static Utilizador parseUtilizador(String input) {
         String[] campos = input.split(",");
         String codUtilizador = campos[0];
@@ -78,6 +79,11 @@ public class Parser {
         return new Utilizador(codUtilizador, nome, "", new GPS(gpsx, gpsy));
     }
 
+    /**
+     * Método que separa uma linha correspondente a um Voluntário.
+     * @param input Linha do Voluntário.
+     * @return Voluntário inicializado com as informações lidas.
+     */
     public static Voluntario parseVoluntario(String input) {
         String[] campos = input.split(",");
         String codVoluntario = campos[0];
@@ -88,6 +94,11 @@ public class Parser {
         return new Voluntario(codVoluntario, nome, "", new GPS(gpsx, gpsy),false, raio);
     }
 
+    /**
+     * Método que separa uma linha correspondente a uma Loja.
+     * @param input Linha da Loja.
+     * @return Loja inicializado com as informações lidas.
+     */
     public static Loja parseLoja(String input) {
         String[] campos = input.split(",");
         String codLoja = campos[0];
@@ -101,6 +112,11 @@ public class Parser {
         return l;
     }
 
+    /**
+     * Método que separa uma linha correspondente a uma Transportadora.
+     * @param input Linha da Transportadora.
+     * @return Transportadora inicializada com as informações lidas.
+     */
     public static Transportadora parseTransportadora(String input) {
         String[] campos = input.split(",");
         String codEmpresa = campos[0];
@@ -120,6 +136,11 @@ public class Parser {
         return t;
     }
 
+    /**
+     * Método que separa uma linha correspondente a uma Encomenda.
+     * @param input Linha da Encomenda.
+     * @return Encomenda inicializada com as informações lidas.
+     */
     public static Encomenda parseEncomenda(String input){
         String[] campos = input.split(",");
         String codEncomenda = campos[0];
@@ -150,7 +171,10 @@ public class Parser {
         return lines;
     }
 
-    //Escrever
+    /**
+     * Método que guarda em ficheiros a informação referente às encomendas e utilizadores presentes no Sistema.
+     * @param trazAqui Modelo que contém as informações.
+     */
     public void wparser(TrazAqui trazAqui) {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("src/Resources/newlogs.txt"));

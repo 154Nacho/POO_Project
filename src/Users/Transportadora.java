@@ -29,7 +29,7 @@ public class Transportadora extends User implements  Serializable {
     private int km_total;
 
     /**
-     * Construtor por omissão
+     * Construtor por omissão.
      */
     public Transportadora() {
         super();
@@ -47,7 +47,15 @@ public class Transportadora extends User implements  Serializable {
     }
 
     /**
-     * Construtor com passagem de argumentos
+     * Construtor por parâmetros.
+     * @param cE Código da Transportadora.
+     * @param nE Nome da Transportadora.
+     * @param password Password da Transportadora.
+     * @param l Localização GPS da Transportadora.
+     * @param n NIF da Transportadora.
+     * @param r Raio de ação da Transportadora.
+     * @param ppk Preço por quilómetro da Transportadora.
+     * @param em Número de encomendas máximas da Transportadora.
      */
     public Transportadora(String cE, String nE,String password, GPS l, String n, double r, double ppk, int em) {
         super(cE, password);
@@ -67,7 +75,8 @@ public class Transportadora extends User implements  Serializable {
     }
 
     /**
-     * Construtor por clonagem
+     * Construtor por clonagem.
+     * @param t Transportadora a clonar.
      */
     public Transportadora(Transportadora t) {
         super(t);
@@ -86,96 +95,121 @@ public class Transportadora extends User implements  Serializable {
         this.km_total  = t.getTotalKM();
     }
 
-    //Getters
-
-
+    /**
+     * Método que define o código de uma Transportadora.
+     * @param code que é o código.
+     */
     public void setCodigo(String code){
         super.setCode(code);
     }
+
     /**
-     *   Getter do NIF da Empresa
+     * Método que devolve o NIF de uma Transportadora.
+     * @return NIF da Transportadora.
      */
     public String getNIF() {
         return nif;
     }
 
-
+    /**
+     * Método que devolve o nome de uma Transportadora.
+     * @return Nome da Transportadora.
+     */
     public String getNome(){
         return this.nome;
     }
 
+    /**
+     * Método que devolve a localização GPS de uma Transportadora.
+     * @return Localização GPS.
+     */
     public GPS getGPS(){
         return this.gps.clone();
     }
 
     /**
-     *   Getter do raio de admissão de encomendas da Empresa
+     * Método que devolve o raio de ação de uma Transportadora.
+     * @return Raio de ação.
      */
     public double getRaio() {
         return raio;
     }
 
     /**
-     *   Setter do raio de admissão de encomendas da Empresa
+     * Método que define o raio de ação de uma Transportadora.
+     * @param raio que é o raio de ação.
      */
     public void setRaio(double raio) {
         this.raio = raio;
     }
 
     /**
-     *   Getter do preço por quilómetro de transporte da Empresa
+     * Método que devolve o preço por quilómetro de uma Transportadora.
+     * @return Preço por quilóemtro.
      */
     public double getPPK() {
         return precoPorKM;
     }
 
     /**
-     *   Setter do preço por quilómetro de transporte da Empresa
+     * Método que define o preço por quilómetro da Transportadora.
+     * @param precoPorKM que é o preço por quilómetro.
      */
     public void setPPK(double precoPorKM) {
         this.precoPorKM = precoPorKM;
     }
 
     /**
-     *   Getter do número máximo de encomendas que a Empresa suporta
+     * Método que devolve o número máximo de encomendas que uma Transportadora é capaz de realizar.
+     * @return Número máximo de encomendas.
      */
     public int getNMaximo() {
         return encomendas_maximas;
     }
 
+    /**
+     * Método que define o nome da Transportadora.
+     * @param nome que é o nome da Transportadora.
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    /**
+     * Método que define a localização GPS de uma Transportadora.
+     * @param gps que é a localização GPS.
+     */
     public void setGps(GPS gps) {
         this.gps = gps.clone();
     }
 
     /**
-     *   Setter do número máximo de encomendas que a Empresa suporta
+     * Método que define o máximo de encomendas que uma Transportadora é capaz de realizar
+     * @param encomendas_maximas que é o total de encomendas máximas.
      */
     public void setNMaximo(int encomendas_maximas) {
         this.encomendas_maximas = encomendas_maximas;
     }
 
-    //Setters
-
     /**
-     *   Getter da disponibilidade da Empresa para novas encomendas
+     * Método que verifica a disponibilidade de uma Transportadora em realizar encomendas.
+     * @return Boolean com a disponibilidade.
      */
     public boolean getDisponibilidade() {
         return disponivel;
     }
 
     /**
-     *   Getter das encomendas já realizadas pela Empresa
+     * Método que devolve a lista de encomendas realizadas por uma Transportadora.
+     * @return Lista com as encomendas realizadas.
      */
     public List<EncomendaRealizadaTransportadora> getRegisto() {
         return this.register.stream().map(EncomendaRealizadaTransportadora::clone).collect(Collectors.toList());
     }
 
     /**
-     *   Setter das encomendas já realizadas pela Empresa
+     * Método que define o registo de encomendas realizadas por uma Transportadora.
+     * @param l que é a lista com as encomendas realizadas.
      */
     public void setRegisto(List<EncomendaRealizadaTransportadora> l) {
         this.register = new ArrayList<>();
@@ -183,21 +217,23 @@ public class Transportadora extends User implements  Serializable {
     }
 
     /**
-     *   Setter da disponibilidade da Empresa para novas encomendas
+     * Método que define a disponibilidade de uma Transporadora.
+     * @param disponivel que é a disponibilidade.
      */
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
     }
 
     /**
-     *   Setter do NIF da Empresa
+     * Método que define o NIF de uma Transportadora.
+     * @param nif que é o NIF.
      */
     public void setNif(String nif) {
         this.nif = nif;
     }
 
     /**
-     * Método que devolve a classificação de uma Empresa Users.Transportadora.
+     * Método que devolve a classificação de uma Empresa Transportadora.
      * @return Classifcação.
      */
     public double getClassificação() {
@@ -205,7 +241,7 @@ public class Transportadora extends User implements  Serializable {
     }
 
     /**
-     * Método que define a classificação de uma Empresa Users.Transportadora.
+     * Método que define a classificação de uma Empresa Transportadora.
      * @param classificação que é a classificação.
      */
     public void setClassificação(double classificação) {
@@ -213,7 +249,7 @@ public class Transportadora extends User implements  Serializable {
     }
 
     /**
-     * Método que devolve o total de entregas realizadas por uma Empresa Users.Transportadora.
+     * Método que devolve o total de entregas realizadas por uma Empresa Transportadora.
      * @return Total de entregas.
      */
     public int getTotal_entregas() {
@@ -221,27 +257,44 @@ public class Transportadora extends User implements  Serializable {
     }
 
     /**
-     * Método que define o total de vendas realizadas por uma Empresa Users.Transportadora.
+     * Método que define o total de vendas realizadas por uma Empresa Transportadora.
      * @param total_entregas que é o número total de entregas.
      */
     public void setTotal_entregas(int total_entregas) {
         this.total_entregas = total_entregas;
     }
 
-
+    /**
+     * Método que devolve o total de avaliações de uma Transportadora.
+     * @return Total de avaliações.
+     */
     public int getTotalAval() {
         return total_aval;
     }
 
+    /**
+     * Método que define o total de avaliações de uma Transpotadora.
+     * @param total_aval que é o total de avaliações da Transportadora.
+     */
     public void setTotalAval(int total_aval) {
         this.total_aval = total_aval;
     }
 
+    /**
+     * Método que atualiza a classificação de uma Transportadora.
+     * @param classifica nova classificação feita à Transpotadora.
+     */
     public void updateClassificacao(int classifica){
         this.total_aval++;
         this.classificação = (this.classificação + classifica)/this.total_aval;
     }
 
+    /**
+     * Método que calcula o total faturado com custos de transpote num determinado período.
+     * @param i  Data de início.
+     * @param f Data de fim.
+     * @return Valor faturado com os custos de transporte.
+     */
     public double calculaFat(LocalDateTime i, LocalDateTime f){
         double aux = 0;
         for(EncomendaRealizadaTransportadora e : this.register){
@@ -268,7 +321,6 @@ public class Transportadora extends User implements  Serializable {
         a.stream().map(Encomenda::clone).forEach(v -> this.on_hold.add(v));
     }
 
-
     /**
      * Método que adiciona uma enconenda realizada ao registo.
      * @param c_enc que é o código da encomenda.
@@ -291,7 +343,6 @@ public class Transportadora extends User implements  Serializable {
         this.on_hold.add(e.clone());
     }
 
-
     /**
      * Método que devolve o total de quilómetros que uma Transportadora percorreu.
      * @return Total de quilóemtros.
@@ -312,14 +363,17 @@ public class Transportadora extends User implements  Serializable {
     //Equals, toString , clone
 
     /**
-     *   Cloner da Users.Transportadora
+     * Método que faz uma cópia de uma Transportadora.
+     * @return Cópia.
      */
     public Transportadora clone() {
         return new Transportadora(this);
     }
 
     /**
-     *   Comparador de igualdade
+     * Método que averiguar a igualdde entre objetos.
+     * @param obj Que é o objeto a ser comparado.
+     * @return boolean com resultado da comparação.
      */
     public boolean equals(Object obj) {
         if (obj == this) return true;
@@ -338,20 +392,11 @@ public class Transportadora extends User implements  Serializable {
                 && this.total_entregas == t.getTotal_entregas());
     }
 
-    /**
-     *   Conversor para String das informações da Users.Transportadora
-     */
-    public String toStringShow() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("\nEmpresa: ").append(this.getNome()).append("\nCódigo: ").append(this.getCode()).append("\nNIF: ").append(this.nif);
-        sb.append("\nLocalização: ").append(this.getGPS());
-        sb.append("\nRaio de transporte: ").append(this.raio);
-        sb.append("\nCustos:\n");
-        sb.append("\nTaxa de transporte: ").append(this.precoPorKM);
-        sb.append("\nEncomendas realizadas:\n").append(this.register);
-        return sb.toString();
-    }
 
+    /**
+     * Método que converte numa string a informação sobre a Transportadora.
+     * @return String com a informação da Transportadora.
+     */
     public String toString(){
         return "Transportadora:"+this.getCode()+","+this.getNome()+","+this.getGPS().toString()+","+this.getNIF()+","+this.getRaio()+","+this.getPPK();
     }

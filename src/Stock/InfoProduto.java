@@ -1,5 +1,7 @@
 package Stock;
 
+import Users.Loja;
+
 import java.io.Serializable;
 
 public class InfoProduto implements Serializable {
@@ -8,7 +10,7 @@ public class InfoProduto implements Serializable {
     private double peso;
 
     /**
-     * Construtor por omissão
+     * Construtor por omissão.
      */
     public InfoProduto(){
         this.nome = "";
@@ -17,7 +19,7 @@ public class InfoProduto implements Serializable {
     }
 
     /**
-     * Construtor por parâmetros
+     * Construtor por parâmetros.
      * @param n que é a descrição do produto.
      * @param p que é o valor unitário.
      */
@@ -28,7 +30,7 @@ public class InfoProduto implements Serializable {
     }
 
     /**
-     * Construtor por cópia
+     * Construtor por cópia.
      * @param p que vai ser copiado.
      */
     public InfoProduto(InfoProduto p){
@@ -69,10 +71,18 @@ public class InfoProduto implements Serializable {
         this.preco = preco;
     }
 
+    /**
+     * Método que devolve o peso de um dado produto.
+     * @return Peso do produto.
+     */
     public double getPeso() {
         return peso;
     }
 
+    /**
+     * Método que define o peso de um dado produto.
+     * @param peso que é o peso do produto.
+     */
     public void setPeso(double peso) {
         this.peso = peso;
     }
@@ -83,5 +93,27 @@ public class InfoProduto implements Serializable {
      */
     public InfoProduto clone(){
         return  new InfoProduto(this);
+    }
+
+    /**
+     * Método que converte numa String a informação sobre um produto.
+     * @return String com a informação.
+     */
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.nome).append(",").append(this.peso).append(",").append(this.preco);
+        return sb.toString();
+    }
+
+    /**
+     * Método que verifica se um dado objeto é iguak a um InfoProduto.
+     * @param o Objeto a ser comparado.
+     * @return Resultado da comparação.
+     */
+    public boolean equals(Object o){
+        if(o==this) return true;
+        if(o==null || o.getClass() != this.getClass()) return false;
+        InfoProduto info = (InfoProduto) o;
+        return (this.nome.equals(info.getNome()) && this.peso == info.getPeso() && this.preco == info.getPreco());
     }
 }

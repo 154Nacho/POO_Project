@@ -23,7 +23,7 @@ public class Voluntario extends User implements Serializable {
     private int total_entregas;
 
     /**
-     * Construtor padrão
+     * Construtor por omissão.
      */
     public Voluntario() {
         super();
@@ -40,8 +40,7 @@ public class Voluntario extends User implements Serializable {
 
     /**
      * Construtor por cópia
-     *
-     * @param v Voluntário
+     * @param v Voluntário a ser copiado.
      */
     public Voluntario(Voluntario v) {
         super(v);
@@ -57,13 +56,12 @@ public class Voluntario extends User implements Serializable {
     }
 
     /**
-     * Construtor por parâmetros
-     *
-     * @param codVoluntario  Código de Voluntário
-     * @param nomeVoluntario Nome do Voluntário
-     * @param password       Password do Voluntário
-     * @param gps            Localização do Voluntário
-     * @param raio           Raio de entrega do Voluntário
+     * Construtor por parâmetros.
+     * @param codVoluntario  Código de Voluntário.
+     * @param nomeVoluntario Nome do Voluntário.
+     * @param password       Password do Voluntário.
+     * @param gps            Localização do Voluntário.
+     * @param raio           Raio de entrega do Voluntário.
      */
     public Voluntario(String codVoluntario, String nomeVoluntario, String password, GPS gps,boolean medical, double raio) {
         super(codVoluntario,password);
@@ -77,34 +75,56 @@ public class Voluntario extends User implements Serializable {
         this.classificação = 0;
     }
 
-
+    /**
+     * Método que devolve o código do voluntário.
+     * @return Código do voluntário.
+     */
     public String getCodigo(){
         return super.getCode();
     }
 
+    /**
+     * Método que define o código de um voluntário.
+     * @param code código a definir.
+     */
     public void setCodigo(String code){
         super.setCode(code);
     }
 
+    /**
+     * Método que devolve a password associada ao voluntário.
+     * @return Password do voluntário.
+     */
     public String getPassword(){
         return super.getPassword();
     }
 
+    /**
+     * Método que define a password associada a um voluntário.
+     * @param pass que é a password a associar.
+     */
     public void setPassword(String pass){
         super.setPassword(pass);
     }
 
+    /**
+     * Método que verifica se um voluntário aceita fazer transportes de encomendas médicas.
+     * @return Boolean com a resposta.
+     */
     public boolean aceitoTransporteMedicamentos() {
         return acceptmedical;
     }
 
+    /**
+     * Método que define se um voluntário aceita fazer transportes de encomendas médicas.
+     * @param state com a escolha do voluntário.
+     */
     public void aceitaMedicamentos(boolean state) {
         this.acceptmedical = state;
     }
 
     /**
      * Obtém o raio de entrega do Voluntário
-     *
      * @return double
      */
     public double getRaio() {
@@ -113,7 +133,6 @@ public class Voluntario extends User implements Serializable {
 
     /**
      * Definir o raio do Voluntário
-     *
      * @param raio de entrega do Voluntário
      */
     public void setRaio(double raio) {
@@ -186,18 +205,34 @@ public class Voluntario extends User implements Serializable {
         e.stream().map(EncomendaRealizadaVoluntario::clone).forEach(v -> this.enc_done.add(v));
     }
 
+    /**
+     * Método que devolve o nome de um voluntário.
+     * @return Nome do voluntário.
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * Método que define o nome de um voluntário.
+     * @param nome que é o nome do voluntário.
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    /**
+     * Método que devolve a localização GPS de um voluntário.
+     * @return Localização GPS do voluntário.
+     */
     public GPS getGps() {
         return gps.clone();
     }
 
+    /**
+     * Método que define a localização GPS de um Voluntário.
+     * @param gps que é a localização do voluntário.
+     */
     public void setGps(GPS gps) {
         this.gps = gps.clone();
     }
@@ -215,23 +250,33 @@ public class Voluntario extends User implements Serializable {
         this.total_entregas++;
     }
 
+    /**
+     * Método que devolve o total de avaliações que um Voluntário possui.
+     * @return Total de avaliações.
+     */
     public int getTotalAval() {
         return total_aval;
     }
 
+    /**
+     * Método que define o total de avaliações de um Voluntário.
+     * @param total_aval que é o número total de avaliações.
+     */
     public void setTotalAval(int total_aval) {
         this.total_aval = total_aval;
     }
 
+    /**
+     * Método que atualiza a classificação de um voluntário.
+     * @param classifica que é uma nova classificação feita ao Voluntário.
+     */
     public void updateClassificacao(int classifica){
         this.total_aval++;
         this.classificação = (this.classificação + classifica)/this.total_aval;
     }
 
-
     /**
      * Converte um Voluntário numa String
-     *
      * @return String
      */
     public String toString() {
@@ -242,16 +287,8 @@ public class Voluntario extends User implements Serializable {
         return sb.toString();
     }
 
-    public String toStringShow(){
-        return "Voluntário:\n{"+" Código: "+super.getCode()+
-                "\n  Nome: "+this.getNome()+
-                "\n  Localização: "+this.getGps().toString()+
-                "\n  Raio: "+this.getRaio()+
-                "\n  Accept medical: "+this.aceitoTransporteMedicamentos() + "\n}";
-    }
     /**
      * Cria uma cópia do Voluntário
-     *
      * @return Voluntário
      */
     public Voluntario clone() {
@@ -259,10 +296,9 @@ public class Voluntario extends User implements Serializable {
     }
 
     /**
-     * Verificar se um dado Objeto é igual a este Voluntário
-     *
-     * @param o Objeto
-     * @return boolean
+     * Métodn que verifica se um dado Objeto é igual a este Voluntário
+     * @param o Objeto a comparar.
+     * @return boolean com resultado da comparação.
      */
     @Override
     public boolean equals(Object o) {
