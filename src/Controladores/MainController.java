@@ -51,7 +51,7 @@ public class MainController implements TrazAquiController {
      */
     @Override
     public void start() throws IOException, ClassNotFoundException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
-        String opcao = "";
+        String opcao;
         boolean logged = false;
         do {
             view.show();
@@ -78,7 +78,6 @@ public class MainController implements TrazAquiController {
                             controladorAuxiliarTransportadora();
                             break;
                     }
-
                     break;
                 case "2":
                     register();
@@ -90,7 +89,7 @@ public class MainController implements TrazAquiController {
                 case "S":
                     break;
             }
-        } while (!opcao.equals("S") || !logged);
+        } while (!opcao.equals("S") && !logged);
     }
 
     /*--------------------------------------------------UTILIZADOR--------------------------------------------------*/
