@@ -191,7 +191,7 @@ public class Utilizador extends User implements Login, Serializable {
     /**
      * Método que adiciona uma encomenda à lista de encomendas realizadas de um utilizador.
      * @param e Encomenda com a encomenda a adicionar.
-     * @param te double com o valor da encomenda.
+     * @param te double com o tempo que a encomenda demorou a ser entregue.
      * @param entregador String de quem vai realizar a entrega da encomenda.rt
      */
     public void addEncomendaRealizada(Encomenda e, double te, String entregador){
