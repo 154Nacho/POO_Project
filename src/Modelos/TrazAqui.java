@@ -770,6 +770,5 @@ public class TrazAqui implements TrazAquiModel, Serializable {
 
     @Override
     public void loadDefault() {
-
     }
 }
