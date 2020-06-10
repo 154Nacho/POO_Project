@@ -7,11 +7,27 @@ public class LojaView implements TrazAquiView {
      */
     @Override
     public void show() {
-        System.out.println("1 -> Ver encomendas prontas a entregar");
-        System.out.println("2 -> Consultar stock");
-        System.out.println("3 -> Atualizar informações");
-        System.out.println("G -> Gravar");
-        System.out.println("S -> Logout");
+        System.out.println("   ███╗   ███╗███████╗███╗   ██╗██╗   ██╗\n" +
+                "   ████╗ ████║██╔════╝████╗  ██║██║   ██║\n" +
+                "   ██╔████╔██║█████╗  ██╔██╗ ██║██║   ██║\n" +
+                "   ██║╚██╔╝██║██╔══╝  ██║╚██╗██║██║   ██║\n" +
+                "   ██║ ╚═╝ ██║███████╗██║ ╚████║╚██████╔╝\n" +
+                "   ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝ \n" +
+                "                                      \n" +
+                "      ██╗      ██████╗      ██╗ █████╗      \n" +
+                "      ██║     ██╔═══██╗     ██║██╔══██╗     \n" +
+                "      ██║     ██║   ██║     ██║███████║     \n" +
+                "      ██║     ██║   ██║██   ██║██╔══██║     \n" +
+                "      ███████╗╚██████╔╝╚█████╔╝██║  ██║     \n" +
+                "      ╚══════╝ ╚═════╝  ╚════╝ ╚═╝  ╚═╝     \n");
+        System.out.println(" ┌───────────────────────────────────────────┐");
+        System.out.println(" |   1 -> Ver encomendas prontas a entregar  |");
+        System.out.println(" |   2 -> Consultar stock                    |");
+        System.out.println(" |   3 -> Atualizar informações              |");
+        System.out.println(" |   G -> Gravar                             |");
+        System.out.println(" |   S -> Logout                             |");
+        System.out.println(" └───────────────────────────────────────────┘");
+        System.out.print("Option: ");
     }
 
     /**
@@ -22,19 +38,38 @@ public class LojaView implements TrazAquiView {
     public void show(Object o) {
         if (o instanceof String) System.out.print((String) o );
         else if (o instanceof Boolean){
-            System.out.print("                                      Informa : ");
+            System.out.println("   ███╗   ███╗███████╗███╗   ██╗██╗   ██╗\n" +
+                    "   ████╗ ████║██╔════╝████╗  ██║██║   ██║\n" +
+                    "   ██╔████╔██║█████╗  ██╔██╗ ██║██║   ██║\n" +
+                    "   ██║╚██╔╝██║██╔══╝  ██║╚██╗██║██║   ██║\n" +
+                    "   ██║ ╚═╝ ██║███████╗██║ ╚████║╚██████╔╝\n" +
+                    "   ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝ \n" +
+                    "                                      \n" +
+                    "      ██╗      ██████╗      ██╗ █████╗      \n" +
+                    "      ██║     ██╔═══██╗     ██║██╔══██╗     \n" +
+                    "      ██║     ██║   ██║     ██║███████║     \n" +
+                    "      ██║     ██║   ██║██   ██║██╔══██║     \n" +
+                    "      ███████╗╚██████╔╝╚█████╔╝██║  ██║     \n" +
+                    "      ╚══════╝ ╚═════╝  ╚════╝ ╚═╝  ╚═╝     \n");
+            System.out.print("          Informa : ");
             if((boolean)o){
                 System.out.println("Sim");
-                System.out.println("1 -> Informar sobre a loja");
-                System.out.println("2 -> Adicionar produto ao stock");
-                System.out.println("3 -> Alterar tempo médio de atendimento");
-                System.out.println("S -> Retroceder");
+                System.out.println(" ┌───────────────────────────────────────────┐");
+                System.out.println(" |  1 -> Informar sobre a loja               |");
+                System.out.println(" |  2 -> Adicionar produto ao stock          |");
+                System.out.println(" |  3 -> Alterar tempo médio de atendimento  |");
+                System.out.println(" |  S -> Retroceder                          |");
+                System.out.println(" └───────────────────────────────────────────┘");
+                System.out.print("Option: ");
             }
             else {
                 System.out.println("Não");
-                System.out.println("1 -> Informar sobre a loja");
-                System.out.println("2 -> Adicionar produto ao stock");
-                System.out.println("S -> Retroceder");
+                System.out.println(" ┌───────────────────────────────────────────┐");
+                System.out.println(" |  1 -> Informar sobre a loja               |");
+                System.out.println(" |  2 -> Adicionar produto ao stock          |");
+                System.out.println(" |  S -> Retroceder                          |");
+                System.out.println(" └───────────────────────────────────────────┘");
+                System.out.print("Option: ");
             }
         }
     }
