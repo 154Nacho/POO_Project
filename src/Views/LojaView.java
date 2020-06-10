@@ -51,7 +51,7 @@ public class LojaView implements TrazAquiView {
                     "      ██║     ██║   ██║██   ██║██╔══██║     \n" +
                     "      ███████╗╚██████╔╝╚█████╔╝██║  ██║     \n" +
                     "      ╚══════╝ ╚═════╝  ╚════╝ ╚═╝  ╚═╝     \n");
-            System.out.print("          Informa : ");
+            System.out.print("              Informa : ");
             if((boolean)o){
                 System.out.println("Sim");
                 System.out.println(" ┌───────────────────────────────────────────┐");
