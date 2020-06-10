@@ -290,7 +290,7 @@ public class Transportadora extends User implements  Serializable {
     }
 
     /**
-     * Método que calcula o total faturado com custos de transpote num determinado período.
+     * Método que calcula o total faturado com custos de transporte num determinado período.
      * @param i  Data de início.
      * @param f Data de fim.
      * @return Valor faturado com os custos de transporte.
