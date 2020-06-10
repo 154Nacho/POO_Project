@@ -188,6 +188,12 @@ public class Utilizador extends User implements Login, Serializable {
         a.stream().map(EncomendaRealizadaUtilizador::clone).forEach(v -> this.encomendas_realizadas.add(v));
     }
 
+    /**
+     * Método que adiciona uma encomenda à lista de encomendas realizadas de um utilizador.
+     * @param e Encomenda com a encomenda a adicionar.
+     * @param te double com o valor da encomenda.
+     * @param entregador String de quem vai realizar a entrega da encomenda.rt
+     */
     public void addEncomendaRealizada(Encomenda e, double te, String entregador){
         this.encomendas_realizadas.add(new EncomendaRealizadaUtilizador(e.getCodEncomenda(),e.getCodUtilizador(),e.getCodLoja(),entregador,te,e.getDataEntrega()));
     }
