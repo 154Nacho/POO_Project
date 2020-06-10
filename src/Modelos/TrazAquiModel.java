@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 public interface TrazAquiModel extends Serializable {
-    void loadDefault();
+
     Collection<Object> interpreta(int num, Collection<Object> l) throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException;
 
     boolean checkLoggin(String o, String o1) throws UserInexistenteException;

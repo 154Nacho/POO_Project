@@ -768,7 +768,4 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         this.users.get(codUser).setPassword(pw);
     }
 
-    @Override
-    public void loadDefault() {
-    }
 }
