@@ -6,6 +6,7 @@ import Exceptions.AlreadyEvaluatedException;
 import Exceptions.ProdutoInexistenteException;
 import Exceptions.UserInexistenteException;
 import Geral.GPS;
+import Readers.Parser;
 import Stock.Encomenda;
 import Stock.EncomendaRealizadaUtilizador;
 import Stock.InfoProduto;
@@ -603,12 +604,10 @@ public class TrazAqui implements TrazAquiModel, Serializable {
 
     /**
      * Obtém a lista de users
-     *
      * @return List
      */
     public List<User> getListaUsers() {
-        return this.users.values().stream().filter(a -> a.getClass().getName().equals("Users.Utilizador"))
-                .map(User::clone).collect(Collectors.toList());
+        return this.users.values().stream().map(User::clone).collect(Collectors.toList());
     }
 
     /**
@@ -727,6 +726,8 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         o.writeObject(this);
         o.flush();
         o.close();
+        Parser aux = new Parser();
+        aux.wparser(this);
     }
 
     /**

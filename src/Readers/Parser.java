@@ -183,8 +183,30 @@ public class Parser {
             List<User> u = trazAqui.getListaUsers();
             List<Encomenda> es = trazAqui.getEncomendas();
             for (User user : u) {
-                bw.write(user.toString() + '\n');
-                pw.write(user.getCode()+":"+user.getPassword()+'\n');
+                switch(user.getClass().getName()){
+                    case "Users.Utilizador":
+                        Utilizador utilizador = (Utilizador) user;
+                        bw.write(utilizador.toString() + '\n');
+                        pw.write(utilizador.getCode()+":"+utilizador.getPassword()+'\n');
+                        break;
+                    case "Users.Voluntario":
+                        Voluntario voluntario = (Voluntario) user;
+                        bw.write(voluntario.toString() + '\n');
+                        pw.write(voluntario.getCode()+":"+voluntario.getPassword()+'\n');
+                        break;
+                    case "Users.Loja":
+                        Loja l = (Loja) user;
+                        bw.write(l.toString() + '\n');
+                        pw.write(l.getCode()+":"+l.getPassword()+'\n');
+                        break;
+                    case "Users.Transportadora":
+                        Transportadora t = (Transportadora) user;
+                        bw.write(t.toString() + '\n');
+                        pw.write(t.getCode()+":"+t.getPassword()+'\n');
+                        break;
+                    default:
+                        break;
+                }
             }
             for(Encomenda encomenda : es)
                 bw.write(encomenda.toString()+'\n');
