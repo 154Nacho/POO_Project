@@ -136,6 +136,8 @@ public class TrazAqui implements TrazAquiModel, Serializable {
         l.addEncomendaOnHold(new Encomenda(codEnc, this.logged_user.getCode(), codL, info.getPeso(), aux));
         Utilizador user = (Utilizador) this.logged_user;
         user.addEncomendaOnHold(new Encomenda(codEnc, this.logged_user.getCode(), codL, info.getPeso(), aux));
+        this.users.put(l.getCodigo(),l);
+        this.users.put(user.getCodigo(),user);
     }
 
     /**
@@ -344,7 +346,10 @@ public class TrazAqui implements TrazAquiModel, Serializable {
                         v.addEncomendaRealizada(codEnc, e.getCodUtilizador(), e.getCodLoja(), (Duration.between(e.getDataEncomenda(), e.getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento() * l.getQtd_pessoas_fila()) * clima);
                         u.addEncomendaRealizada(e, Duration.between(e.getDataEncomenda(), e.getDataEntrega()).toMinutes() + l.getTempo_médio_atendimento() * l.getQtd_pessoas_fila(), v.getCodigo());
                         l.removeEncomenda(e);
+                        u.addCodeParaClassificar(v.getCode());
+                        u.removeOnHold(e);
                         this.encomendas.remove(e);
+                        this.users.put(u.getCodigo(),u);
                         this.users.put(l.getCodigo(), l);
                         aux.add(true);
                         return aux;

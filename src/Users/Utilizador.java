@@ -164,6 +164,15 @@ public class Utilizador extends User implements Login, Serializable {
     }
 
     /**
+     * Método que remove uma encomenda da lista de espera do utilizador.
+     * @param e Encomenda a remover.
+     */
+    public void removeOnHold(Encomenda e){
+        this.on_hold.remove(e);
+    }
+
+
+    /**
      * Método que devolve as encomendas feitas por um utilizador.
      * @return List com as encomendas feitas.
      */

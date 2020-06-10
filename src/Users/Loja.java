@@ -256,6 +256,7 @@ public class Loja extends User implements Serializable {
      */
     public void addEncomendaOnHold(Encomenda e){
         this.encomendas.add(e);
+        incrementaFilaEspera();
     }
 
     /**
