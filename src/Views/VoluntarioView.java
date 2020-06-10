@@ -24,6 +24,7 @@ public class VoluntarioView implements TrazAquiView {
         System.out.println("2 -> Consultar encomendas do Sistema para entregar");
         System.out.println("3 -> Alterar disponibilidade");
         System.out.println("4 -> Mostrar classificação");
+        System.out.println("G -> Gravar");
         System.out.println("S -> Logout");
     }
 
@@ -56,6 +57,7 @@ public class VoluntarioView implements TrazAquiView {
             System.out.println("            |  2 -> Consultar encomendas do Sistema para entregar  |");
             System.out.println("            |  3 -> Alterar disponibilidade                        |");
             System.out.println("            |  4 -> Mostrar classificação                          |");
+            System.out.println("            |  G -> Gravar                                         |");
             System.out.println("            |  S -> Logout                                         |");
             System.out.println("            └──────────────────────────────────────────────────────┘");
             System.out.print("Option: ");
