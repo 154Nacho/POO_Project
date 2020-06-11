@@ -136,7 +136,6 @@ public class TrazAqui implements TrazAquiModel, Serializable {
             if (!l.getProdutos().containsKey(codP)) throw new ProdutoInexistenteException(codP);
             InfoProduto info = l.getProdutos().get(codP);
             peso += info.getPeso();
-            aux = new ArrayList<>();
             int qtd = (int) lista.get(i++);
             aux.add(new LinhaEncomenda(codP, info.getNome(), qtd, info.getPreco()));
         }while(true);

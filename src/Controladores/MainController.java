@@ -116,9 +116,13 @@ public class MainController implements TrazAquiController {
                     break;
                 case "2":
                     encomendasFeitas();
+                    view.show("Press Enter to exit");
+                    Input.lerString();
                     break;
                 case "3":
                     encomendasOnHold();
+                    view.show("Press Enter to exit");
+                    Input.lerString();
                     break;
                 case "4":
                     encomendasToAccept();
