@@ -158,21 +158,28 @@ public class MainController implements TrazAquiController {
         List<Object> aux = new ArrayList<>();
         String loja, produto;
         int qtd;
+        int qtLinhas = 0;
         try {
             view.show("Qual a Loja onde pretende encomendar?\n");
+            apresentarLojas();
             loja = Input.lerString();
-            if (loja.isEmpty()) return;
-            view.show("Qual o produto que pretende comprar?\n");
-            produto = Input.lerString();
-            if (produto.isEmpty()) return;
-            do {
-                view.show("Indique a quantidade que pretende comprar: ");
-                qtd = Input.lerInt();
-                if (qtd < 1) view.show("Quantidade inválida\n");
-            } while (qtd < 1);
             aux.add(loja);
-            aux.add(produto);
-            aux.add(qtd);
+            if (loja.isEmpty()) return;
+            do {
+                view.show("Qual o produto que pretende comprar?\n");
+                apresentarProdutosLoja(loja);
+                produto = Input.lerString();
+                if (produto.isEmpty()) break;
+                aux.add(produto);
+                do {
+                    view.show("Indique a quantidade que pretende comprar: ");
+                    qtd = Input.lerInt();
+                    if (qtd < 1) view.show("Quantidade inválida\n");
+                } while (qtd < 1);
+                aux.add(qtd);
+                qtLinhas++;
+            }while(true);
+            if(qtLinhas == 0) return;
             model.interpreta(2, aux);
             view.show("Encomenda efetuada com sucesso\n");
         } catch (UserInexistenteException m) {
@@ -222,6 +229,26 @@ public class MainController implements TrazAquiController {
         }
         view.show("Press Enter to exit");
         Input.lerString();
+    }
+    /**
+     * Método que apresenta os produtos de uma dada loja ao utilizador.
+     * @param codLoja codigo de Loja.
+     * @throws IOException Exceção.
+     * @throws UserInexistenteException Exceção.
+     * @throws AlreadyEvaluatedException Exceção.
+     * @throws ProdutoInexistenteException Exceção.
+     */
+    private void apresentarProdutosLoja(String codLoja) throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+        List<Object> aux = new ArrayList<>();
+        aux.add(codLoja);
+        try {
+            Collection<Object> prods = model.interpreta(6, aux);
+            if (prods.size() == 0) view.show("A Loja não possui produtos de momento!\n");
+            for (Object e : prods)
+                view.show(e + "\n");
+        } catch (UserInexistenteException | ProdutoInexistenteException m) {
+            view.show(m.getMessage() + " -> Código de loja inválido\n");
+        }
     }
 
     /**

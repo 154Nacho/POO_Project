@@ -49,7 +49,7 @@ public class TrazAqui implements TrazAquiModel, Serializable {
                 addUser(lista);
                 break;
             case 2:
-                novaEncomenda((String) lista.get(0), (String) lista.get(1), (Integer) lista.get(2));
+                novaEncomenda(lista);
                 break;
             case 3:
                 return encomendasFeitasUtilizador();
@@ -119,24 +119,32 @@ public class TrazAqui implements TrazAquiModel, Serializable {
 
     /**
      * Método que adiciona uma nova encomenda ao sistema e a loja respetiva.
-     * @param codL Código da loja.
-     * @param codP Código do produto a encomendar.
-     * @param qtd Quantidade do produto a encomendar.
+     *  @param lista Lista com os dados relativos à encomenda.
      * @throws UserInexistenteException Exceção.
      * @throws ProdutoInexistenteException Exceção.
      */
-    public void novaEncomenda(String codL, String codP, int qtd) throws UserInexistenteException, ProdutoInexistenteException {
+    public void novaEncomenda(List<Object> lista) throws UserInexistenteException, ProdutoInexistenteException {
+        List<LinhaEncomenda> aux = new ArrayList<>();
+        int i = 0;
+        double peso = 0;
+        String codL = (String)lista.get(i++);
         if(!this.users.containsKey(codL)) throw new UserInexistenteException(codL);
         Loja l = (Loja) this.users.get(codL);
-        if(!l.getProdutos().containsKey(codP)) throw new ProdutoInexistenteException(codP);
-        InfoProduto info = l.getProdutos().get(codP);
-        List<LinhaEncomenda> aux = new ArrayList<>();
-        aux.add(new LinhaEncomenda(codP, info.getNome(), qtd, info.getPreco()));
+        do {
+            if (lista.size() == i) break;
+            String codP = (String) lista.get(i++);
+            if (!l.getProdutos().containsKey(codP)) throw new ProdutoInexistenteException(codP);
+            InfoProduto info = l.getProdutos().get(codP);
+            peso += info.getPeso();
+            aux = new ArrayList<>();
+            int qtd = (int) lista.get(i++);
+            aux.add(new LinhaEncomenda(codP, info.getNome(), qtd, info.getPreco()));
+        }while(true);
         String codEnc = "e" + randomNumber();
-        this.encomendas.add(new Encomenda(codEnc, this.logged_user.getCode(), codL, info.getPeso(), aux));
-        l.addEncomendaOnHold(new Encomenda(codEnc, this.logged_user.getCode(), codL, info.getPeso(), aux));
+        this.encomendas.add(new Encomenda(codEnc, this.logged_user.getCode(), codL, peso, aux));
+        l.addEncomendaOnHold(new Encomenda(codEnc, this.logged_user.getCode(), codL, peso, aux));
         Utilizador user = (Utilizador) this.logged_user;
-        user.addEncomendaOnHold(new Encomenda(codEnc, this.logged_user.getCode(), codL, info.getPeso(), aux));
+        user.addEncomendaOnHold(new Encomenda(codEnc, this.logged_user.getCode(), codL, peso, aux));
         this.users.put(l.getCodigo(),l);
         this.users.put(user.getCodigo(),user);
     }
