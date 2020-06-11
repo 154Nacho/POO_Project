@@ -101,6 +101,7 @@ public class MainController implements TrazAquiController {
      * @throws UserInexistenteException Exceção.
      * @throws AlreadyEvaluatedException Exceção.
      * @throws ProdutoInexistenteException Exceção.
+     * @throws ClassNotFoundException Exceção.
      */
     private void controladorAuxiliarUtilizador() throws IOException, ClassNotFoundException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
         String opcao = "";
@@ -142,6 +143,7 @@ public class MainController implements TrazAquiController {
                 case "S":
                     this.model.logout();
                     this.view = new LoginView();
+                    start();
                     break;
 
             }
@@ -383,8 +385,9 @@ public class MainController implements TrazAquiController {
      * @throws UserInexistenteException Exceção.
      * @throws AlreadyEvaluatedException Exceção.
      * @throws ProdutoInexistenteException Exceção.
+     * @throws ClassNotFoundException Exceção.
      */
-    private void controladorAuxiliarVoluntario() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    private void controladorAuxiliarVoluntario() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException, ClassNotFoundException {
         String opcao;
         Voluntario v = (Voluntario) model.getLogged();
         do {
@@ -412,6 +415,7 @@ public class MainController implements TrazAquiController {
                 case "S":
                     this.model.logout();
                     this.view = new LoginView();
+                    start();
                     break;
 
             }
@@ -497,8 +501,9 @@ public class MainController implements TrazAquiController {
      * @throws UserInexistenteException
      * @throws AlreadyEvaluatedException
      * @throws ProdutoInexistenteException
+     * @throws ClassNotFoundException Exceção.
      */
-    private void controladorAuxiliarLoja() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    private void controladorAuxiliarLoja() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException, ClassNotFoundException {
         String opcao;
         do {
             this.view = new LojaView();
@@ -521,6 +526,7 @@ public class MainController implements TrazAquiController {
                 case "S":
                     this.model.logout();
                     this.view = new LoginView();
+                    start();
                     break;
 
             }
@@ -625,8 +631,9 @@ public class MainController implements TrazAquiController {
      * @throws UserInexistenteException Exceção.
      * @throws AlreadyEvaluatedException Exceção.
      * @throws ProdutoInexistenteException Exceção.
+     * @throws ClassNotFoundException Exceção.
      */
-    private void controladorAuxiliarTransportadora() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException {
+    private void controladorAuxiliarTransportadora() throws IOException, UserInexistenteException, AlreadyEvaluatedException, ProdutoInexistenteException, ClassNotFoundException {
         String opcao = "";
         Transportadora t = (Transportadora) model.getLogged();
         do {
@@ -659,6 +666,7 @@ public class MainController implements TrazAquiController {
                 case "S":
                     this.model.logout();
                     this.view = new LoginView();
+                    start();
                     break;
 
             }
