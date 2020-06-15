@@ -1,403 +1,403 @@
-Loja:l1,FarmÃ¡cia Nova de Nogueira,-25.066338,-62.854324
-Loja:l10,FarmÃ¡cia Cristal,-1.9447708,-93.881035
-Loja:l100,Zara,-17.783203,-54.06108
-Loja:l11,ColchaoNet.com,-10.9954605,-83.182884
-Loja:l12,Desigual,22.769669,54.47896
-Loja:l13,Fnac,62.094116,-86.10751
-Loja:l14,Mango,-6.9656982,-36.33057
-Loja:l15,FarmÃ¡cia Beatriz,-66.169815,-26.4441
-Loja:l16,FarmÃ¡cia Santos da Cunha,92.10632,-18.706581
-Loja:l17,TV e TelecomunicaÃ§Ãµes,-23.131653,-91.961334
-Loja:l18,Pingo Doce,13.136185,69.33472
-Loja:l19,Urban Project,-36.215626,-49.212826
-Loja:l2,Equivalenza,29.3544,-52.403427
-Loja:l20,AgÃªncia Abreu,43.70938,-34.563187
-Loja:l21,FarmÃ¡cia Marques,91.26895,42.59897
-Loja:l22,Zara Home,41.254074,38.28743
-Loja:l23,Perfumes & Companhia,60.586685,-19.6502
-Loja:l24,FarmÃ¡cia Alvim,20.676682,8.718575
-Loja:l25,Lugar da JÃ³ia,-81.11195,77.8846
-Loja:l26,Kiosku,-7.0539856,-10.636604
-Loja:l27,Quiosque MYOS,-69.24795,6.5437775
-Loja:l28,PluricosmÃ©tica,-44.102882,-1.3051529
-Loja:l29,Fnac,64.07434,16.236786
-Loja:l3,Intimissimi,28.090363,-70.657715
-Loja:l30,Knot,80.159515,-92.91778
-Loja:l31,FarmÃ¡cia Nuno Barros,97.31987,10.242935
-Loja:l32,FarmÃ¡cia Nova de Nogueira,-70.10561,68.43802
-Loja:l33,FarmÃ¡cia SÃ£o JoÃ£o,25.510658,-66.37048
-Loja:l34,Jean Louis David,-53.446186,78.25816
-Loja:l35,FarmÃ¡cia SÃ£o JoÃ£o,-13.9637375,-75.4444
-Loja:l36,Centroxogo,-3.719307,-93.639206
-Loja:l37,FarmÃ¡cia Martins,49.214172,90.45734
-Loja:l38,FOREVA,-86.60841,-95.17597
-Loja:l39,Globe,44.954086,9.552528
-Loja:l4,Sportzone,-88.531685,81.366135
-Loja:l40,Celeiro,-90.46378,30.980118
-Loja:l41,FOREVA,49.12172,73.87306
-Loja:l42,FarmÃ¡cia Santos,-5.8221664,-84.277794
-Loja:l43,Merrel,-56.27539,29.138336
-Loja:l44,Tezenis,-13.268341,-33.756805
-Loja:l45,FarmÃ¡cia de EsporÃµes,-95.15858,3.9205399
-Loja:l46,FarmÃ¡cia Narcisa C. Dias,23.380814,-30.470703
-Loja:l47,G-Star RAW,27.675072,-91.81576
-Loja:l48,Pingo Doce,76.800385,34.446365
-Loja:l49,KIKO,37.734497,52.174805
-Loja:l5,Loja MEO,-54.42424,76.155334
-Loja:l50,FarmÃ¡cia Carmo,-96.27042,-41.980423
-Loja:l51,5 Ã  Sec - 5 Ã  Fil,-80.277405,-50.959145
-Loja:l52,Equivalenza,-26.775978,-99.70361
-Loja:l53,Sephora,-66.54608,-34.107742
-Loja:l54,FarmÃ¡cia Nuno Barros,-6.6031113,-94.82328
-Loja:l55,Pandora,-69.15636,-44.918
-Loja:l56,Chicco,18.508736,-72.523315
-Loja:l57,HealthyNails/Essie,58.297943,-98.64135
-Loja:l58,Bluebird,-78.26213,37.406754
-Loja:l59,Zara,-14.949562,-15.898155
-Loja:l6,MÃ©lodie,-45.655144,40.940826
-Loja:l60,Giovanni Galli,-76.51601,-68.35634
-Loja:l61,Sapataria Max,88.34213,62.194138
-Loja:l62,Merrel,78.129654,-9.767357
-Loja:l63,VEIN,-95.33037,-11.089767
-Loja:l64,Tabacaria Pais,11.680862,80.31056
-Loja:l65,Opticalia,24.59159,-1.5650024
-Loja:l66,Cinemas NOS Braga Parque,57.79477,-17.510345
-Loja:l67,Sintety: Loja das Malas,71.69145,93.158585
-Loja:l68,Continente,-45.54347,6.935631
-Loja:l69,FarmÃ¡cia OsÃ³rio,-98.85119,99.00008
-Loja:l7,Knot,-8.852264,8.5256195
-Loja:l70,Bragaparque Worten Mobile,-71.18434,67.69798
-Loja:l71,Sunglass Hut,81.68683,-15.271271
-Loja:l72,Nike,-53.520416,-21.278915
-Loja:l73,SaÃºde e Beleza,79.45734,-54.64791
-Loja:l74,Chicco,35.983353,18.05214
-Loja:l75,Tiffosi,32.54355,-58.619
-Loja:l76,Decenio,-69.918594,-76.82737
-Loja:l77,FarmÃ¡cia Henriquina,39.599777,89.64633
-Loja:l78,Levis,-39.565647,21.55066
-Loja:l79,Desigual,-41.927254,-65.07187
-Loja:l8,FarmÃ¡cia Nova de Nogueira,14.046051,-68.60027
-Loja:l80,Tous,12.3450775,-56.758236
-Loja:l81,Zara Home,7.581482,80.6974
-Loja:l82,FarmÃ¡cia Alvim,99.76712,70.9709
-Loja:l83,Mr. Blue,-21.542847,-98.16683
-Loja:l84,Triumph,-45.37996,-54.203976
-Loja:l85,Tiger,8.240189,-98.54101
-Loja:l86,Sapataria Max,-80.94402,82.70944
-Loja:l87,FarmÃ¡cia Pipa,7.2272034,-29.652847
-Loja:l88,ColchaoNet.com,-89.304436,-32.817253
-Loja:l89,FOREVA,96.26175,75.7048
-Loja:l9,Tezenis,-63.952435,34.70375
-Loja:l90,Triumph,-86.08019,-66.670906
-Loja:l91,Tous,-42.170883,73.06137
-Loja:l92,Natura Selection,-59.376442,-68.40644
-Loja:l93,Seaside,91.026855,83.61435
-Loja:l94,FarmÃ¡cia Santos da Cunha,-94.262695,64.03348
-Loja:l95,Bijou Brigitte,55.911377,-34.229507
-Loja:l96,Mister Minit,4.669777,-59.930336
-Loja:l97,FarmÃ¡cia Marques,82.59512,-29.826645
-Loja:l98,Sintety: Loja das Malas,10.59346,77.85625
-Loja:l99,VEIN,45.785492,-78.72652
-Transportadora:t1,OFERTALCANCE,-17.459442,-84.99527,964761798,164.0,0.5
-Transportadora:t10,BRAGA ALVES LDA,-7.3631973,85.986404,475616773,3.0,2.5
-Transportadora:t100,BOURGOGNE TIR TRANSPORTES E LOGÃSTICA LDA,-88.16471,-8.060005,357287504,187.0,2.5
-Transportadora:t11,GREYSTAR SA BRAGA,-67.828705,-20.552277,763108538,13.0,0.5
-Transportadora:t12,SÃBIA ATITUDE - CONSTRUÃ‡Ã•ES,57.27133,61.335052,466834262,176.0,3.5
-Transportadora:t13,DHL EXPRESS PORTUGAL,92.10396,-4.247917,837290373,83.0,2.5
-Transportadora:t14,LOGITERS LOGÃSTICA PORTUGAL,-30.133148,82.97005,249507989,145.0,0.5
-Transportadora:t15,SÃBIA ATITUDE - CONSTRUÃ‡Ã•ES,-44.73635,14.552643,435890359,36.0,1.5
-Transportadora:t16,OVERSEAS FREIGHT SOLUTIONS TRANSITÃRIOS,13.373924,-39.578583,374310434,169.0,3.5
-Transportadora:t17,FORWARTRANS LDA,-83.547,9.181824,697299619,146.0,1.5
-Transportadora:t18,OFERTALCANCE,31.040115,-84.01201,295159669,99.0,0.5
-Transportadora:t19,ZENITHINDEX,14.532509,-50.747704,893393479,148.0,2.5
-Transportadora:t2,OVERSEAS FREIGHT SOLUTIONS TRANSITÃRIOS,70.35275,63.366425,359787385,20.0,2.5
-Transportadora:t20,FORPITRANS,-9.640053,-28.499916,425535770,88.0,1.5
-Transportadora:t21,OVERSEAS FREIGHT SOLUTIONS TRANSITÃRIOS,14.198746,82.205185,213482542,76.0,1.5
-Transportadora:t22,LOGIC - LOGÃSTICA INTEGRADA,42.813477,47.78456,552477987,145.0,0.5
-Transportadora:t23,OFERTALCANCE,-32.58483,40.672516,392232688,126.0,2.5
-Transportadora:t24,ZENITHINDEX,9.90715,33.67151,442119059,131.0,0.5
-Transportadora:t25,ZENITHINDEX,75.60318,-6.293808,448703980,16.0,1.5
-Transportadora:t26,BEKKER LOGISTICA,-0.20162201,-74.75516,935202070,142.0,1.5
-Transportadora:t27,TERCARGO - TRANSITÃRIOS,37.996292,84.12315,242200300,163.0,0.5
-Transportadora:t28,OFERTALCANCE,32.466858,-84.23981,824924082,120.0,3.5
-Transportadora:t29,BRAGA ALVES LDA,-53.93891,14.538132,379160680,110.0,1.5
-Transportadora:t3,LOGITERS LOGÃSTICA PORTUGAL,-29.355873,-55.273426,840013399,27.0,3.5
-Transportadora:t30,ZENITHINDEX,96.86023,94.727356,109876873,19.0,0.5
-Transportadora:t31,DHL EXPRESS PORTUGAL,-32.846428,-63.615643,857517232,138.0,3.5
-Transportadora:t32,GREYSTAR SA BRAGA,97.081924,-44.505726,713317510,149.0,1.5
-Transportadora:t33,CARRERAS GRUPO LOGÃSTICO,-40.044846,27.058044,301173850,161.0,3.5
-Transportadora:t34,LUSOPANARCOS INTERNACIONAL,46.86183,-20.525894,271268642,190.0,0.5
-Transportadora:t35,LOGITERS LOGÃSTICA PORTUGAL,38.398544,65.84949,589749834,132.0,0.5
-Transportadora:t36,OVERSEAS FREIGHT SOLUTIONS TRANSITÃRIOS,-99.458244,-84.29506,605239101,34.0,1.5
-Transportadora:t37,BOURGOGNE TIR TRANSPORTES E LOGÃSTICA LDA,-71.54643,82.779724,820690818,197.0,2.5
-Transportadora:t38,TORRESTIR - TRANSPORTES NACIONAIS E INTERNACIONAIS,-88.32126,-82.18439,830455830,194.0,1.5
-Transportadora:t39,OVERSEAS FREIGHT SOLUTIONS TRANSITÃRIOS,-62.14676,8.103706,441925444,101.0,0.5
-Transportadora:t4,OFERTALCANCE,86.113556,63.721954,114011237,160.0,3.5
-Transportadora:t40,PORTIR TRANSITÃRIOS,60.692352,-33.168686,653654623,115.0,2.5
-Transportadora:t41,CARRERAS UNIPESSOAL,82.94551,51.551895,233311083,150.0,0.5
-Transportadora:t42,TORRESTIR - TRANSPORTES NACIONAIS E INTERNACIONAIS,-97.795975,56.217606,669288496,196.0,0.5
-Transportadora:t43,CARRERAS UNIPESSOAL,76.23598,40.41243,629186125,85.0,3.5
-Transportadora:t44,OFERTALCANCE,21.705261,43.0867,260927013,129.0,1.5
-Transportadora:t45,STARCORP - WORLDWIDE EXPRESS PORTUGAL,63.23932,-55.223335,416158688,109.0,2.5
-Transportadora:t46,BRAGA ALVES LDA,78.69794,65.99072,280303948,180.0,0.5
-Transportadora:t47,LOGIC - LOGÃSTICA INTEGRADA,71.30675,28.884628,313965627,55.0,1.5
-Transportadora:t48,TORRESTIR - TRANSPORTES NACIONAIS E INTERNACIONAIS,10.763168,-87.565414,400265242,88.0,2.5
-Transportadora:t49,TERCARGO - TRANSITÃRIOS,77.968414,-26.685883,515421283,190.0,1.5
-Transportadora:t5,PORTIR TRANSITÃRIOS,-97.79937,72.98514,663066119,163.0,3.5
-Transportadora:t50,FORPITRANS,-65.98979,76.7509,325476460,117.0,3.5
-Transportadora:t51,VITÃ“RIA TRÃFEGO - AGÃŠNCIA DE NAVEGAÃ‡ÃƒO E TRÃ‚NSITOS LDA,12.953445,-65.880325,161422775,193.0,1.5
-Transportadora:t52,TERCARGO - TRANSITÃRIOS,40.88034,66.25174,733550346,51.0,2.5
-Transportadora:t53,SULTEJO LOGÃSTICA E TRÃƒNSITOS,-0.7797241,-58.662773,133787713,188.0,1.5
-Transportadora:t54,PORTIR TRANSITÃRIOS,4.7066956,7.063385,492158451,102.0,0.5
-Transportadora:t55,J.A. BETTENCOURT - AGENTES DE NAVEGAÃ‡ÃƒO E TRANSITÃRIOS LDA.,44.240982,97.78734,378304010,96.0,3.5
-Transportadora:t56,TOPWORK - SERVIÃ‡OS LOGÃSTICOS,-49.600365,21.371864,252754109,15.0,2.5
-Transportadora:t57,STARCORP - WORLDWIDE EXPRESS PORTUGAL,-5.709755,-71.592926,726065891,87.0,1.5
-Transportadora:t58,VITÃ“RIA TRÃFEGO - AGÃŠNCIA DE NAVEGAÃ‡ÃƒO E TRÃ‚NSITOS LDA,-34.44564,-23.468414,955222774,107.0,1.5
-Transportadora:t59,SÃBIA ATITUDE - CONSTRUÃ‡Ã•ES,-87.45825,-75.101364,209576081,94.0,1.5
-Transportadora:t6,TORRESTIR - TRANSPORTES NACIONAIS E INTERNACIONAIS,-39.12369,96.448654,566222347,176.0,1.5
-Transportadora:t60,STARCORP - WORLDWIDE EXPRESS PORTUGAL,-74.58873,-26.270386,989552541,3.0,3.5
-Transportadora:t61,VITÃ“RIA TRÃFEGO - AGÃŠNCIA DE NAVEGAÃ‡ÃƒO E TRÃ‚NSITOS LDA,-10.63726,-37.13788,841678696,159.0,2.5
-Transportadora:t62,LOGIC - LOGÃSTICA INTEGRADA,14.428345,95.95439,304392807,8.0,3.5
-Transportadora:t63,DHL EXPRESS PORTUGAL,-57.638084,12.538574,716964613,158.0,3.5
-Transportadora:t64,RR - TRANSITÃRIOS INTERNACIONAIS,66.705185,8.334335,952029687,155.0,1.5
-Transportadora:t65,BEKKER LOGISTICA,45.216675,-4.6362534,292358599,150.0,1.5
-Transportadora:t66,SÃBIA ATITUDE - CONSTRUÃ‡Ã•ES,-6.9883347,-63.851284,516134473,83.0,3.5
-Transportadora:t67,OVERSEAS FREIGHT SOLUTIONS TRANSITÃRIOS,49.71762,7.167053,903681520,170.0,2.5
-Transportadora:t68,J.A. BETTENCOURT - AGENTES DE NAVEGAÃ‡ÃƒO E TRANSITÃRIOS LDA.,-32.481697,18.921242,242231579,135.0,3.5
-Transportadora:t69,TORRESTIR TRANSITÃRIOS LDA,72.9686,-10.38269,651136670,65.0,3.5
-Transportadora:t7,BRAGA ALVES LDA,98.78238,-98.9649,143605869,61.0,0.5
-Transportadora:t70,SÃBIA ATITUDE - CONSTRUÃ‡Ã•ES,83.91432,96.46571,893835839,11.0,3.5
-Transportadora:t71,STARCORP - WORLDWIDE EXPRESS PORTUGAL,36.505585,66.26323,600650353,5.0,1.5
-Transportadora:t72,OVERSEAS FREIGHT SOLUTIONS TRANSITÃRIOS,-28.342072,-12.253235,687500286,137.0,3.5
-Transportadora:t73,LOGIC - LOGÃSTICA INTEGRADA,60.26729,38.735825,618686946,7.0,3.5
-Transportadora:t74,CARRERAS GRUPO LOGÃSTICO,91.66237,-68.13321,599986030,168.0,3.5
-Transportadora:t75,TERCARGO - TRANSITÃRIOS,-78.30601,-41.99667,824738622,137.0,0.5
-Transportadora:t76,TORRESTIR TRANSITÃRIOS LDA,-53.878414,-30.504288,769428659,118.0,0.5
-Transportadora:t77,DHL EXPRESS PORTUGAL,88.21585,92.87605,966283165,133.0,2.5
-Transportadora:t78,SÃBIA ATITUDE - CONSTRUÃ‡Ã•ES,-16.346954,43.36992,972686269,21.0,1.5
-Transportadora:t79,TOPWORK - SERVIÃ‡OS LOGÃSTICOS,1.0661392,-91.90712,748367107,38.0,1.5
-Transportadora:t8,LOGIC - LOGÃSTICA INTEGRADA,-90.28248,15.017998,243654370,143.0,1.5
-Transportadora:t80,PORTIR TRANSITÃRIOS,92.70436,76.808395,328712044,37.0,2.5
-Transportadora:t81,TORRESTIR - TRANSPORTES NACIONAIS E INTERNACIONAIS,-29.660187,92.20201,458047193,144.0,0.5
-Transportadora:t82,TERCARGO - TRANSITÃRIOS,-85.89599,-42.87045,401961078,82.0,1.5
-Transportadora:t83,LOGIC - LOGÃSTICA INTEGRADA,-1.3548355,78.47154,596672909,176.0,3.5
-Transportadora:t84,BOURGOGNE TIR TRANSPORTES E LOGÃSTICA LDA,-39.390553,-27.516495,414099947,123.0,2.5
-Transportadora:t85,STARCORP - WORLDWIDE EXPRESS PORTUGAL,-61.918365,65.015884,821109413,142.0,1.5
-Transportadora:t86,BEKKER LOGISTICA,-0.3110733,-69.581055,890993107,105.0,2.5
-Transportadora:t87,FORWARTRANS LDA,87.36632,-89.78545,850742775,13.0,3.5
-Transportadora:t88,LOGITERS LOGÃSTICA PORTUGAL,-3.5283203,-98.897865,176017203,157.0,0.5
-Transportadora:t89,GREYSTAR SA BRAGA,5.9106827,-61.87241,171893777,81.0,2.5
-Transportadora:t9,LUSOPANARCOS INTERNACIONAL,-71.98588,2.3707733,910786409,30.0,0.5
-Transportadora:t90,J.A. BETTENCOURT - AGENTES DE NAVEGAÃ‡ÃƒO E TRANSITÃRIOS LDA.,17.014381,1.8103638,125093662,66.0,3.5
-Transportadora:t91,GREYSTAR SA BRAGA,-23.114693,-79.379654,751145573,2.0,2.5
-Transportadora:t92,FORWARTRANS LDA,29.111511,74.51991,861334091,64.0,0.5
-Transportadora:t93,BEKKER LOGISTICA,5.1304016,-84.46462,961002863,43.0,1.5
-Transportadora:t94,VITÃ“RIA TRÃFEGO - AGÃŠNCIA DE NAVEGAÃ‡ÃƒO E TRÃ‚NSITOS LDA,-86.33164,65.40114,617874758,81.0,2.5
-Transportadora:t95,CARRERAS GRUPO LOGÃSTICO,-17.29438,31.645966,150261116,195.0,1.5
-Transportadora:t96,PORTIR TRANSITÃRIOS,78.37958,-60.31108,252079413,32.0,2.5
-Transportadora:t97,J.A. BETTENCOURT - AGENTES DE NAVEGAÃ‡ÃƒO E TRANSITÃRIOS LDA.,-86.73261,-15.368179,244473854,17.0,2.5
-Transportadora:t98,FORPITRANS,40.46338,-63.059414,270717423,47.0,2.5
-Transportadora:t99,DHL EXPRESS PORTUGAL,41.346695,15.135002,817542580,116.0,2.5
-Utilizador:u1,Ana Margarida Reis Maia Campos,22.54393,43.788895
-Utilizador:u10,Catarina Freitas da Cruz,-60.530437,54.293686
-Utilizador:u100,Maria Rodrigues Morais AraÃºjo,10.648499,-26.875183
-Utilizador:u11,GonÃ§alo Leal da Mota Meireles Moreira,-47.41119,-19.696281
-Utilizador:u12,Miguel Moreira Montenegro da Silva,-50.358833,-47.43017
-Utilizador:u13,Mateus Ferreira da Silva,-91.53103,-4.307602
-Utilizador:u14,Guilherme de Araujo Soares,-33.737503,-95.2944
-Utilizador:u15,Lucas Leite Chaves Quintela,18.259827,85.56625
-Utilizador:u16,TomÃ¡s Salazar Valente,5.147484,96.20639
-Utilizador:u17,Henrique Vilares Gomes,-95.0034,-40.817154
-Utilizador:u18,Bruno Miguel Fernandes Teixeira,-86.70124,5.995468
-Utilizador:u19,Susana VitÃ³ria SÃ¡ Silva Marques,32.295486,-22.451904
-Utilizador:u2,MoisÃ©s AraÃºjo Antunes,-60.285652,-64.98027
-Utilizador:u20,JoÃ£o Carlos Cotinho Sotomaior Neto,-62.222717,35.048523
-Utilizador:u21,JoÃ£o Tiago Oliveira Sousa Nogueira Lopes,-78.12581,44.17334
-Utilizador:u22,Eduardo Jorge Santos Teixeira,85.40117,36.087357
-Utilizador:u23,Mafalda Colaco Parente Morais da Costa,-8.889496,-68.81623
-Utilizador:u24,Marco Alexandre FÃ©lix de Lima,-69.23299,44.932785
-Utilizador:u25,Gabriela SÃ¡ Martins,-66.29232,34.940063
-Utilizador:u26,Bruno Miguel Pinheiro Alves,29.175919,-46.36401
-Utilizador:u27,Rui Nuno Borges Cruz Oliveira,68.779434,80.00876
-Utilizador:u28,Filipe GonÃ§alves de Macedo,45.325714,-1.1241226
-Utilizador:u29,Paulo Jorge da Silva AraÃºjo,-31.975937,73.06944
-Utilizador:u3,Mariana GonÃ§alves Marques,70.96268,-88.48987
-Utilizador:u30,Pedro Miguel da Rocha Ribeiro,25.319183,54.8519
-Utilizador:u31,Mateus Ferreira da Silva,71.348724,-78.1506
-Utilizador:u32,Joao Pedro Duarte Coutinho,20.049881,96.45209
-Utilizador:u33,RÃºben Leandro Teixeira de Sousa,-28.320404,-88.96715
-Utilizador:u34,Pedro Miguel AraÃºjo Costa,64.67529,40.162903
-Utilizador:u35,LuÃ­s Alberto Diogo Pereira de Lima,23.499641,-93.847694
-Utilizador:u36,Pedro Santos Arezes Costa,8.951141,-49.747597
-Utilizador:u37,AndrÃ© Miguel Lopes Salgado,82.79695,-39.17458
-Utilizador:u38,JoÃ£o Carlos Cotinho Sotomaior Neto,20.15612,78.33328
-Utilizador:u39,Pedro Miguel da Rocha Ribeiro,67.226654,18.653252
+Utilizador:u96,AntÃ³nio Maria de AraÃºjo Serra Lobo Guerra,-45.593155,-56.50072
+Utilizador:u85,Pedro Filipe Costa Machado,-2.8213272,-41.793705
 Utilizador:u4,FÃ¡bio Fernandes Silva,4.466751,-19.670067
-Utilizador:u40,Ana Beatriz Castro Afonso,-72.69025,-43.6437
-Utilizador:u41,Joao Marcelo Caseiro Cagigal Olival,-24.48146,96.98381
-Utilizador:u42,Beatriz Freitas Rocha,-32.65947,-28.719246
+Utilizador:u95,Jorge Daniel Pereira da Silva,-19.240639,-1.0669022
 Utilizador:u43,Ana Beatriz Castro Afonso,17.030586,-85.3487
-Utilizador:u44,Pedro Miguel Amorim de Beir,-44.919075,-21.251526
-Utilizador:u45,JoÃ£o Carlos Garcia Linhares,93.18292,-11.617706
-Utilizador:u46,Helena PoÃ§as Martins,80.136795,-97.519745
-Utilizador:u47,Pedro Alexandre GonÃ§alves Ribeiro,47.905273,-64.73834
-Utilizador:u48,LuÃ­sa Maria Carvalho Fernandes,34.26947,-2.989746
-Utilizador:u49,MÃ¡rio SÃ©rgio Duarte Machado da Silva,-31.37156,-72.244835
-Utilizador:u5,Eduardo Joao Gomes Teixeira da Costa,95.540665,33.74031
-Utilizador:u50,FÃ¡bio Fernandes Silva,-30.255104,-31.177208
-Utilizador:u51,Diogo Vicente Magalhaes Vilela Silva,-65.3967,41.426315
-Utilizador:u52,Miguel Moreira Montenegro da Silva,32.386337,-99.879456
-Utilizador:u53,Jorge Gabriel Alves Cerqueira,-9.397232,78.00644
-Utilizador:u54,JoÃ£o Pedro AraÃºjo Parente,59.27072,47.860153
-Utilizador:u55,Henrique Vilares Gomes,-73.42631,26.445946
-Utilizador:u56,Andre Loureiro Morais,-91.5094,-71.5619
-Utilizador:u57,Mateus Ferreira da Silva,31.0719,-32.05333
+Utilizador:u87,Pedro Manuel GonÃ§alves de Oliveira,46.764206,27.668846
+Utilizador:u28,Filipe GonÃ§alves de Macedo,45.325714,-1.1241226
+Utilizador:u83,AntÃ³nio Manuel Carvalho GonÃ§alves,-91.70443,-74.47084
+Utilizador:u27,Rui Nuno Borges Cruz Oliveira,68.779434,80.00876
+Utilizador:u74,Ivo Alexandre Pereira Baixo,60.526352,-20.056847
+Utilizador:u86,Eduardo Semanas de Oliveira AraÃºjo,22.927223,-71.56243
+Utilizador:u64,Bruno Miguel Faria Fernandes,34.660202,69.53287
+Utilizador:u17,Henrique Vilares Gomes,-95.0034,-40.817154
+Utilizador:u82,LuÃ­s MÃ¡rio Macedo Ribeiro,-45.049404,-22.892654
 Utilizador:u58,Jorge Miguel da Silva BrandÃ£o GonÃ§alves,-18.66764,47.193573
-Utilizador:u59,Joao Pedro Oliveira Meira,-61.327637,-87.85824
+Utilizador:u97,Daniela Sofia Pereira Arruda,64.22392,66.16704
+Utilizador:u91,Ilda Raquel DurÃ£es Pinto,83.41972,86.57181
+Utilizador:u37,AndrÃ© Miguel Lopes Salgado,82.79695,-39.17458
+Utilizador:u26,Bruno Miguel Pinheiro Alves,29.175919,-46.36401
+Utilizador:u75,LuÃ­s Daniel da Silva FÃ©lix,-75.15076,-17.100616
+Utilizador:u68,Pedro Daniel Fernandes Abreu,41.09619,13.290009
+Utilizador:u39,Pedro Miguel da Rocha Ribeiro,67.226654,18.653252
+Utilizador:u63,JoÃ£o Pedro AraÃºjo Parente,41.118713,-75.31993
+Utilizador:u14,Guilherme de Araujo Soares,-33.737503,-95.2944
+Utilizador:u66,Hugo Filipe Duarte Carvalho,91.596085,-9.296623
+Utilizador:u49,MÃ¡rio SÃ©rgio Duarte Machado da Silva,-31.37156,-72.244835
+Utilizador:u67,GonÃ§alo JosÃ© Azevedo Esteves,73.72763,54.472336
+Utilizador:u52,Miguel Moreira Montenegro da Silva,32.386337,-99.879456
+Utilizador:u3,Mariana GonÃ§alves Marques,70.96268,-88.48987
+Utilizador:u7,Ricardo Nuno Alves Teixeira,-90.65058,-3.6661835
+Utilizador:u16,TomÃ¡s Salazar Valente,5.147484,96.20639
+Utilizador:u44,Pedro Miguel Amorim de Beir,-44.919075,-21.251526
+Utilizador:u41,Joao Marcelo Caseiro Cagigal Olival,-24.48146,96.98381
+Utilizador:u11,GonÃ§alo Leal da Mota Meireles Moreira,-47.41119,-19.696281
+Utilizador:u36,Pedro Santos Arezes Costa,8.951141,-49.747597
+Utilizador:u25,Gabriela SÃ¡ Martins,-66.29232,34.940063
+Utilizador:u57,Mateus Ferreira da Silva,31.0719,-32.05333
+Utilizador:u79,RÃºben Leandro Teixeira de Sousa,63.4207,22.942177
+Utilizador:u35,LuÃ­s Alberto Diogo Pereira de Lima,23.499641,-93.847694
+Utilizador:u46,Helena PoÃ§as Martins,80.136795,-97.519745
+Utilizador:u2,MoisÃ©s AraÃºjo Antunes,-60.285652,-64.98027
 Utilizador:u6,Pedro Alexandre GonÃ§alves Ribeiro,-41.423702,54.624695
+Utilizador:u29,Paulo Jorge da Silva AraÃºjo,-31.975937,73.06944
+Utilizador:u21,JoÃ£o Tiago Oliveira Sousa Nogueira Lopes,-78.12581,44.17334
+Utilizador:u24,Marco Alexandre FÃ©lix de Lima,-69.23299,44.932785
+Utilizador:u70,Mateus Ferreira da Silva,43.24144,-13.307396
+Utilizador:u22,Eduardo Jorge Santos Teixeira,85.40117,36.087357
 Utilizador:u60,ConstanÃ§a Machado Aires Lobo Elias,-12.895493,-23.887146
 Utilizador:u61,LuÃ­s Pedro Martins Duarte,-46.33366,76.378555
-Utilizador:u62,Hugo AndrÃ© da Silva Veloso Moreira,91.41585,-91.01109
-Utilizador:u63,JoÃ£o Pedro AraÃºjo Parente,41.118713,-75.31993
-Utilizador:u64,Bruno Miguel Faria Fernandes,34.660202,69.53287
+Utilizador:u5,Eduardo Joao Gomes Teixeira da Costa,95.540665,33.74031
+Utilizador:u53,Jorge Gabriel Alves Cerqueira,-9.397232,78.00644
+Utilizador:u31,Mateus Ferreira da Silva,71.348724,-78.1506
+Utilizador:u18,Bruno Miguel Fernandes Teixeira,-86.70124,5.995468
 Utilizador:u65,Paulo Ricardo Antunes Pereira,59.44487,-82.67131
-Utilizador:u66,Hugo Filipe Duarte Carvalho,91.596085,-9.296623
-Utilizador:u67,GonÃ§alo JosÃ© Azevedo Esteves,73.72763,54.472336
-Utilizador:u68,Pedro Daniel Fernandes Abreu,41.09619,13.290009
-Utilizador:u69,Jorge Francisco Teixeira Bastos da Mota,78.52286,80.33957
-Utilizador:u7,Ricardo Nuno Alves Teixeira,-90.65058,-3.6661835
-Utilizador:u70,Mateus Ferreira da Silva,43.24144,-13.307396
-Utilizador:u71,Artur Drohobytskyy,24.789513,-33.24021
-Utilizador:u72,Ricardo JosÃ© de MagalhÃ£es e Silva,-48.09246,-37.44476
-Utilizador:u73,JosÃ© Miguel Fernandes Madeira Pinto,36.48329,-49.53449
-Utilizador:u74,Ivo Alexandre Pereira Baixo,60.526352,-20.056847
-Utilizador:u75,LuÃ­s Daniel da Silva FÃ©lix,-75.15076,-17.100616
-Utilizador:u76,Filipe JosÃ© da Silva Freitas,30.523605,14.358673
 Utilizador:u77,Ricardo Loureiro da Silva,42.551453,23.062119
-Utilizador:u78,JoÃ£o Manuel Silva Antunes,35.926437,57.791138
-Utilizador:u79,RÃºben Leandro Teixeira de Sousa,63.4207,22.942177
-Utilizador:u8,Sara Maria Barreira Melo,-22.617973,-67.78357
-Utilizador:u80,Joana Isabel Afonso Gomes,-3.4911041,11.883606
-Utilizador:u81,Ana JoÃ£o Dias de Almeida,46.32434,-61.47088
-Utilizador:u82,LuÃ­s MÃ¡rio Macedo Ribeiro,-45.049404,-22.892654
-Utilizador:u83,AntÃ³nio Manuel Carvalho GonÃ§alves,-91.70443,-74.47084
-Utilizador:u84,Bernardo Maria Cortez Marques Nogueira da GraÃ§a,-54.932976,14.784599
-Utilizador:u85,Pedro Filipe Costa Machado,-2.8213272,-41.793705
-Utilizador:u86,Eduardo Semanas de Oliveira AraÃºjo,22.927223,-71.56243
-Utilizador:u87,Pedro Manuel GonÃ§alves de Oliveira,46.764206,27.668846
-Utilizador:u88,Francisco Domingos Martins Oliveira,-67.25758,93.41237
+Utilizador:u55,Henrique Vilares Gomes,-73.42631,26.445946
 Utilizador:u89,AndrÃ© Alves dos Santos,38.48871,52.572647
-Utilizador:u9,Bruno Alves Martins Carvalho,69.25485,33.01654
-Utilizador:u90,NÃ©lson Ramos Alves,39.67021,59.44934
-Utilizador:u91,Ilda Raquel DurÃ£es Pinto,83.41972,86.57181
-Utilizador:u92,Pedro Manuel GonÃ§alves de Oliveira,-23.418442,55.64427
-Utilizador:u93,Daniel JosÃ© Coutinho GonÃ§alves de Faria,73.60216,-29.539635
+Utilizador:u45,JoÃ£o Carlos Garcia Linhares,93.18292,-11.617706
+Utilizador:u15,Lucas Leite Chaves Quintela,18.259827,85.56625
+Utilizador:u54,JoÃ£o Pedro AraÃºjo Parente,59.27072,47.860153
+Utilizador:u48,LuÃ­sa Maria Carvalho Fernandes,34.26947,-2.989746
+Utilizador:u32,Joao Pedro Duarte Coutinho,20.049881,96.45209
+Utilizador:u13,Mateus Ferreira da Silva,-91.53103,-4.307602
 Utilizador:u94,Miguel Moreira Montenegro da Silva,22.10176,-69.287155
-Utilizador:u95,Jorge Daniel Pereira da Silva,-19.240639,-1.0669022
-Utilizador:u96,AntÃ³nio Maria de AraÃºjo Serra Lobo Guerra,-45.593155,-56.50072
-Utilizador:u97,Daniela Sofia Pereira Arruda,64.22392,66.16704
+Utilizador:u73,JosÃ© Miguel Fernandes Madeira Pinto,36.48329,-49.53449
+Utilizador:u34,Pedro Miguel AraÃºjo Costa,64.67529,40.162903
+Utilizador:u88,Francisco Domingos Martins Oliveira,-67.25758,93.41237
+Utilizador:u47,Pedro Alexandre GonÃ§alves Ribeiro,47.905273,-64.73834
+Utilizador:u38,JoÃ£o Carlos Cotinho Sotomaior Neto,20.15612,78.33328
+Utilizador:u20,JoÃ£o Carlos Cotinho Sotomaior Neto,-62.222717,35.048523
+Utilizador:u69,Jorge Francisco Teixeira Bastos da Mota,78.52286,80.33957
 Utilizador:u98,Marco Alexandre FÃ©lix de Lima,-93.64482,-38.43846
+Utilizador:u71,Artur Drohobytskyy,24.789513,-33.24021
+Utilizador:u9,Bruno Alves Martins Carvalho,69.25485,33.01654
+Utilizador:u19,Susana VitÃ³ria SÃ¡ Silva Marques,32.295486,-22.451904
+Utilizador:u84,Bernardo Maria Cortez Marques Nogueira da GraÃ§a,-54.932976,14.784599
+Utilizador:u1,Ana Margarida Reis Maia Campos,22.54393,43.788895
+Utilizador:u81,Ana JoÃ£o Dias de Almeida,46.32434,-61.47088
+Utilizador:u59,Joao Pedro Oliveira Meira,-61.327637,-87.85824
+Utilizador:u93,Daniel JosÃ© Coutinho GonÃ§alves de Faria,73.60216,-29.539635
+Utilizador:u10,Catarina Freitas da Cruz,-60.530437,54.293686
+Utilizador:u56,Andre Loureiro Morais,-91.5094,-71.5619
+Utilizador:u23,Mafalda Colaco Parente Morais da Costa,-8.889496,-68.81623
+Utilizador:u62,Hugo AndrÃ© da Silva Veloso Moreira,91.41585,-91.01109
+Utilizador:u50,FÃ¡bio Fernandes Silva,-30.255104,-31.177208
+Utilizador:u76,Filipe JosÃ© da Silva Freitas,30.523605,14.358673
+Utilizador:u42,Beatriz Freitas Rocha,-32.65947,-28.719246
+Utilizador:u8,Sara Maria Barreira Melo,-22.617973,-67.78357
+Utilizador:u30,Pedro Miguel da Rocha Ribeiro,25.319183,54.8519
+Utilizador:u72,Ricardo JosÃ© de MagalhÃ£es e Silva,-48.09246,-37.44476
+Utilizador:u92,Pedro Manuel GonÃ§alves de Oliveira,-23.418442,55.64427
+Utilizador:u51,Diogo Vicente Magalhaes Vilela Silva,-65.3967,41.426315
+Utilizador:u80,Joana Isabel Afonso Gomes,-3.4911041,11.883606
+Utilizador:u78,JoÃ£o Manuel Silva Antunes,35.926437,57.791138
+Utilizador:u33,RÃºben Leandro Teixeira de Sousa,-28.320404,-88.96715
+Utilizador:u12,Miguel Moreira Montenegro da Silva,-50.358833,-47.43017
+Utilizador:u90,NÃ©lson Ramos Alves,39.67021,59.44934
+Utilizador:u40,Ana Beatriz Castro Afonso,-72.69025,-43.6437
+Utilizador:u100,Maria Rodrigues Morais AraÃºjo,10.648499,-26.875183
 Utilizador:u99,JosÃ© Joaquim Machado Barbosa,65.05228,-57.327663
-Voluntario:v1,Pedro Miguel da Silva Paiva AntÃ³nio,35.882706,13.120926,176.0
-Voluntario:v10,Rui Pedro Gomes Coelho,-21.67759,-83.23584,28.0
-Voluntario:v100,MÃ¡rio Rui Freitas Coelho,35.92842,74.81677,136.0
-Voluntario:v11,Andreia Martins Alves,-96.94888,24.970963,70.0
-Voluntario:v12,Andreia Martins Alves,39.117065,-70.16936,96.0
-Voluntario:v13,Ricardo Manuel Soares Peixoto,-24.924683,-15.27845,47.0
-Voluntario:v14,Geovani Silva Delgado Alves,-77.37347,96.99625,27.0
-Voluntario:v15,JoÃ£o Carlos Delgado Monteiro,55.4906,-94.41916,147.0
-Voluntario:v16,Andreia Martins Alves,85.27086,-16.991684,28.0
-Voluntario:v17,Andreia Martins Alves,46.85495,64.55104,120.0
-Voluntario:v18,Miriam Miranda Pinto,-15.493301,37.97795,155.0
-Voluntario:v19,Andreia Martins Alves,77.602554,-51.83077,145.0
-Voluntario:v2,MÃ¡rio Rui Freitas Coelho,-11.127663,56.47354,187.0
-Voluntario:v20,Miriam Miranda Pinto,-45.380985,59.629242,2.0
-Voluntario:v21,MÃ¡rio Rui Freitas Coelho,-39.96918,-38.50192,6.0
-Voluntario:v22,MÃ¡rio Rui Freitas Coelho,60.047836,-66.921616,77.0
-Voluntario:v23,Ricardo Manuel Soares Peixoto,93.81949,3.3136826,69.0
-Voluntario:v24,Carlos CÃ©sar Madureira Romano,39.698822,-99.23214,25.0
-Voluntario:v25,Carlos CÃ©sar Madureira Romano,-97.776306,-49.679077,61.0
-Voluntario:v26,MÃ¡rio Rui Freitas Coelho,-98.805664,-37.48028,155.0
-Voluntario:v27,Miriam Miranda Pinto,67.82327,59.78015,172.0
-Voluntario:v28,JoÃ£o Carlos Delgado Monteiro,-61.45066,-23.652924,65.0
-Voluntario:v29,Ricardo Manuel Soares Peixoto,-22.16375,-91.31112,57.0
-Voluntario:v3,Geovani Silva Delgado Alves,-10.937798,97.892746,101.0
-Voluntario:v30,Ricardo Manuel Soares Peixoto,-40.94274,83.002106,1.0
-Voluntario:v31,Pedro Miguel da Silva Paiva AntÃ³nio,25.31018,-95.363304,6.0
-Voluntario:v32,Pedro Miguel da Silva Paiva AntÃ³nio,47.71132,-67.08026,184.0
-Voluntario:v33,Carlos CÃ©sar Madureira Romano,-18.706917,-64.000626,157.0
-Voluntario:v34,MÃ¡rio Rui Freitas Coelho,40.784317,80.463776,28.0
-Voluntario:v35,JoÃ£o Carlos Delgado Monteiro,82.50159,-14.895294,153.0
-Voluntario:v36,Andreia Martins Alves,2.8638992,75.8575,147.0
-Voluntario:v37,JoÃ£o Carlos Delgado Monteiro,7.9200363,59.19603,45.0
-Voluntario:v38,Miriam Miranda Pinto,92.396774,76.548904,98.0
-Voluntario:v39,JoÃ£o Carlos Delgado Monteiro,-94.95214,-40.548027,160.0
-Voluntario:v4,Miriam Miranda Pinto,90.86127,67.86972,165.0
-Voluntario:v40,Miriam Miranda Pinto,-65.7236,-61.30233,162.0
-Voluntario:v41,SimÃ£o Pedro Santa Cruz Oliveira,89.804504,35.93773,110.0
-Voluntario:v42,Pedro Miguel da Silva Paiva AntÃ³nio,-26.193382,-1.017395,85.0
-Voluntario:v43,Miriam Miranda Pinto,92.481964,22.937515,134.0
-Voluntario:v44,Rui Pedro Gomes Coelho,-0.12477875,-88.513,76.0
-Voluntario:v45,MÃ¡rio Rui Freitas Coelho,-27.99504,-24.524132,61.0
-Voluntario:v46,Carlos CÃ©sar Madureira Romano,-81.64688,-16.680923,180.0
-Voluntario:v47,Rui Pedro Gomes Coelho,66.44731,13.84034,78.0
-Voluntario:v48,JoÃ£o Carlos Delgado Monteiro,-36.697613,-26.470634,161.0
-Voluntario:v49,Andreia Martins Alves,-41.49326,-80.08336,94.0
-Voluntario:v5,Geovani Silva Delgado Alves,17.102013,13.800583,158.0
-Voluntario:v50,SimÃ£o Pedro Santa Cruz Oliveira,56.065704,-3.4956436,52.0
-Voluntario:v51,Carlos CÃ©sar Madureira Romano,8.652199,30.791855,101.0
-Voluntario:v52,SimÃ£o Pedro Santa Cruz Oliveira,63.625015,-3.1595688,58.0
 Voluntario:v53,Andreia Martins Alves,34.885773,-47.568394,179.0
-Voluntario:v54,JoÃ£o Carlos Delgado Monteiro,-37.729275,-59.749733,119.0
-Voluntario:v55,MÃ¡rio Rui Freitas Coelho,80.66966,-23.116287,73.0
-Voluntario:v56,Miriam Miranda Pinto,17.639778,78.85826,27.0
-Voluntario:v57,MÃ¡rio Rui Freitas Coelho,68.25426,23.642578,71.0
-Voluntario:v58,Carlos CÃ©sar Madureira Romano,-29.88485,-33.687675,121.0
-Voluntario:v59,Miriam Miranda Pinto,-67.787125,46.458298,127.0
+Voluntario:v21,MÃ¡rio Rui Freitas Coelho,-39.96918,-38.50192,6.0
+Voluntario:v98,SimÃ£o Pedro Santa Cruz Oliveira,1.1741409,-86.758545,104.0
+Voluntario:v70,Andreia Martins Alves,-14.475426,-21.508087,178.0
+Voluntario:v93,Ricardo Manuel Soares Peixoto,54.78868,56.96428,77.0
+Voluntario:v92,Rui Pedro Gomes Coelho,-93.435,-48.835205,69.0
+Voluntario:v22,MÃ¡rio Rui Freitas Coelho,60.047836,-66.921616,77.0
+Voluntario:v40,Miriam Miranda Pinto,-65.7236,-61.30233,162.0
+Voluntario:v49,Andreia Martins Alves,-41.49326,-80.08336,94.0
+Voluntario:v77,Pedro Miguel da Silva Paiva AntÃ³nio,6.887245,-9.018311,53.0
+Voluntario:v52,SimÃ£o Pedro Santa Cruz Oliveira,63.625015,-3.1595688,58.0
+Voluntario:v64,MÃ¡rio Rui Freitas Coelho,83.59224,52.30612,105.0
+Voluntario:v73,JoÃ£o Carlos Delgado Monteiro,74.234055,-32.540916,44.0
+Voluntario:v71,Andreia Martins Alves,-7.1868896e-3,55.259018,153.0
+Voluntario:v33,Carlos CÃ©sar Madureira Romano,-18.706917,-64.000626,157.0
+Voluntario:v89,JoÃ£o Carlos Delgado Monteiro,-92.29425,78.40785,107.0
+Voluntario:v39,JoÃ£o Carlos Delgado Monteiro,-94.95214,-40.548027,160.0
+Voluntario:v84,MÃ¡rio Rui Freitas Coelho,40.152344,40.62845,92.0
+Voluntario:v45,MÃ¡rio Rui Freitas Coelho,-27.99504,-24.524132,61.0
+Voluntario:v1,Pedro Miguel da Silva Paiva AntÃ³nio,35.882706,13.120926,176.0
+Voluntario:v11,Andreia Martins Alves,-96.94888,24.970963,70.0
 Voluntario:v6,Ricardo Manuel Soares Peixoto,-29.831078,24.694672,166.0
+Voluntario:v35,JoÃ£o Carlos Delgado Monteiro,82.50159,-14.895294,153.0
+Voluntario:v25,Carlos CÃ©sar Madureira Romano,-97.776306,-49.679077,61.0
+Voluntario:v86,Rui Pedro Gomes Coelho,-60.979248,78.43036,139.0
+Voluntario:v17,Andreia Martins Alves,46.85495,64.55104,120.0
+Voluntario:v10,Rui Pedro Gomes Coelho,-21.67759,-83.23584,28.0
 Voluntario:v60,Ricardo Manuel Soares Peixoto,-99.03146,-2.8344498,84.0
 Voluntario:v61,MÃ¡rio Rui Freitas Coelho,73.57582,-96.31529,103.0
-Voluntario:v62,Carlos CÃ©sar Madureira Romano,64.41501,19.869911,40.0
-Voluntario:v63,Ricardo Manuel Soares Peixoto,80.45413,-84.496414,102.0
-Voluntario:v64,MÃ¡rio Rui Freitas Coelho,83.59224,52.30612,105.0
-Voluntario:v65,Rui Pedro Gomes Coelho,18.816994,-11.4255905,144.0
-Voluntario:v66,MÃ¡rio Rui Freitas Coelho,16.88787,63.341217,108.0
-Voluntario:v67,MÃ¡rio Rui Freitas Coelho,99.77937,51.642532,36.0
-Voluntario:v68,Pedro Miguel da Silva Paiva AntÃ³nio,75.72519,15.615723,128.0
-Voluntario:v69,Ricardo Manuel Soares Peixoto,-22.857872,21.666405,125.0
-Voluntario:v7,Ricardo Manuel Soares Peixoto,-68.11168,46.659607,36.0
-Voluntario:v70,Andreia Martins Alves,-14.475426,-21.508087,178.0
-Voluntario:v71,Andreia Martins Alves,-0.0071868896,55.259018,153.0
-Voluntario:v72,JoÃ£o Carlos Delgado Monteiro,-3.292511,63.992615,155.0
-Voluntario:v73,JoÃ£o Carlos Delgado Monteiro,74.234055,-32.540916,44.0
-Voluntario:v74,SimÃ£o Pedro Santa Cruz Oliveira,-70.97453,-18.352089,148.0
-Voluntario:v75,SimÃ£o Pedro Santa Cruz Oliveira,49.762863,75.73598,1.0
-Voluntario:v76,Rui Pedro Gomes Coelho,-21.402046,-52.75277,19.0
-Voluntario:v77,Pedro Miguel da Silva Paiva AntÃ³nio,6.887245,-9.018311,53.0
-Voluntario:v78,Rui Pedro Gomes Coelho,21.403801,54.30237,196.0
-Voluntario:v79,Pedro Miguel da Silva Paiva AntÃ³nio,-38.820827,99.8094,198.0
-Voluntario:v8,Carlos CÃ©sar Madureira Romano,37.524475,9.396721,15.0
-Voluntario:v80,Miriam Miranda Pinto,52.317093,-6.6013336,94.0
-Voluntario:v81,Ricardo Manuel Soares Peixoto,-24.94757,37.68805,141.0
-Voluntario:v82,Pedro Miguel da Silva Paiva AntÃ³nio,-61.040833,14.154091,70.0
-Voluntario:v83,Miriam Miranda Pinto,80.67926,86.219955,129.0
-Voluntario:v84,MÃ¡rio Rui Freitas Coelho,40.152344,40.62845,92.0
-Voluntario:v85,JoÃ£o Carlos Delgado Monteiro,8.360054,31.303131,146.0
-Voluntario:v86,Rui Pedro Gomes Coelho,-60.979248,78.43036,139.0
-Voluntario:v87,Rui Pedro Gomes Coelho,75.53839,89.32974,134.0
-Voluntario:v88,Carlos CÃ©sar Madureira Romano,-93.03037,39.103073,58.0
-Voluntario:v89,JoÃ£o Carlos Delgado Monteiro,-92.29425,78.40785,107.0
+Voluntario:v42,Pedro Miguel da Silva Paiva AntÃ³nio,-26.193382,-1.017395,85.0
+Voluntario:v23,Ricardo Manuel Soares Peixoto,93.81949,3.3136826,69.0
 Voluntario:v9,Pedro Miguel da Silva Paiva AntÃ³nio,-92.01768,5.0743103,25.0
-Voluntario:v90,Rui Pedro Gomes Coelho,-82.441696,27.352264,186.0
-Voluntario:v91,Geovani Silva Delgado Alves,74.518845,42.344635,146.0
-Voluntario:v92,Rui Pedro Gomes Coelho,-93.435,-48.835205,69.0
-Voluntario:v93,Ricardo Manuel Soares Peixoto,54.78868,56.96428,77.0
-Voluntario:v94,Rui Pedro Gomes Coelho,11.434998,-40.622604,199.0
+Voluntario:v54,JoÃ£o Carlos Delgado Monteiro,-37.729275,-59.749733,119.0
+Voluntario:v5,Geovani Silva Delgado Alves,17.102013,13.800583,158.0
+Voluntario:v27,Miriam Miranda Pinto,67.82327,59.78015,172.0
 Voluntario:v95,JoÃ£o Carlos Delgado Monteiro,61.21794,3.5605698,195.0
-Voluntario:v96,Carlos CÃ©sar Madureira Romano,34.708435,38.298737,119.0
+Voluntario:v58,Carlos CÃ©sar Madureira Romano,-29.88485,-33.687675,121.0
+Voluntario:v2,MÃ¡rio Rui Freitas Coelho,-11.127663,56.47354,187.0
+Voluntario:v37,JoÃ£o Carlos Delgado Monteiro,7.9200363,59.19603,45.0
+Voluntario:v18,Miriam Miranda Pinto,-15.493301,37.97795,155.0
+Voluntario:v75,SimÃ£o Pedro Santa Cruz Oliveira,49.762863,75.73598,1.0
+Voluntario:v43,Miriam Miranda Pinto,92.481964,22.937515,134.0
+Voluntario:v7,Ricardo Manuel Soares Peixoto,-68.11168,46.659607,36.0
+Voluntario:v36,Andreia Martins Alves,2.8638992,75.8575,147.0
+Voluntario:v56,Miriam Miranda Pinto,17.639778,78.85826,27.0
+Voluntario:v46,Carlos CÃ©sar Madureira Romano,-81.64688,-16.680923,180.0
+Voluntario:v3,Geovani Silva Delgado Alves,-10.937798,97.892746,101.0
+Voluntario:v28,JoÃ£o Carlos Delgado Monteiro,-61.45066,-23.652924,65.0
+Voluntario:v62,Carlos CÃ©sar Madureira Romano,64.41501,19.869911,40.0
+Voluntario:v85,JoÃ£o Carlos Delgado Monteiro,8.360054,31.303131,146.0
+Voluntario:v68,Pedro Miguel da Silva Paiva AntÃ³nio,75.72519,15.615723,128.0
+Voluntario:v4,Miriam Miranda Pinto,90.86127,67.86972,165.0
+Voluntario:v59,Miriam Miranda Pinto,-67.787125,46.458298,127.0
+Voluntario:v47,Rui Pedro Gomes Coelho,66.44731,13.84034,78.0
+Voluntario:v12,Andreia Martins Alves,39.117065,-70.16936,96.0
+Voluntario:v82,Pedro Miguel da Silva Paiva AntÃ³nio,-61.040833,14.154091,70.0
+Voluntario:v94,Rui Pedro Gomes Coelho,11.434998,-40.622604,199.0
+Voluntario:v55,MÃ¡rio Rui Freitas Coelho,80.66966,-23.116287,73.0
 Voluntario:v97,Ricardo Manuel Soares Peixoto,45.925766,68.52409,107.0
-Voluntario:v98,SimÃ£o Pedro Santa Cruz Oliveira,1.1741409,-86.758545,104.0
+Voluntario:v80,Miriam Miranda Pinto,52.317093,-6.6013336,94.0
+Voluntario:v79,Pedro Miguel da Silva Paiva AntÃ³nio,-38.820827,99.8094,198.0
+Voluntario:v66,MÃ¡rio Rui Freitas Coelho,16.88787,63.341217,108.0
+Voluntario:v19,Andreia Martins Alves,77.602554,-51.83077,145.0
+Voluntario:v26,MÃ¡rio Rui Freitas Coelho,-98.805664,-37.48028,155.0
+Voluntario:v100,MÃ¡rio Rui Freitas Coelho,35.92842,74.81677,136.0
+Voluntario:v81,Ricardo Manuel Soares Peixoto,-24.94757,37.68805,141.0
 Voluntario:v99,Rui Pedro Gomes Coelho,9.510887,17.73082,9.0
+Voluntario:v44,Rui Pedro Gomes Coelho,-0.12477875,-88.513,76.0
+Voluntario:v67,MÃ¡rio Rui Freitas Coelho,99.77937,51.642532,36.0
+Voluntario:v30,Ricardo Manuel Soares Peixoto,-40.94274,83.002106,1.0
+Voluntario:v88,Carlos CÃ©sar Madureira Romano,-93.03037,39.103073,58.0
+Voluntario:v78,Rui Pedro Gomes Coelho,21.403801,54.30237,196.0
+Voluntario:v29,Ricardo Manuel Soares Peixoto,-22.16375,-91.31112,57.0
+Voluntario:v31,Pedro Miguel da Silva Paiva AntÃ³nio,25.31018,-95.363304,6.0
+Voluntario:v87,Rui Pedro Gomes Coelho,75.53839,89.32974,134.0
+Voluntario:v48,JoÃ£o Carlos Delgado Monteiro,-36.697613,-26.470634,161.0
+Voluntario:v72,JoÃ£o Carlos Delgado Monteiro,-3.292511,63.992615,155.0
+Voluntario:v41,SimÃ£o Pedro Santa Cruz Oliveira,89.804504,35.93773,110.0
+Voluntario:v76,Rui Pedro Gomes Coelho,-21.402046,-52.75277,19.0
+Voluntario:v83,Miriam Miranda Pinto,80.67926,86.219955,129.0
+Voluntario:v90,Rui Pedro Gomes Coelho,-82.441696,27.352264,186.0
+Voluntario:v57,MÃ¡rio Rui Freitas Coelho,68.25426,23.642578,71.0
+Voluntario:v8,Carlos CÃ©sar Madureira Romano,37.524475,9.396721,15.0
+Voluntario:v96,Carlos CÃ©sar Madureira Romano,34.708435,38.298737,119.0
+Voluntario:v69,Ricardo Manuel Soares Peixoto,-22.857872,21.666405,125.0
+Voluntario:v13,Ricardo Manuel Soares Peixoto,-24.924683,-15.27845,47.0
+Voluntario:v74,SimÃ£o Pedro Santa Cruz Oliveira,-70.97453,-18.352089,148.0
+Voluntario:v34,MÃ¡rio Rui Freitas Coelho,40.784317,80.463776,28.0
+Voluntario:v91,Geovani Silva Delgado Alves,74.518845,42.344635,146.0
+Voluntario:v16,Andreia Martins Alves,85.27086,-16.991684,28.0
+Voluntario:v15,JoÃ£o Carlos Delgado Monteiro,55.4906,-94.41916,147.0
+Voluntario:v65,Rui Pedro Gomes Coelho,18.816994,-11.4255905,144.0
+Voluntario:v38,Miriam Miranda Pinto,92.396774,76.548904,98.0
+Voluntario:v51,Carlos CÃ©sar Madureira Romano,8.652199,30.791855,101.0
+Voluntario:v24,Carlos CÃ©sar Madureira Romano,39.698822,-99.23214,25.0
+Voluntario:v50,SimÃ£o Pedro Santa Cruz Oliveira,56.065704,-3.4956436,52.0
+Voluntario:v20,Miriam Miranda Pinto,-45.380985,59.629242,2.0
+Voluntario:v14,Geovani Silva Delgado Alves,-77.37347,96.99625,27.0
+Voluntario:v63,Ricardo Manuel Soares Peixoto,80.45413,-84.496414,102.0
+Voluntario:v32,Pedro Miguel da Silva Paiva AntÃ³nio,47.71132,-67.08026,184.0
+Transportadora:t60,STARCORP - WORLDWIDE EXPRESS PORTUGAL,-74.58873,-26.270386,989552541,3.0,3.5
+Transportadora:t8,LOGIC - LOGÃSTICA INTEGRADA,-90.28248,15.017998,243654370,143.0,1.5
+Transportadora:t37,BOURGOGNE TIR TRANSPORTES E LOGÃSTICA LDA,-71.54643,82.779724,820690818,197.0,2.5
+Transportadora:t10,BRAGA ALVES LDA,-7.3631973,85.986404,475616773,3.0,2.5
+Transportadora:t41,CARRERAS UNIPESSOAL,82.94551,51.551895,233311083,150.0,0.5
+Transportadora:t81,TORRESTIR - TRANSPORTES NACIONAIS E INTERNACIONAIS,-29.660187,92.20201,458047193,144.0,0.5
+Transportadora:t29,BRAGA ALVES LDA,-53.93891,14.538132,379160680,110.0,1.5
+Transportadora:t67,OVERSEAS FREIGHT SOLUTIONS TRANSITÃRIOS,49.71762,7.167053,903681520,170.0,2.5
+Transportadora:t88,LOGITERS LOGÃSTICA PORTUGAL,-3.5283203,-98.897865,176017203,157.0,0.5
+Transportadora:t93,BEKKER LOGISTICA,5.1304016,-84.46462,961002863,43.0,1.5
+Transportadora:t22,LOGIC - LOGÃSTICA INTEGRADA,42.813477,47.78456,552477987,145.0,0.5
+Transportadora:t39,OVERSEAS FREIGHT SOLUTIONS TRANSITÃRIOS,-62.14676,8.103706,441925444,101.0,0.5
+Transportadora:t14,LOGITERS LOGÃSTICA PORTUGAL,-30.133148,82.97005,249507989,145.0,0.5
+Transportadora:t97,J.A. BETTENCOURT - AGENTES DE NAVEGAÃ‡ÃƒO E TRANSITÃRIOS LDA.,-86.73261,-15.368179,244473854,17.0,2.5
+Transportadora:t78,SÃBIA ATITUDE - CONSTRUÃ‡Ã•ES,-16.346954,43.36992,972686269,21.0,1.5
+Transportadora:t63,DHL EXPRESS PORTUGAL,-57.638084,12.538574,716964613,158.0,3.5
+Transportadora:t71,STARCORP - WORLDWIDE EXPRESS PORTUGAL,36.505585,66.26323,600650353,5.0,1.5
+Transportadora:t35,LOGITERS LOGÃSTICA PORTUGAL,38.398544,65.84949,589749834,132.0,0.5
+Transportadora:t56,TOPWORK - SERVIÃ‡OS LOGÃSTICOS,-49.600365,21.371864,252754109,15.0,2.5
+Transportadora:t80,PORTIR TRANSITÃRIOS,92.70436,76.808395,328712044,37.0,2.5
+Transportadora:t62,LOGIC - LOGÃSTICA INTEGRADA,14.428345,95.95439,304392807,8.0,3.5
+Transportadora:t66,SÃBIA ATITUDE - CONSTRUÃ‡Ã•ES,-6.9883347,-63.851284,516134473,83.0,3.5
+Transportadora:t65,BEKKER LOGISTICA,45.216675,-4.6362534,292358599,150.0,1.5
+Transportadora:t58,VITÃ“RIA TRÃFEGO - AGÃŠNCIA DE NAVEGAÃ‡ÃƒO E TRÃ‚NSITOS LDA,-34.44564,-23.468414,955222774,107.0,1.5
+Transportadora:t40,PORTIR TRANSITÃRIOS,60.692352,-33.168686,653654623,115.0,2.5
+Transportadora:t44,OFERTALCANCE,21.705261,43.0867,260927013,129.0,1.5
+Transportadora:t19,ZENITHINDEX,14.532509,-50.747704,893393479,148.0,2.5
+Transportadora:t11,GREYSTAR SA BRAGA,-67.828705,-20.552277,763108538,13.0,0.5
+Transportadora:t91,GREYSTAR SA BRAGA,-23.114693,-79.379654,751145573,2.0,2.5
+Transportadora:t34,LUSOPANARCOS INTERNACIONAL,46.86183,-20.525894,271268642,190.0,0.5
+Transportadora:t61,VITÃ“RIA TRÃFEGO - AGÃŠNCIA DE NAVEGAÃ‡ÃƒO E TRÃ‚NSITOS LDA,-10.63726,-37.13788,841678696,159.0,2.5
+Transportadora:t92,FORWARTRANS LDA,29.111511,74.51991,861334091,64.0,0.5
+Transportadora:t1,OFERTALCANCE,-17.459442,-84.99527,964761798,164.0,0.5
+Transportadora:t28,OFERTALCANCE,32.466858,-84.23981,824924082,120.0,3.5
+Transportadora:t6,TORRESTIR - TRANSPORTES NACIONAIS E INTERNACIONAIS,-39.12369,96.448654,566222347,176.0,1.5
+Transportadora:t23,OFERTALCANCE,-32.58483,40.672516,392232688,126.0,2.5
+Transportadora:t38,TORRESTIR - TRANSPORTES NACIONAIS E INTERNACIONAIS,-88.32126,-82.18439,830455830,194.0,1.5
+Transportadora:t84,BOURGOGNE TIR TRANSPORTES E LOGÃSTICA LDA,-39.390553,-27.516495,414099947,123.0,2.5
+Transportadora:t68,J.A. BETTENCOURT - AGENTES DE NAVEGAÃ‡ÃƒO E TRANSITÃRIOS LDA.,-32.481697,18.921242,242231579,135.0,3.5
+Transportadora:t70,SÃBIA ATITUDE - CONSTRUÃ‡Ã•ES,83.91432,96.46571,893835839,11.0,3.5
+Transportadora:t50,FORPITRANS,-65.98979,76.7509,325476460,117.0,3.5
+Transportadora:t99,DHL EXPRESS PORTUGAL,41.346695,15.135002,817542580,116.0,2.5
+Transportadora:t4,OFERTALCANCE,86.113556,63.721954,114011237,160.0,3.5
+Transportadora:t72,OVERSEAS FREIGHT SOLUTIONS TRANSITÃRIOS,-28.342072,-12.253235,687500286,137.0,3.5
+Transportadora:t100,BOURGOGNE TIR TRANSPORTES E LOGÃSTICA LDA,-88.16471,-8.060005,357287504,187.0,2.5
+Transportadora:t30,ZENITHINDEX,96.86023,94.727356,109876873,19.0,0.5
+Transportadora:t76,TORRESTIR TRANSITÃRIOS LDA,-53.878414,-30.504288,769428659,118.0,0.5
+Transportadora:t73,LOGIC - LOGÃSTICA INTEGRADA,60.26729,38.735825,618686946,7.0,3.5
+Transportadora:t77,DHL EXPRESS PORTUGAL,88.21585,92.87605,966283165,133.0,2.5
+Transportadora:t26,BEKKER LOGISTICA,-0.20162201,-74.75516,935202070,142.0,1.5
+Transportadora:t79,TOPWORK - SERVIÃ‡OS LOGÃSTICOS,1.0661392,-91.90712,748367107,38.0,1.5
+Transportadora:t52,TERCARGO - TRANSITÃRIOS,40.88034,66.25174,733550346,51.0,2.5
+Transportadora:t89,GREYSTAR SA BRAGA,5.9106827,-61.87241,171893777,81.0,2.5
+Transportadora:t36,OVERSEAS FREIGHT SOLUTIONS TRANSITÃRIOS,-99.458244,-84.29506,605239101,34.0,1.5
+Transportadora:t86,BEKKER LOGISTICA,-0.3110733,-69.581055,890993107,105.0,2.5
+Transportadora:t5,PORTIR TRANSITÃRIOS,-97.79937,72.98514,663066119,163.0,3.5
+Transportadora:t83,LOGIC - LOGÃSTICA INTEGRADA,-1.3548355,78.47154,596672909,176.0,3.5
+Transportadora:t48,TORRESTIR - TRANSPORTES NACIONAIS E INTERNACIONAIS,10.763168,-87.565414,400265242,88.0,2.5
+Transportadora:t17,FORWARTRANS LDA,-83.547,9.181824,697299619,146.0,1.5
+Transportadora:t43,CARRERAS UNIPESSOAL,76.23598,40.41243,629186125,85.0,3.5
+Transportadora:t18,OFERTALCANCE,31.040115,-84.01201,295159669,99.0,0.5
+Transportadora:t42,TORRESTIR - TRANSPORTES NACIONAIS E INTERNACIONAIS,-97.795975,56.217606,669288496,196.0,0.5
+Transportadora:t27,TERCARGO - TRANSITÃRIOS,37.996292,84.12315,242200300,163.0,0.5
+Transportadora:t57,STARCORP - WORLDWIDE EXPRESS PORTUGAL,-5.709755,-71.592926,726065891,87.0,1.5
+Transportadora:t74,CARRERAS GRUPO LOGÃSTICO,91.66237,-68.13321,599986030,168.0,3.5
+Transportadora:t45,STARCORP - WORLDWIDE EXPRESS PORTUGAL,63.23932,-55.223335,416158688,109.0,2.5
+Transportadora:t15,SÃBIA ATITUDE - CONSTRUÃ‡Ã•ES,-44.73635,14.552643,435890359,36.0,1.5
+Transportadora:t13,DHL EXPRESS PORTUGAL,92.10396,-4.247917,837290373,83.0,2.5
+Transportadora:t54,PORTIR TRANSITÃRIOS,4.7066956,7.063385,492158451,102.0,0.5
+Transportadora:t64,RR - TRANSITÃRIOS INTERNACIONAIS,66.705185,8.334335,952029687,155.0,1.5
+Transportadora:t46,BRAGA ALVES LDA,78.69794,65.99072,280303948,180.0,0.5
+Transportadora:t51,VITÃ“RIA TRÃFEGO - AGÃŠNCIA DE NAVEGAÃ‡ÃƒO E TRÃ‚NSITOS LDA,12.953445,-65.880325,161422775,193.0,1.5
+Transportadora:t33,CARRERAS GRUPO LOGÃSTICO,-40.044846,27.058044,301173850,161.0,3.5
+Transportadora:t3,LOGITERS LOGÃSTICA PORTUGAL,-29.355873,-55.273426,840013399,27.0,3.5
+Transportadora:t7,BRAGA ALVES LDA,98.78238,-98.9649,143605869,61.0,0.5
+Transportadora:t95,CARRERAS GRUPO LOGÃSTICO,-17.29438,31.645966,150261116,195.0,1.5
+Transportadora:t69,TORRESTIR TRANSITÃRIOS LDA,72.9686,-10.38269,651136670,65.0,3.5
+Transportadora:t25,ZENITHINDEX,75.60318,-6.293808,448703980,16.0,1.5
+Transportadora:t59,SÃBIA ATITUDE - CONSTRUÃ‡Ã•ES,-87.45825,-75.101364,209576081,94.0,1.5
+Transportadora:t96,PORTIR TRANSITÃRIOS,78.37958,-60.31108,252079413,32.0,2.5
+Transportadora:t32,GREYSTAR SA BRAGA,97.081924,-44.505726,713317510,149.0,1.5
+Transportadora:t87,FORWARTRANS LDA,87.36632,-89.78545,850742775,13.0,3.5
+Transportadora:t49,TERCARGO - TRANSITÃRIOS,77.968414,-26.685883,515421283,190.0,1.5
+Transportadora:t75,TERCARGO - TRANSITÃRIOS,-78.30601,-41.99667,824738622,137.0,0.5
+Transportadora:t9,LUSOPANARCOS INTERNACIONAL,-71.98588,2.3707733,910786409,30.0,0.5
+Transportadora:t20,FORPITRANS,-9.640053,-28.499916,425535770,88.0,1.5
+Transportadora:t2,OVERSEAS FREIGHT SOLUTIONS TRANSITÃRIOS,70.35275,63.366425,359787385,20.0,2.5
+Transportadora:t21,OVERSEAS FREIGHT SOLUTIONS TRANSITÃRIOS,14.198746,82.205185,213482542,76.0,1.5
+Transportadora:t12,SÃBIA ATITUDE - CONSTRUÃ‡Ã•ES,57.27133,61.335052,466834262,176.0,3.5
+Transportadora:t16,OVERSEAS FREIGHT SOLUTIONS TRANSITÃRIOS,13.373924,-39.578583,374310434,169.0,3.5
+Transportadora:t24,ZENITHINDEX,9.90715,33.67151,442119059,131.0,0.5
+Transportadora:t55,J.A. BETTENCOURT - AGENTES DE NAVEGAÃ‡ÃƒO E TRANSITÃRIOS LDA.,44.240982,97.78734,378304010,96.0,3.5
+Transportadora:t85,STARCORP - WORLDWIDE EXPRESS PORTUGAL,-61.918365,65.015884,821109413,142.0,1.5
+Transportadora:t47,LOGIC - LOGÃSTICA INTEGRADA,71.30675,28.884628,313965627,55.0,1.5
+Transportadora:t31,DHL EXPRESS PORTUGAL,-32.846428,-63.615643,857517232,138.0,3.5
+Transportadora:t98,FORPITRANS,40.46338,-63.059414,270717423,47.0,2.5
+Transportadora:t53,SULTEJO LOGÃSTICA E TRÃƒNSITOS,-0.7797241,-58.662773,133787713,188.0,1.5
+Transportadora:t94,VITÃ“RIA TRÃFEGO - AGÃŠNCIA DE NAVEGAÃ‡ÃƒO E TRÃ‚NSITOS LDA,-86.33164,65.40114,617874758,81.0,2.5
+Transportadora:t90,J.A. BETTENCOURT - AGENTES DE NAVEGAÃ‡ÃƒO E TRANSITÃRIOS LDA.,17.014381,1.8103638,125093662,66.0,3.5
+Transportadora:t82,TERCARGO - TRANSITÃRIOS,-85.89599,-42.87045,401961078,82.0,1.5
+Loja:l7,Knot,-8.852264,8.5256195
+Loja:l8,FarmÃ¡cia Nova de Nogueira,14.046051,-68.60027
+Loja:l46,FarmÃ¡cia Narcisa C. Dias,23.380814,-30.470703
+Loja:l56,Chicco,18.508736,-72.523315
+Loja:l17,TV e TelecomunicaÃ§Ãµes,-23.131653,-91.961334
+Loja:l62,Merrel,78.129654,-9.767357
+Loja:l72,Nike,-53.520416,-21.278915
+Loja:l92,Natura Selection,-59.376442,-68.40644
+Loja:l41,FOREVA,49.12172,73.87306
+Loja:l13,Fnac,62.094116,-86.10751
+Loja:l53,Sephora,-66.54608,-34.107742
+Loja:l24,FarmÃ¡cia Alvim,20.676682,8.718575
+Loja:l88,ColchaoNet.com,-89.304436,-32.817253
+Loja:l59,Zara,-14.949562,-15.898155
+Loja:l85,Tiger,8.240189,-98.54101
+Loja:l38,FOREVA,-86.60841,-95.17597
+Loja:l97,FarmÃ¡cia Marques,82.59512,-29.826645
+Loja:l28,PluricosmÃ©tica,-44.102882,-1.3051529
+Loja:l26,Kiosku,-7.0539856,-10.636604
+Loja:l87,FarmÃ¡cia Pipa,7.2272034,-29.652847
+Loja:l37,FarmÃ¡cia Martins,49.214172,90.45734
+Loja:l16,FarmÃ¡cia Santos da Cunha,92.10632,-18.706581
+Loja:l80,Tous,12.3450775,-56.758236
+Loja:l35,FarmÃ¡cia SÃ£o JoÃ£o,-13.9637375,-75.4444
+Loja:l67,Sintety: Loja das Malas,71.69145,93.158585
+Loja:l39,Globe,44.954086,9.552528
+Loja:l75,Tiffosi,32.54355,-58.619
+Loja:l44,Tezenis,-13.268341,-33.756805
+Loja:l61,Sapataria Max,88.34213,62.194138
+Loja:l54,FarmÃ¡cia Nuno Barros,-6.6031113,-94.82328
+Loja:l40,Celeiro,-90.46378,30.980118
+Loja:l42,FarmÃ¡cia Santos,-5.8221664,-84.277794
+Loja:l30,Knot,80.159515,-92.91778
+Loja:l93,Seaside,91.026855,83.61435
+Loja:l91,Tous,-42.170883,73.06137
+Loja:l65,Opticalia,24.59159,-1.5650024
+Loja:l6,MÃ©lodie,-45.655144,40.940826
+Loja:l9,Tezenis,-63.952435,34.70375
+Loja:l68,Continente,-45.54347,6.935631
+Loja:l64,Tabacaria Pais,11.680862,80.31056
+Loja:l98,Sintety: Loja das Malas,10.59346,77.85625
+Loja:l90,Triumph,-86.08019,-66.670906
+Loja:l82,FarmÃ¡cia Alvim,99.76712,70.9709
+Loja:l36,Centroxogo,-3.719307,-93.639206
+Loja:l50,FarmÃ¡cia Carmo,-96.27042,-41.980423
+Loja:l21,FarmÃ¡cia Marques,91.26895,42.59897
+Loja:l89,FOREVA,96.26175,75.7048
+Loja:l58,Bluebird,-78.26213,37.406754
+Loja:l18,Pingo Doce,13.136185,69.33472
+Loja:l3,Intimissimi,28.090363,-70.657715
+Loja:l63,VEIN,-95.33037,-11.089767
+Loja:l5,Loja MEO,-54.42424,76.155334
+Loja:l83,Mr. Blue,-21.542847,-98.16683
+Loja:l19,Urban Project,-36.215626,-49.212826
+Loja:l48,Pingo Doce,76.800385,34.446365
+Loja:l27,Quiosque MYOS,-69.24795,6.5437775
+Loja:l60,Giovanni Galli,-76.51601,-68.35634
+Loja:l94,FarmÃ¡cia Santos da Cunha,-94.262695,64.03348
+Loja:l12,Desigual,22.769669,54.47896
+Loja:l29,Fnac,64.07434,16.236786
+Loja:l32,FarmÃ¡cia Nova de Nogueira,-70.10561,68.43802
+Loja:l14,Mango,-6.9656982,-36.33057
+Loja:l81,Zara Home,7.581482,80.6974
+Loja:l49,KIKO,37.734497,52.174805
+Loja:l22,Zara Home,41.254074,38.28743
+Loja:l71,Sunglass Hut,81.68683,-15.271271
+Loja:l100,Zara,-17.783203,-54.06108
+Loja:l96,Mister Minit,4.669777,-59.930336
+Loja:l2,Equivalenza,29.3544,-52.403427
+Loja:l55,Pandora,-69.15636,-44.918
+Loja:l79,Desigual,-41.927254,-65.07187
+Loja:l10,FarmÃ¡cia Cristal,-1.9447708,-93.881035
+Loja:l84,Triumph,-45.37996,-54.203976
+Loja:l73,SaÃºde e Beleza,79.45734,-54.64791
+Loja:l95,Bijou Brigitte,55.911377,-34.229507
+Loja:l69,FarmÃ¡cia OsÃ³rio,-98.85119,99.00008
+Loja:l23,Perfumes & Companhia,60.586685,-19.6502
+Loja:l33,FarmÃ¡cia SÃ£o JoÃ£o,25.510658,-66.37048
+Loja:l43,Merrel,-56.27539,29.138336
+Loja:l1,FarmÃ¡cia Nova de Nogueira,-25.066338,-62.854324
+Loja:l66,Cinemas NOS Braga Parque,57.79477,-17.510345
+Loja:l86,Sapataria Max,-80.94402,82.70944
+Loja:l4,Sportzone,-88.531685,81.366135
+Loja:l70,Bragaparque Worten Mobile,-71.18434,67.69798
+Loja:l78,Levis,-39.565647,21.55066
+Loja:l20,AgÃªncia Abreu,43.70938,-34.563187
+Loja:l15,FarmÃ¡cia Beatriz,-66.169815,-26.4441
+Loja:l25,Lugar da JÃ³ia,-81.11195,77.8846
+Loja:l57,HealthyNails/Essie,58.297943,-98.64135
+Loja:l51,5 Ã  Sec - 5 Ã  Fil,-80.277405,-50.959145
+Loja:l47,G-Star RAW,27.675072,-91.81576
+Loja:l77,FarmÃ¡cia Henriquina,39.599777,89.64633
+Loja:l31,FarmÃ¡cia Nuno Barros,97.31987,10.242935
+Loja:l76,Decenio,-69.918594,-76.82737
+Loja:l74,Chicco,35.983353,18.05214
+Loja:l52,Equivalenza,-26.775978,-99.70361
+Loja:l34,Jean Louis David,-53.446186,78.25816
+Loja:l45,FarmÃ¡cia de EsporÃµes,-95.15858,3.9205399
+Loja:l11,ColchaoNet.com,-10.9954605,-83.182884
+Loja:l99,VEIN,45.785492,-78.72652
 Encomenda:e4919,u24,l87,77.87896,p11,Desinfetante,2.148552,4.886239,p42,Milho verde,5.631347,34.147274,p66,Melao,5.8913965,23.78135,p67,Salsa,6.4732823,31.663857,p33,Farofa pronta,4.11003,24.49416,p38,Atum,6.699879,39.544647,p45,Milho de pipoca,6.302478,45.77333
 Encomenda:e1601,u100,l79,62.68334,p13,Tira manchas,4.0877476,39.292828,p55,Cenoura,4.3929896,18.932354,p38,Atum,1.5879762,9.093871,p78,Carne vermelha,4.5535364,10.099941,p1,Agua,3.3999784,31.833273,p60,Banana,1.6788435,7.46016,p27,Molho de tomate,5.5355983,35.595024,p43,Doce de leite,4.4246736,36.81934,p32,Cafe,3.4191015,46.39046,p69,Queijo,3.7229218,20.267141,p42,Milho verde,4.013565,31.66657
 Encomenda:e176,u86,l66,68.2954,p63,Abacate,9.442079,7.854521,p80,Salsicha,7.80614,48.046978,p58,Chuchu,9.392898,48.90055,p44,Goiabada,6.32836,18.197187,p65,Melancia,9.051296,21.245407,p46,Oleo de cozinha,3.489929,0.70628405,p70,Queijo Mussarela,7.58847,7.116284,p7,Sabao em pedra,7.0587983,37.85124,p73,Margarina,4.3143044,20.35861,p16,Saco de lixo 30l,6.0147576,3.3206093,p61,Ovos,3.957475,45.19404,p17,Saco de lixo 50l,7.2661843,10.8582735
@@ -721,7 +721,7 @@ Encomenda:e9228,u35,l48,60.258644,p49,Leite condensado,3.6036031,19.258022,p67,S
 Encomenda:e1744,u47,l10,43.90085,p34,Farinha de trigo,1.5907769,29.247936,p58,Chuchu,9.082678,5.9554305,p77,Frango,1.7961247,4.296302,p35,Farinha de milho,5.3547173,36.220825,p69,Queijo,9.296645,19.857004,p49,Leite condensado,4.2685657,45.735096,p27,Molho de tomate,3.0093145,16.863873,p28,Sal,6.0174847,46.88075,p42,Milho verde,2.2883668,27.102005,p36,Farinha de mandioca,7.3338227,19.73224,p33,Farofa pronta,1.47626,15.984188,p23,Arroz 5kg,5.8909144,9.57862
 Encomenda:e9415,u52,l19,28.92062,p20,Sumo caixa 500ml,9.603496,15.880176,p80,Salsicha,3.0113354,36.83022,p70,Queijo Mussarela,2.5766733,34.977592,p26,Extrato de tomate,9.256699,27.976261,p48,Creme de leite,4.743677,41.081314,p69,Queijo,2.7184124,4.355582,p68,Cebola,4.4650097,13.049149,p3,Amaciante,9.552652,12.234759,p43,Doce de leite,6.6429095,25.271643,p24,Feijao 2kg,4.2244797,7.5853987
 Encomenda:e4877,u88,l29,49.435585,p6,Esponja de aco,2.4365573,2.034265,p39,Maionese,2.226378,11.522329,p18,Refrigerante 2l,6.080039,25.566248,p79,Carne seca,7.3209324,44.79325,p68,Cebola,4.605528,22.298155,p50,Pao de forma,1.0001523,13.93992,p40,Molho de pimenta,3.6583807,21.30966,p29,Acucar,7.4380107,7.469201,p25,Macarrao,2.5879948,33.642464,p57,Mandioca,9.534292,33.535812,p67,Salsa,2.2748656,33.16517,p51,Alface,2.593075,48.651325,p16,Saco de lixo 30l,8.470786,38.135246,p64,Mamao,1.2643688,18.283644,p73,Margarina,6.9127655,35.114716,p48,Creme de leite,7.0136666,6.18893,p1,Agua,2.5355916,37.95532
-Encomenda:e4497,u45,l31,0.097835064,p71,Queijo outros,7.8277783,20.430073,p8,Sabonete,7.755197,24.516766,p7,Sabao em pedra,8.642914,29.616419,p66,Melao,1.4914596,16.216415,p77,Frango,1.534112,1.6946753,p27,Molho de tomate,5.158844,17.35816,p32,Cafe,7.8382063,29.025637,p11,Desinfetante,2.598969,15.859154
+Encomenda:e4497,u45,l31,9.7835064e-2,p71,Queijo outros,7.8277783,20.430073,p8,Sabonete,7.755197,24.516766,p7,Sabao em pedra,8.642914,29.616419,p66,Melao,1.4914596,16.216415,p77,Frango,1.534112,1.6946753,p27,Molho de tomate,5.158844,17.35816,p32,Cafe,7.8382063,29.025637,p11,Desinfetante,2.598969,15.859154
 Encomenda:e6518,u86,l84,6.228012,p10,Condicionador,6.937686,18.876738,p69,Queijo,1.2510923,11.675239,p79,Carne seca,3.2433627,17.563707,p43,Doce de leite,1.9415702,23.191183,p6,Esponja de aco,7.4080834,39.68606,p21,Leite integral litro,4.9953895,35.794598,p13,Tira manchas,4.92659,29.604404
 Encomenda:e6687,u33,l88,47.201508,p43,Doce de leite,2.687912,1.7341568,p4,Detergente,5.1955667,12.205831,p50,Pao de forma,7.7774124,0.9913458,p11,Desinfetante,8.6539,40.290615,p78,Carne vermelha,2.1021857,16.933506,p80,Salsicha,8.649388,47.062172
 Encomenda:e5870,u38,l64,94.40462,p43,Doce de leite,9.667359,36.134926,p71,Queijo outros,8.37645,17.704176
@@ -1398,3 +1398,1003 @@ Encomenda:e818,u80,l85,56.71562,p31,Bolacha,6.3623476,10.067872
 Encomenda:e9011,u5,l28,40.64775,p55,Cenoura,2.9024866,37.37707,p58,Chuchu,1.2529929,4.7563367,p14,Limpa vidros,8.760025,7.140891,p77,Frango,3.178203,49.132538,p33,Farofa pronta,2.795415,43.15748,p1,Agua,2.9996223,32.121483,p63,Abacate,6.347531,8.255281,p79,Carne seca,2.5966449,47.711704,p42,Milho verde,2.1681523,10.366044,p41,Ervilha,3.8168328,41.099434,p75,Presunto,7.456524,37.28343,p64,Mamao,9.0948105,0.980559,p45,Milho de pipoca,1.8541065,45.496685
 Encomenda:e9717,u28,l63,77.14074,p79,Carne seca,6.713972,33.91328,p40,Molho de pimenta,3.1420121,32.617725,p13,Tira manchas,2.4618034,6.6922545,p49,Leite condensado,7.944017,13.865078,p15,Alcool,8.098997,23.458696,p80,Salsicha,3.3869128,43.763096,p47,Leite em po,4.454819,16.122355,p77,Frango,2.4124846,45.982796,p26,Extrato de tomate,9.958104,20.550392,p64,Mamao,9.3933115,9.959018,p23,Arroz 5kg,4.7858806,5.6463313,p74,Iogurte,8.638065,7.2804255,p69,Queijo,9.6428175,42.75882,p65,Melancia,7.312547,38.548244,p31,Bolacha,6.8437366,45.53996,p28,Sal,7.031778,9.44152,p43,Doce de leite,9.580727,11.242204,p71,Queijo outros,7.8649225,3.539567,p42,Milho verde,9.384495,47.340755
 Encomenda:e9962,u6,l43,25.151693,p33,Farofa pronta,6.9066687,21.018223,p53,Batata,3.7031093,26.52273,p72,Manteiga,6.67099,15.444605,p25,Macarrao,6.6128454,12.946611
+Aceite:e4479
+Aceite:e4498
+Aceite:e5156
+Aceite:e6676
+Aceite:e3635
+Aceite:e4135
+Aceite:e1283
+Aceite:e9413
+Aceite:e8630
+Aceite:e2559
+Aceite:e8275
+Aceite:e4018
+Aceite:e4541
+Aceite:e1280
+Aceite:e2146
+Aceite:e7420
+Aceite:e6382
+Aceite:e1418
+Aceite:e6762
+Aceite:e3513
+Aceite:e567
+Aceite:e8022
+Aceite:e5484
+Aceite:e1771
+Aceite:e8902
+Aceite:e6907
+Aceite:e3552
+Aceite:e9848
+Aceite:e4016
+Aceite:e6221
+Aceite:e8496
+Aceite:e2767
+Aceite:e6679
+Aceite:e4161
+Aceite:e5548
+Aceite:e5818
+Aceite:e9499
+Aceite:e9313
+Aceite:e5893
+Aceite:e4111
+Aceite:e4779
+Aceite:e7012
+Aceite:e4048
+Aceite:e5386
+Aceite:e3674
+Aceite:e3675
+Aceite:e4099
+Aceite:e5224
+Aceite:e1381
+Aceite:e2335
+Aceite:e1495
+Aceite:e7755
+Aceite:e9944
+Aceite:e3813
+Aceite:e2026
+Aceite:e913
+Aceite:e7412
+Aceite:e4312
+Aceite:e4950
+Aceite:e4864
+Aceite:e1906
+Aceite:e9512
+Aceite:e715
+Aceite:e6554
+Aceite:e7398
+Aceite:e6607
+Aceite:e7056
+Aceite:e4321
+Aceite:e2060
+Aceite:e1205
+Aceite:e4692
+Aceite:e4523
+Aceite:e5017
+Aceite:e7045
+Aceite:e916
+Aceite:e517
+Aceite:e2524
+Aceite:e2880
+Aceite:e2801
+Aceite:e8930
+Aceite:e4331
+Aceite:e8646
+Aceite:e1065
+Aceite:e4210
+Aceite:e8362
+Aceite:e1959
+Aceite:e3141
+Aceite:e167
+Aceite:e8344
+Aceite:e3686
+Aceite:e2540
+Aceite:e8110
+Aceite:e5146
+Aceite:e6289
+Aceite:e5414
+Aceite:e9228
+Aceite:e8770
+Aceite:e1130
+Aceite:e8869
+Aceite:e6133
+Aceite:e4752
+Aceite:e9132
+Aceite:e7525
+Aceite:e9079
+Aceite:e3807
+Aceite:e3057
+Aceite:e9634
+Aceite:e7402
+Aceite:e5819
+Aceite:e3708
+Aceite:e3481
+Aceite:e2097
+Aceite:e4427
+Aceite:e3740
+Aceite:e2120
+Aceite:e7896
+Aceite:e3832
+Aceite:e452
+Aceite:e9315
+Aceite:e4691
+Aceite:e6706
+Aceite:e5295
+Aceite:e9768
+Aceite:e9886
+Aceite:e8562
+Aceite:e8567
+Aceite:e2454
+Aceite:e8745
+Aceite:e5043
+Aceite:e3523
+Aceite:e2068
+Aceite:e1002
+Aceite:e3178
+Aceite:e3983
+Aceite:e9750
+Aceite:e546
+Aceite:e176
+Aceite:e5775
+Aceite:e8986
+Aceite:e4369
+Aceite:e3732
+Aceite:e9452
+Aceite:e8317
+Aceite:e5726
+Aceite:e3559
+Aceite:e9666
+Aceite:e7370
+Aceite:e76
+Aceite:e6467
+Aceite:e9545
+Aceite:e3956
+Aceite:e4685
+Aceite:e3283
+Aceite:e757
+Aceite:e3629
+Aceite:e5633
+Aceite:e2693
+Aceite:e8586
+Aceite:e9096
+Aceite:e6801
+Aceite:e4291
+Aceite:e132
+Aceite:e2842
+Aceite:e3438
+Aceite:e3756
+Aceite:e7160
+Aceite:e2764
+Aceite:e6849
+Aceite:e5496
+Aceite:e626
+Aceite:e1008
+Aceite:e6813
+Aceite:e226
+Aceite:e111
+Aceite:e1429
+Aceite:e2342
+Aceite:e9201
+Aceite:e4630
+Aceite:e4916
+Aceite:e1052
+Aceite:e6828
+Aceite:e8932
+Aceite:e3788
+Aceite:e8479
+Aceite:e1403
+Aceite:e8810
+Aceite:e8862
+Aceite:e9496
+Aceite:e1866
+Aceite:e1662
+Aceite:e7471
+Aceite:e1348
+Aceite:e9456
+Aceite:e6518
+Aceite:e1860
+Aceite:e247
+Aceite:e9895
+Aceite:e1440
+Aceite:e4924
+Aceite:e7706
+Aceite:e420
+Aceite:e691
+Aceite:e2406
+Aceite:e4648
+Aceite:e7143
+Aceite:e708
+Aceite:e9905
+Aceite:e2384
+Aceite:e21
+Aceite:e6155
+Aceite:e5647
+Aceite:e2519
+Aceite:e865
+Aceite:e5745
+Aceite:e2417
+Aceite:e6511
+Aceite:e9415
+Aceite:e1445
+Aceite:e7890
+Aceite:e284
+Aceite:e683
+Aceite:e1338
+Aceite:e8260
+Aceite:e6292
+Aceite:e1022
+Aceite:e9016
+Aceite:e3388
+Aceite:e3975
+Aceite:e5275
+Aceite:e7104
+Aceite:e1450
+Aceite:e5246
+Aceite:e3529
+Aceite:e9087
+Aceite:e7750
+Aceite:e3427
+Aceite:e710
+Aceite:e483
+Aceite:e5427
+Aceite:e6118
+Aceite:e1612
+Aceite:e4573
+Aceite:e6641
+Aceite:e9066
+Aceite:e6592
+Aceite:e3126
+Aceite:e9011
+Aceite:e2033
+Aceite:e282
+Aceite:e7872
+Aceite:e9331
+Aceite:e4065
+Aceite:e3041
+Aceite:e1691
+Aceite:e1038
+Aceite:e4805
+Aceite:e413
+Aceite:e5422
+Aceite:e8158
+Aceite:e7015
+Aceite:e2318
+Aceite:e6645
+Aceite:e3748
+Aceite:e7738
+Aceite:e1775
+Aceite:e2542
+Aceite:e4594
+Aceite:e6953
+Aceite:e932
+Aceite:e4654
+Aceite:e8637
+Aceite:e3862
+Aceite:e6853
+Aceite:e5805
+Aceite:e3969
+Aceite:e3739
+Aceite:e429
+Aceite:e5160
+Aceite:e9647
+Aceite:e4549
+Aceite:e6687
+Aceite:e2570
+Aceite:e1423
+Aceite:e6195
+Aceite:e8629
+Aceite:e2347
+Aceite:e2039
+Aceite:e5789
+Aceite:e7901
+Aceite:e2866
+Aceite:e4269
+Aceite:e8950
+Aceite:e4073
+Aceite:e1929
+Aceite:e3373
+Aceite:e7770
+Aceite:e5466
+Aceite:e9820
+Aceite:e1431
+Aceite:e3924
+Aceite:e4790
+Aceite:e214
+Aceite:e4734
+Aceite:e1808
+Aceite:e4724
+Aceite:e6095
+Aceite:e1018
+Aceite:e468
+Aceite:e3377
+Aceite:e4826
+Aceite:e5084
+Aceite:e9389
+Aceite:e1399
+Aceite:e4106
+Aceite:e9482
+Aceite:e5104
+Aceite:e3219
+Aceite:e8904
+Aceite:e6048
+Aceite:e4831
+Aceite:e7310
+Aceite:e3131
+Aceite:e3363
+Aceite:e3597
+Aceite:e9416
+Aceite:e1468
+Aceite:e2915
+Aceite:e5126
+Aceite:e5079
+Aceite:e8038
+Aceite:e3687
+Aceite:e3416
+Aceite:e946
+Aceite:e8311
+Aceite:e8726
+Aceite:e2984
+Aceite:e2928
+Aceite:e1605
+Aceite:e4621
+Aceite:e5572
+Aceite:e5722
+Aceite:e1601
+Aceite:e9854
+Aceite:e839
+Aceite:e5075
+Aceite:e6352
+Aceite:e573
+Aceite:e3958
+Aceite:e5418
+Aceite:e711
+Aceite:e9581
+Aceite:e9717
+Aceite:e8610
+Aceite:e1672
+Aceite:e7356
+Aceite:e3095
+Aceite:e7640
+Aceite:e5283
+Aceite:e1234
+Aceite:e351
+Aceite:e8285
+Aceite:e5489
+Aceite:e3912
+Aceite:e9887
+Aceite:e2873
+Aceite:e2534
+Aceite:e5891
+Aceite:e2645
+Aceite:e4531
+Aceite:e4223
+Aceite:e3424
+Aceite:e8024
+Aceite:e4430
+Aceite:e6671
+Aceite:e2158
+Aceite:e5661
+Aceite:e9826
+Aceite:e3042
+Aceite:e6267
+Aceite:e8083
+Aceite:e686
+Aceite:e9774
+Aceite:e2106
+Aceite:e9467
+Aceite:e4539
+Aceite:e2085
+Aceite:e8005
+Aceite:e5738
+Aceite:e4908
+Aceite:e7462
+Aceite:e3056
+Aceite:e6132
+Aceite:e593
+Aceite:e8224
+Aceite:e5488
+Aceite:e7860
+Aceite:e5372
+Aceite:e2148
+Aceite:e9212
+Aceite:e5174
+Aceite:e8259
+Aceite:e7616
+Aceite:e5201
+Aceite:e1365
+Aceite:e7491
+Aceite:e5895
+Aceite:e2466
+Aceite:e1624
+Aceite:e2445
+Aceite:e7960
+Aceite:e9533
+Aceite:e7843
+Aceite:e3106
+Aceite:e583
+Aceite:e5459
+Aceite:e6879
+Aceite:e7396
+Aceite:e7550
+Aceite:e8832
+Aceite:e7914
+Aceite:e430
+Aceite:e4333
+Aceite:e8296
+Aceite:e8819
+Aceite:e3072
+Aceite:e951
+Aceite:e357
+Aceite:e279
+Aceite:e322
+Aceite:e7214
+Aceite:e8221
+Aceite:e9374
+Aceite:e2241
+Aceite:e1335
+Aceite:e7647
+Aceite:e5412
+Aceite:e302
+Aceite:e5585
+Aceite:e9161
+Aceite:e94
+Aceite:e7814
+Aceite:e2706
+Aceite:e5181
+Aceite:e6716
+Aceite:e7968
+Aceite:e1088
+Aceite:e9867
+Aceite:e9111
+Aceite:e1687
+Aceite:e4039
+Aceite:e7882
+Aceite:e3087
+Aceite:e6456
+Aceite:e4317
+Aceite:e956
+Aceite:e9635
+Aceite:e1999
+Aceite:e8084
+Aceite:e2673
+Aceite:e4421
+Aceite:e3577
+Aceite:e5110
+Aceite:e7664
+Aceite:e4835
+Aceite:e8818
+Aceite:e8903
+Aceite:e5000
+Aceite:e7347
+Aceite:e4483
+Aceite:e9372
+Aceite:e2386
+Aceite:e7311
+Aceite:e2229
+Aceite:e5594
+Aceite:e8688
+Aceite:e9343
+Aceite:e2179
+Aceite:e5003
+Aceite:e3214
+Aceite:e101
+Aceite:e571
+Aceite:e8250
+Aceite:e4813
+Aceite:e8173
+Aceite:e4217
+Aceite:e8899
+Aceite:e9610
+Aceite:e5834
+Aceite:e3125
+Aceite:e5619
+Aceite:e704
+Aceite:e1937
+Aceite:e5768
+Aceite:e6316
+Aceite:e9673
+Aceite:e129
+Aceite:e1797
+Aceite:e1631
+Aceite:e4861
+Aceite:e6993
+Aceite:e7205
+Aceite:e2027
+Aceite:e4336
+Aceite:e1900
+Aceite:e5976
+Aceite:e6914
+Aceite:e1744
+Aceite:e8210
+Aceite:e7378
+Aceite:e773
+Aceite:e6995
+Aceite:e8852
+Aceite:e9324
+Aceite:e5364
+Aceite:e5629
+Aceite:e8527
+Aceite:e6061
+Aceite:e3079
+Aceite:e67
+Aceite:e9486
+Aceite:e7607
+Aceite:e7804
+Aceite:e5590
+Aceite:e1935
+Aceite:e7885
+Aceite:e2556
+Aceite:e1923
+Aceite:e1722
+Aceite:e9182
+Aceite:e6249
+Aceite:e5353
+Aceite:e8600
+Aceite:e1611
+Aceite:e3008
+Aceite:e4581
+Aceite:e6243
+Aceite:e448
+Aceite:e2774
+Aceite:e5635
+Aceite:e3551
+Aceite:e8186
+Aceite:e7592
+Aceite:e4344
+Aceite:e9542
+Aceite:e7174
+Aceite:e7578
+Aceite:e898
+Aceite:e9949
+Aceite:e6919
+Aceite:e7433
+Aceite:e5870
+Aceite:e5965
+Aceite:e4593
+Aceite:e4993
+Aceite:e9900
+Aceite:e3399
+Aceite:e8901
+Aceite:e8809
+Aceite:e5366
+Aceite:e4151
+Aceite:e1863
+Aceite:e8152
+Aceite:e2674
+Aceite:e1407
+Aceite:e8187
+Aceite:e3778
+Aceite:e5093
+Aceite:e131
+Aceite:e8132
+Aceite:e552
+Aceite:e598
+Aceite:e5861
+Aceite:e6418
+Aceite:e7307
+Aceite:e2448
+Aceite:e6615
+Aceite:e7328
+Aceite:e6911
+Aceite:e3968
+Aceite:e6414
+Aceite:e2487
+Aceite:e3419
+Aceite:e1439
+Aceite:e4401
+Aceite:e166
+Aceite:e3114
+Aceite:e6778
+Aceite:e9903
+Aceite:e6114
+Aceite:e4225
+Aceite:e7084
+Aceite:e9962
+Aceite:e7129
+Aceite:e716
+Aceite:e4309
+Aceite:e3747
+Aceite:e2175
+Aceite:e6856
+Aceite:e164
+Aceite:e5946
+Aceite:e4561
+Aceite:e3083
+Aceite:e3727
+Aceite:e4097
+Aceite:e8947
+Aceite:e8456
+Aceite:e5095
+Aceite:e9844
+Aceite:e6662
+Aceite:e903
+Aceite:e7119
+Aceite:e2781
+Aceite:e4598
+Aceite:e6152
+Aceite:e8541
+Aceite:e2032
+Aceite:e9670
+Aceite:e4853
+Aceite:e1251
+Aceite:e5649
+Aceite:e1588
+Aceite:e3617
+Aceite:e4380
+Aceite:e1286
+Aceite:e1295
+Aceite:e3169
+Aceite:e2211
+Aceite:e3955
+Aceite:e4319
+Aceite:e9032
+Aceite:e4990
+Aceite:e6838
+Aceite:e2351
+Aceite:e4802
+Aceite:e3433
+Aceite:e6867
+Aceite:e5838
+Aceite:e1444
+Aceite:e7250
+Aceite:e1881
+Aceite:e7463
+Aceite:e1480
+Aceite:e3059
+Aceite:e1896
+Aceite:e1777
+Aceite:e2227
+Aceite:e580
+Aceite:e6393
+Aceite:e7981
+Aceite:e2629
+Aceite:e7095
+Aceite:e3421
+Aceite:e992
+Aceite:e3048
+Aceite:e2193
+Aceite:e5975
+Aceite:e5766
+Aceite:e8118
+Aceite:e6743
+Aceite:e3978
+Aceite:e8934
+Aceite:e289
+Aceite:e7514
+Aceite:e7132
+Aceite:e8685
+Aceite:e2392
+Aceite:e2568
+Aceite:e1989
+Aceite:e4472
+Aceite:e5170
+Aceite:e7416
+Aceite:e2114
+Aceite:e8101
+Aceite:e8367
+Aceite:e8802
+Aceite:e8687
+Aceite:e2355
+Aceite:e7800
+Aceite:e2644
+Aceite:e1997
+Aceite:e8609
+Aceite:e4919
+Aceite:e7254
+Aceite:e6803
+Aceite:e2173
+Aceite:e5322
+Aceite:e4231
+Aceite:e4877
+Aceite:e3518
+Aceite:e1561
+Aceite:e8122
+Aceite:e1582
+Aceite:e3611
+Aceite:e5258
+Aceite:e9309
+Aceite:e4821
+Aceite:e2975
+Aceite:e6463
+Aceite:e1379
+Aceite:e5004
+Aceite:e678
+Aceite:e4353
+Aceite:e6812
+Aceite:e8519
+Aceite:e5337
+Aceite:e2862
+Aceite:e2421
+Aceite:e159
+Aceite:e2435
+Aceite:e6543
+Aceite:e7303
+Aceite:e4920
+Aceite:e7338
+Aceite:e2795
+Aceite:e9935
+Aceite:e6070
+Aceite:e6332
+Aceite:e6093
+Aceite:e6299
+Aceite:e2358
+Aceite:e1415
+Aceite:e7264
+Aceite:e5787
+Aceite:e8684
+Aceite:e818
+Aceite:e5256
+Aceite:e4352
+Aceite:e9464
+Aceite:e2119
+Aceite:e6347
+Aceite:e6626
+Aceite:e9966
+Aceite:e2423
+Aceite:e3265
+Aceite:e4917
+Aceite:e877
+Aceite:e2322
+Aceite:e2628
+Aceite:e9040
+Aceite:e32
+Aceite:e7499
+Aceite:e1596
+Aceite:e2929
+Aceite:e256
+Aceite:e6864
+Aceite:e4839
+Aceite:e2971
+Aceite:e1370
+Aceite:e396
+Aceite:e7475
+Aceite:e4639
+Aceite:e9113
+Aceite:e9891
+Aceite:e8342
+Aceite:e7299
+Aceite:e5801
+Aceite:e9995
+Aceite:e6108
+Aceite:e808
+Aceite:e8264
+Aceite:e5800
+Aceite:e3288
+Aceite:e6264
+Aceite:e6670
+Aceite:e4165
+Aceite:e440
+Aceite:e8199
+Aceite:e7531
+Aceite:e7001
+Aceite:e8621
+Aceite:e9010
+Aceite:e5290
+Aceite:e5938
+Aceite:e9173
+Aceite:e8167
+Aceite:e3118
+Aceite:e8301
+Aceite:e1274
+Aceite:e3801
+Aceite:e7366
+Aceite:e3452
+Aceite:e8504
+Aceite:e5664
+Aceite:e5188
+Aceite:e6909
+Aceite:e3224
+Aceite:e8446
+Aceite:e7502
+Aceite:e1525
+Aceite:e9238
+Aceite:e6569
+Aceite:e4723
+Aceite:e8481
+Aceite:e5467
+Aceite:e1114
+Aceite:e8997
+Aceite:e7506
+Aceite:e3371
+Aceite:e6184
+Aceite:e243
+Aceite:e2280
+Aceite:e8919
+Aceite:e342
+Aceite:e5591
+Aceite:e4649
+Aceite:e1297
+Aceite:e4136
+Aceite:e8937
+Aceite:e6970
+Aceite:e2439
+Aceite:e52
+Aceite:e3337
+Aceite:e3222
+Aceite:e8346
+Aceite:e9557
+Aceite:e5734
+Aceite:e3051
+Aceite:e520
+Aceite:e6162
+Aceite:e1897
+Aceite:e8797
+Aceite:e7233
+Aceite:e9818
+Aceite:e7650
+Aceite:e7689
+Aceite:e29
+Aceite:e6956
+Aceite:e92
+Aceite:e1393
+Aceite:e3911
+Aceite:e1490
+Aceite:e4818
+Aceite:e8554
+Aceite:e2283
+Aceite:e2520
+Aceite:e9834
+Aceite:e3005
+Aceite:e5311
+Aceite:e4988
+Aceite:e3547
+Aceite:e2074
+Aceite:e5844
+Aceite:e2775
+Aceite:e59
+Aceite:e7688
+Aceite:e5500
+Aceite:e5951
+Aceite:e9706
+Aceite:e2885
+Aceite:e299
+Aceite:e3895
+Aceite:e7219
+Aceite:e2104
+Aceite:e1474
+Aceite:e9151
+Aceite:e7485
+Aceite:e4095
+Aceite:e2031
+Aceite:e2378
+Aceite:e4012
+Aceite:e8020
+Aceite:e1936
+Aceite:e1158
+Aceite:e8088
+Aceite:e873
+Aceite:e114
+Aceite:e1325
+Aceite:e7293
+Aceite:e3568
+Aceite:e9657
+Aceite:e3181
+Aceite:e4938
+Aceite:e2552
+Aceite:e2328
+Aceite:e954
+Aceite:e6746
+Aceite:e5628
+Aceite:e4412
+Aceite:e6908
+Aceite:e9833
+Aceite:e8725
+Aceite:e8198
+Aceite:e3027
+Aceite:e9872
+Aceite:e9300
+Aceite:e5301
+Aceite:e2947
+Aceite:e1005
+Aceite:e9390
+Aceite:e2230
+Aceite:e19
+Aceite:e4441
+Aceite:e706
+Aceite:e4812
+Aceite:e5990
+Aceite:e6663
+Aceite:e4929
+Aceite:e6144
+Aceite:e5444
+Aceite:e9775
+Aceite:e7380
+Aceite:e8493
+Aceite:e4069
+Aceite:e2286
+Aceite:e4155
+Aceite:e8992
+Aceite:e6651
+Aceite:e8019
+Aceite:e2404
+Aceite:e225
+Aceite:e7830
+Aceite:e6180
+Aceite:e1893
+Aceite:e8029
+Aceite:e2691
+Aceite:e6417
+Aceite:e8886
+Aceite:e486
+Aceite:e1248
+Aceite:e9525
+Aceite:e1750
+Aceite:e1388
+Aceite:e2282
+Aceite:e7460
+Aceite:e6814
+Aceite:e1133
+Aceite:e2532
+Aceite:e4771
+Aceite:e46
+Aceite:e3478
+Aceite:e1448
+Aceite:e7596
+Aceite:e7874
+Aceite:e968
+Aceite:e9136
+Aceite:e9119
+Aceite:e4497
+Aceite:e4857
+Aceite:e6336
+Aceite:e6944
+Aceite:e5200
+Aceite:e3316
+Aceite:e797
+Aceite:e2991
+Aceite:e4781
+Aceite:e382
+Aceite:e6067
+Aceite:e5424
+Aceite:e9761
+Aceite:e6198
+Aceite:e3632
+Aceite:e7718
+Aceite:e3733
+Aceite:e1193
+Aceite:e4727
+Aceite:e9585
+Aceite:e823
+Aceite:e2459
+Aceite:e2547
+Aceite:e64
+Aceite:e6597
+Aceite:e3804
+Aceite:e2648
+Aceite:e7588
+Aceite:e1576
+Aceite:e7458
+Aceite:e3405
+Aceite:e7908
+Aceite:e2946
+Aceite:e5428
+Aceite:e5482
+Aceite:e4946
+Aceite:e7991
+Aceite:e4114
+Aceite:e6673
+Aceite:e3226
+Aceite:e6365
+Aceite:e8347
+Aceite:e325
+Aceite:e4978
+Aceite:e6726
+Aceite:e4277
+Aceite:e728
+Aceite:e8025
+Aceite:e1228
+Aceite:e5586
+Aceite:e9396
+Aceite:e3662
+Aceite:e2467
+Aceite:e1954
+Aceite:e8801
+Aceite:e7713
+Aceite:e5817
+Aceite:e3425
+Aceite:e795
+Aceite:e9218
+Aceite:e1313
+Aceite:e4167
+Aceite:e2210
+Aceite:e251
