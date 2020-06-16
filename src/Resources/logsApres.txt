@@ -97,7 +97,7 @@ Utilizador:u12,Miguel Moreira Montenegro da Silva,-50.358833,-47.43017
 Utilizador:u90,NÃ©lson Ramos Alves,39.67021,59.44934
 Utilizador:u40,Ana Beatriz Castro Afonso,-72.69025,-43.6437
 Utilizador:u100,Maria Rodrigues Morais AraÃºjo,10.648499,-26.875183
-Utilizador:u99,JosÃ© Joaquim Machado Barbosa,65.05228,-57.327663
+Utilizador:u99,JosÃ© Joaquim Machado Barbosa,40.729185,-8.176249
 Voluntario:v53,Andreia Martins Alves,34.885773,-47.568394,179.0
 Voluntario:v21,MÃ¡rio Rui Freitas Coelho,-39.96918,-38.50192,6.0
 Voluntario:v98,SimÃ£o Pedro Santa Cruz Oliveira,1.1741409,-86.758545,104.0
@@ -197,7 +197,7 @@ Voluntario:v50,SimÃ£o Pedro Santa Cruz Oliveira,56.065704,-3.4956436,52.0
 Voluntario:v20,Miriam Miranda Pinto,-45.380985,59.629242,2.0
 Voluntario:v14,Geovani Silva Delgado Alves,-77.37347,96.99625,27.0
 Voluntario:v63,Ricardo Manuel Soares Peixoto,80.45413,-84.496414,102.0
-Voluntario:v32,Pedro Miguel da Silva Paiva AntÃ³nio,47.71132,-67.08026,184.0
+Voluntario:v32,Pedro Miguel da Silva Paiva AntÃ³nio,40.735739,-8.1744,184.0
 Transportadora:t60,STARCORP - WORLDWIDE EXPRESS PORTUGAL,-74.58873,-26.270386,989552541,3.0,3.5
 Transportadora:t8,LOGIC - LOGÃSTICA INTEGRADA,-90.28248,15.017998,243654370,143.0,1.5
 Transportadora:t37,BOURGOGNE TIR TRANSPORTES E LOGÃSTICA LDA,-71.54643,82.779724,820690818,197.0,2.5
@@ -297,7 +297,7 @@ Transportadora:t98,FORPITRANS,40.46338,-63.059414,270717423,47.0,2.5
 Transportadora:t53,SULTEJO LOGÃSTICA E TRÃƒNSITOS,-0.7797241,-58.662773,133787713,188.0,1.5
 Transportadora:t94,VITÃ“RIA TRÃFEGO - AGÃŠNCIA DE NAVEGAÃ‡ÃƒO E TRÃ‚NSITOS LDA,-86.33164,65.40114,617874758,81.0,2.5
 Transportadora:t90,J.A. BETTENCOURT - AGENTES DE NAVEGAÃ‡ÃƒO E TRANSITÃRIOS LDA.,17.014381,1.8103638,125093662,66.0,3.5
-Transportadora:t82,TERCARGO - TRANSITÃRIOS,-85.89599,-42.87045,401961078,82.0,1.5
+Transportadora:t82,TERCARGO - TRANSITÃRIOS,40.711694,-8.156310,401961078,82.0,7.5
 Loja:l7,Knot,-8.852264,8.5256195
 Loja:l8,FarmÃ¡cia Nova de Nogueira,14.046051,-68.60027
 Loja:l46,FarmÃ¡cia Narcisa C. Dias,23.380814,-30.470703
@@ -397,7 +397,7 @@ Loja:l52,Equivalenza,-26.775978,-99.70361
 Loja:l34,Jean Louis David,-53.446186,78.25816
 Loja:l45,FarmÃ¡cia de EsporÃµes,-95.15858,3.9205399
 Loja:l11,ColchaoNet.com,-10.9954605,-83.182884
-Loja:l99,VEIN,45.785492,-78.72652
+Loja:l99,VEIN,40.719365,-8.176048
 Encomenda:e4919,u24,l87,77.87896,p11,Desinfetante,2.148552,4.886239,p42,Milho verde,5.631347,34.147274,p66,Melao,5.8913965,23.78135,p67,Salsa,6.4732823,31.663857,p33,Farofa pronta,4.11003,24.49416,p38,Atum,6.699879,39.544647,p45,Milho de pipoca,6.302478,45.77333
 Encomenda:e1601,u100,l79,62.68334,p13,Tira manchas,4.0877476,39.292828,p55,Cenoura,4.3929896,18.932354,p38,Atum,1.5879762,9.093871,p78,Carne vermelha,4.5535364,10.099941,p1,Agua,3.3999784,31.833273,p60,Banana,1.6788435,7.46016,p27,Molho de tomate,5.5355983,35.595024,p43,Doce de leite,4.4246736,36.81934,p32,Cafe,3.4191015,46.39046,p69,Queijo,3.7229218,20.267141,p42,Milho verde,4.013565,31.66657
 Encomenda:e176,u86,l66,68.2954,p63,Abacate,9.442079,7.854521,p80,Salsicha,7.80614,48.046978,p58,Chuchu,9.392898,48.90055,p44,Goiabada,6.32836,18.197187,p65,Melancia,9.051296,21.245407,p46,Oleo de cozinha,3.489929,0.70628405,p70,Queijo Mussarela,7.58847,7.116284,p7,Sabao em pedra,7.0587983,37.85124,p73,Margarina,4.3143044,20.35861,p16,Saco de lixo 30l,6.0147576,3.3206093,p61,Ovos,3.957475,45.19404,p17,Saco de lixo 50l,7.2661843,10.8582735

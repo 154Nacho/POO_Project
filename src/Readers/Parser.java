@@ -24,7 +24,7 @@ public class Parser {
      */
     public static void parse(TrazAquiModel traz) {
         TrazAqui trazAqui = (TrazAqui) traz;
-        List<String> linhas = lerFicheiro("src/Resources/newlogs.txt");
+        List<String> linhas = lerFicheiro("src/Resources/logsApres.txt");
         String[] linhaPartida;
         for (String linha : linhas) {
             linhaPartida = linha.split(":", 2);

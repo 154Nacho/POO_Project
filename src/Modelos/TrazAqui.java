@@ -434,6 +434,7 @@ public class TrazAqui implements TrazAquiModel, Serializable {
     public void adicionaProdutoAoStock(String code, String desc, double preco) {
         Loja l = (Loja) this.logged_user;
         l.addProdLoja(code, desc, preco, randomPeso());
+        this.users.put(l.getCodigo(),l);
     }
 
     /**
